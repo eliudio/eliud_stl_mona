@@ -1,4 +1,4 @@
-import 'package:eliud_core/default_style/frontend/impl/dialog/dialog_helper.dart';
+import 'package:eliud_core/default_style/frontend/helper/dialog/dialog_helper.dart';
 import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/frontend/types.dart';
 import 'package:eliud_core/style/style.dart';

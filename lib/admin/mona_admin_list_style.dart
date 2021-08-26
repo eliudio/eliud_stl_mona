@@ -46,7 +46,7 @@ class MonaAdminListStyle extends AdminListStyle {
 
   @override
   Widget progressIndicator(BuildContext context, {Animation<Color>? valueColor}) {
-    return DelayedCircularProgressIndicator();
+    return Center(child: DelayedCircularProgressIndicator());
   }
 
 }

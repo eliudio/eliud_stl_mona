@@ -1,4 +1,4 @@
-import 'package:eliud_core/default_style/frontend/impl/dialog/dialog_field.dart';
+import 'package:eliud_core/default_style/frontend/helper/dialog/dialog_field.dart';
 import 'package:eliud_core/style/frontend/has_dialog_field.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:flutter/cupertino.dart';
