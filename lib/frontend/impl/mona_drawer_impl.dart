@@ -1,4 +1,5 @@
 import 'package:eliud_core/core/access/bloc/access_bloc.dart';
+import 'package:eliud_core/core/access/bloc/access_state.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/frontend/has_drawer.dart';
@@ -12,6 +13,16 @@ class MonaDrawerImpl implements HasDrawer {
 
   MonaDrawerImpl(this._monaStyle);
 
+  Widget _constructHeaderContainer(BuildContext context, String text, double? height, AccessState theState, BackgroundModel? background) {
+    return Container(
+        height: height,
+        child: DrawerHeader(
+        child: Center(
+        child:
+        _monaStyle.frontEndStyle().textStyle().h3(context, text)),
+    decoration: BoxDecorationHelper.boxDecoration(theState, background)));
+  }
+
   @override
   Drawer drawer(BuildContext context,
       {required DrawerType drawerType,
@@ -23,6 +34,7 @@ class MonaDrawerImpl implements HasDrawer {
       Key? key}) {
     var theState = AccessBloc.getState(context);
     var widgets = <Widget>[];
+    var background;
     if (header1 != null) {
       var background = header1.backgroundOverride;
       if (background == null) {
@@ -33,16 +45,17 @@ class MonaDrawerImpl implements HasDrawer {
               _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
         }
       }
-      widgets.add(
-        Container(
-            height: header1.height == 0 ? null : header1.height,
-            child: DrawerHeader(
-                child: Center(
-                    child:
-                        _monaStyle.frontEndStyle().textStyle().h3(context, header1.text)),
-                decoration:
-                    BoxDecorationHelper.boxDecoration(theState, background))),
-      );
+      widgets.add(_constructHeaderContainer(context, header1.text, header1.height == 0 ? null : header1.height, theState, background));
+    } else {
+      if (drawerType == DrawerType.Left) {
+        background = _monaStyle.monaStyleAttributesModel.drawerHeaderBG;
+      } else {
+        background =
+            _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
+      }
+      if (background != null) {
+        widgets.add(_constructHeaderContainer(context, "", null, theState, background));
+      }
     }
 
     if (header2 != null) {
@@ -72,7 +85,7 @@ class MonaDrawerImpl implements HasDrawer {
             if (item is MenuItemAttributes) {
               item.onTap();
             } else if (item is MenuItemWithMenuItems) {
-              var theMenuItemWithMenuItems = item as MenuItemWithMenuItems;
+              var theMenuItemWithMenuItems = item;
               _monaStyle.frontEndStyle().menuStyle().openMenu(context,
                   position: RelativeRect.fromLTRB(1000.0, 1000.0, 0.0, 0.0),
                   menuItems: theMenuItemWithMenuItems.items,
@@ -82,18 +95,19 @@ class MonaDrawerImpl implements HasDrawer {
           }));
     }
 
-    var background = backgroundOverride;
-    if (background == null) {
+    var background2 = backgroundOverride;
+    if (background2 == null) {
       if (drawerType == DrawerType.Left) {
-        background = _monaStyle.monaStyleAttributesModel.drawerBG;
+        background2 = _monaStyle.monaStyleAttributesModel.drawerBG;
       } else {
-        background = _monaStyle.monaStyleAttributesModel.profileDrawerBG;
+        background2 = _monaStyle.monaStyleAttributesModel.profileDrawerBG;
       }
     }
+
     return Drawer(
         key: key,
         child: Container(
-            decoration: BoxDecorationHelper.boxDecoration(theState, background),
+            decoration: BoxDecorationHelper.boxDecoration(theState, background2),
             child: ListView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
