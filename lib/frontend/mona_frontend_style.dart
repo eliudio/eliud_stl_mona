@@ -74,7 +74,7 @@ class MonaFrontEndStyle implements FrontEndStyle {
     monaDrawerImpl = MonaDrawerImpl(_monaStyle);
     monaBottomNavigationBarImpl = MonaBottomNavigationBarImpl(_monaStyle);
     monaAppBarImpl = MonaAppBarImpl(_monaStyle);
-    monaProfilePhotoImpl = MonaProfilePhotoImpl(_monaStyle);
+    monaProfilePhotoImpl = MonaProfilePhotoImpl();
     monaContainerImpl = MonaContainerImpl(_monaStyle);
     monaProgressIndicatorImpl = MonaProgressIndicatorImpl(_monaStyle);
     monaAppImpl = MonaAppImpl(_monaStyle);
