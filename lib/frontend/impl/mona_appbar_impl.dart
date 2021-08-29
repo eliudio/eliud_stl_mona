@@ -1,9 +1,8 @@
 import 'package:eliud_core/core/access/bloc/access_bloc.dart';
-import 'package:eliud_core/default_style/frontend/helper/appbar_helper.dart';
-import 'package:eliud_core/default_style/frontend/impl/default_menu_impl.dart';
 import 'package:eliud_core/model/app_bar_model.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
+import 'package:eliud_core/style/_default/frontend/helper/appbar_helper.dart';
 import 'package:eliud_core/style/frontend/has_appbar.dart';
 import 'package:eliud_core/style/frontend/types.dart';
 import 'package:eliud_core/style/tools/colors.dart';
