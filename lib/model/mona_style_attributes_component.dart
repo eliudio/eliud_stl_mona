@@ -27,7 +27,7 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
   static String componentName = "monaStyleAttributess";
   final String? monaStyleAttributesID;
 
-  AbstractMonaStyleAttributesComponent({this.monaStyleAttributesID});
+  AbstractMonaStyleAttributesComponent({Key? key, this.monaStyleAttributesID}): super(key: key);
 
   @override
   Widget build(BuildContext context) {

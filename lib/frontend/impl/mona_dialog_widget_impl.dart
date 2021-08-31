@@ -19,11 +19,13 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   @override
   Widget messageDialog(
     BuildContext context, {
+    Key? key,
     required String title,
     required String message,
     String? closeLabel,
   }) {
     return dialogHelper.build(context,
+        key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: _style.frontEndStyle().textStyle().text(context, message),
@@ -34,11 +36,13 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   @override
   Widget errorDialog(
     BuildContext context, {
+    Key? key,
     required String title,
     required String errorMessage,
     String? closeLabel,
   }) {
     return dialogHelper.build(context,
+        key: key,
         title: title,
         contents:
             _style.frontEndStyle().textStyle().text(context, errorMessage),
@@ -49,12 +53,14 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
 
   @override
   Widget ackNackDialog(BuildContext context,
-      {required String title,
+      {Key? key,
+      required String title,
       required String message,
       required OnSelection onSelection,
       String? ackButtonLabel,
       String? nackButtonLabel}) {
     return dialogHelper.build(context,
+        key: key,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
         contents: _style.frontEndStyle().textStyle().text(context, message),
@@ -69,7 +75,8 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
 
   @override
   Widget entryDialog(BuildContext context,
-      {required String title,
+      {Key? key,
+      required String title,
       String? ackButtonLabel,
       String? nackButtonLabel,
       String? hintText,
@@ -77,6 +84,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
       String? initialValue}) {
     String? feedback;
     return dialogHelper.build(context,
+        key: key,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
         contents: dialogHelper.getListTile(
@@ -124,10 +132,12 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   @override
   Widget selectionDialog(BuildContext context,
       {required String title,
+      Key? key,
       required List<String> options,
       required OnSelection onSelection,
       String? buttonLabel}) {
     return dialogHelper.build(context,
+        key: key,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
         buttons: dialogHelper.getCloseButton(context, onPressed: () {
@@ -152,6 +162,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   @override
   Widget complexAckNackDialog(
     BuildContext context, {
+    Key? key,
     required String title,
     required Widget child,
     required OnSelection onSelection,
@@ -159,6 +170,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     String? nackButtonLabel,
   }) {
     return dialogHelper.build(context,
+        key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: child,
@@ -173,11 +185,13 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
 
   @override
   Widget complexDialog(BuildContext context,
-      {required String title,
+      {Key? key,
+      required String title,
       required Widget child,
       VoidCallback? onPressed,
       String? buttonLabel}) {
     return dialogHelper.build(context,
+        key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: child,
@@ -191,11 +205,13 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
 
   @override
   Widget flexibleDialog(BuildContext context,
-      {required String title,
+      {Key? key,
+      required String title,
       required Widget child,
       required List<Widget> buttons,
       bool? includeHeading}) {
     return dialogHelper.build(context,
+        key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: child,
