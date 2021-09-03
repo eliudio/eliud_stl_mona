@@ -1,5 +1,6 @@
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
+import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/tools/colors.dart';
 import 'package:eliud_core/style/tools/font_tools.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
@@ -9,7 +10,7 @@ import 'mona_shared.dart';
 class MonaMinkeyStyle extends MonaStyle {
   static final String STYLE_NAME = 'Minkey';
 
-  MonaMinkeyStyle() : super(STYLE_NAME, _styleAttributesModel());
+  MonaMinkeyStyle(StyleFamily styleFamily) : super(styleFamily, STYLE_NAME, _styleAttributesModel());
 
   static MonaStyleAttributesModel _styleAttributesModel() {
     var headerColor1To3 = EliudColors.white;

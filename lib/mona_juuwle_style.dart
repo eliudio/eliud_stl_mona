@@ -1,6 +1,7 @@
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/decoration_color_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
+import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/tools/backgrounds.dart';
 import 'package:eliud_core/style/tools/colors.dart';
 import 'package:eliud_core/style/tools/font_tools.dart';
@@ -11,7 +12,7 @@ import 'mona_shared.dart';
 class MonaJuuwleStyle extends MonaStyle {
   static final String STYLE_NAME = 'Juuwle';
 
-  MonaJuuwleStyle() : super(STYLE_NAME, _styleAttributesModel());
+  MonaJuuwleStyle(StyleFamily styleFamily) : super(styleFamily, STYLE_NAME, _styleAttributesModel());
 
   static MonaStyleAttributesModel _styleAttributesModel() {
     var headerColor1To3 = EliudColors.lightBlueTransparent;

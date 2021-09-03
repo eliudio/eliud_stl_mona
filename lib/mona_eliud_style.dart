@@ -1,4 +1,6 @@
+import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
+import 'package:eliud_stl_mona/mona_style_family.dart';
 import 'mona_shared.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
@@ -9,7 +11,7 @@ import '../mona_style.dart';
 class MonaEliudStyle extends MonaStyle {
   static final String STYLE_NAME = 'Eliud';
 
-  MonaEliudStyle() : super(STYLE_NAME, _styleAttributesModel());
+  MonaEliudStyle(StyleFamily styleFamily) : super(styleFamily, STYLE_NAME, _styleAttributesModel());
 
   static MonaStyleAttributesModel _styleAttributesModel() {
     var headerColor1To3 = EliudColors.red;

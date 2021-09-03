@@ -3,6 +3,7 @@ import 'package:eliud_core/style/_default/frontend/helper/dialog/dialog_helper.d
 import 'package:eliud_core/style/frontend/has_dialog_widget.dart';
 import 'package:eliud_core/style/frontend/types.dart';
 import 'package:eliud_core/style/style.dart';
+import 'package:eliud_core/tools/screen_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +24,12 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     required String title,
     required String message,
     String? closeLabel,
+    double? widthFraction, // percentage of screen width
   }) {
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
@@ -40,8 +45,12 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     required String title,
     required String errorMessage,
     String? closeLabel,
+    double? widthFraction, // percentage of screen width
   }) {
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         title: title,
         contents:
@@ -52,14 +61,20 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   }
 
   @override
-  Widget ackNackDialog(BuildContext context,
-      {Key? key,
-      required String title,
-      required String message,
-      required OnSelection onSelection,
-      String? ackButtonLabel,
-      String? nackButtonLabel}) {
+  Widget ackNackDialog(
+    BuildContext context, {
+    Key? key,
+    required String title,
+    required String message,
+    required OnSelection onSelection,
+    String? ackButtonLabel,
+    String? nackButtonLabel,
+    double? widthFraction, // percentage of screen width
+  }) {
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
@@ -74,16 +89,22 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   }
 
   @override
-  Widget entryDialog(BuildContext context,
-      {Key? key,
-      required String title,
-      String? ackButtonLabel,
-      String? nackButtonLabel,
-      String? hintText,
-      required Function(String? response) onPressed,
-      String? initialValue}) {
+  Widget entryDialog(
+    BuildContext context, {
+    Key? key,
+    required String title,
+    String? ackButtonLabel,
+    String? nackButtonLabel,
+    String? hintText,
+    required Function(String? response) onPressed,
+    String? initialValue,
+    double? widthFraction, // percentage of screen width
+  }) {
     String? feedback;
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
@@ -130,13 +151,19 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
 */
 
   @override
-  Widget selectionDialog(BuildContext context,
-      {required String title,
-      Key? key,
-      required List<String> options,
-      required OnSelection onSelection,
-      String? buttonLabel}) {
+  Widget selectionDialog(
+    BuildContext context, {
+    required String title,
+    Key? key,
+    required List<String> options,
+    required OnSelection onSelection,
+    String? buttonLabel,
+    double? widthFraction, // percentage of screen width
+  }) {
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
@@ -168,8 +195,12 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     required OnSelection onSelection,
     String? ackButtonLabel,
     String? nackButtonLabel,
+    double? widthFraction, // percentage of screen width
   }) {
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
@@ -184,13 +215,19 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   }
 
   @override
-  Widget complexDialog(BuildContext context,
-      {Key? key,
-      required String title,
-      required Widget child,
-      VoidCallback? onPressed,
-      String? buttonLabel}) {
+  Widget complexDialog(
+    BuildContext context, {
+    Key? key,
+    required String title,
+    required Widget child,
+    VoidCallback? onPressed,
+    String? buttonLabel,
+    double? widthFraction, // percentage of screen width
+  }) {
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
@@ -204,13 +241,19 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   }
 
   @override
-  Widget flexibleDialog(BuildContext context,
-      {Key? key,
-      required String title,
-      required Widget child,
-      required List<Widget> buttons,
-      bool? includeHeading}) {
+  Widget flexibleDialog(
+    BuildContext context, {
+    Key? key,
+    required String title,
+    required Widget child,
+    required List<Widget> buttons,
+    bool? includeHeading,
+    double? widthFraction, // percentage of screen width
+  }) {
     return dialogHelper.build(context,
+        width: widthFraction == null
+            ? null
+            : fullScreenWidth(context) * widthFraction,
         key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
