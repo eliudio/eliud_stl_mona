@@ -17,6 +17,7 @@ class MonaDialogImpl implements HasDialog {
     required String message,
     String? closeLabel,
     double? widthFraction, // percentage of screen width
+    bool? includeHeading,
   }) {
     // MessageDialog
     DialogStatefulWidgetHelper.openIt(
@@ -26,6 +27,7 @@ class MonaDialogImpl implements HasDialog {
             title: title,
             message: message,
             widthFraction: widthFraction,
+            includeHeading: includeHeading,
           ),
     );
   }
@@ -37,6 +39,7 @@ class MonaDialogImpl implements HasDialog {
     required String errorMessage,
     String? closeLabel,
     double? widthFraction, // percentage of screen width
+    bool? includeHeading,
   }) =>
       DialogStatefulWidgetHelper.openIt(
         context,
@@ -45,6 +48,7 @@ class MonaDialogImpl implements HasDialog {
               title: title,
               errorMessage: errorMessage,
               widthFraction: widthFraction,
+              includeHeading: includeHeading,
             ),
       );
 
@@ -57,6 +61,7 @@ class MonaDialogImpl implements HasDialog {
     String? ackButtonLabel,
     String? nackButtonLabel,
     double? widthFraction, // percentage of screen width
+    bool? includeHeading,
   }) =>
       DialogStatefulWidgetHelper.openIt(
           context,
@@ -68,6 +73,7 @@ class MonaDialogImpl implements HasDialog {
                 ackButtonLabel: ackButtonLabel,
                 nackButtonLabel: nackButtonLabel,
                 widthFraction: widthFraction,
+                includeHeading: includeHeading,
               ));
 
   @override
@@ -80,6 +86,7 @@ class MonaDialogImpl implements HasDialog {
     required Function(String? response) onPressed,
     String? initialValue,
     double? widthFraction, // percentage of screen width
+    bool? includeHeading,
   }) =>
       DialogStatefulWidgetHelper.openIt(
         context,
@@ -92,6 +99,7 @@ class MonaDialogImpl implements HasDialog {
               onPressed: onPressed,
               initialValue: initialValue,
               widthFraction: widthFraction,
+              includeHeading: includeHeading,
             ),
       );
 
@@ -103,6 +111,7 @@ class MonaDialogImpl implements HasDialog {
     required OnSelection onSelection,
     String? buttonLabel,
     double? widthFraction, // percentage of screen width
+    bool? includeHeading,
   }) {
     DialogStatefulWidgetHelper.openIt(
         context,
@@ -113,6 +122,7 @@ class MonaDialogImpl implements HasDialog {
               buttonLabel: buttonLabel,
               onSelection: onSelection,
               widthFraction: widthFraction,
+              includeHeading: includeHeading,
             ));
   }
 
@@ -124,6 +134,7 @@ class MonaDialogImpl implements HasDialog {
     VoidCallback? onPressed,
     String? buttonLabel,
     double? widthFraction, // percentage of screen width
+    bool? includeHeading,
   }) =>
       DialogStatefulWidgetHelper.openIt(
           context,
@@ -134,6 +145,7 @@ class MonaDialogImpl implements HasDialog {
                 onPressed: onPressed,
                 buttonLabel: buttonLabel,
                 widthFraction: widthFraction,
+                includeHeading: includeHeading,
               ));
 
   @override
@@ -143,6 +155,7 @@ class MonaDialogImpl implements HasDialog {
     required Widget child,
     required List<Widget> buttons,
     double? widthFraction, // percentage of screen width
+    bool? includeHeading,
   }) {
     DialogStatefulWidgetHelper.openIt(
         context,
@@ -152,6 +165,7 @@ class MonaDialogImpl implements HasDialog {
               child: child,
               buttons: buttons,
               widthFraction: widthFraction,
+              includeHeading: includeHeading,
             ));
   }
 

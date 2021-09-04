@@ -21,6 +21,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   Widget messageDialog(
     BuildContext context, {
     Key? key,
+    bool? includeHeading,
     required String title,
     required String message,
     String? closeLabel,
@@ -31,6 +32,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             ? null
             : fullScreenWidth(context) * widthFraction,
         key: key,
+        includeHeading: includeHeading,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: _style.frontEndStyle().textStyle().text(context, message),
@@ -42,6 +44,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   Widget errorDialog(
     BuildContext context, {
     Key? key,
+    bool? includeHeading,
     required String title,
     required String errorMessage,
     String? closeLabel,
@@ -52,6 +55,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             ? null
             : fullScreenWidth(context) * widthFraction,
         key: key,
+        includeHeading: includeHeading,
         title: title,
         contents:
             _style.frontEndStyle().textStyle().text(context, errorMessage),
@@ -64,6 +68,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   Widget ackNackDialog(
     BuildContext context, {
     Key? key,
+    bool? includeHeading,
     required String title,
     required String message,
     required OnSelection onSelection,
@@ -76,6 +81,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             ? null
             : fullScreenWidth(context) * widthFraction,
         key: key,
+        includeHeading: includeHeading,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
         contents: _style.frontEndStyle().textStyle().text(context, message),
@@ -92,6 +98,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   Widget entryDialog(
     BuildContext context, {
     Key? key,
+    bool? includeHeading,
     required String title,
     String? ackButtonLabel,
     String? nackButtonLabel,
@@ -106,6 +113,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             ? null
             : fullScreenWidth(context) * widthFraction,
         key: key,
+        includeHeading: includeHeading,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
         contents: dialogHelper.getListTile(
@@ -154,6 +162,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   Widget selectionDialog(
     BuildContext context, {
     required String title,
+    bool? includeHeading,
     Key? key,
     required List<String> options,
     required OnSelection onSelection,
@@ -165,6 +174,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             ? null
             : fullScreenWidth(context) * widthFraction,
         key: key,
+        includeHeading: includeHeading,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         title: title,
         buttons: dialogHelper.getCloseButton(context, onPressed: () {
@@ -189,6 +199,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   @override
   Widget complexAckNackDialog(
     BuildContext context, {
+    bool? includeHeading,
     Key? key,
     required String title,
     required Widget child,
@@ -202,6 +213,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             ? null
             : fullScreenWidth(context) * widthFraction,
         key: key,
+        includeHeading: includeHeading,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: child,
@@ -217,6 +229,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   @override
   Widget complexDialog(
     BuildContext context, {
+    bool? includeHeading,
     Key? key,
     required String title,
     required Widget child,
@@ -229,6 +242,7 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             ? null
             : fullScreenWidth(context) * widthFraction,
         key: key,
+        includeHeading: includeHeading,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: child,
@@ -254,11 +268,12 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
         width: widthFraction == null
             ? null
             : fullScreenWidth(context) * widthFraction,
+        includeHeading: includeHeading,
         key: key,
         title: title,
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: child,
         buttons: buttons,
-        includeHeading: includeHeading);
+    );
   }
 }
