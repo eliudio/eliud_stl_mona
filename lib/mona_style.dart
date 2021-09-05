@@ -1,5 +1,6 @@
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/style_registry.dart';
+import 'package:flutter/widgets.dart';
 
 import 'frontend/mona_frontend_style.dart';
 import 'package:eliud_core/model/abstract_repository_singleton.dart';
@@ -21,13 +22,15 @@ import 'mona_style_family.dart';
 class MonaStyle extends Style {
   final MonaStyleAttributesModel monaStyleAttributesModel;
 
-  late AdminFormStyle _adminFormStyle;
-  late AdminListStyle _adminListStyle;
-  late FrontEndStyle _frontEndFormStyle;
+  late MonaAdminFormStyle _adminFormStyle;
+  late MonaAdminListStyle _adminListStyle;
+  late MonaFrontEndStyle _frontEndFormStyle;
 
   MonaStyle(StyleFamily family, String styleName, this.monaStyleAttributesModel)
-      : super(family,
+      : super(
+          family,
           styleName,
+          AllowedUpdates.allAllowed(),
         ) {
     _adminFormStyle = MonaAdminFormStyle(this);
     _adminListStyle = MonaAdminListStyle(this);
@@ -35,9 +38,16 @@ class MonaStyle extends Style {
   }
 
   @override
-  AdminFormStyle adminFormStyle() => _adminFormStyle;
+  MonaAdminFormStyle adminFormStyle() => _adminFormStyle;
   @override
-  AdminListStyle adminListStyle() => _adminListStyle;
+  MonaAdminListStyle adminListStyle() => _adminListStyle;
   @override
-  FrontEndStyle frontEndStyle() => _frontEndFormStyle;
+  MonaFrontEndStyle frontEndStyle() => _frontEndFormStyle;
+
+  MonaStyle? copy(String newName) => MonaStyle(styleFamily, newName, monaStyleAttributesModel.copyWith(documentID: newName));
+
+  bool update(BuildContext context) {
+    // open dialog...
+    return false;
+  }
 }

@@ -8,12 +8,8 @@ import 'package:eliud_core/style/tools/colors.dart';
 import 'package:eliud_core/style/tools/font_tools.dart';
 import '../mona_style.dart';
 
-class MonaEliudStyle extends MonaStyle {
-  static final String STYLE_NAME = 'Eliud';
-
-  MonaEliudStyle(StyleFamily styleFamily) : super(styleFamily, STYLE_NAME, _styleAttributesModel());
-
-  static MonaStyleAttributesModel _styleAttributesModel() {
+class MonaEliudStyle {
+  static MonaStyleAttributesModel styleAttributesModel(String documentID) {
     var headerColor1To3 = EliudColors.red;
     var headerColor4To5 = EliudColors.white;
     var defaultColor = EliudColors.black;
@@ -26,7 +22,7 @@ class MonaEliudStyle extends MonaStyle {
         highlightColor: highlightColor,
         linkColor: linkColor);
     return MonaStyleAttributesModel(
-      documentID: STYLE_NAME,
+      documentID: documentID,
       appBackground: pageBG(),
       listBackground: pageBG(),
       formBackground: pageBG(),

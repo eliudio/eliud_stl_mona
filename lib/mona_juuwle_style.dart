@@ -9,12 +9,8 @@ import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import '../mona_style.dart';
 import 'mona_shared.dart';
 
-class MonaJuuwleStyle extends MonaStyle {
-  static final String STYLE_NAME = 'Juuwle';
-
-  MonaJuuwleStyle(StyleFamily styleFamily) : super(styleFamily, STYLE_NAME, _styleAttributesModel());
-
-  static MonaStyleAttributesModel _styleAttributesModel() {
+class MonaJuuwleStyle {
+  static MonaStyleAttributesModel styleAttributesModel(String documentID) {
     var headerColor1To3 = EliudColors.lightBlueTransparent;
     var headerColor4To5 = EliudColors.black;
     var defaultColor = EliudColors.black;
@@ -27,7 +23,7 @@ class MonaJuuwleStyle extends MonaStyle {
         highlightColor: highlightColor,
         linkColor: linkColor);
     return MonaStyleAttributesModel(
-      documentID: STYLE_NAME,
+      documentID: documentID,
       appBackground: pageBG(),
       listBackground: pageBG(),
       formBackground: pageBG(),

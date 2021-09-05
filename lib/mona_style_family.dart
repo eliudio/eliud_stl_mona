@@ -14,23 +14,19 @@ import 'mona_eliud_style.dart';
 import 'mona_incidamus_style.dart';
 import 'mona_juuwle_style.dart';
 import 'mona_minkey_style.dart';
+import 'mona_style.dart';
 
 class MonaStyleFamily extends StyleFamily {
   static final String monaStyleFamilyName = 'MonaStyle';
 
   static final MonaStyleFamily instance = MonaStyleFamily._();
 
-  MonaStyleFamily._() : super(monaStyleFamilyName) {
-    register(MonaEliudStyle(this));
-    register(MonaIncidamusStyle(this));
-    register(MonaJuuwleStyle(this));
-    register(MonaMinkeyStyle(this));
+  MonaStyleFamily._() : super(monaStyleFamilyName, true) {
+    register(MonaStyle(this, 'Eliud', MonaEliudStyle.styleAttributesModel('eliud')));
+    register(MonaStyle(this, 'Incidamus', MonaIncidamusStyle.styleAttributesModel('incidamus')));
+    register(MonaStyle(this, 'Juuwle', MonaJuuwleStyle.styleAttributesModel('juuwle')));
+    register(MonaStyle(this, 'Minkey', MonaMinkeyStyle.styleAttributesModel('minkey')));
   }
 
-  /*
-   * A StyleFamily can implement the widgetToUpdateStyle. If so, the eliud_decor_style
-   * will allow to create / update the style
-   */
-  @override
-  Widget? widgetToUpdateStyle(BuildContext context, Style style,) => null;
+  Style? defaultNew(String newName) => MonaStyle(this, newName, MonaEliudStyle.styleAttributesModel(newName));
 }
