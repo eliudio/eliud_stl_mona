@@ -19,14 +19,36 @@ import 'mona_style.dart';
 class MonaStyleFamily extends StyleFamily {
   static final String monaStyleFamilyName = 'MonaStyle';
 
-  static final MonaStyleFamily instance = MonaStyleFamily._();
+  static MonaStyleFamily? _instance;
 
-  MonaStyleFamily._() : super(monaStyleFamilyName, true) {
-    register(MonaStyle(this, 'Eliud', MonaEliudStyle.styleAttributesModel('eliud')));
-    register(MonaStyle(this, 'Incidamus', MonaIncidamusStyle.styleAttributesModel('incidamus')));
-    register(MonaStyle(this, 'Juuwle', MonaJuuwleStyle.styleAttributesModel('juuwle')));
-    register(MonaStyle(this, 'Minkey', MonaMinkeyStyle.styleAttributesModel('minkey')));
+  static MonaStyleFamily instance() {
+    if (_instance == null) {
+      _instance = MonaStyleFamily._();
+      _instance!.registerAll([
+        MonaStyle(
+            _instance!, 'Eliud', MonaEliudStyle.styleAttributesModel('eliud')),
+        MonaStyle(_instance!, 'Incidamus',
+            MonaIncidamusStyle.styleAttributesModel('incidamus')),
+        MonaStyle(_instance!, 'Juuwle',
+            MonaJuuwleStyle.styleAttributesModel('juuwle')),
+        MonaStyle(_instance!, 'Minkey',
+            MonaMinkeyStyle.styleAttributesModel('minkey')),
+      ]);
+    }
+    return _instance!;
   }
 
-  Style? defaultNew(String newName) => MonaStyle(this, newName, MonaEliudStyle.styleAttributesModel(newName));
+  MonaStyleFamily._() : super(monaStyleFamilyName, true);
+
+  Style? defaultNew(String newName) =>
+      MonaStyle(this, newName, MonaEliudStyle.styleAttributesModel(newName));
+
+  @override
+  StyleFamily copyWithNewStyles(Map<String, Style>? styles) {
+    var newFamily = MonaStyleFamily._();
+    if (styles != null) {
+      newFamily.registerMap(styles);
+    }
+    return newFamily;
+  }
 }
