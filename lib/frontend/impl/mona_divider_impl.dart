@@ -19,4 +19,8 @@ class MonaDividerImpl
         color: RgbHelper.color(
             rgbo: _monaStyle.monaStyleAttributesModel.dividerColor));
   }
+
+  Widget verticalDivider(BuildContext context, double height) {
+    return Container(color: Colors.red, height: height, width: 1,);
+  }
 }

@@ -17,7 +17,11 @@ import 'mona_minkey_style.dart';
 import 'mona_style.dart';
 
 class MonaStyleFamily extends StyleFamily {
-  static final String monaStyleFamilyName = 'MonaStyle';
+  static final String monaStyleFamilyName = 'monastyle';
+  static final String eliudStyleName = 'eliud';
+  static final String incidamusStyleName = 'incidamus';
+  static final String juuwleStyleName = 'juuwle';
+  static final String minkeyStyleName = 'minkey';
 
   static MonaStyleFamily? _instance;
 
@@ -26,13 +30,13 @@ class MonaStyleFamily extends StyleFamily {
       _instance = MonaStyleFamily._();
       _instance!.registerAll([
         MonaStyle(
-            _instance!, 'Eliud', MonaEliudStyle.styleAttributesModel('eliud')),
+            _instance!, 'Eliud', MonaEliudStyle.styleAttributesModel(eliudStyleName)),
         MonaStyle(_instance!, 'Incidamus',
-            MonaIncidamusStyle.styleAttributesModel('incidamus')),
+            MonaIncidamusStyle.styleAttributesModel(incidamusStyleName)),
         MonaStyle(_instance!, 'Juuwle',
-            MonaJuuwleStyle.styleAttributesModel('juuwle')),
+            MonaJuuwleStyle.styleAttributesModel(juuwleStyleName)),
         MonaStyle(_instance!, 'Minkey',
-            MonaMinkeyStyle.styleAttributesModel('minkey')),
+            MonaMinkeyStyle.styleAttributesModel(minkeyStyleName)),
       ]);
     }
     return _instance!;
