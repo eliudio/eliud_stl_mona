@@ -30,12 +30,12 @@ class MonaStyleFamily extends StyleFamily {
       _instance = MonaStyleFamily._();
       _instance!.registerAll([
         MonaStyle(
-            _instance!, 'Eliud', MonaEliudStyle.styleAttributesModel(eliudStyleName)),
-        MonaStyle(_instance!, 'Incidamus',
+            _instance!, 'eliud', MonaEliudStyle.styleAttributesModel(eliudStyleName)),
+        MonaStyle(_instance!, 'incidamus',
             MonaIncidamusStyle.styleAttributesModel(incidamusStyleName)),
-        MonaStyle(_instance!, 'Juuwle',
+        MonaStyle(_instance!, 'juuwle',
             MonaJuuwleStyle.styleAttributesModel(juuwleStyleName)),
-        MonaStyle(_instance!, 'Minkey',
+        MonaStyle(_instance!, 'minkey',
             MonaMinkeyStyle.styleAttributesModel(minkeyStyleName)),
       ]);
     }
