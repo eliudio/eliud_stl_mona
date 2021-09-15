@@ -19,12 +19,12 @@ class MonaListTileImpl implements HasListTile {
 
   @override
   Widget radioListTile<T>(BuildContext context, T t, T? groupValue,
-      String title, String subTitle, ValueChanged<T?>? valueChanged) {
+      String title, String? subTitle, ValueChanged<T?>? valueChanged) {
     return RadioListTile(
         value: t,
         groupValue: groupValue,
-        title: Text(title,),
-        subtitle: Text(subTitle),
+        title: _sStyle.frontEndStyle().textStyle().text(context, title),
+        subtitle: subTitle != null ? Text(subTitle) : null,
         onChanged: valueChanged);
   }
 
@@ -32,7 +32,7 @@ class MonaListTileImpl implements HasListTile {
   Widget checkboxListTile(BuildContext context, String title, bool? value,
       ValueChanged<bool?>? onChanged) {
     return CheckboxListTile(
-        title: Text(title,),
+        title: _sStyle.frontEndStyle().textStyle().text(context, title),
         value: value,
         onChanged: onChanged);
   }
