@@ -1,4 +1,5 @@
 import 'package:eliud_core/core/access/bloc/access_bloc.dart';
+import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/style_registry.dart';
 import 'package:eliud_core/tools/action/action_model.dart';
@@ -53,11 +54,7 @@ class MonaStyle extends Style {
 
   bool update(BuildContext context) {
     var appId = AccessBloc.appId(context);
-    StyleRegistry.registry()
-        .styleWithContext(context)
-        .frontEndStyle()
-        .dialogStyle()
-        .openComplexDialog(context,
+    openComplexDialog(context,
             title: 'Confirm',
             child: MonaStyleAttributesForm(
                 formAction: FormAction.ShowPreloadedData,
