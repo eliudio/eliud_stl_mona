@@ -70,8 +70,8 @@ class MonaIncidamusStyle {
       drawerHeaderBG: drawerHeaderBG(),
       profileDrawerBG: profileDrawerBG(),
       profileDrawerHeaderBG: profileDrawerHeaderBG(),
-      decorationLabelStyleFontText: fontTools
-          .getFont(FontTools.key(FontTools.dancingScriptLabel, FontTools.decorationLabelStyleFontLabel)),
+      textFieldHeader: fontTools
+          .getFont(FontTools.key(FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
     );
   }
 

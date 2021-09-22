@@ -93,4 +93,13 @@ class MonaTextImpl
         style: styleH5(context));
   }
 
+  @override
+  Widget inputDecorationLabel(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+    return Text(data,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        softWrap: softWrap,
+        style: styleInputDecorationLabel(context));
+  }
+
 }

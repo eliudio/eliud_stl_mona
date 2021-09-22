@@ -443,16 +443,16 @@ class ChangedMonaStyleAttributesH5 extends MonaStyleAttributesFormEvent {
   String toString() => 'ChangedMonaStyleAttributesH5{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesDecorationLabelStyleFontText extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesTextFieldHeader extends MonaStyleAttributesFormEvent {
   final String? value;
 
-  ChangedMonaStyleAttributesDecorationLabelStyleFontText({this.value});
+  ChangedMonaStyleAttributesTextFieldHeader({this.value});
 
   @override
   List<Object?> get props => [ value ];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesDecorationLabelStyleFontText{ value: $value }';
+  String toString() => 'ChangedMonaStyleAttributesTextFieldHeader{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesFontText extends MonaStyleAttributesFormEvent {

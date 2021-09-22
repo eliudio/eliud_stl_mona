@@ -290,8 +290,8 @@
       "group": "fontH5"
     },
     {
-      "fieldName": "decorationLabelStyleFontText",
-      "displayName": "Decoration Label Style Font Text",
+      "fieldName": "textFieldHeader",
+      "displayName": "Text Field Header Font Text",
       "fieldType": "Font",
       "association": true,
       "optional": true,
