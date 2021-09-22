@@ -69,7 +69,9 @@ class MonaJuuwleStyle {
       drawerBG: drawerBG(),
       drawerHeaderBG: drawerHeaderBG(),
       profileDrawerBG: profileDrawerBG(),
-      profileDrawerHeaderBG: profileDrawerHeaderBG()
+      profileDrawerHeaderBG: profileDrawerHeaderBG(),
+      decorationLabelStyleFontText: fontTools
+          .getFont(FontTools.key(FontTools.dancingScriptLabel, FontTools.decorationLabelStyleFontLabel)),
     );
   }
 

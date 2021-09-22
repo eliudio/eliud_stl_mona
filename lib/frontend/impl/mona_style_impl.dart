@@ -10,6 +10,10 @@ class MonaStyleImpl implements HasStyle {
 
   MonaStyleImpl(this._monaStyle);
 
+  TextStyle? inputDecorationLabelStyle(BuildContext context) {
+    return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.fontText);
+  }
+
   @override
   TextStyle? styleText(BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.fontText);

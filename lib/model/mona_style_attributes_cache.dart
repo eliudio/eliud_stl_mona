@@ -263,6 +263,15 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
       } catch (_) {}
     }
 
+    FontModel? decorationLabelStyleFontTextHolder;
+    if (model.decorationLabelStyleFontText != null) {
+      try {
+        await fontRepository()!.get(model.decorationLabelStyleFontText!.documentID).then((val) {
+          decorationLabelStyleFontTextHolder = val;
+        }).catchError((error) {});
+      } catch (_) {}
+    }
+
     FontModel? fontTextHolder;
     if (model.fontText != null) {
       try {
@@ -338,6 +347,8 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
         h4: h4Holder,
 
         h5: h5Holder,
+
+        decorationLabelStyleFontText: decorationLabelStyleFontTextHolder,
 
         fontText: fontTextHolder,
 

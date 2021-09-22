@@ -575,6 +575,22 @@ class H5MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
 }
 
 
+class DecorationLabelStyleFontTextMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DecorationLabelStyleFontTextMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''DecorationLabelStyleFontTextMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
 class FontTextMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
   const FontTextMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 

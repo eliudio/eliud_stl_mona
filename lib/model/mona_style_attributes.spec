@@ -290,6 +290,14 @@
       "group": "fontH5"
     },
     {
+      "fieldName": "decorationLabelStyleFontText",
+      "displayName": "Decoration Label Style Font Text",
+      "fieldType": "Font",
+      "association": true,
+      "optional": true,
+      "group": "fontText"
+    },
+    {
       "fieldName": "fontText",
       "displayName": "Font Text",
       "fieldType": "Font",

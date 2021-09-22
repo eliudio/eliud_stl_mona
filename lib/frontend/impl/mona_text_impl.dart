@@ -1,4 +1,5 @@
 import 'package:eliud_core/model/icon_model.dart';
+import 'package:eliud_core/style/frontend/has_style.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +13,21 @@ class MonaTextImpl
   MonaTextImpl(this._monaStyle);
 
   @override
+  Widget smallText(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+    return Text(data,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        softWrap: softWrap,
+        style: styleSmallText(context));
+  }
+
+  @override
   Widget text(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.fontText));
+        style: styleText(context));
   }
 
   @override
@@ -27,8 +36,7 @@ class MonaTextImpl
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.fontHighlight1));
+        style: styleHighLight1(context));
   }
 
   @override
@@ -37,8 +45,7 @@ class MonaTextImpl
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.fontHighlight2));
+        style: styleHighLight2(context));
   }
 
   @override
@@ -47,8 +54,7 @@ class MonaTextImpl
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.h1));
+        style: styleH1(context));
   }
 
   @override
@@ -57,8 +63,7 @@ class MonaTextImpl
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.h2));
+        style: styleH2(context));
   }
 
   @override
@@ -67,8 +72,7 @@ class MonaTextImpl
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.h3));
+        style: styleH3(context));
   }
 
   @override
@@ -77,8 +81,7 @@ class MonaTextImpl
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.h4));
+        style: styleH4(context));
   }
 
   @override
@@ -87,8 +90,7 @@ class MonaTextImpl
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: FontTools.textStyle(
-            _monaStyle.monaStyleAttributesModel.h5));
+        style: styleH5(context));
   }
 
 }

@@ -138,6 +138,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   String? _h3;
   String? _h4;
   String? _h5;
+  String? _decorationLabelStyleFontText;
   String? _fontText;
   String? _fontSmallText;
   String? _fontHighlight1;
@@ -234,6 +235,10 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
           _h5= state.value!.h5!.documentID;
         else
           _h5= "";
+        if (state.value!.decorationLabelStyleFontText != null)
+          _decorationLabelStyleFontText= state.value!.decorationLabelStyleFontText!.documentID;
+        else
+          _decorationLabelStyleFontText= "";
         if (state.value!.fontText != null)
           _fontText= state.value!.fontText!.documentID;
         else
@@ -584,6 +589,11 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
         children.add(
 
+                DropdownButtonComponentFactory().createNew(id: "fonts", value: _decorationLabelStyleFontText, trigger: _onDecorationLabelStyleFontTextSelected, optional: true),
+          );
+
+        children.add(
+
                 DropdownButtonComponentFactory().createNew(id: "fonts", value: _fontText, trigger: _onFontTextSelected, optional: true),
           );
 
@@ -681,6 +691,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               h3: state.value!.h3, 
                               h4: state.value!.h4, 
                               h5: state.value!.h5, 
+                              decorationLabelStyleFontText: state.value!.decorationLabelStyleFontText, 
                               fontText: state.value!.fontText, 
                               fontSmallText: state.value!.fontSmallText, 
                               fontHighlight1: state.value!.fontHighlight1, 
@@ -722,6 +733,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               h3: state.value!.h3, 
                               h4: state.value!.h4, 
                               h5: state.value!.h5, 
+                              decorationLabelStyleFontText: state.value!.decorationLabelStyleFontText, 
                               fontText: state.value!.fontText, 
                               fontSmallText: state.value!.fontSmallText, 
                               fontHighlight1: state.value!.fontHighlight1, 
@@ -970,6 +982,14 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
       _h5 = val;
     });
     _myFormBloc.add(ChangedMonaStyleAttributesH5(value: val));
+  }
+
+
+  void _onDecorationLabelStyleFontTextSelected(String? val) {
+    setState(() {
+      _decorationLabelStyleFontText = val;
+    });
+    _myFormBloc.add(ChangedMonaStyleAttributesDecorationLabelStyleFontText(value: val));
   }
 
 
