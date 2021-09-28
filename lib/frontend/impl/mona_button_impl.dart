@@ -93,7 +93,7 @@ class MonaButtonImpl implements HasButton {
   @override
   Widget simpleButton(BuildContext context,
       {VoidCallback? onPressed, required String label}) {
-    // TODO: implement simpleButton
-    throw UnimplementedError();
+    return /*_style.frontEndStyle().containerStyle().actionContainer(context,
+        child: */TextButton(onPressed: onPressed, child: _style.frontEndStyle().textStyle().text(context, label),);
   }
 }
