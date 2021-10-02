@@ -1,4 +1,6 @@
 import 'package:eliud_core/style/frontend/has_container.dart';
+import 'package:eliud_core/style/frontend/has_divider.dart';
+import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:flutter/material.dart';
 
@@ -34,15 +36,104 @@ class MonaContainerImpl implements HasContainer {
       {required List<Widget> children,
       DecorationImage? image,
       double? height,
+      double? width,
+      String? title,
+      bool? collapsible,
+      bool? collapsed = false}) {
+    return TopicContainerWidget(
+      children: children,
+      image: image,
+      height: height,
+      width: width,
+      title: title,
+      collapsible: collapsible ?? false,
+      collapsed: collapsed ?? false,
+    );
+  }
+
+  @override
+  Widget simpleTopicContainer(BuildContext context,
+      {required List<Widget> children,
+      DecorationImage? image,
+      double? height,
       double? width}) {
     return Padding(
         padding: const EdgeInsets.all(7.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: children,
+        ));
+  }
+}
+
+class TopicContainerWidget extends StatefulWidget {
+  final List<Widget> children;
+  final DecorationImage? image;
+  final double? height;
+  final double? width;
+  final String? title;
+  final bool collapsible;
+  final bool collapsed;
+
+  const TopicContainerWidget(
+      {Key? key,
+      this.image,
+      this.height,
+      this.width,
+      this.title,
+      required this.collapsible,
+      required this.collapsed,
+      required this.children})
+      : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _TopicContainerState();
+}
+
+class _TopicContainerState extends State<TopicContainerWidget> {
+  bool collapsed = false;
+
+  @override
+  void initState() {
+    collapsed = widget.collapsed;
+    super.initState();
+  }
+
+  void _expand() {
+    setState(() => collapsed = !collapsed);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> allChildren = [];
+    if (widget.collapsible) {
+      allChildren.add(GestureDetector(
+          onTap: () => _expand(),
+          child: Row(
+            children: [
+              if (widget.title != null) text(context, widget.title!),
+              Spacer(),
+              collapsed ? Icon(Icons.expand_more) : Icon(Icons.expand_less)
+            ],
+          )));
+      allChildren.add(divider(context));
+    } else {
+      if (widget.title != null) {
+        allChildren.add(text(context, widget.title!));
+        allChildren.add(divider(context));
+      }
+    }
+    if (!collapsed) {
+      allChildren.addAll(widget.children);
+    }
+    return Padding(
+        padding: const EdgeInsets.all(7.0),
         child: Container(
-            width: width,
-            height: height,
+            width: widget.width,
+            height: widget.height,
             decoration: BoxDecoration(
                 color: Colors.white,
-                image: image,
+                image: widget.image,
                 border: Border.all(color: Colors.white, width: 1),
                 boxShadow: [
                   BoxShadow(
@@ -57,21 +148,7 @@ class MonaContainerImpl implements HasContainer {
                 padding: const EdgeInsets.all(7.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: children,
+                  children: allChildren,
                 ))));
-  }
-
-  @override
-  Widget simpleTopicContainer(BuildContext context,
-      {required List<Widget> children,
-      DecorationImage? image,
-      double? height,
-      double? width}) {
-    return Padding(
-        padding: const EdgeInsets.all(7.0),
-        child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: children,
-                ));
   }
 }
