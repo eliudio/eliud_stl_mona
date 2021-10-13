@@ -25,42 +25,30 @@ import 'package:flutter/services.dart';
 
 class MonaStyleAttributesComponentBloc extends Bloc<MonaStyleAttributesComponentEvent, MonaStyleAttributesComponentState> {
   final MonaStyleAttributesRepository? monaStyleAttributesRepository;
+  StreamSubscription? _monaStyleAttributesSubscription;
+
+  Stream<MonaStyleAttributesComponentState> _mapLoadMonaStyleAttributesComponentUpdateToState(String documentId) async* {
+    _monaStyleAttributesSubscription?.cancel();
+    _monaStyleAttributesSubscription = monaStyleAttributesRepository!.listenTo(documentId, (value) {
+      if (value != null) add(MonaStyleAttributesComponentUpdated(value: value!));
+    });
+  }
 
   MonaStyleAttributesComponentBloc({ this.monaStyleAttributesRepository }): super(MonaStyleAttributesComponentUninitialized());
+
   @override
   Stream<MonaStyleAttributesComponentState> mapEventToState(MonaStyleAttributesComponentEvent event) async* {
     final currentState = state;
     if (event is FetchMonaStyleAttributesComponent) {
-      try {
-        if (currentState is MonaStyleAttributesComponentUninitialized) {
-          bool permissionDenied = false;
-          final model = await monaStyleAttributesRepository!.get(event.id, onError: (error) {
-            // Unfortunatly the below is currently the only way we know how to identify if a document is read protected
-            if ((error is PlatformException) &&  (error.message!.startsWith("PERMISSION_DENIED"))) {
-              permissionDenied = true;
-            }
-          });
-          if (permissionDenied) {
-            yield MonaStyleAttributesComponentPermissionDenied();
-          } else {
-            if (model != null) {
-              yield MonaStyleAttributesComponentLoaded(value: model);
-            } else {
-              String? id = event.id;
-              yield MonaStyleAttributesComponentError(
-                  message: "MonaStyleAttributes with id = '$id' not found");
-            }
-          }
-          return;
-        }
-      } catch (_) {
-        yield MonaStyleAttributesComponentError(message: "Unknown error whilst retrieving MonaStyleAttributes");
-      }
+      yield* _mapLoadMonaStyleAttributesComponentUpdateToState(event.id!);
+    } else if (event is MonaStyleAttributesComponentUpdated) {
+      yield MonaStyleAttributesComponentLoaded(value: event.value);
     }
   }
 
   @override
   Future<void> close() {
+    _monaStyleAttributesSubscription?.cancel();
     return super.close();
   }
 

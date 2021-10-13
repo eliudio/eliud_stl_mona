@@ -14,6 +14,7 @@
 */
 
 import 'package:equatable/equatable.dart';
+import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 
 abstract class MonaStyleAttributesComponentEvent extends Equatable {
   @override
@@ -25,4 +26,11 @@ class FetchMonaStyleAttributesComponent extends MonaStyleAttributesComponentEven
 
   FetchMonaStyleAttributesComponent({ this.id });
 }
+
+class MonaStyleAttributesComponentUpdated extends MonaStyleAttributesComponentEvent {
+  final MonaStyleAttributesModel value;
+
+  MonaStyleAttributesComponentUpdated({ required this.value });
+}
+
 
