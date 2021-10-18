@@ -258,9 +258,9 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   Widget flexibleDialog(
     BuildContext context, {
     Key? key,
-    required String title,
+    String? title,
     required Widget child,
-    required List<Widget> buttons,
+    List<Widget>? buttons,
     bool? includeHeading,
     double? widthFraction, // percentage of screen width
   }) {

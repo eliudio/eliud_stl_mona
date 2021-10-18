@@ -151,9 +151,9 @@ class MonaDialogImpl implements HasDialog {
   @override
   void openFlexibleDialog(
     BuildContext context, {
-    required String title,
+    String? title,
     required Widget child,
-    required List<Widget> buttons,
+    List<Widget>? buttons,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
   }) {
