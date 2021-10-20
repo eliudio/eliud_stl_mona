@@ -30,7 +30,7 @@ class MonaStyleAttributesComponentBloc extends Bloc<MonaStyleAttributesComponent
   Stream<MonaStyleAttributesComponentState> _mapLoadMonaStyleAttributesComponentUpdateToState(String documentId) async* {
     _monaStyleAttributesSubscription?.cancel();
     _monaStyleAttributesSubscription = monaStyleAttributesRepository!.listenTo(documentId, (value) {
-      if (value != null) add(MonaStyleAttributesComponentUpdated(value: value!));
+      if (value != null) add(MonaStyleAttributesComponentUpdated(value: value));
     });
   }
 
