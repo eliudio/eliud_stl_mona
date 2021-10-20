@@ -54,17 +54,21 @@ class MonaStyle extends Style {
 
   bool update(BuildContext context) {
     var appId = AccessBloc.appId(context);
-    openComplexDialog(context,
-            title: 'Confirm',
-            child: MonaStyleAttributesForm(
-                formAction: FormAction.ShowPreloadedData,
-                value: monaStyleAttributesModel,
-                submitAction: FunctionToRun(appId, actionToRun: () {
-                  print("aaa");
-                }
+    if (appId != null) {
+      openComplexDialog(context,
+          title: 'Confirm',
+          child: MonaStyleAttributesForm(
+              formAction: FormAction.ShowPreloadedData,
+              value: monaStyleAttributesModel,
+              submitAction: FunctionToRun(appId, actionToRun: () {
+                print("aaa");
+              }
               )
-            )
-    );
+          )
+      );
+    } else {
+      openErrorDialog(context, title: 'Error', errorMessage: 'No app available');
+    }
     return false;
   }
 
