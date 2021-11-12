@@ -1,4 +1,4 @@
-import 'package:eliud_core/core/access/bloc/access_bloc.dart';
+import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/style_registry.dart';
@@ -53,7 +53,7 @@ class MonaStyle extends Style {
       monaStyleAttributesModel.copyWith(documentID: newName));
 
   bool update(BuildContext context) {
-    var appId = AccessBloc.appId(context);
+    var appId = AccessBloc.currentAppId(context);
     if (appId != null) {
       openComplexDialog(context,
           title: 'Confirm',

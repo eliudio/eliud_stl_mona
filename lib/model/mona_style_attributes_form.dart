@@ -13,8 +13,9 @@
 
 */
 
-import 'package:eliud_core/core/access/bloc/access_state.dart';
-import 'package:eliud_core/core/access/bloc/access_bloc.dart';
+import 'package:eliud_core/core/blocs/access/state/access_state.dart';
+import 'package:eliud_core/core/blocs/access/state/logged_in.dart';
+import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import '../tools/bespoke_models.dart';
 import 'package:eliud_core/core/navigate/router.dart' as eliudrouter;
 import 'package:eliud_core/tools/screen_size.dart';
@@ -71,11 +72,11 @@ class MonaStyleAttributesForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var accessState = AccessBloc.getState(context);
-    var app = AccessBloc.app(context);
+    var app = AccessBloc.currentApp(context);
     if (app == null) return Text("No app available");
     if (formAction == FormAction.ShowData) {
       return BlocProvider<MonaStyleAttributesFormBloc >(
-            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.appId(context),
+            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.currentAppId(context),
                                        formAction: formAction,
 
                                                 )..add(InitialiseMonaStyleAttributesFormEvent(value: value)),
@@ -84,7 +85,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
           );
     } if (formAction == FormAction.ShowPreloadedData) {
       return BlocProvider<MonaStyleAttributesFormBloc >(
-            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.appId(context),
+            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.currentAppId(context),
                                        formAction: formAction,
 
                                                 )..add(InitialiseMonaStyleAttributesFormNoLoadEvent(value: value)),
@@ -95,7 +96,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
       return Scaffold(
         appBar: StyleRegistry.registry().styleWithContext(context).adminFormStyle().appBarWithString(context, title: formAction == FormAction.UpdateAction ? 'Update MonaStyleAttributes' : 'Add MonaStyleAttributes'),
         body: BlocProvider<MonaStyleAttributesFormBloc >(
-            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.appId(context),
+            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.currentAppId(context),
                                        formAction: formAction,
 
                                                 )..add((formAction == FormAction.UpdateAction ? InitialiseMonaStyleAttributesFormEvent(value: value) : InitialiseNewMonaStyleAttributesFormEvent())),
@@ -158,7 +159,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
   @override
   Widget build(BuildContext context) {
-    var app = AccessBloc.app(context);
+    var app = AccessBloc.currentApp(context);
     if (app == null) return Text('No app available');
     var accessState = AccessBloc.getState(context);
     return BlocBuilder<MonaStyleAttributesFormBloc, MonaStyleAttributesFormState>(builder: (context, state) {
@@ -1042,7 +1043,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
   bool _readOnly(AccessState accessState, MonaStyleAttributesFormInitialized state) {
-    return (formAction == FormAction.ShowData) || (formAction == FormAction.ShowPreloadedData) || (!accessState.memberIsOwner());
+    return (formAction == FormAction.ShowData) || (formAction == FormAction.ShowPreloadedData) || (!accessState.memberIsOwner(AccessBloc.currentAppId(context)));
   }
   
 
