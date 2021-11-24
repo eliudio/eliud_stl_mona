@@ -12,7 +12,7 @@ class MonaDialogImpl implements HasDialog {
 
   @override
   void openMessageDialog(
-    BuildContext context, {
+    BuildContext context, String name, {
     required String title,
     required String message,
     String? closeLabel,
@@ -21,7 +21,7 @@ class MonaDialogImpl implements HasDialog {
   }) {
     // MessageDialog
     DialogStatefulWidgetHelper.openIt(
-      context,
+      context,name,
       _style.frontEndStyle().dialogWidgetStyle().messageDialog(
             context,
             title: title,
@@ -34,7 +34,7 @@ class MonaDialogImpl implements HasDialog {
 
   @override
   void openErrorDialog(
-    BuildContext context, {
+    BuildContext context, String name, {
     required String title,
     required String errorMessage,
     String? closeLabel,
@@ -42,7 +42,7 @@ class MonaDialogImpl implements HasDialog {
     bool? includeHeading,
   }) =>
       DialogStatefulWidgetHelper.openIt(
-        context,
+        context, name,
         _style.frontEndStyle().dialogWidgetStyle().errorDialog(
               context,
               title: title,
@@ -54,7 +54,7 @@ class MonaDialogImpl implements HasDialog {
 
   @override
   void openAckNackDialog(
-    BuildContext context, {
+    BuildContext context, String name, {
     required String title,
     required String message,
     required OnSelection onSelection,
@@ -64,7 +64,7 @@ class MonaDialogImpl implements HasDialog {
     bool? includeHeading,
   }) =>
       DialogStatefulWidgetHelper.openIt(
-          context,
+          context, name,
           _style.frontEndStyle().dialogWidgetStyle().ackNackDialog(
                 context,
                 title: title,
@@ -78,7 +78,7 @@ class MonaDialogImpl implements HasDialog {
 
   @override
   void openEntryDialog(
-    BuildContext context, {
+    BuildContext context, String name, {
     required String title,
     String? ackButtonLabel,
     String? nackButtonLabel,
@@ -90,6 +90,7 @@ class MonaDialogImpl implements HasDialog {
   }) =>
       DialogStatefulWidgetHelper.openIt(
         context,
+        name,
         _style.frontEndStyle().dialogWidgetStyle().entryDialog(
               context,
               title: title,
@@ -105,7 +106,7 @@ class MonaDialogImpl implements HasDialog {
 
   @override
   void openSelectionDialog(
-    BuildContext context, {
+    BuildContext context, String name, {
     required String title,
     required List<String> options,
     required OnSelection onSelection,
@@ -115,6 +116,7 @@ class MonaDialogImpl implements HasDialog {
   }) {
     DialogStatefulWidgetHelper.openIt(
         context,
+        name,
         _style.frontEndStyle().dialogWidgetStyle().selectionDialog(
               context,
               title: title,
@@ -128,7 +130,7 @@ class MonaDialogImpl implements HasDialog {
 
   @override
   void openComplexDialog(
-    BuildContext context, {
+    BuildContext context, String name, {
     required String title,
     required Widget child,
     VoidCallback? onPressed,
@@ -138,6 +140,7 @@ class MonaDialogImpl implements HasDialog {
   }) =>
       DialogStatefulWidgetHelper.openIt(
           context,
+          name,
           _style.frontEndStyle().dialogWidgetStyle().complexDialog(
                 context,
                 title: title,
@@ -150,7 +153,7 @@ class MonaDialogImpl implements HasDialog {
 
   @override
   void openFlexibleDialog(
-    BuildContext context, {
+    BuildContext context, String name, {
     String? title,
     required Widget child,
     List<Widget>? buttons,
@@ -159,6 +162,7 @@ class MonaDialogImpl implements HasDialog {
   }) {
     DialogStatefulWidgetHelper.openIt(
         context,
+        name,
         _style.frontEndStyle().dialogWidgetStyle().flexibleDialog(
               context,
               title: title,
@@ -170,7 +174,7 @@ class MonaDialogImpl implements HasDialog {
   }
 
   @override
-  void openWidgetDialog(BuildContext context, {required Widget child}) {
-    DialogStatefulWidgetHelper.openIt(context, child);
+  void openWidgetDialog(BuildContext context, String name, {required Widget child}) {
+    DialogStatefulWidgetHelper.openIt(context, name, child);
   }
 }

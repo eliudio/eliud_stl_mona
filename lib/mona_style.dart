@@ -56,6 +56,7 @@ class MonaStyle extends Style {
     var appId = AccessBloc.currentAppId(context);
     if (appId != null) {
       openComplexDialog(context,
+          appId + '/_updatestyle',
           title: 'Confirm',
           child: MonaStyleAttributesForm(
               formAction: FormAction.ShowPreloadedData,
@@ -67,7 +68,7 @@ class MonaStyle extends Style {
           )
       );
     } else {
-      openErrorDialog(context, title: 'Error', errorMessage: 'No app available');
+      openErrorDialog(context, appId + '/_error', title: 'Error', errorMessage: 'No app available');
     }
     return false;
   }
