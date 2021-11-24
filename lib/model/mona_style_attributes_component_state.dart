@@ -35,9 +35,9 @@ class MonaStyleAttributesComponentPermissionDenied extends MonaStyleAttributesCo
 }
 
 class MonaStyleAttributesComponentLoaded extends MonaStyleAttributesComponentState {
-  final MonaStyleAttributesModel? value;
+  final MonaStyleAttributesModel value;
 
-  const MonaStyleAttributesComponentLoaded({ this.value });
+  const MonaStyleAttributesComponentLoaded({ required this.value });
 
   MonaStyleAttributesComponentLoaded copyWith({ MonaStyleAttributesModel? copyThis }) {
     return MonaStyleAttributesComponentLoaded(value: copyThis ?? this.value);

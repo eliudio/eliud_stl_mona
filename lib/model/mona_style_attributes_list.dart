@@ -107,7 +107,7 @@ class MonaStyleAttributesListWidgetState extends State<MonaStyleAttributesListWi
                       context, label: 'Add',
                       onPressed: () {
                         Navigator.of(context).push(
-                                  pageRouteBuilder(accessState.currentApp, page: BlocProvider.value(
+                                  pageRouteBuilder(accessState.currentApp(context), page: BlocProvider.value(
                                       value: BlocProvider.of<MonaStyleAttributesListBloc>(context),
                                       child: MonaStyleAttributesForm(
                                           value: null,
