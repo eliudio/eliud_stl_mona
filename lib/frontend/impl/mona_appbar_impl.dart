@@ -1,6 +1,7 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/model/app_bar_model.dart';
 import 'package:eliud_core/model/background_model.dart';
+import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/_default/frontend/helper/appbar_helper.dart';
 import 'package:eliud_core/style/frontend/has_appbar.dart';
@@ -21,6 +22,7 @@ class MonaAppBarImpl implements HasAppBar {
   @override
   PreferredSizeWidget appBar(BuildContext context,
       {required AppbarHeaderAttributes headerAttributes,
+      required MemberModel? member,
       required String pageName,
       List<AbstractMenuItemAttributes>? items,
       BackgroundModel? backgroundOverride,
@@ -55,7 +57,6 @@ class MonaAppBarImpl implements HasAppBar {
     }
 
     // add profilePhoto
-    var member = AccessBloc.member(context);
     if (member != null) {
       buttons.add(_monaStyle
           .frontEndStyle()
@@ -74,7 +75,7 @@ class MonaAppBarImpl implements HasAppBar {
         title: _title,
         actions: buttons,
         flexibleSpace: Container(
-            decoration: BoxDecorationHelper.boxDecoration(state, background)));
+            decoration: BoxDecorationHelper.boxDecoration(member, background)));
   }
 /*
 

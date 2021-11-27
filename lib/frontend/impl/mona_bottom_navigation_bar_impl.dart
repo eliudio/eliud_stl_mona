@@ -1,5 +1,6 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/model/background_model.dart';
+import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/frontend/has_bottom_navigation_bar.dart';
 import 'package:eliud_core/style/frontend/types.dart';
@@ -41,6 +42,7 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
   @override
   Widget bottomNavigationBar(
     BuildContext context, {
+      required MemberModel? member,
     BackgroundModel? backgroundOverride,
     RgbModel? popupMenuBackgroundColorOverride,
     required List<AbstractMenuItemAttributes> items,
@@ -49,11 +51,10 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
     var background = backgroundOverride ??=
         _monaStyle.monaStyleAttributesModel.bottomNavigationBarBG;
 
-    var accessState = AccessBloc.getState(context);
     return Container(
         decoration: backgroundOverride == null
             ? null
-            : BoxDecorationHelper.boxDecoration(accessState, background),
+            : BoxDecorationHelper.boxDecoration(member, background),
         child: Theme(
             data: Theme.of(context).copyWith(
                 textTheme: Theme.of(context).textTheme.copyWith(

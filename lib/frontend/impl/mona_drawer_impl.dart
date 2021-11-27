@@ -1,6 +1,7 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/core/blocs/access/state/access_state.dart';
 import 'package:eliud_core/model/background_model.dart';
+import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/frontend/has_drawer.dart';
 import 'package:eliud_core/style/frontend/types.dart';
@@ -13,19 +14,20 @@ class MonaDrawerImpl implements HasDrawer {
 
   MonaDrawerImpl(this._monaStyle);
 
-  Widget _constructHeaderContainer(BuildContext context, String text, double? height, AccessState theState, BackgroundModel? background) {
+  Widget _constructHeaderContainer(BuildContext context, String text, double? height, MemberModel? member, BackgroundModel? background) {
     return Container(
         height: height,
         child: DrawerHeader(
         child: Center(
         child:
         _monaStyle.frontEndStyle().textStyle().h3(context, text)),
-    decoration: BoxDecorationHelper.boxDecoration(theState, background)));
+    decoration: BoxDecorationHelper.boxDecoration(member, background)));
   }
 
   @override
   Drawer drawer(BuildContext context,
       {required DrawerType drawerType,
+      required MemberModel? member,
       DrawerHeader1Attributes? header1,
       DrawerHeader2Attributes? header2,
       BackgroundModel? backgroundOverride,
@@ -45,7 +47,7 @@ class MonaDrawerImpl implements HasDrawer {
               _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
         }
       }
-      widgets.add(_constructHeaderContainer(context, header1.text, header1.height == 0 ? null : header1.height, theState, background));
+      widgets.add(_constructHeaderContainer(context, header1.text, header1.height == 0 ? null : header1.height, member, background));
     } else {
       if (drawerType == DrawerType.Left) {
         background = _monaStyle.monaStyleAttributesModel.drawerHeaderBG;
@@ -54,7 +56,7 @@ class MonaDrawerImpl implements HasDrawer {
             _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
       }
       if (background != null) {
-        widgets.add(_constructHeaderContainer(context, "", null, theState, background));
+        widgets.add(_constructHeaderContainer(context, "", null, member, background));
       }
     }
 
@@ -107,7 +109,7 @@ class MonaDrawerImpl implements HasDrawer {
     return Drawer(
         key: key,
         child: Container(
-            decoration: BoxDecorationHelper.boxDecoration(theState, background2),
+            decoration: BoxDecorationHelper.boxDecoration(member, background2),
             child: ListView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

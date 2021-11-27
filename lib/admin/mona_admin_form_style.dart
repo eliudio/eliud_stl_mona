@@ -68,7 +68,7 @@ class MonaAdminFormStyle implements AdminFormStyle {
         decoration: ((formAction == FormAction.ShowData) ||
                 (formAction == FormAction.ShowPreloadedData))
             ? null
-            : BoxDecorationHelper.boxDecoration(AccessBloc.getState(context),
+            : BoxDecorationHelper.boxDecoration(AccessBloc.getState(context).getMember(),
                 _monaStyle.monaStyleAttributesModel.formBackground),
         padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
         child: child);
@@ -109,7 +109,7 @@ class MonaAdminFormStyle implements AdminFormStyle {
       iconTheme: iconTheme,
       flexibleSpace: Container(
           decoration:
-              BoxDecorationHelper.boxDecoration(accessState, background)),
+              BoxDecorationHelper.boxDecoration(accessState.getMember(), background)),
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
+import 'package:eliud_core/model/member_model.dart';
 import '../frontend/impl/delayed_circular_progress_indicator.dart';
 import 'package:eliud_core/style/admin/admin_list_style.dart';
 import 'package:eliud_core/tools/etc.dart';
@@ -31,9 +32,9 @@ class MonaAdminListStyle extends AdminListStyle {
   }
 
   @override
-  BoxDecoration? boxDecorator(BuildContext context) {
+  BoxDecoration? boxDecorator(BuildContext context, MemberModel? member) {
     var accessState = AccessBloc.getState(context);
-    return BoxDecorationHelper.boxDecoration(accessState, _monaStyle.monaStyleAttributesModel.listBackground);
+    return BoxDecorationHelper.boxDecoration(member, _monaStyle.monaStyleAttributesModel.listBackground);
   }
 
   @override
