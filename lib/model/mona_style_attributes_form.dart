@@ -77,7 +77,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
     var appId = app.documentID!;
     if (formAction == FormAction.ShowData) {
       return BlocProvider<MonaStyleAttributesFormBloc >(
-            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.currentAppId(context),
+            create: (context) => MonaStyleAttributesFormBloc(appId,
                                        formAction: formAction,
 
                                                 )..add(InitialiseMonaStyleAttributesFormEvent(value: value)),
@@ -86,7 +86,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
           );
     } if (formAction == FormAction.ShowPreloadedData) {
       return BlocProvider<MonaStyleAttributesFormBloc >(
-            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.currentAppId(context),
+            create: (context) => MonaStyleAttributesFormBloc(appId,
                                        formAction: formAction,
 
                                                 )..add(InitialiseMonaStyleAttributesFormNoLoadEvent(value: value)),
@@ -97,7 +97,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
       return Scaffold(
         appBar: StyleRegistry.registry().styleWithContext(context).adminFormStyle().appBarWithString(context, title: formAction == FormAction.UpdateAction ? 'Update MonaStyleAttributes' : 'Add MonaStyleAttributes'),
         body: BlocProvider<MonaStyleAttributesFormBloc >(
-            create: (context) => MonaStyleAttributesFormBloc(AccessBloc.currentAppId(context),
+            create: (context) => MonaStyleAttributesFormBloc(appId,
                                        formAction: formAction,
 
                                                 )..add((formAction == FormAction.UpdateAction ? InitialiseMonaStyleAttributesFormEvent(value: value) : InitialiseNewMonaStyleAttributesFormEvent())),

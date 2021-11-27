@@ -35,10 +35,11 @@ class MonaStyleAttributesComponentSelector extends ComponentSelector {
   @override
   Widget createSelectWidget(BuildContext context, double height,
       SelectComponent selected, editorConstructor) {
+    var appId = AccessBloc.currentAppId(context);
     return BlocProvider<MonaStyleAttributesListBloc>(
           create: (context) => MonaStyleAttributesListBloc(
             monaStyleAttributesRepository:
-                monaStyleAttributesRepository(appId: AccessBloc.currentAppId(context))!,
+                monaStyleAttributesRepository(appId: appId)!,
           )..add(LoadMonaStyleAttributesList()),
       child: SelectMonaStyleAttributesWidget(
           height: height,
