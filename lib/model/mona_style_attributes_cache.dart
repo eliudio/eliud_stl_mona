@@ -123,7 +123,12 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
 
   @override
   StreamSubscription<MonaStyleAttributesModel?> listenTo(String documentId, MonaStyleAttributesChanged changed) {
-    return reference.listenTo(documentId, changed);
+    return reference.listenTo(documentId, ((value) {
+      if (value != null) {
+        fullCache[value.documentID] = value;
+      }
+      changed(value);
+    }));
   }
 
   static Future<MonaStyleAttributesModel> refreshRelations(MonaStyleAttributesModel model) async {
