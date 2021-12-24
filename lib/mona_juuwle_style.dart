@@ -88,6 +88,6 @@ class MonaJuuwleStyle {
   static BackgroundModel drawerBG() => MonaShared.drawerBG('juuwle-drawer-bg', appColor1(), appColor2());
   static BackgroundModel drawerHeaderBG()  => MonaShared.drawerHeaderBG('juuwle-drawer-header-bg');
   static BackgroundModel profileDrawerBG() => MonaShared.profileDrawerBG('juuwle-profile-drawer-bg', appColor1(), appColor2());
-  static BackgroundModel profileDrawerHeaderBG()  => MonaShared.profileDrawerBG('juuwle-profile-drawer-bg', appColor1(), appColor2());
+  static BackgroundModel profileDrawerHeaderBG() => MonaShared.profileDrawerHeaderBG('juuwle-profile-drawer-header-bg');
   static BackgroundModel backgroundHomeMenu() => MonaShared.homeMenuBG('juuwle-homemenu', appColor1(), appColor2());
 }
