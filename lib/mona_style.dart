@@ -4,6 +4,7 @@ import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/style_registry.dart';
 import 'package:eliud_core/tools/action/action_model.dart';
 import 'package:eliud_core/tools/enums.dart';
+import 'package:eliud_stl_mona/widgets/update_style_widget.dart';
 import 'package:flutter/widgets.dart';
 
 import 'frontend/mona_frontend_style.dart';
@@ -58,13 +59,8 @@ class MonaStyle extends Style {
       openComplexDialog(context,
           appId + '/_updatestyle',
           title: 'Confirm',
-          child: MonaStyleAttributesForm(
-              formAction: FormAction.ShowPreloadedData,
+          child: UpdateStyleWidget(
               value: monaStyleAttributesModel,
-              submitAction: FunctionToRun(appId, actionToRun: () {
-                print("aaa");
-              }
-              )
           )
       );
     } else {
