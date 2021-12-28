@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/icon_model.dart';
 import 'package:eliud_core/style/frontend/has_icon.dart';
 import 'package:eliud_core/tools/etc.dart';
@@ -11,7 +12,7 @@ class MonaIconImpl implements HasIcon {
   MonaIconImpl(this._monaStyle);
 
   @override
-  Widget h1Icon(BuildContext context,
+  Widget h1Icon(AppModel app,BuildContext context,
       {required IconModel icon, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h1);
     return IconHelper.getIconFromModelWithFlutterColor(
@@ -21,7 +22,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h2Icon(BuildContext context,
+  Widget h2Icon(AppModel app,BuildContext context,
       {required IconModel icon, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h2);
     return IconHelper.getIconFromModelWithFlutterColor(
@@ -31,7 +32,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h3Icon(BuildContext context,
+  Widget h3Icon(AppModel app,BuildContext context,
       {required IconModel icon, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h3);
     return IconHelper.getIconFromModelWithFlutterColor(
@@ -41,7 +42,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h4Icon(BuildContext context,
+  Widget h4Icon(AppModel app,BuildContext context,
       {required IconModel icon, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h4);
     return IconHelper.getIconFromModelWithFlutterColor(
@@ -51,7 +52,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h5Icon(BuildContext context,
+  Widget h5Icon(AppModel app,BuildContext context,
       {required IconModel icon, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h5);
     return IconHelper.getIconFromModelWithFlutterColor(
@@ -61,7 +62,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h1Icon2(BuildContext context,
+  Widget h1Icon2(AppModel app,BuildContext context,
       {required IconData iconData, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h1);
     return IconHelper.getIcon(
@@ -71,7 +72,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h2Icon2(BuildContext context,
+  Widget h2Icon2(AppModel app,BuildContext context,
       {required IconData iconData, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h2);
     return IconHelper.getIcon(
@@ -81,7 +82,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h3Icon2(BuildContext context,
+  Widget h3Icon2(AppModel app,BuildContext context,
       {required IconData iconData, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h3);
     return IconHelper.getIcon(
@@ -91,7 +92,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h4Icon2(BuildContext context,
+  Widget h4Icon2(AppModel app,BuildContext context,
       {required IconData iconData, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h4);
     return IconHelper.getIcon(
@@ -101,7 +102,7 @@ class MonaIconImpl implements HasIcon {
   }
 
   @override
-  Widget h5Icon2(BuildContext context,
+  Widget h5Icon2(AppModel app,BuildContext context,
       {required IconData iconData, String? semanticLabel}) {
     var style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h5);
     return IconHelper.getIcon(

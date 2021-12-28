@@ -1,4 +1,5 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/style_registry.dart';
@@ -53,19 +54,14 @@ class MonaStyle extends Style {
   MonaStyle? copy(String newName) => MonaStyle(styleFamily, newName,
       monaStyleAttributesModel.copyWith(documentID: newName));
 
-  bool update(BuildContext context) {
-    var appId = AccessBloc.currentAppId(context);
-    if (appId != null) {
-      openComplexDialog(context,
-          appId + '/_updatestyle',
-          title: 'Confirm',
-          child: UpdateStyleWidget(
-              value: monaStyleAttributesModel,
-          )
-      );
-    } else {
-      openErrorDialog(context, appId + '/_error', title: 'Error', errorMessage: 'No app available');
-    }
+  bool update(AppModel app, BuildContext context) {
+    openComplexDialog(app, context,
+        app.documentID! + '/_updatestyle',
+        title: 'Confirm',
+        child: UpdateStyleWidget(
+          app: app,
+            value: monaStyleAttributesModel,
+        ));
     return false;
   }
 

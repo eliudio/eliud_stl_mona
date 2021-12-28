@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_text_form_field.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class MonaTextFormFieldImpl implements HasTexFormField {
   MonaTextFormFieldImpl(this._monaStyle);
 
   @override
-  Widget textFormField(
+  Widget textFormField(AppModel app,
     BuildContext context, {
     required bool readOnly,
     String? initialValue,
@@ -56,7 +57,7 @@ class MonaTextFormFieldImpl implements HasTexFormField {
   }
 
   @override
-  Widget textField(BuildContext context,
+  Widget textField(AppModel app,BuildContext context,
       {required bool readOnly,
       String? initialValue,
       FormFieldValidator<String>? validator,
@@ -77,12 +78,12 @@ class MonaTextFormFieldImpl implements HasTexFormField {
       textInputAction: TextInputAction.go,
       controller: controller,
       style:
-        _monaStyle.frontEndStyle().textStyleStyle().styleText(context),
+        _monaStyle.frontEndStyle().textStyleStyle().styleText(app, context),
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle:
-            _monaStyle.frontEndStyle().textStyleStyle().styleText(context),
+            _monaStyle.frontEndStyle().textStyleStyle().styleText(app, context),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(

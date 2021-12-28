@@ -1,4 +1,5 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/member_model.dart';
 import '../frontend/impl/delayed_circular_progress_indicator.dart';
 import 'package:eliud_core/style/admin/admin_list_style.dart';
@@ -12,7 +13,7 @@ class MonaAdminListStyle extends AdminListStyle {
   MonaAdminListStyle(this._monaStyle);
 
   @override
-  Widget floatingActionButton(BuildContext context, String heroTag, Widget child, {VoidCallback? onPressed}) {
+  Widget floatingActionButton(AppModel app, BuildContext context, String heroTag, Widget child, {VoidCallback? onPressed}) {
     return FloatingActionButton(
       heroTag: heroTag,
       foregroundColor: RgbHelper.color(rgbo: _monaStyle.monaStyleAttributesModel.floatingButtonForegroundColor),
@@ -23,7 +24,7 @@ class MonaAdminListStyle extends AdminListStyle {
   }
 
   @override
-  Widget divider(BuildContext context) {
+  Widget divider(AppModel app, BuildContext context) {
     return Divider(
         height: 1.0,
         thickness: 1.0,
@@ -32,13 +33,13 @@ class MonaAdminListStyle extends AdminListStyle {
   }
 
   @override
-  BoxDecoration? boxDecorator(BuildContext context, MemberModel? member) {
+  BoxDecoration? boxDecorator(AppModel app, BuildContext context, MemberModel? member) {
     var accessState = AccessBloc.getState(context);
     return BoxDecorationHelper.boxDecoration(member, _monaStyle.monaStyleAttributesModel.listBackground);
   }
 
   @override
-  Widget listItem(BuildContext context, String text) {
+  Widget listItem(AppModel app, BuildContext context, String text) {
     return Text(
       text,
       style: TextStyle(color: RgbHelper.color(rgbo: _monaStyle.monaStyleAttributesModel.listTextItemColor)),
@@ -46,7 +47,7 @@ class MonaAdminListStyle extends AdminListStyle {
   }
 
   @override
-  Widget progressIndicator(BuildContext context, {Animation<Color>? valueColor}) {
+  Widget progressIndicator(AppModel app, BuildContext context, {Animation<Color>? valueColor}) {
     return Center(child: DelayedCircularProgressIndicator());
   }
 

@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/grid_view_model.dart';
 import 'package:eliud_core/style/_default/frontend/helper/page_body_helper.dart';
@@ -14,12 +15,12 @@ class MonaPageBodyImpl implements HasPageBody {
   MonaPageBodyImpl(this._monaStyle);
 
   @override
-  Widget pageBody(BuildContext context,
+  Widget pageBody(AppModel app,BuildContext context,
       {BackgroundModel? backgroundOverride,
       required List<Widget> components,
       Layout? layout,
       GridViewModel? gridView}) {
-    return PageBodyHelper(_monaStyle.frontEndStyle()).pageBody(context,
+    return PageBodyHelper(_monaStyle.frontEndStyle()).pageBody(app, context,
         components: components,
         layout: layout,
         gridView: gridView,

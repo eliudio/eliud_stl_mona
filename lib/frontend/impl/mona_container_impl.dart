@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_container.dart';
 import 'package:eliud_core/style/frontend/has_divider.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
@@ -10,7 +11,7 @@ class MonaContainerImpl implements HasContainer {
   MonaContainerImpl(this._style);
 
   @override
-  Widget actionContainer(BuildContext context,
+  Widget actionContainer(AppModel app, BuildContext context,
       {required Widget child, double? height, double? width}) {
     return Container(
         margin: EdgeInsets.all(7.0),
@@ -32,7 +33,7 @@ class MonaContainerImpl implements HasContainer {
   }
 
   @override
-  Widget topicContainer(BuildContext context,
+  Widget topicContainer(AppModel app, BuildContext context,
       {required List<Widget> children,
       DecorationImage? image,
       double? height,
@@ -41,6 +42,7 @@ class MonaContainerImpl implements HasContainer {
       bool? collapsible,
       bool? collapsed = false}) {
     return TopicContainerWidget(
+      app: app,
       children: children,
       image: image,
       height: height,
@@ -52,7 +54,7 @@ class MonaContainerImpl implements HasContainer {
   }
 
   @override
-  Widget simpleTopicContainer(BuildContext context,
+  Widget simpleTopicContainer(AppModel app, BuildContext context,
       {required List<Widget> children,
       DecorationImage? image,
       double? height,
@@ -67,6 +69,7 @@ class MonaContainerImpl implements HasContainer {
 }
 
 class TopicContainerWidget extends StatefulWidget {
+  final AppModel app;
   final List<Widget> children;
   final DecorationImage? image;
   final double? height;
@@ -81,6 +84,7 @@ class TopicContainerWidget extends StatefulWidget {
       this.height,
       this.width,
       this.title,
+      required this.app,
       required this.collapsible,
       required this.collapsed,
       required this.children})
@@ -111,16 +115,17 @@ class _TopicContainerState extends State<TopicContainerWidget> {
           onTap: () => _expand(),
           child: Row(
             children: [
-              if (widget.title != null) text(context, widget.title!),
+              if (widget.title != null)
+                text(widget.app, context, widget.title!),
               Spacer(),
               collapsed ? Icon(Icons.expand_more) : Icon(Icons.expand_less)
             ],
           )));
-      allChildren.add(divider(context));
+      allChildren.add(divider(widget.app, context));
     } else {
       if (widget.title != null) {
-        allChildren.add(text(context, widget.title!));
-        allChildren.add(divider(context));
+        allChildren.add(text(widget.app, context, widget.title!));
+        allChildren.add(divider(widget.app, context));
       }
     }
     if (!collapsed) {

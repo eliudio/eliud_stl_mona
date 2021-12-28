@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/icon_model.dart';
 import 'package:eliud_core/style/frontend/has_style.dart';
 import 'package:eliud_core/tools/etc.dart';
@@ -10,54 +11,54 @@ class MonaStyleImpl implements HasStyle {
 
   MonaStyleImpl(this._monaStyle);
 
-  TextStyle? styleInputDecorationLabel(BuildContext context) {
+  TextStyle? styleInputDecorationLabel(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.textFieldHeader);
   }
 
   @override
-  TextStyle? styleText(BuildContext context) {
+  TextStyle? styleText(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.fontText);
   }
 
   @override
-  TextStyle? styleSmallText(BuildContext context) {
+  TextStyle? styleSmallText(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.fontSmallText);
   }
 
   @override
-  TextStyle? styleHighLight1(BuildContext context) {
+  TextStyle? styleHighLight1(AppModel app,BuildContext context) {
     return FontTools.textStyle(
         _monaStyle.monaStyleAttributesModel.fontHighlight1);
   }
 
   @override
-  TextStyle? styleHighLight2(BuildContext context) {
+  TextStyle? styleHighLight2(AppModel app,BuildContext context) {
     return FontTools.textStyle(
         _monaStyle.monaStyleAttributesModel.fontHighlight2);
   }
 
   @override
-  TextStyle? styleH1(BuildContext context) {
+  TextStyle? styleH1(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h1);
   }
 
   @override
-  TextStyle? styleH2(BuildContext context) {
+  TextStyle? styleH2(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h2);
   }
 
   @override
-  TextStyle? styleH3(BuildContext context) {
+  TextStyle? styleH3(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h3);
   }
 
   @override
-  TextStyle? styleH4(BuildContext context) {
+  TextStyle? styleH4(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h4);
   }
 
   @override
-  TextStyle? styleH5(BuildContext context) {
+  TextStyle? styleH5(AppModel app,BuildContext context) {
     return FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h5);
   }
 }

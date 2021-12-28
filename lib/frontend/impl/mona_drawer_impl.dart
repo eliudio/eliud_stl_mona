@@ -1,5 +1,6 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/core/blocs/access/state/access_state.dart';
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
@@ -14,18 +15,18 @@ class MonaDrawerImpl implements HasDrawer {
 
   MonaDrawerImpl(this._monaStyle);
 
-  Widget _constructHeaderContainer(BuildContext context, String text, double? height, MemberModel? member, BackgroundModel? background) {
+  Widget _constructHeaderContainer(AppModel app,BuildContext context, String text, double? height, MemberModel? member, BackgroundModel? background) {
     return Container(
         height: height,
         child: DrawerHeader(
         child: Center(
         child:
-        _monaStyle.frontEndStyle().textStyle().h3(context, text)),
+        _monaStyle.frontEndStyle().textStyle().h3(app, context, text)),
     decoration: BoxDecorationHelper.boxDecoration(member, background)));
   }
 
   @override
-  Drawer drawer(BuildContext context,
+  Drawer drawer(AppModel app,BuildContext context,
       {required DrawerType drawerType,
       required MemberModel? member,
       DrawerHeader1Attributes? header1,
@@ -47,7 +48,7 @@ class MonaDrawerImpl implements HasDrawer {
               _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
         }
       }
-      widgets.add(_constructHeaderContainer(context, header1.text, header1.height == 0 ? null : header1.height, member, background));
+      widgets.add(_constructHeaderContainer(app, context, header1.text, header1.height == 0 ? null : header1.height, member, background));
     } else {
       if (drawerType == DrawerType.Left) {
         background = _monaStyle.monaStyleAttributesModel.drawerHeaderBG;
@@ -56,7 +57,7 @@ class MonaDrawerImpl implements HasDrawer {
             _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
       }
       if (background != null) {
-        widgets.add(_constructHeaderContainer(context, "", null, member, background));
+        widgets.add(_constructHeaderContainer(app, context, "", null, member, background));
       }
     }
 
@@ -65,21 +66,21 @@ class MonaDrawerImpl implements HasDrawer {
         height: header2.height == 0 ? null : header2.height,
         child: DrawerHeader(
             child: Center(
-          child: _monaStyle.frontEndStyle().textStyle().h4(context, header2.text),
+          child: _monaStyle.frontEndStyle().textStyle().h4(app, context, header2.text),
         )),
       ));
     }
 
     for (var item in items) {
       var style = item.isActive
-          ? _monaStyle.frontEndStyle().textStyleStyle().styleH3(context)
-          : _monaStyle.frontEndStyle().textStyleStyle().styleH4(context);
+          ? _monaStyle.frontEndStyle().textStyleStyle().styleH3(app, context)
+          : _monaStyle.frontEndStyle().textStyleStyle().styleH4(app, context);
 
       var theIcon = item.icon == null
               ? null
               : IconHelper.getIconFromModelWithFlutterColor(
               iconModel: item.icon, color: style!.color);
-      var theText = item.isActive ? _monaStyle.frontEndStyle().textStyle().h3(context, item.label!, textAlign: TextAlign.center) : _monaStyle.frontEndStyle().textStyle().h4(context, item.label!, textAlign: TextAlign.center);
+      var theText = item.isActive ? _monaStyle.frontEndStyle().textStyle().h3(app, context, item.label!, textAlign: TextAlign.center) : _monaStyle.frontEndStyle().textStyle().h4(app, context, item.label!, textAlign: TextAlign.center);
       widgets.add(ListTile(
           leading: theIcon,
           title: theText,
@@ -88,7 +89,7 @@ class MonaDrawerImpl implements HasDrawer {
               item.onTap();
             } else if (item is MenuItemWithMenuItems) {
               var theMenuItemWithMenuItems = item;
-              _monaStyle.frontEndStyle().menuStyle().openMenu(context,
+              _monaStyle.frontEndStyle().menuStyle().openMenu(app, context,
                   position: RelativeRect.fromLTRB(1000.0, 1000.0, 0.0, 0.0),
                   menuItems: theMenuItemWithMenuItems.items,
                   popupMenuBackgroundColorOverride:

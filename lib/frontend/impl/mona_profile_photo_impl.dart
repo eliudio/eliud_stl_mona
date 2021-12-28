@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/model/member_public_info_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class MonaProfilePhotoImpl implements HasProfilePhoto {
   @override
-  Widget getProfilePhotoButtonFromMember(BuildContext context,
+  Widget getProfilePhotoButtonFromMember(AppModel app,BuildContext context,
       {MemberModel? member,
         required double radius,
         RgbModel? iconColor,
@@ -21,7 +22,7 @@ class MonaProfilePhotoImpl implements HasProfilePhoto {
   }
 
   @override
-  Widget getProfilePhotoButtonFromPublicMember(BuildContext context,
+  Widget getProfilePhotoButtonFromPublicMember(AppModel app,BuildContext context,
       {MemberPublicInfoModel? member,
         required double radius,
         RgbModel? iconColor,
@@ -34,13 +35,13 @@ class MonaProfilePhotoImpl implements HasProfilePhoto {
   }
 
   @override
-  Widget getProfilePhotoButtonFromExternalProvider(BuildContext context,
+  Widget getProfilePhotoButtonFromExternalProvider(AppModel app,BuildContext context,
       {required ExternalProfileURLProvider externalProfileURLProvider,
         BackupProfileURLProvider? fallBackURLProvider,
         required double radius,
         RgbModel? iconColor,
         VoidCallback? onPressed}) {
-    return ProfilePhotoHelper().getProfilePhotoButtonFromExternalProvider(
+    return ProfilePhotoHelper().getProfilePhotoButtonFromExternalProvider(app,
         context,
         externalProfileURLProvider: externalProfileURLProvider,
         fallBackURLProvider: fallBackURLProvider,
@@ -50,14 +51,14 @@ class MonaProfilePhotoImpl implements HasProfilePhoto {
   }
 
   @override
-  Widget getProfilePhotoButtonFromCurrentMember(BuildContext context,
+  Widget getProfilePhotoButtonFromCurrentMember(AppModel app,BuildContext context,
       {RgbModel? iconColor, required double radius, VoidCallback? onPressed}) {
     return ProfilePhotoHelper().getProfilePhotoButtonFromCurrentMember(context,
         iconColor: iconColor, radius: radius, onPressed: onPressed);
   }
 
   @override
-  Widget getProfilePhotoButtonFromURL(BuildContext context,
+  Widget getProfilePhotoButtonFromURL(AppModel app,BuildContext context,
       {String? url,
         required double radius,
         RgbModel? iconColor,

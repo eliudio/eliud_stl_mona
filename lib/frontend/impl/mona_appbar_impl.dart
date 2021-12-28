@@ -1,5 +1,6 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/model/app_bar_model.dart';
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
@@ -20,7 +21,7 @@ class MonaAppBarImpl implements HasAppBar {
   MonaAppBarImpl(this._monaStyle);
 
   @override
-  PreferredSizeWidget appBar(BuildContext context,
+  PreferredSizeWidget appBar(AppModel app, BuildContext context,
       {required AppbarHeaderAttributes headerAttributes,
       required MemberModel? member,
       required String pageName,
@@ -41,7 +42,7 @@ class MonaAppBarImpl implements HasAppBar {
         _monaStyle.monaStyleAttributesModel.appBarMenuBackgroundColor;
 
     var appBarHelper = AppBarHelper(_monaStyle.frontEndStyle(), MonaMenuImpl(_monaStyle));
-    var _title = appBarHelper.title(context, headerAttributes, pageName);
+    var _title = appBarHelper.title(app, context, headerAttributes, pageName);
 
     var iconThemeData = IconThemeData(color: RgbHelper.color(rgbo: iconColor));
 
@@ -49,7 +50,7 @@ class MonaAppBarImpl implements HasAppBar {
     List<Widget>? buttons;
     if (items != null) {
       buttons = items
-          .map((item) => appBarHelper.button(
+          .map((item) => appBarHelper.button(app,
               context, item, menuBackgroundColor, selectedIconColor, iconColor))
           .toList();
     } else {
@@ -61,14 +62,13 @@ class MonaAppBarImpl implements HasAppBar {
       buttons.add(_monaStyle
           .frontEndStyle()
           .profilePhotoStyle()
-          .getProfilePhotoButtonFromMember(context,
+          .getProfilePhotoButtonFromMember(app, context,
               member: member,
               radius: 20,
               iconColor: EliudColors.white,
               onPressed: openDrawer));
     }
 
-    var state = AccessBloc.getState(context);
     return AppBar(
         key: key,
         iconTheme: iconThemeData,

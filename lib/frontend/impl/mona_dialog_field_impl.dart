@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/_default/frontend/helper/dialog/dialog_field.dart';
 import 'package:eliud_core/style/frontend/has_dialog_field.dart';
 import 'package:eliud_core/style/style.dart';
@@ -10,7 +11,7 @@ class MonaDialogFieldImpl implements HasDialogField {
   MonaDialogFieldImpl(this._style);
 
   @override
-  Widget dialogField(
+  Widget dialogField(AppModel app,
     BuildContext context, {
     InputDecoration? decoration,
     required ValueChanged<String> valueChanged,
@@ -30,7 +31,7 @@ class MonaDialogFieldImpl implements HasDialogField {
     bool? expands,
     int? maxLength,
   }) {
-    return DialogField(
+    return DialogField(app: app,
       decoration: decoration,
       valueChanged: valueChanged,
       initialValue: initialValue,

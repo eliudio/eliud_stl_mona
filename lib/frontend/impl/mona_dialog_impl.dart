@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/_default/frontend/helper/dialog/dialog_helper.dart';
 import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/frontend/types.dart';
@@ -11,7 +12,7 @@ class MonaDialogImpl implements HasDialog {
   MonaDialogImpl(this._style);
 
   @override
-  void openMessageDialog(
+  void openMessageDialog(AppModel app,
     BuildContext context, String name, {
     required String title,
     required String message,
@@ -22,7 +23,7 @@ class MonaDialogImpl implements HasDialog {
     // MessageDialog
     DialogStatefulWidgetHelper.openIt(
       context,name,
-      _style.frontEndStyle().dialogWidgetStyle().messageDialog(
+      _style.frontEndStyle().dialogWidgetStyle().messageDialog(app,
             context,
             title: title,
             message: message,
@@ -33,7 +34,7 @@ class MonaDialogImpl implements HasDialog {
   }
 
   @override
-  void openErrorDialog(
+  void openErrorDialog(AppModel app,
     BuildContext context, String name, {
     required String title,
     required String errorMessage,
@@ -43,7 +44,7 @@ class MonaDialogImpl implements HasDialog {
   }) =>
       DialogStatefulWidgetHelper.openIt(
         context, name,
-        _style.frontEndStyle().dialogWidgetStyle().errorDialog(
+        _style.frontEndStyle().dialogWidgetStyle().errorDialog(app,
               context,
               title: title,
               errorMessage: errorMessage,
@@ -53,7 +54,7 @@ class MonaDialogImpl implements HasDialog {
       );
 
   @override
-  void openAckNackDialog(
+  void openAckNackDialog(AppModel app,
     BuildContext context, String name, {
     required String title,
     required String message,
@@ -65,7 +66,7 @@ class MonaDialogImpl implements HasDialog {
   }) =>
       DialogStatefulWidgetHelper.openIt(
           context, name,
-          _style.frontEndStyle().dialogWidgetStyle().ackNackDialog(
+          _style.frontEndStyle().dialogWidgetStyle().ackNackDialog(app,
                 context,
                 title: title,
                 message: message,
@@ -77,7 +78,7 @@ class MonaDialogImpl implements HasDialog {
               ));
 
   @override
-  void openEntryDialog(
+  void openEntryDialog(AppModel app,
     BuildContext context, String name, {
     required String title,
     String? ackButtonLabel,
@@ -91,7 +92,7 @@ class MonaDialogImpl implements HasDialog {
       DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().entryDialog(
+        _style.frontEndStyle().dialogWidgetStyle().entryDialog(app,
               context,
               title: title,
               ackButtonLabel: ackButtonLabel,
@@ -105,7 +106,7 @@ class MonaDialogImpl implements HasDialog {
       );
 
   @override
-  void openSelectionDialog(
+  void openSelectionDialog(AppModel app,
     BuildContext context, String name, {
     required String title,
     required List<String> options,
@@ -117,7 +118,7 @@ class MonaDialogImpl implements HasDialog {
     DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().selectionDialog(
+        _style.frontEndStyle().dialogWidgetStyle().selectionDialog(app,
               context,
               title: title,
               options: options,
@@ -129,7 +130,7 @@ class MonaDialogImpl implements HasDialog {
   }
 
   @override
-  void openComplexDialog(
+  void openComplexDialog(AppModel app,
     BuildContext context, String name, {
     required String title,
     required Widget child,
@@ -141,7 +142,7 @@ class MonaDialogImpl implements HasDialog {
       DialogStatefulWidgetHelper.openIt(
           context,
           name,
-          _style.frontEndStyle().dialogWidgetStyle().complexDialog(
+          _style.frontEndStyle().dialogWidgetStyle().complexDialog(app,
                 context,
                 title: title,
                 child: child,
@@ -152,7 +153,7 @@ class MonaDialogImpl implements HasDialog {
               ));
 
   @override
-  void openFlexibleDialog(
+  void openFlexibleDialog(AppModel app,
     BuildContext context, String name, {
     String? title,
     required Widget child,
@@ -163,7 +164,7 @@ class MonaDialogImpl implements HasDialog {
     DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().flexibleDialog(
+        _style.frontEndStyle().dialogWidgetStyle().flexibleDialog(app,
               context,
               title: title,
               child: child,
@@ -174,7 +175,7 @@ class MonaDialogImpl implements HasDialog {
   }
 
   @override
-  void openWidgetDialog(BuildContext context, String name, {required Widget child}) {
+  void openWidgetDialog(AppModel app,BuildContext context, String name, {required Widget child}) {
     DialogStatefulWidgetHelper.openIt(context, name, child);
   }
 }

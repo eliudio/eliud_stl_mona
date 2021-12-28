@@ -48,7 +48,7 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return MonaStyleAttributesCollection.doc(value.documentID).update(value.toEntity().toDocument()).then((_) => value);
   }
 
-  MonaStyleAttributesModel? _populateDoc(DocumentSnapshot value) {
+  Future<MonaStyleAttributesModel?> _populateDoc(DocumentSnapshot value) async {
     return MonaStyleAttributesModel.fromEntity(value.id, MonaStyleAttributesEntity.fromMap(value.data()));
   }
 
@@ -72,16 +72,13 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   StreamSubscription<List<MonaStyleAttributesModel?>> listen(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery}) {
     Stream<List<MonaStyleAttributesModel?>> stream;
-      stream = getQuery(FirebaseFirestore.instance.collection('monastyleattributes'), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots().map((data) {
-//    The above line should eventually become the below line
-//    See https://github.com/felangel/bloc/issues/2073.
-//    stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots().map((data) {
-      Iterable<MonaStyleAttributesModel?> monaStyleAttributess  = data.docs.map((doc) {
-        MonaStyleAttributesModel? value = _populateDoc(doc);
-        return value;
-      }).toList();
-      return monaStyleAttributess as List<MonaStyleAttributesModel?>;
+    stream = getQuery(FirebaseFirestore.instance.collection('monastyleattributes'), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots()
+//  see comment listen(...) above
+//  stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots()
+        .asyncMap((data) async {
+      return await Future.wait(data.docs.map((doc) =>  _populateDoc(doc)).toList());
     });
+
     return stream.listen((listOfMonaStyleAttributesModels) {
       trigger(listOfMonaStyleAttributesModels);
     });
@@ -115,11 +112,12 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   Stream<List<MonaStyleAttributesModel?>> values({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) {
     DocumentSnapshot? lastDoc;
-    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots().map((snapshot) {
-      return snapshot.docs.map((doc) {
+    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots().asyncMap((snapshot) {
+      return Future.wait(snapshot.docs.map((doc) {
         lastDoc = doc;
         return _populateDoc(doc);
-      }).toList();});
+      }).toList());
+    });
     if ((setLastDoc != null) && (lastDoc != null)) setLastDoc(lastDoc);
     return _values;
   }
@@ -140,10 +138,10 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     DocumentSnapshot? lastDoc;
     List<MonaStyleAttributesModel?> _values = await getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.get().then((value) {
       var list = value.docs;
-      return list.map((doc) { 
+      return Future.wait(list.map((doc) {
         lastDoc = doc;
         return _populateDoc(doc);
-      }).toList();
+      }).toList());
     });
     if ((setLastDoc != null) && (lastDoc != null)) setLastDoc(lastDoc);
     return _values;

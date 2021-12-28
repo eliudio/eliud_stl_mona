@@ -26,19 +26,20 @@ import 'package:eliud_core/style/style_registry.dart';
 import 'abstract_repository_singleton.dart';
 import 'package:eliud_core/core/widgets/alert_widget.dart';
 import 'package:eliud_core/tools/main_abstract_repository_singleton.dart';
+import 'package:eliud_core/model/app_model.dart';
 
 abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
   static String componentName = "monaStyleAttributess";
-  final String theAppId;
+  final AppModel app;
   final String monaStyleAttributesId;
 
-  AbstractMonaStyleAttributesComponent({Key? key, required this.theAppId, required this.monaStyleAttributesId}): super(key: key);
+  AbstractMonaStyleAttributesComponent({Key? key, required this.app, required this.monaStyleAttributesId}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<MonaStyleAttributesComponentBloc> (
           create: (context) => MonaStyleAttributesComponentBloc(
-            monaStyleAttributesRepository: monaStyleAttributesRepository(appId: theAppId)!)
+            monaStyleAttributesRepository: monaStyleAttributesRepository(appId: app.documentID!)!)
         ..add(FetchMonaStyleAttributesComponent(id: monaStyleAttributesId)),
       child: _monaStyleAttributesBlockBuilder(context),
     );
@@ -48,7 +49,7 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
     return BlocBuilder<MonaStyleAttributesComponentBloc, MonaStyleAttributesComponentState>(builder: (context, state) {
       if (state is MonaStyleAttributesComponentLoaded) {
         if (state.value == null) {
-          return AlertWidget(title: "Error", content: 'No MonaStyleAttributes defined');
+          return AlertWidget(app: app, title: "Error", content: 'No MonaStyleAttributes defined');
         } else {
           return yourWidget(context, state.value);
         }
@@ -59,10 +60,10 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
           size: 30.0,
         );
       } else if (state is MonaStyleAttributesComponentError) {
-        return AlertWidget(title: 'Error', content: state.message);
+        return AlertWidget(app: app, title: 'Error', content: state.message);
       } else {
         return Center(
-          child: StyleRegistry.registry().styleWithContext(context).frontEndStyle().progressIndicatorStyle().progressIndicator(context),
+          child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().progressIndicatorStyle().progressIndicator(app, context),
         );
       }
     });

@@ -185,42 +185,42 @@ class MonaStyleAttributesModel {
     );
   }
 
-  static MonaStyleAttributesModel? fromEntity(String documentID, MonaStyleAttributesEntity? entity) {
+  static Future<MonaStyleAttributesModel?> fromEntity(String documentID, MonaStyleAttributesEntity? entity) async {
     if (entity == null) return null;
     var counter = 0;
     return MonaStyleAttributesModel(
           documentID: documentID, 
           description: entity.description, 
           formSubmitButtonColor: 
-            RgbModel.fromEntity(entity.formSubmitButtonColor), 
+            await RgbModel.fromEntity(entity.formSubmitButtonColor), 
           formSubmitButtonTextColor: 
-            RgbModel.fromEntity(entity.formSubmitButtonTextColor), 
+            await RgbModel.fromEntity(entity.formSubmitButtonTextColor), 
           formGroupTitleColor: 
-            RgbModel.fromEntity(entity.formGroupTitleColor), 
+            await RgbModel.fromEntity(entity.formGroupTitleColor), 
           formFieldTextColor: 
-            RgbModel.fromEntity(entity.formFieldTextColor), 
+            await RgbModel.fromEntity(entity.formFieldTextColor), 
           formFieldHeaderColor: 
-            RgbModel.fromEntity(entity.formFieldHeaderColor), 
+            await RgbModel.fromEntity(entity.formFieldHeaderColor), 
           formFieldFocusColor: 
-            RgbModel.fromEntity(entity.formFieldFocusColor), 
+            await RgbModel.fromEntity(entity.formFieldFocusColor), 
           listTextItemColor: 
-            RgbModel.fromEntity(entity.listTextItemColor), 
+            await RgbModel.fromEntity(entity.listTextItemColor), 
           floatingButtonForegroundColor: 
-            RgbModel.fromEntity(entity.floatingButtonForegroundColor), 
+            await RgbModel.fromEntity(entity.floatingButtonForegroundColor), 
           floatingButtonBackgroundColor: 
-            RgbModel.fromEntity(entity.floatingButtonBackgroundColor), 
+            await RgbModel.fromEntity(entity.floatingButtonBackgroundColor), 
           dividerColor: 
-            RgbModel.fromEntity(entity.dividerColor), 
+            await RgbModel.fromEntity(entity.dividerColor), 
           appBarIconColor: 
-            RgbModel.fromEntity(entity.appBarIconColor), 
+            await RgbModel.fromEntity(entity.appBarIconColor), 
           appBarSelectedIconColor: 
-            RgbModel.fromEntity(entity.appBarSelectedIconColor), 
+            await RgbModel.fromEntity(entity.appBarSelectedIconColor), 
           appBarMenuBackgroundColor: 
-            RgbModel.fromEntity(entity.appBarMenuBackgroundColor), 
+            await RgbModel.fromEntity(entity.appBarMenuBackgroundColor), 
           backgroundColorHomeMenu: 
-            RgbModel.fromEntity(entity.backgroundColorHomeMenu), 
+            await RgbModel.fromEntity(entity.backgroundColorHomeMenu), 
           iconColorHomeMenu: 
-            RgbModel.fromEntity(entity.iconColorHomeMenu), 
+            await RgbModel.fromEntity(entity.iconColorHomeMenu), 
     );
   }
 

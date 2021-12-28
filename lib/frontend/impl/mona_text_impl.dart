@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/icon_model.dart';
 import 'package:eliud_core/style/frontend/has_style.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
@@ -13,93 +14,93 @@ class MonaTextImpl
   MonaTextImpl(this._monaStyle);
 
   @override
-  Widget smallText(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+  Widget smallText(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleSmallText(context));
+        style: styleSmallText(app, context));
   }
 
   @override
-  Widget text(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+  Widget text(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleText(context));
+        style: styleText(app, context));
   }
 
   @override
-  Widget highLight1(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget highLight1(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleHighLight1(context));
+        style: styleHighLight1(app, context));
   }
 
   @override
-  Widget highLight2(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget highLight2(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleHighLight2(context));
+        style: styleHighLight2(app, context));
   }
 
   @override
-  Widget h1(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h1(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleH1(context));
+        style: styleH1(app, context));
   }
 
   @override
-  Widget h2(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h2(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleH2(context));
+        style: styleH2(app, context));
   }
 
   @override
-  Widget h3(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h3(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleH3(context));
+        style: styleH3(app, context));
   }
 
   @override
-  Widget h4(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h4(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleH4(context));
+        style: styleH4(app, context));
   }
 
   @override
-  Widget h5(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h5(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleH5(context));
+        style: styleH5(app, context));
   }
 
   @override
-  Widget inputDecorationLabel(BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+  Widget inputDecorationLabel(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
-        style: styleInputDecorationLabel(context));
+        style: styleInputDecorationLabel(app, context));
   }
 
 }

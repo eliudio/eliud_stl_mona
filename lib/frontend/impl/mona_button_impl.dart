@@ -1,3 +1,4 @@
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class MonaButtonImpl implements HasButton {
   MonaButtonImpl(this._style);
 
   @override
-  Widget button(BuildContext context,
+  Widget button(AppModel app,BuildContext context,
       {Icon? icon, required String label, VoidCallback? onPressed}) {
     if (icon != null) {
       return GestureDetector(
@@ -20,7 +21,7 @@ class MonaButtonImpl implements HasButton {
               child: _style
                   .frontEndStyle()
                   .containerStyle()
-                  .actionContainer(context, child: icon)));
+                  .actionContainer(app, context, child: icon)));
 
 /*
       return ElevatedButton.icon(
@@ -32,14 +33,14 @@ class MonaButtonImpl implements HasButton {
     } else {
       return GestureDetector(
           onTap: onPressed,
-          child: _style.frontEndStyle().containerStyle().actionContainer(
+          child: _style.frontEndStyle().containerStyle().actionContainer(app,
               context,
               child: Padding(
                   padding: const EdgeInsets.all(7.0),
                   child: _style
                       .frontEndStyle()
                       .textStyle()
-                      .text(context, label))));
+                      .text(app, context, label))));
 /*
       return ElevatedButton(
         onPressed: onPressed,
@@ -50,7 +51,7 @@ class MonaButtonImpl implements HasButton {
   }
 
   @override
-  Widget dialogButton(BuildContext context,
+  Widget dialogButton(AppModel app,BuildContext context,
       {VoidCallback? onPressed, required String label, bool? selected}) {
     return TextButton(
       onPressed: onPressed,
@@ -58,13 +59,13 @@ class MonaButtonImpl implements HasButton {
         primary: Colors.pink,
       ),
       child: selected == null || selected == false
-          ? _style.frontEndStyle().textStyle().text(context, label)
-          : _style.frontEndStyle().textStyle().highLight1(context, label),
+          ? _style.frontEndStyle().textStyle().text(app, context, label)
+          : _style.frontEndStyle().textStyle().highLight1(app, context, label),
     );
   }
 
   @override
-  List<Widget> dialogButtons(BuildContext context,
+  List<Widget> dialogButtons(AppModel app,BuildContext context,
       {required List<String> labels, required List<VoidCallback?> functions}) {
     if (labels.length != functions.length) {
       throw Exception(
@@ -74,13 +75,13 @@ class MonaButtonImpl implements HasButton {
     for (var i = 0; i < labels.length; i++) {
       var label = labels[i];
       var function = functions[i];
-      buttons.add(dialogButton(context, onPressed: function, label: label));
+      buttons.add(dialogButton(app, context, onPressed: function, label: label));
     }
     return buttons;
   }
 
   @override
-  Widget iconButton(BuildContext context,
+  Widget iconButton(AppModel app,BuildContext context,
       {VoidCallback? onPressed,
       Color? color,
       String? tooltip,
@@ -91,9 +92,9 @@ class MonaButtonImpl implements HasButton {
   }
 
   @override
-  Widget simpleButton(BuildContext context,
+  Widget simpleButton(AppModel app,BuildContext context,
       {VoidCallback? onPressed, required String label}) {
     return /*_style.frontEndStyle().containerStyle().actionContainer(context,
-        child: */TextButton(onPressed: onPressed, child: _style.frontEndStyle().textStyle().text(context, label),);
+        child: */TextButton(onPressed: onPressed, child: _style.frontEndStyle().textStyle().text(app, context, label),);
   }
 }

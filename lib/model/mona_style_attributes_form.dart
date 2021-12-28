@@ -13,6 +13,7 @@
 
 */
 
+import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/core/blocs/access/state/access_state.dart';
 import 'package:eliud_core/core/blocs/access/state/logged_in.dart';
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
@@ -63,17 +64,16 @@ import 'package:eliud_stl_mona/model/mona_style_attributes_form_state.dart';
 
 
 class MonaStyleAttributesForm extends StatelessWidget {
+  final AppModel app;
   FormAction formAction;
   MonaStyleAttributesModel? value;
   ActionModel? submitAction;
 
-  MonaStyleAttributesForm({Key? key, required this.formAction, required this.value, this.submitAction}) : super(key: key);
+  MonaStyleAttributesForm({Key? key, required this.app, required this.formAction, required this.value, this.submitAction}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var accessState = AccessBloc.getState(context);
-    var app = AccessBloc.currentApp(context);
-    if (app == null) return Text("No app available");
     var appId = app.documentID!;
     if (formAction == FormAction.ShowData) {
       return BlocProvider<MonaStyleAttributesFormBloc >(
@@ -82,7 +82,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
 
                                                 )..add(InitialiseMonaStyleAttributesFormEvent(value: value)),
   
-        child: MyMonaStyleAttributesForm(submitAction: submitAction, formAction: formAction),
+        child: MyMonaStyleAttributesForm(app:app, submitAction: submitAction, formAction: formAction),
           );
     } if (formAction == FormAction.ShowPreloadedData) {
       return BlocProvider<MonaStyleAttributesFormBloc >(
@@ -91,18 +91,18 @@ class MonaStyleAttributesForm extends StatelessWidget {
 
                                                 )..add(InitialiseMonaStyleAttributesFormNoLoadEvent(value: value)),
   
-        child: MyMonaStyleAttributesForm(submitAction: submitAction, formAction: formAction),
+        child: MyMonaStyleAttributesForm(app:app, submitAction: submitAction, formAction: formAction),
           );
     } else {
       return Scaffold(
-        appBar: StyleRegistry.registry().styleWithContext(context).adminFormStyle().appBarWithString(context, title: formAction == FormAction.UpdateAction ? 'Update MonaStyleAttributes' : 'Add MonaStyleAttributes'),
+        appBar: StyleRegistry.registry().styleWithApp(app).adminFormStyle().appBarWithString(app, context, title: formAction == FormAction.UpdateAction ? 'Update MonaStyleAttributes' : 'Add MonaStyleAttributes'),
         body: BlocProvider<MonaStyleAttributesFormBloc >(
             create: (context) => MonaStyleAttributesFormBloc(appId,
                                        formAction: formAction,
 
                                                 )..add((formAction == FormAction.UpdateAction ? InitialiseMonaStyleAttributesFormEvent(value: value) : InitialiseNewMonaStyleAttributesFormEvent())),
   
-        child: MyMonaStyleAttributesForm(submitAction: submitAction, formAction: formAction),
+        child: MyMonaStyleAttributesForm(app: app, submitAction: submitAction, formAction: formAction),
           ));
     }
   }
@@ -110,10 +110,11 @@ class MonaStyleAttributesForm extends StatelessWidget {
 
 
 class MyMonaStyleAttributesForm extends StatefulWidget {
+  final AppModel app;
   final FormAction? formAction;
   final ActionModel? submitAction;
 
-  MyMonaStyleAttributesForm({this.formAction, this.submitAction});
+  MyMonaStyleAttributesForm({required this.app, this.formAction, this.submitAction});
 
   _MyMonaStyleAttributesFormState createState() => _MyMonaStyleAttributesFormState(this.formAction);
 }
@@ -160,13 +161,10 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
   @override
   Widget build(BuildContext context) {
-    var app = AccessBloc.currentApp(context);
-    if (app == null) return Text('No app available');
-    var appId = app.documentID!;
     var accessState = AccessBloc.getState(context);
     return BlocBuilder<MonaStyleAttributesFormBloc, MonaStyleAttributesFormState>(builder: (context, state) {
       if (state is MonaStyleAttributesFormUninitialized) return Center(
-        child: StyleRegistry.registry().styleWithContext(context).adminListStyle().progressIndicator(context),
+        child: StyleRegistry.registry().styleWithApp(widget.app).adminListStyle().progressIndicator(widget.app, context),
       );
 
       if (state is MonaStyleAttributesFormLoaded) {
@@ -268,393 +266,393 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'General')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'General')
                 ));
 
         children.add(
 
-                RgbField("Text color", state.value!.appBarIconColor, _onAppBarIconColorChanged)
+                RgbField(widget.app, "Text color", state.value!.appBarIconColor, _onAppBarIconColorChanged)
           );
 
         children.add(
 
-                RgbField("Selected Icon Color", state.value!.appBarSelectedIconColor, _onAppBarSelectedIconColorChanged)
+                RgbField(widget.app, "Selected Icon Color", state.value!.appBarSelectedIconColor, _onAppBarSelectedIconColorChanged)
           );
 
         children.add(
 
-                RgbField("AppBar Menu Background Color", state.value!.appBarMenuBackgroundColor, _onAppBarMenuBackgroundColorChanged)
+                RgbField(widget.app, "AppBar Menu Background Color", state.value!.appBarMenuBackgroundColor, _onAppBarMenuBackgroundColorChanged)
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _bottomNavigationBarBG, trigger: _onBottomNavigationBarBGSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _bottomNavigationBarBG, trigger: _onBottomNavigationBarBGSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _drawerBG, trigger: _onDrawerBGSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _drawerBG, trigger: _onDrawerBGSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _drawerHeaderBG, trigger: _onDrawerHeaderBGSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _drawerHeaderBG, trigger: _onDrawerHeaderBGSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _profileDrawerBG, trigger: _onProfileDrawerBGSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _profileDrawerBG, trigger: _onProfileDrawerBGSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _profileDrawerHeaderBG, trigger: _onProfileDrawerHeaderBGSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _profileDrawerHeaderBG, trigger: _onProfileDrawerHeaderBGSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _backgroundHomeMenu, trigger: _onBackgroundHomeMenuSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _backgroundHomeMenu, trigger: _onBackgroundHomeMenuSelected, optional: true),
           );
 
         children.add(
 
-                RgbField("Background Color Home Menu", state.value!.backgroundColorHomeMenu, _onBackgroundColorHomeMenuChanged)
+                RgbField(widget.app, "Background Color Home Menu", state.value!.backgroundColorHomeMenu, _onBackgroundColorHomeMenuChanged)
           );
 
         children.add(
 
-                RgbField("Icon Color Home Menu", state.value!.iconColorHomeMenu, _onIconColorHomeMenuChanged)
+                RgbField(widget.app, "Icon Color Home Menu", state.value!.iconColorHomeMenu, _onIconColorHomeMenuChanged)
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _fontLink, trigger: _onFontLinkSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontLink, trigger: _onFontLinkSelected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'General')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'General')
                 ));
 
         children.add(
 
-                  StyleRegistry.registry().styleWithContext(context).adminFormStyle().textFormField(context, labelText: 'Document ID', icon: Icons.vpn_key, readOnly: (formAction == FormAction.UpdateAction), textEditingController: _documentIDController, keyboardType: TextInputType.text, validator: (_) => state is DocumentIDMonaStyleAttributesFormError ? state.message : null, hintText: null)
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().textFormField(widget.app, context, labelText: 'Document ID', icon: Icons.vpn_key, readOnly: (formAction == FormAction.UpdateAction), textEditingController: _documentIDController, keyboardType: TextInputType.text, validator: (_) => state is DocumentIDMonaStyleAttributesFormError ? state.message : null, hintText: null)
           );
 
         children.add(
 
-                  StyleRegistry.registry().styleWithContext(context).adminFormStyle().textFormField(context, labelText: 'Description', icon: Icons.text_format, readOnly: _readOnly(accessState, state), textEditingController: _descriptionController, keyboardType: TextInputType.text, validator: (_) => state is DescriptionMonaStyleAttributesFormError ? state.message : null, hintText: null)
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().textFormField(widget.app, context, labelText: 'Description', icon: Icons.text_format, readOnly: _readOnly(accessState, state), textEditingController: _descriptionController, keyboardType: TextInputType.text, validator: (_) => state is DescriptionMonaStyleAttributesFormError ? state.message : null, hintText: null)
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Form Colors')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Form Colors')
                 ));
 
         children.add(
 
-                RgbField("Form Submit Button Color", state.value!.formSubmitButtonColor, _onFormSubmitButtonColorChanged)
+                RgbField(widget.app, "Form Submit Button Color", state.value!.formSubmitButtonColor, _onFormSubmitButtonColorChanged)
           );
 
         children.add(
 
-                RgbField("Form Submit Button Text Color", state.value!.formSubmitButtonTextColor, _onFormSubmitButtonTextColorChanged)
+                RgbField(widget.app, "Form Submit Button Text Color", state.value!.formSubmitButtonTextColor, _onFormSubmitButtonTextColorChanged)
           );
 
         children.add(
 
-                RgbField("Form Group Title Color", state.value!.formGroupTitleColor, _onFormGroupTitleColorChanged)
+                RgbField(widget.app, "Form Group Title Color", state.value!.formGroupTitleColor, _onFormGroupTitleColorChanged)
           );
 
         children.add(
 
-                RgbField("Form Field Text Color", state.value!.formFieldTextColor, _onFormFieldTextColorChanged)
+                RgbField(widget.app, "Form Field Text Color", state.value!.formFieldTextColor, _onFormFieldTextColorChanged)
           );
 
         children.add(
 
-                RgbField("Form Field Focus Color", state.value!.formFieldFocusColor, _onFormFieldFocusColorChanged)
+                RgbField(widget.app, "Form Field Focus Color", state.value!.formFieldFocusColor, _onFormFieldFocusColorChanged)
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'List Items Colors')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'List Items Colors')
                 ));
 
         children.add(
 
-                RgbField("List Item Text Color", state.value!.listTextItemColor, _onListTextItemColorChanged)
+                RgbField(widget.app, "List Item Text Color", state.value!.listTextItemColor, _onListTextItemColorChanged)
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Floating Button Colors')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Floating Button Colors')
                 ));
 
         children.add(
 
-                RgbField("List Item Text Color", state.value!.floatingButtonForegroundColor, _onFloatingButtonForegroundColorChanged)
+                RgbField(widget.app, "List Item Text Color", state.value!.floatingButtonForegroundColor, _onFloatingButtonForegroundColorChanged)
           );
 
         children.add(
 
-                RgbField("List Item Text Color", state.value!.floatingButtonBackgroundColor, _onFloatingButtonBackgroundColorChanged)
+                RgbField(widget.app, "List Item Text Color", state.value!.floatingButtonBackgroundColor, _onFloatingButtonBackgroundColorChanged)
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Other Colors')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Other Colors')
                 ));
 
         children.add(
 
-                RgbField("Form Field Header Color", state.value!.formFieldHeaderColor, _onFormFieldHeaderColorChanged)
+                RgbField(widget.app, "Form Field Header Color", state.value!.formFieldHeaderColor, _onFormFieldHeaderColorChanged)
           );
 
         children.add(
 
-                RgbField("Divider Color", state.value!.dividerColor, _onDividerColorChanged)
+                RgbField(widget.app, "Divider Color", state.value!.dividerColor, _onDividerColorChanged)
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Background forms')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Background forms')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _formBackground, trigger: _onFormBackgroundSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _formBackground, trigger: _onFormBackgroundSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _appBackground, trigger: _onAppBackgroundSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _appBackground, trigger: _onAppBackgroundSelected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'AppBar Background')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'AppBar Background')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _appBarBG, trigger: _onAppBarBGSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _appBarBG, trigger: _onAppBarBGSelected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'List Background')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'List Background')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "backgrounds", value: _listBackground, trigger: _onListBackgroundSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _listBackground, trigger: _onListBackgroundSelected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font header 1')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 1')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _h1, trigger: _onH1Selected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h1, trigger: _onH1Selected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font header 2')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 2')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _h2, trigger: _onH2Selected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h2, trigger: _onH2Selected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font header 3')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 3')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _h3, trigger: _onH3Selected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h3, trigger: _onH3Selected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font header 4')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 4')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _h4, trigger: _onH4Selected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h4, trigger: _onH4Selected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font header 5')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 5')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _h5, trigger: _onH5Selected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h5, trigger: _onH5Selected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font header 5')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 5')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _textFieldHeader, trigger: _onTextFieldHeaderSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _textFieldHeader, trigger: _onTextFieldHeaderSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _fontText, trigger: _onFontTextSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontText, trigger: _onFontTextSelected, optional: true),
           );
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _fontSmallText, trigger: _onFontSmallTextSelected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontSmallText, trigger: _onFontSmallTextSelected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font highlight 1')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font highlight 1')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _fontHighlight1, trigger: _onFontHighlight1Selected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontHighlight1, trigger: _onFontHighlight1Selected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font hightlight 2')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font hightlight 2')
                 ));
 
         children.add(
 
-                DropdownButtonComponentFactory().createNew(appId: appId, id: "fonts", value: _fontHighlight2, trigger: _onFontHighlight2Selected, optional: true),
+                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontHighlight2, trigger: _onFontHighlight2Selected, optional: true),
           );
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
          children.add(Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: StyleRegistry.registry().styleWithContext(context).adminFormStyle().groupTitle(context, 'Font Link')
+                  child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font Link')
                 ));
 
 
         children.add(Container(height: 20.0));
-        children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().divider(context));
+        children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
 
 
         if ((formAction != FormAction.ShowData) && (formAction != FormAction.ShowPreloadedData))
-          children.add(StyleRegistry.registry().styleWithContext(context).adminFormStyle().button(context, label: 'Submit',
+          children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().button(widget.app, context, label: 'Submit',
                   onPressed: _readOnly(accessState, state) ? null : () {
                     if (state is MonaStyleAttributesFormError) {
                       return null;
@@ -753,7 +751,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   },
                 ));
 
-        return StyleRegistry.registry().styleWithContext(context).adminFormStyle().container(context, Form(
+        return StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().container(widget.app, context, Form(
             child: ListView(
               padding: const EdgeInsets.all(8),
               physics: ((formAction == FormAction.ShowData) || (formAction == FormAction.ShowPreloadedData)) ? NeverScrollableScrollPhysics() : null,
@@ -763,7 +761,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
           ), formAction!
         );
       } else {
-        return StyleRegistry.registry().styleWithContext(context).adminListStyle().progressIndicator(context);
+        return StyleRegistry.registry().styleWithApp(widget.app).adminListStyle().progressIndicator(widget.app, context);
       }
     });
   }
@@ -1045,7 +1043,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
   bool _readOnly(AccessState accessState, MonaStyleAttributesFormInitialized state) {
-    return (formAction == FormAction.ShowData) || (formAction == FormAction.ShowPreloadedData) || (!accessState.memberIsOwner(AccessBloc.currentAppId(context)));
+    return (formAction == FormAction.ShowData) || (formAction == FormAction.ShowPreloadedData) || (!accessState.memberIsOwner(widget.app.documentID!));
   }
   
 
