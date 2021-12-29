@@ -1,3 +1,6 @@
+import 'package:eliud_core/style/frontend/has_page_route_builder.dart';
+import 'package:eliud_stl_mona/frontend/impl/mona_page_route_builder_impl.dart';
+
 import '../frontend/impl/mona_button_impl.dart';
 import '../frontend/impl/mona_list_tile_impl.dart';
 import '../frontend/impl/mona_tabs_impl.dart';
@@ -67,6 +70,7 @@ class MonaFrontEndStyle implements FrontEndStyle {
   late HasIcon monaIconImpl;
   late HasDivider monaDividerImpl;
   late HasTabs monaTabsImpl;
+  late HasPageRouteBuilder monaPageRouteBuilder;
 
   MonaFrontEndStyle(this._monaStyle) {
     monaPageBodyImpl = MonaPageBodyImpl(_monaStyle);
@@ -90,6 +94,7 @@ class MonaFrontEndStyle implements FrontEndStyle {
     monaIconImpl = MonaIconImpl(_monaStyle);
     monaDividerImpl = MonaDividerImpl(_monaStyle);
     monaTabsImpl = MonaTabsImpl(_monaStyle);
+    monaPageRouteBuilder = MonaPageRouteBuilderImpl(_monaStyle);
   }
 
   @override
@@ -154,4 +159,7 @@ class MonaFrontEndStyle implements FrontEndStyle {
 
   @override
   HasTabs tabsStyle() => monaTabsImpl;
+
+  @override
+  HasPageRouteBuilder pageRoutBuilder() => monaPageRouteBuilder;
 }

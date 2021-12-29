@@ -70,6 +70,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  appBarMenuBackgroundColor: RgbModel(r: 64, g: 6, b: 64, opacity: 1.00), 
                                  backgroundColorHomeMenu: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
                                  iconColorHomeMenu: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
+                                 routeAnimationDuration: 1000, 
 
         ));
         yield loaded;
@@ -155,6 +156,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -203,6 +206,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -281,6 +286,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -353,6 +360,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -419,6 +428,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -467,6 +478,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -515,6 +528,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -563,6 +578,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -611,6 +628,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -659,6 +678,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -719,6 +740,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -767,6 +790,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -815,6 +840,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -863,6 +890,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -911,6 +940,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -959,6 +990,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -1007,6 +1040,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -1055,6 +1090,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -1103,6 +1140,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: null,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -1151,6 +1190,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: null,
                                  fontLink: currentState.value!.fontLink,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
@@ -1199,9 +1240,28 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  fontHighlight1: currentState.value!.fontHighlight1,
                                  fontHighlight2: currentState.value!.fontHighlight2,
                                  fontLink: null,
+                                 routeBuilder: currentState.value!.routeBuilder,
+                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
           );
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
+        return;
+      }
+      if (event is ChangedMonaStyleAttributesRouteBuilder) {
+        newValue = currentState.value!.copyWith(routeBuilder: event.value);
+        yield SubmittableMonaStyleAttributesForm(value: newValue);
+
+        return;
+      }
+      if (event is ChangedMonaStyleAttributesRouteAnimationDuration) {
+        if (isInt(event.value)) {
+          newValue = currentState.value!.copyWith(routeAnimationDuration: int.parse(event.value!));
+          yield SubmittableMonaStyleAttributesForm(value: newValue);
+
+        } else {
+          newValue = currentState.value!.copyWith(routeAnimationDuration: 0);
+          yield RouteAnimationDurationMonaStyleAttributesFormError(message: "Value should be a number", value: newValue);
+        }
         return;
       }
     }

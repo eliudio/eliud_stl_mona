@@ -515,3 +515,27 @@ class ChangedMonaStyleAttributesFontLink extends MonaStyleAttributesFormEvent {
   String toString() => 'ChangedMonaStyleAttributesFontLink{ value: $value }';
 }
 
+class ChangedMonaStyleAttributesRouteBuilder extends MonaStyleAttributesFormEvent {
+  final PageTransitionAnimation? value;
+
+  ChangedMonaStyleAttributesRouteBuilder({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesRouteBuilder{ value: $value }';
+}
+
+class ChangedMonaStyleAttributesRouteAnimationDuration extends MonaStyleAttributesFormEvent {
+  final String? value;
+
+  ChangedMonaStyleAttributesRouteAnimationDuration({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesRouteAnimationDuration{ value: $value }';
+}
+

@@ -33,6 +33,21 @@ import 'package:eliud_stl_mona/model/mona_style_attributes_entity.dart';
 
 import 'package:eliud_core/tools/random.dart';
 
+enum PageTransitionAnimation {
+  SlideRightToLeft, SlideBottomToTop, ScaleRoute, RotationRoute, FadeRoute, Unknown
+}
+
+
+PageTransitionAnimation toPageTransitionAnimation(int? index) {
+  switch (index) {
+    case 0: return PageTransitionAnimation.SlideRightToLeft;
+    case 1: return PageTransitionAnimation.SlideBottomToTop;
+    case 2: return PageTransitionAnimation.ScaleRoute;
+    case 3: return PageTransitionAnimation.RotationRoute;
+    case 4: return PageTransitionAnimation.FadeRoute;
+  }
+  return PageTransitionAnimation.Unknown;
+}
 
 
 class MonaStyleAttributesModel {
@@ -82,17 +97,19 @@ class MonaStyleAttributesModel {
   FontModel? fontHighlight1;
   FontModel? fontHighlight2;
   FontModel? fontLink;
+  PageTransitionAnimation? routeBuilder;
+  int? routeAnimationDuration;
 
-  MonaStyleAttributesModel({this.documentID, this.description, this.formSubmitButtonColor, this.formBackground, this.appBackground, this.formSubmitButtonTextColor, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundHomeMenu, this.backgroundColorHomeMenu, this.iconColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, })  {
+  MonaStyleAttributesModel({this.documentID, this.description, this.formSubmitButtonColor, this.formBackground, this.appBackground, this.formSubmitButtonTextColor, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundHomeMenu, this.backgroundColorHomeMenu, this.iconColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, })  {
     assert(documentID != null);
   }
 
-  MonaStyleAttributesModel copyWith({String? documentID, String? description, RgbModel? formSubmitButtonColor, BackgroundModel? formBackground, BackgroundModel? appBackground, RgbModel? formSubmitButtonTextColor, RgbModel? formGroupTitleColor, RgbModel? formFieldTextColor, RgbModel? formFieldHeaderColor, RgbModel? formFieldFocusColor, BackgroundModel? listBackground, RgbModel? listTextItemColor, RgbModel? floatingButtonForegroundColor, RgbModel? floatingButtonBackgroundColor, RgbModel? dividerColor, BackgroundModel? appBarBG, RgbModel? appBarIconColor, RgbModel? appBarSelectedIconColor, RgbModel? appBarMenuBackgroundColor, BackgroundModel? bottomNavigationBarBG, BackgroundModel? drawerBG, BackgroundModel? drawerHeaderBG, BackgroundModel? profileDrawerBG, BackgroundModel? profileDrawerHeaderBG, BackgroundModel? backgroundHomeMenu, RgbModel? backgroundColorHomeMenu, RgbModel? iconColorHomeMenu, FontModel? h1, FontModel? h2, FontModel? h3, FontModel? h4, FontModel? h5, FontModel? textFieldHeader, FontModel? fontText, FontModel? fontSmallText, FontModel? fontHighlight1, FontModel? fontHighlight2, FontModel? fontLink, }) {
-    return MonaStyleAttributesModel(documentID: documentID ?? this.documentID, description: description ?? this.description, formSubmitButtonColor: formSubmitButtonColor ?? this.formSubmitButtonColor, formBackground: formBackground ?? this.formBackground, appBackground: appBackground ?? this.appBackground, formSubmitButtonTextColor: formSubmitButtonTextColor ?? this.formSubmitButtonTextColor, formGroupTitleColor: formGroupTitleColor ?? this.formGroupTitleColor, formFieldTextColor: formFieldTextColor ?? this.formFieldTextColor, formFieldHeaderColor: formFieldHeaderColor ?? this.formFieldHeaderColor, formFieldFocusColor: formFieldFocusColor ?? this.formFieldFocusColor, listBackground: listBackground ?? this.listBackground, listTextItemColor: listTextItemColor ?? this.listTextItemColor, floatingButtonForegroundColor: floatingButtonForegroundColor ?? this.floatingButtonForegroundColor, floatingButtonBackgroundColor: floatingButtonBackgroundColor ?? this.floatingButtonBackgroundColor, dividerColor: dividerColor ?? this.dividerColor, appBarBG: appBarBG ?? this.appBarBG, appBarIconColor: appBarIconColor ?? this.appBarIconColor, appBarSelectedIconColor: appBarSelectedIconColor ?? this.appBarSelectedIconColor, appBarMenuBackgroundColor: appBarMenuBackgroundColor ?? this.appBarMenuBackgroundColor, bottomNavigationBarBG: bottomNavigationBarBG ?? this.bottomNavigationBarBG, drawerBG: drawerBG ?? this.drawerBG, drawerHeaderBG: drawerHeaderBG ?? this.drawerHeaderBG, profileDrawerBG: profileDrawerBG ?? this.profileDrawerBG, profileDrawerHeaderBG: profileDrawerHeaderBG ?? this.profileDrawerHeaderBG, backgroundHomeMenu: backgroundHomeMenu ?? this.backgroundHomeMenu, backgroundColorHomeMenu: backgroundColorHomeMenu ?? this.backgroundColorHomeMenu, iconColorHomeMenu: iconColorHomeMenu ?? this.iconColorHomeMenu, h1: h1 ?? this.h1, h2: h2 ?? this.h2, h3: h3 ?? this.h3, h4: h4 ?? this.h4, h5: h5 ?? this.h5, textFieldHeader: textFieldHeader ?? this.textFieldHeader, fontText: fontText ?? this.fontText, fontSmallText: fontSmallText ?? this.fontSmallText, fontHighlight1: fontHighlight1 ?? this.fontHighlight1, fontHighlight2: fontHighlight2 ?? this.fontHighlight2, fontLink: fontLink ?? this.fontLink, );
+  MonaStyleAttributesModel copyWith({String? documentID, String? description, RgbModel? formSubmitButtonColor, BackgroundModel? formBackground, BackgroundModel? appBackground, RgbModel? formSubmitButtonTextColor, RgbModel? formGroupTitleColor, RgbModel? formFieldTextColor, RgbModel? formFieldHeaderColor, RgbModel? formFieldFocusColor, BackgroundModel? listBackground, RgbModel? listTextItemColor, RgbModel? floatingButtonForegroundColor, RgbModel? floatingButtonBackgroundColor, RgbModel? dividerColor, BackgroundModel? appBarBG, RgbModel? appBarIconColor, RgbModel? appBarSelectedIconColor, RgbModel? appBarMenuBackgroundColor, BackgroundModel? bottomNavigationBarBG, BackgroundModel? drawerBG, BackgroundModel? drawerHeaderBG, BackgroundModel? profileDrawerBG, BackgroundModel? profileDrawerHeaderBG, BackgroundModel? backgroundHomeMenu, RgbModel? backgroundColorHomeMenu, RgbModel? iconColorHomeMenu, FontModel? h1, FontModel? h2, FontModel? h3, FontModel? h4, FontModel? h5, FontModel? textFieldHeader, FontModel? fontText, FontModel? fontSmallText, FontModel? fontHighlight1, FontModel? fontHighlight2, FontModel? fontLink, PageTransitionAnimation? routeBuilder, int? routeAnimationDuration, }) {
+    return MonaStyleAttributesModel(documentID: documentID ?? this.documentID, description: description ?? this.description, formSubmitButtonColor: formSubmitButtonColor ?? this.formSubmitButtonColor, formBackground: formBackground ?? this.formBackground, appBackground: appBackground ?? this.appBackground, formSubmitButtonTextColor: formSubmitButtonTextColor ?? this.formSubmitButtonTextColor, formGroupTitleColor: formGroupTitleColor ?? this.formGroupTitleColor, formFieldTextColor: formFieldTextColor ?? this.formFieldTextColor, formFieldHeaderColor: formFieldHeaderColor ?? this.formFieldHeaderColor, formFieldFocusColor: formFieldFocusColor ?? this.formFieldFocusColor, listBackground: listBackground ?? this.listBackground, listTextItemColor: listTextItemColor ?? this.listTextItemColor, floatingButtonForegroundColor: floatingButtonForegroundColor ?? this.floatingButtonForegroundColor, floatingButtonBackgroundColor: floatingButtonBackgroundColor ?? this.floatingButtonBackgroundColor, dividerColor: dividerColor ?? this.dividerColor, appBarBG: appBarBG ?? this.appBarBG, appBarIconColor: appBarIconColor ?? this.appBarIconColor, appBarSelectedIconColor: appBarSelectedIconColor ?? this.appBarSelectedIconColor, appBarMenuBackgroundColor: appBarMenuBackgroundColor ?? this.appBarMenuBackgroundColor, bottomNavigationBarBG: bottomNavigationBarBG ?? this.bottomNavigationBarBG, drawerBG: drawerBG ?? this.drawerBG, drawerHeaderBG: drawerHeaderBG ?? this.drawerHeaderBG, profileDrawerBG: profileDrawerBG ?? this.profileDrawerBG, profileDrawerHeaderBG: profileDrawerHeaderBG ?? this.profileDrawerHeaderBG, backgroundHomeMenu: backgroundHomeMenu ?? this.backgroundHomeMenu, backgroundColorHomeMenu: backgroundColorHomeMenu ?? this.backgroundColorHomeMenu, iconColorHomeMenu: iconColorHomeMenu ?? this.iconColorHomeMenu, h1: h1 ?? this.h1, h2: h2 ?? this.h2, h3: h3 ?? this.h3, h4: h4 ?? this.h4, h5: h5 ?? this.h5, textFieldHeader: textFieldHeader ?? this.textFieldHeader, fontText: fontText ?? this.fontText, fontSmallText: fontSmallText ?? this.fontSmallText, fontHighlight1: fontHighlight1 ?? this.fontHighlight1, fontHighlight2: fontHighlight2 ?? this.fontHighlight2, fontLink: fontLink ?? this.fontLink, routeBuilder: routeBuilder ?? this.routeBuilder, routeAnimationDuration: routeAnimationDuration ?? this.routeAnimationDuration, );
   }
 
   @override
-  int get hashCode => documentID.hashCode ^ description.hashCode ^ formSubmitButtonColor.hashCode ^ formBackground.hashCode ^ appBackground.hashCode ^ formSubmitButtonTextColor.hashCode ^ formGroupTitleColor.hashCode ^ formFieldTextColor.hashCode ^ formFieldHeaderColor.hashCode ^ formFieldFocusColor.hashCode ^ listBackground.hashCode ^ listTextItemColor.hashCode ^ floatingButtonForegroundColor.hashCode ^ floatingButtonBackgroundColor.hashCode ^ dividerColor.hashCode ^ appBarBG.hashCode ^ appBarIconColor.hashCode ^ appBarSelectedIconColor.hashCode ^ appBarMenuBackgroundColor.hashCode ^ bottomNavigationBarBG.hashCode ^ drawerBG.hashCode ^ drawerHeaderBG.hashCode ^ profileDrawerBG.hashCode ^ profileDrawerHeaderBG.hashCode ^ backgroundHomeMenu.hashCode ^ backgroundColorHomeMenu.hashCode ^ iconColorHomeMenu.hashCode ^ h1.hashCode ^ h2.hashCode ^ h3.hashCode ^ h4.hashCode ^ h5.hashCode ^ textFieldHeader.hashCode ^ fontText.hashCode ^ fontSmallText.hashCode ^ fontHighlight1.hashCode ^ fontHighlight2.hashCode ^ fontLink.hashCode;
+  int get hashCode => documentID.hashCode ^ description.hashCode ^ formSubmitButtonColor.hashCode ^ formBackground.hashCode ^ appBackground.hashCode ^ formSubmitButtonTextColor.hashCode ^ formGroupTitleColor.hashCode ^ formFieldTextColor.hashCode ^ formFieldHeaderColor.hashCode ^ formFieldFocusColor.hashCode ^ listBackground.hashCode ^ listTextItemColor.hashCode ^ floatingButtonForegroundColor.hashCode ^ floatingButtonBackgroundColor.hashCode ^ dividerColor.hashCode ^ appBarBG.hashCode ^ appBarIconColor.hashCode ^ appBarSelectedIconColor.hashCode ^ appBarMenuBackgroundColor.hashCode ^ bottomNavigationBarBG.hashCode ^ drawerBG.hashCode ^ drawerHeaderBG.hashCode ^ profileDrawerBG.hashCode ^ profileDrawerHeaderBG.hashCode ^ backgroundHomeMenu.hashCode ^ backgroundColorHomeMenu.hashCode ^ iconColorHomeMenu.hashCode ^ h1.hashCode ^ h2.hashCode ^ h3.hashCode ^ h4.hashCode ^ h5.hashCode ^ textFieldHeader.hashCode ^ fontText.hashCode ^ fontSmallText.hashCode ^ fontHighlight1.hashCode ^ fontHighlight2.hashCode ^ fontLink.hashCode ^ routeBuilder.hashCode ^ routeAnimationDuration.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -136,11 +153,13 @@ class MonaStyleAttributesModel {
           fontSmallText == other.fontSmallText &&
           fontHighlight1 == other.fontHighlight1 &&
           fontHighlight2 == other.fontHighlight2 &&
-          fontLink == other.fontLink;
+          fontLink == other.fontLink &&
+          routeBuilder == other.routeBuilder &&
+          routeAnimationDuration == other.routeAnimationDuration;
 
   @override
   String toString() {
-    return 'MonaStyleAttributesModel{documentID: $documentID, description: $description, formSubmitButtonColor: $formSubmitButtonColor, formBackground: $formBackground, appBackground: $appBackground, formSubmitButtonTextColor: $formSubmitButtonTextColor, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundHomeMenu: $backgroundHomeMenu, backgroundColorHomeMenu: $backgroundColorHomeMenu, iconColorHomeMenu: $iconColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink}';
+    return 'MonaStyleAttributesModel{documentID: $documentID, description: $description, formSubmitButtonColor: $formSubmitButtonColor, formBackground: $formBackground, appBackground: $appBackground, formSubmitButtonTextColor: $formSubmitButtonTextColor, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundHomeMenu: $backgroundHomeMenu, backgroundColorHomeMenu: $backgroundColorHomeMenu, iconColorHomeMenu: $iconColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
   }
 
   MonaStyleAttributesEntity toEntity({String? appId}) {
@@ -182,6 +201,8 @@ class MonaStyleAttributesModel {
           fontHighlight1Id: (fontHighlight1 != null) ? fontHighlight1!.documentID : null, 
           fontHighlight2Id: (fontHighlight2 != null) ? fontHighlight2!.documentID : null, 
           fontLinkId: (fontLink != null) ? fontLink!.documentID : null, 
+          routeBuilder: (routeBuilder != null) ? routeBuilder!.index : null, 
+          routeAnimationDuration: (routeAnimationDuration != null) ? routeAnimationDuration : null, 
     );
   }
 
@@ -221,6 +242,8 @@ class MonaStyleAttributesModel {
             await RgbModel.fromEntity(entity.backgroundColorHomeMenu), 
           iconColorHomeMenu: 
             await RgbModel.fromEntity(entity.iconColorHomeMenu), 
+          routeBuilder: toPageTransitionAnimation(entity.routeBuilder), 
+          routeAnimationDuration: entity.routeAnimationDuration, 
     );
   }
 
@@ -513,6 +536,8 @@ class MonaStyleAttributesModel {
           fontHighlight1: fontHighlight1Holder, 
           fontHighlight2: fontHighlight2Holder, 
           fontLink: fontLinkHolder, 
+          routeBuilder: toPageTransitionAnimation(entity.routeBuilder), 
+          routeAnimationDuration: entity.routeAnimationDuration, 
     );
   }
 

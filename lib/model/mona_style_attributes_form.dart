@@ -147,6 +147,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   String? _fontHighlight1;
   String? _fontHighlight2;
   String? _fontLink;
+  int? _routeBuilderSelectedRadioTile;
+  final TextEditingController _routeAnimationDurationController = TextEditingController();
 
 
   _MyMonaStyleAttributesFormState(this.formAction);
@@ -157,6 +159,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
     _myFormBloc = BlocProvider.of<MonaStyleAttributesFormBloc>(context);
     _documentIDController.addListener(_onDocumentIDChanged);
     _descriptionController.addListener(_onDescriptionChanged);
+    _routeBuilderSelectedRadioTile = 0;
+    _routeAnimationDurationController.addListener(_onRouteAnimationDurationChanged);
   }
 
   @override
@@ -260,6 +264,14 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
           _fontLink= state.value!.fontLink!.documentID;
         else
           _fontLink= "";
+        if (state.value!.routeBuilder != null)
+          _routeBuilderSelectedRadioTile = state.value!.routeBuilder!.index;
+        else
+          _routeBuilderSelectedRadioTile = 0;
+        if (state.value!.routeAnimationDuration != null)
+          _routeAnimationDurationController.text = state.value!.routeAnimationDuration.toString();
+        else
+          _routeAnimationDurationController.text = "";
       }
       if (state is MonaStyleAttributesFormInitialized) {
         List<Widget> children = [];
@@ -327,6 +339,32 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
         children.add(
 
                 DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontLink, trigger: _onFontLinkSelected, optional: true),
+          );
+
+        children.add(
+
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'SlideRightToLeft', 'SlideRightToLeft', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+          );
+        children.add(
+
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'SlideBottomToTop', 'SlideBottomToTop', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+          );
+        children.add(
+
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'ScaleRoute', 'ScaleRoute', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+          );
+        children.add(
+
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'RotationRoute', 'RotationRoute', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+          );
+        children.add(
+
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'FadeRoute', 'FadeRoute', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+          );
+
+        children.add(
+
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().textFormField(widget.app, context, labelText: 'Page Animation (millisec)', icon: Icons.text_format, readOnly: _readOnly(accessState, state), textEditingController: _routeAnimationDurationController, keyboardType: TextInputType.number, validator: (_) => state is RouteAnimationDurationMonaStyleAttributesFormError ? state.message : null, hintText: null)
           );
 
 
@@ -698,6 +736,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               fontHighlight1: state.value!.fontHighlight1, 
                               fontHighlight2: state.value!.fontHighlight2, 
                               fontLink: state.value!.fontLink, 
+                              routeBuilder: state.value!.routeBuilder, 
+                              routeAnimationDuration: state.value!.routeAnimationDuration, 
                         )));
                       } else {
                         BlocProvider.of<MonaStyleAttributesListBloc>(context).add(
@@ -740,6 +780,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               fontHighlight1: state.value!.fontHighlight1, 
                               fontHighlight2: state.value!.fontHighlight2, 
                               fontLink: state.value!.fontLink, 
+                              routeBuilder: state.value!.routeBuilder, 
+                              routeAnimationDuration: state.value!.routeAnimationDuration, 
                           )));
                       }
                       if (widget.submitAction != null) {
@@ -1034,11 +1076,25 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
 
+  void setSelectionRouteBuilder(int? val) {
+    setState(() {
+      _routeBuilderSelectedRadioTile = val;
+    });
+    _myFormBloc.add(ChangedMonaStyleAttributesRouteBuilder(value: toPageTransitionAnimation(val)));
+  }
+
+
+  void _onRouteAnimationDurationChanged() {
+    _myFormBloc.add(ChangedMonaStyleAttributesRouteAnimationDuration(value: _routeAnimationDurationController.text));
+  }
+
+
 
   @override
   void dispose() {
     _documentIDController.dispose();
     _descriptionController.dispose();
+    _routeAnimationDurationController.dispose();
     super.dispose();
   }
 

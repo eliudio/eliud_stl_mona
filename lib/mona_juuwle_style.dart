@@ -72,6 +72,8 @@ class MonaJuuwleStyle {
       profileDrawerHeaderBG: profileDrawerHeaderBG(),
       textFieldHeader: fontTools
           .getFont(FontTools.key(FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
+      routeBuilder: PageTransitionAnimation.RotationRoute,
+      routeAnimationDuration: 800,
     );
   }
 

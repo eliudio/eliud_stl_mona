@@ -72,6 +72,8 @@ class MonaIncidamusStyle {
       profileDrawerHeaderBG: profileDrawerHeaderBG(),
       textFieldHeader: fontTools
           .getFont(FontTools.key(FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
+      routeBuilder: PageTransitionAnimation.FadeRoute,
+      routeAnimationDuration: 800,
     );
   }
 

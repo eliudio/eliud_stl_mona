@@ -671,6 +671,38 @@ class FontLinkMonaStyleAttributesFormError extends MonaStyleAttributesFormError 
 }
 
 
+class RouteBuilderMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const RouteBuilderMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''RouteBuilderMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
+class RouteAnimationDurationMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const RouteAnimationDurationMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''RouteAnimationDurationMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
 class MonaStyleAttributesFormLoaded extends MonaStyleAttributesFormInitialized { 
   const MonaStyleAttributesFormLoaded({ MonaStyleAttributesModel? value }): super(value: value);
 
