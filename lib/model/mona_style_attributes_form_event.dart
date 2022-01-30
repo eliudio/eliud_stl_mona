@@ -71,16 +71,16 @@ class ChangedMonaStyleAttributesDocumentID extends MonaStyleAttributesFormEvent 
   String toString() => 'ChangedMonaStyleAttributesDocumentID{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesDescription extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesAppId extends MonaStyleAttributesFormEvent {
   final String? value;
 
-  ChangedMonaStyleAttributesDescription({this.value});
+  ChangedMonaStyleAttributesAppId({this.value});
 
   @override
   List<Object?> get props => [ value ];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesDescription{ value: $value }';
+  String toString() => 'ChangedMonaStyleAttributesAppId{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesFormSubmitButtonColor extends MonaStyleAttributesFormEvent {

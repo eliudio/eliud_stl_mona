@@ -27,7 +27,7 @@ import 'package:eliud_core/style/frontend/has_tabs.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:eliud_core/style/frontend/has_text_form_field.dart';
 
-import '../mona_style.dart';
+import '../styles/mona_style.dart';
 import 'impl/mona_app_impl.dart';
 import 'impl/mona_appbar_impl.dart';
 import 'impl/mona_bottom_navigation_bar_impl.dart';

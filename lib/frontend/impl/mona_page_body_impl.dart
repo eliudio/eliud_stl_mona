@@ -7,7 +7,7 @@ import 'package:eliud_core/tools/etc.dart';
 import 'package:eliud_core/tools/grid_view_helper.dart';
 import 'package:flutter/material.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaPageBodyImpl implements HasPageBody {
   final MonaStyle _monaStyle;

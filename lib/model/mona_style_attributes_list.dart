@@ -217,7 +217,6 @@ class MonaStyleAttributesListItem extends StatelessWidget {
       child: ListTile(
         onTap: onTap,
         title: value.documentID != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.documentID!)) : Container(),
-        subtitle: value.description != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.description!)) : Container(),
       ),
     );
   }

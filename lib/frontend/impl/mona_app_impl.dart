@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 import 'mona_menu_impl.dart';
 
 class MonaAppImpl implements HasApp {

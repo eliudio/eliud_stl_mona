@@ -37,7 +37,7 @@ import 'package:eliud_core/tools/common_tools.dart';
 
 class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value) {
-    return MonaStyleAttributesCollection.doc(value.documentID).set(value.toEntity().toDocument()).then((_) => value);
+    return MonaStyleAttributesCollection.doc(value.documentID).set(value.toEntity(appId: appId).toDocument()).then((_) => value);
   }
 
   Future<void> delete(MonaStyleAttributesModel value) {
@@ -45,7 +45,7 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
   }
 
   Future<MonaStyleAttributesModel> update(MonaStyleAttributesModel value) {
-    return MonaStyleAttributesCollection.doc(value.documentID).update(value.toEntity().toDocument()).then((_) => value);
+    return MonaStyleAttributesCollection.doc(value.documentID).update(value.toEntity(appId: appId).toDocument()).then((_) => value);
   }
 
   Future<MonaStyleAttributesModel?> _populateDoc(DocumentSnapshot value) async {
@@ -53,7 +53,7 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
   }
 
   Future<MonaStyleAttributesModel?> _populateDocPlus(DocumentSnapshot value) async {
-    return MonaStyleAttributesModel.fromEntityPlus(value.id, MonaStyleAttributesEntity.fromMap(value.data()), );  }
+    return MonaStyleAttributesModel.fromEntityPlus(value.id, MonaStyleAttributesEntity.fromMap(value.data()), appId: appId);  }
 
   Future<MonaStyleAttributesModel?> get(String? id, {Function(Exception)? onError}) async {
     try {
@@ -72,9 +72,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   StreamSubscription<List<MonaStyleAttributesModel?>> listen(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery}) {
     Stream<List<MonaStyleAttributesModel?>> stream;
-    stream = getQuery(FirebaseFirestore.instance.collection('monastyleattributes'), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots()
+    stream = getQuery(getCollection(), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
 //  see comment listen(...) above
-//  stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots()
+//  stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
         .asyncMap((data) async {
       return await Future.wait(data.docs.map((doc) =>  _populateDoc(doc)).toList());
     });
@@ -86,9 +86,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   StreamSubscription<List<MonaStyleAttributesModel?>> listenWithDetails(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery}) {
     Stream<List<MonaStyleAttributesModel?>> stream;
-    stream = getQuery(FirebaseFirestore.instance.collection('monastyleattributes'), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots()
+    stream = getQuery(getCollection(), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
 //  see comment listen(...) above
-//  stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots()
+//  stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
         .asyncMap((data) async {
       return await Future.wait(data.docs.map((doc) =>  _populateDocPlus(doc)).toList());
     });
@@ -112,7 +112,7 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   Stream<List<MonaStyleAttributesModel?>> values({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) {
     DocumentSnapshot? lastDoc;
-    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots().asyncMap((snapshot) {
+    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots().asyncMap((snapshot) {
       return Future.wait(snapshot.docs.map((doc) {
         lastDoc = doc;
         return _populateDoc(doc);
@@ -124,7 +124,7 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   Stream<List<MonaStyleAttributesModel?>> valuesWithDetails({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) {
     DocumentSnapshot? lastDoc;
-    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.snapshots().asyncMap((snapshot) {
+    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots().asyncMap((snapshot) {
       return Future.wait(snapshot.docs.map((doc) {
         lastDoc = doc;
         return _populateDocPlus(doc);
@@ -136,7 +136,7 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   Future<List<MonaStyleAttributesModel?>> valuesList({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) async {
     DocumentSnapshot? lastDoc;
-    List<MonaStyleAttributesModel?> _values = await getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.get().then((value) {
+    List<MonaStyleAttributesModel?> _values = await getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.get().then((value) {
       var list = value.docs;
       return Future.wait(list.map((doc) {
         lastDoc = doc;
@@ -149,7 +149,7 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   Future<List<MonaStyleAttributesModel?>> valuesListWithDetails({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) async {
     DocumentSnapshot? lastDoc;
-    List<MonaStyleAttributesModel?> _values = await getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, )!.get().then((value) {
+    List<MonaStyleAttributesModel?> _values = await getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.get().then((value) {
       var list = value.docs;
       return Future.wait(list.map((doc) {
         lastDoc = doc;
@@ -184,9 +184,10 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
   }
 
 
-  MonaStyleAttributesFirestore();
+  final String appId;
+  MonaStyleAttributesFirestore(this.getCollection, this.appId): MonaStyleAttributesCollection = getCollection();
 
-  final CollectionReference MonaStyleAttributesCollection = FirebaseFirestore.instance.collection('monastyleattributes');
-
+  final CollectionReference MonaStyleAttributesCollection;
+  final GetCollection getCollection;
 }
 

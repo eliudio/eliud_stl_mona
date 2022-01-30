@@ -9,7 +9,7 @@ import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
   final MonaStyle _monaStyle;

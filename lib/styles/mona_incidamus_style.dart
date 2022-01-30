@@ -4,65 +4,68 @@ import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/tools/backgrounds.dart';
-import 'package:eliud_core/style/tools/colors.dart';
-import 'package:eliud_core/style/tools/font_tools.dart';
+import '../tools/font_tools.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
-import '../mona_style.dart';
+import 'package:eliud_stl_mona/tools/colors.dart';
+import 'mona_style.dart';
 import 'mona_shared.dart';
 
 class MonaIncidamusStyle {
-  static MonaStyleAttributesModel styleAttributesModel(String documentID) {
-    var headerColor1To3 = EliudColors.orange1;
-    var headerColor4To5 = EliudColors.white;
-    var defaultColor = EliudColors.white;
-    var highlightColor = EliudColors.orange1;
-    var linkColor = EliudColors.orange1;
+  static Future<MonaStyleAttributesModel> defaultStyleAttributesModel(String appId, String documentID) async {
+    var headerColor1To3 = MonaColors.orange1;
+    var headerColor4To5 = MonaColors.white;
+    var defaultColor = MonaColors.white;
+    var highlightColor = MonaColors.orange1;
+    var linkColor = MonaColors.orange1;
+    var styleName = documentID;
     var fontTools = FontTools(
+        styleName: styleName,
         headerColor1To3: headerColor1To3,
         headerColor4To5: headerColor4To5,
         defaultColor: defaultColor,
         highlightColor: highlightColor,
         linkColor: linkColor);
+    await fontTools.storeFonts(appId);
     return MonaStyleAttributesModel(
       documentID: documentID,
       appBackground: pageBG(),
       listBackground: pageBG(),
       formBackground: pageBG(),
-      formSubmitButtonColor: EliudColors.red,
-      formSubmitButtonTextColor: EliudColors.white,
-      formGroupTitleColor: EliudColors.red,
-      formFieldTextColor: EliudColors.white,
-      formFieldHeaderColor: EliudColors.red,
-      formFieldFocusColor: EliudColors.red,
+      formSubmitButtonColor: MonaColors.red,
+      formSubmitButtonTextColor: MonaColors.white,
+      formGroupTitleColor: MonaColors.red,
+      formFieldTextColor: MonaColors.white,
+      formFieldHeaderColor: MonaColors.red,
+      formFieldFocusColor: MonaColors.red,
       appBarBG: appBarBG(),
-      appBarIconColor: EliudColors.white,
-      appBarSelectedIconColor: EliudColors.red,
-      appBarMenuBackgroundColor: EliudColors.lightRed,
+      appBarIconColor: MonaColors.white,
+      appBarSelectedIconColor: MonaColors.red,
+      appBarMenuBackgroundColor: MonaColors.lightRed,
       bottomNavigationBarBG: bottomNavigationBarBG(),
-      listTextItemColor: EliudColors.white,
-      floatingButtonForegroundColor: EliudColors.white,
-      floatingButtonBackgroundColor: EliudColors.red,
-      dividerColor: EliudColors.red,
+      listTextItemColor: MonaColors.white,
+      floatingButtonForegroundColor: MonaColors.white,
+      floatingButtonBackgroundColor: MonaColors.red,
+      dividerColor: MonaColors.red,
       h1: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.h1Label)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.h1Label)),
       h2: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.h2Label)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.h2Label)),
       h3: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.h3Label)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.h3Label)),
       h4: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.h4Label)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.h4Label)),
       h5: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.h5Label)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.h5Label)),
       fontHighlight1: fontTools.getFont(
-          FontTools.key(FontTools.latoLabel, FontTools.highlightLabel1)),
+          FontTools.key(styleName, FontTools.latoLabel, FontTools.highlightLabel1)),
       fontHighlight2: fontTools.getFont(
-          FontTools.key(FontTools.latoLabel, FontTools.highlightLabel2)),
+          FontTools.key(styleName, FontTools.latoLabel, FontTools.highlightLabel2)),
       fontLink: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.linkLabel)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.linkLabel)),
       fontSmallText: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.smallLabel)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.smallLabel)),
       fontText: fontTools
-          .getFont(FontTools.key(FontTools.latoLabel, FontTools.normalLabel)),
+          .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.normalLabel)),
       backgroundHomeMenu: backgroundHomeMenu(),
       backgroundColorHomeMenu: homeMenuPopupBGColor(),
       iconColorHomeMenu: homeMenuIconColor(),
@@ -71,18 +74,18 @@ class MonaIncidamusStyle {
       profileDrawerBG: profileDrawerBG(),
       profileDrawerHeaderBG: profileDrawerHeaderBG(),
       textFieldHeader: fontTools
-          .getFont(FontTools.key(FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
+          .getFont(FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
       routeBuilder: PageTransitionAnimation.FadeRoute,
       routeAnimationDuration: 800,
     );
   }
 
-  static RgbModel appColor1() => EliudColors.darkRed;
-  static RgbModel appColor2() => EliudColors.black;
-  static RgbModel appColor3() => EliudColors.darkRed2;
-  static RgbModel appColor4() => EliudColors.black;
-  static RgbModel homeMenuIconColor() => EliudColors.orange1;
-  static RgbModel homeMenuPopupBGColor() => EliudColors.black;
+  static RgbModel appColor1() => MonaColors.darkRed;
+  static RgbModel appColor2() => MonaColors.black;
+  static RgbModel appColor3() => MonaColors.darkRed2;
+  static RgbModel appColor4() => MonaColors.black;
+  static RgbModel homeMenuIconColor() => MonaColors.orange1;
+  static RgbModel homeMenuPopupBGColor() => MonaColors.black;
 
   static BackgroundModel appBarBG() => MonaShared.appBarBG('incidamus-appbar-bg', appColor1(), appColor2());
   static BackgroundModel pageBG() => MonaShared.pageBG('incidamus-page-bg', appColor3(), appColor4());

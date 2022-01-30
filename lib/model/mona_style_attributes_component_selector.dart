@@ -104,7 +104,7 @@ class _SelectMonaStyleAttributesWidgetState extends State<SelectMonaStyleAttribu
                     }
                   }),
               title: value.documentID != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.documentID!)) : Container(),
-              subtitle: value.description != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.description!)) : Container(),
+              subtitle: null,
             );
           } else {
             return Container();

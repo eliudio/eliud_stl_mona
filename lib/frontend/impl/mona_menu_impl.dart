@@ -6,7 +6,7 @@ import 'package:eliud_core/style/frontend/types.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaMenuImpl implements HasMenu {
   final MonaStyle _monaStyle;

@@ -3,7 +3,7 @@ import 'package:eliud_core/style/frontend/has_text_form_field.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaTextFormFieldImpl implements HasTexFormField {
   final MonaStyle _monaStyle;

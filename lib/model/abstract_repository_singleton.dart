@@ -19,15 +19,16 @@ import 'package:eliud_core/tools/common_tools.dart';
 import 'package:eliud_core/tools/main_abstract_repository_singleton.dart';
 import 'package:eliud_core/package/package.dart';
 
-MonaStyleAttributesRepository? monaStyleAttributesRepository({ String? appId }) => AbstractRepositorySingleton.singleton.monaStyleAttributesRepository();
+MonaStyleAttributesRepository? monaStyleAttributesRepository({ String? appId }) => AbstractRepositorySingleton.singleton.monaStyleAttributesRepository(appId);
 
 abstract class AbstractRepositorySingleton {
   static List<MemberCollectionInfo> collections = [
   ];
   static late AbstractRepositorySingleton singleton;
 
-  MonaStyleAttributesRepository? monaStyleAttributesRepository();
+  MonaStyleAttributesRepository? monaStyleAttributesRepository(String? appId);
 
   void flush(String? appId) {
+    monaStyleAttributesRepository(appId)!.flush();
   }
 }

@@ -125,7 +125,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   late MonaStyleAttributesFormBloc _myFormBloc;
 
   final TextEditingController _documentIDController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _appIdController = TextEditingController();
   String? _formBackground;
   String? _appBackground;
   String? _listBackground;
@@ -158,7 +158,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
     super.initState();
     _myFormBloc = BlocProvider.of<MonaStyleAttributesFormBloc>(context);
     _documentIDController.addListener(_onDocumentIDChanged);
-    _descriptionController.addListener(_onDescriptionChanged);
+    _appIdController.addListener(_onAppIdChanged);
     _routeBuilderSelectedRadioTile = 0;
     _routeAnimationDurationController.addListener(_onRouteAnimationDurationChanged);
   }
@@ -176,10 +176,10 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
           _documentIDController.text = state.value!.documentID.toString();
         else
           _documentIDController.text = "";
-        if (state.value!.description != null)
-          _descriptionController.text = state.value!.description.toString();
+        if (state.value!.appId != null)
+          _appIdController.text = state.value!.appId.toString();
         else
-          _descriptionController.text = "";
+          _appIdController.text = "";
         if (state.value!.formBackground != null)
           _formBackground= state.value!.formBackground!.documentID;
         else
@@ -381,11 +381,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
         children.add(
 
                   StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().textFormField(widget.app, context, labelText: 'Document ID', icon: Icons.vpn_key, readOnly: (formAction == FormAction.UpdateAction), textEditingController: _documentIDController, keyboardType: TextInputType.text, validator: (_) => state is DocumentIDMonaStyleAttributesFormError ? state.message : null, hintText: null)
-          );
-
-        children.add(
-
-                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().textFormField(widget.app, context, labelText: 'Description', icon: Icons.text_format, readOnly: _readOnly(accessState, state), textEditingController: _descriptionController, keyboardType: TextInputType.text, validator: (_) => state is DescriptionMonaStyleAttributesFormError ? state.message : null, hintText: null)
           );
 
 
@@ -699,7 +694,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                         BlocProvider.of<MonaStyleAttributesListBloc>(context).add(
                           UpdateMonaStyleAttributesList(value: state.value!.copyWith(
                               documentID: state.value!.documentID, 
-                              description: state.value!.description, 
+                              appId: state.value!.appId, 
                               formSubmitButtonColor: state.value!.formSubmitButtonColor, 
                               formBackground: state.value!.formBackground, 
                               appBackground: state.value!.appBackground, 
@@ -743,7 +738,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                         BlocProvider.of<MonaStyleAttributesListBloc>(context).add(
                           AddMonaStyleAttributesList(value: MonaStyleAttributesModel(
                               documentID: state.value!.documentID, 
-                              description: state.value!.description, 
+                              appId: state.value!.appId, 
                               formSubmitButtonColor: state.value!.formSubmitButtonColor, 
                               formBackground: state.value!.formBackground, 
                               appBackground: state.value!.appBackground, 
@@ -813,8 +808,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
 
-  void _onDescriptionChanged() {
-    _myFormBloc.add(ChangedMonaStyleAttributesDescription(value: _descriptionController.text));
+  void _onAppIdChanged() {
+    _myFormBloc.add(ChangedMonaStyleAttributesAppId(value: _appIdController.text));
   }
 
 
@@ -1093,7 +1088,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   @override
   void dispose() {
     _documentIDController.dispose();
-    _descriptionController.dispose();
+    _appIdController.dispose();
     _routeAnimationDurationController.dispose();
     super.dispose();
   }

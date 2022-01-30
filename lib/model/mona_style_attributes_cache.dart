@@ -136,7 +136,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? formBackgroundHolder;
     if (model.formBackground != null) {
       try {
-        await backgroundRepository()!.get(model.formBackground!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.formBackground!.documentID).then((val) {
           formBackgroundHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -145,7 +145,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? appBackgroundHolder;
     if (model.appBackground != null) {
       try {
-        await backgroundRepository()!.get(model.appBackground!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.appBackground!.documentID).then((val) {
           appBackgroundHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -154,7 +154,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? listBackgroundHolder;
     if (model.listBackground != null) {
       try {
-        await backgroundRepository()!.get(model.listBackground!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.listBackground!.documentID).then((val) {
           listBackgroundHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -163,7 +163,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? appBarBGHolder;
     if (model.appBarBG != null) {
       try {
-        await backgroundRepository()!.get(model.appBarBG!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.appBarBG!.documentID).then((val) {
           appBarBGHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -172,7 +172,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? bottomNavigationBarBGHolder;
     if (model.bottomNavigationBarBG != null) {
       try {
-        await backgroundRepository()!.get(model.bottomNavigationBarBG!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.bottomNavigationBarBG!.documentID).then((val) {
           bottomNavigationBarBGHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -181,7 +181,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? drawerBGHolder;
     if (model.drawerBG != null) {
       try {
-        await backgroundRepository()!.get(model.drawerBG!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.drawerBG!.documentID).then((val) {
           drawerBGHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -190,7 +190,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? drawerHeaderBGHolder;
     if (model.drawerHeaderBG != null) {
       try {
-        await backgroundRepository()!.get(model.drawerHeaderBG!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.drawerHeaderBG!.documentID).then((val) {
           drawerHeaderBGHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -199,7 +199,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? profileDrawerBGHolder;
     if (model.profileDrawerBG != null) {
       try {
-        await backgroundRepository()!.get(model.profileDrawerBG!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.profileDrawerBG!.documentID).then((val) {
           profileDrawerBGHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -208,7 +208,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? profileDrawerHeaderBGHolder;
     if (model.profileDrawerHeaderBG != null) {
       try {
-        await backgroundRepository()!.get(model.profileDrawerHeaderBG!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.profileDrawerHeaderBG!.documentID).then((val) {
           profileDrawerHeaderBGHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -217,7 +217,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     BackgroundModel? backgroundHomeMenuHolder;
     if (model.backgroundHomeMenu != null) {
       try {
-        await backgroundRepository()!.get(model.backgroundHomeMenu!.documentID).then((val) {
+        await backgroundRepository(appId: model.appId)!.get(model.backgroundHomeMenu!.documentID).then((val) {
           backgroundHomeMenuHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -226,7 +226,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? h1Holder;
     if (model.h1 != null) {
       try {
-        await fontRepository()!.get(model.h1!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.h1!.documentID).then((val) {
           h1Holder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -235,7 +235,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? h2Holder;
     if (model.h2 != null) {
       try {
-        await fontRepository()!.get(model.h2!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.h2!.documentID).then((val) {
           h2Holder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -244,7 +244,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? h3Holder;
     if (model.h3 != null) {
       try {
-        await fontRepository()!.get(model.h3!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.h3!.documentID).then((val) {
           h3Holder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -253,7 +253,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? h4Holder;
     if (model.h4 != null) {
       try {
-        await fontRepository()!.get(model.h4!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.h4!.documentID).then((val) {
           h4Holder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -262,7 +262,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? h5Holder;
     if (model.h5 != null) {
       try {
-        await fontRepository()!.get(model.h5!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.h5!.documentID).then((val) {
           h5Holder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -271,7 +271,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? textFieldHeaderHolder;
     if (model.textFieldHeader != null) {
       try {
-        await fontRepository()!.get(model.textFieldHeader!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.textFieldHeader!.documentID).then((val) {
           textFieldHeaderHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -280,7 +280,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? fontTextHolder;
     if (model.fontText != null) {
       try {
-        await fontRepository()!.get(model.fontText!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.fontText!.documentID).then((val) {
           fontTextHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -289,7 +289,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? fontSmallTextHolder;
     if (model.fontSmallText != null) {
       try {
-        await fontRepository()!.get(model.fontSmallText!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.fontSmallText!.documentID).then((val) {
           fontSmallTextHolder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -298,7 +298,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? fontHighlight1Holder;
     if (model.fontHighlight1 != null) {
       try {
-        await fontRepository()!.get(model.fontHighlight1!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.fontHighlight1!.documentID).then((val) {
           fontHighlight1Holder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -307,7 +307,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? fontHighlight2Holder;
     if (model.fontHighlight2 != null) {
       try {
-        await fontRepository()!.get(model.fontHighlight2!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.fontHighlight2!.documentID).then((val) {
           fontHighlight2Holder = val;
         }).catchError((error) {});
       } catch (_) {}
@@ -316,7 +316,7 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     FontModel? fontLinkHolder;
     if (model.fontLink != null) {
       try {
-        await fontRepository()!.get(model.fontLink!.documentID).then((val) {
+        await fontRepository(appId: model.appId)!.get(model.fontLink!.documentID).then((val) {
           fontLinkHolder = val;
         }).catchError((error) {});
       } catch (_) {}

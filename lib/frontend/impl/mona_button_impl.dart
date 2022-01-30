@@ -3,7 +3,7 @@ import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:flutter/material.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaButtonImpl implements HasButton {
   final Style _style;

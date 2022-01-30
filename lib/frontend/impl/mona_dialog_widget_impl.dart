@@ -8,7 +8,7 @@ import 'package:eliud_core/tools/screen_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaDialogWidgetImpl implements HasDialogWidget {
   final Style _style;

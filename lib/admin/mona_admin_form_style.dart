@@ -5,7 +5,7 @@ import 'package:eliud_core/style/admin/admin_form_style.dart';
 import 'package:eliud_core/tools/enums.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
-import '../mona_style.dart';
+import '../styles/mona_style.dart';
 
 class MonaAdminFormStyle implements AdminFormStyle {
   final MonaStyle _monaStyle;

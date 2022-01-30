@@ -54,7 +54,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
       if (event is InitialiseNewMonaStyleAttributesFormEvent) {
         MonaStyleAttributesFormLoaded loaded = MonaStyleAttributesFormLoaded(value: MonaStyleAttributesModel(
                                                documentID: "",
-                                 description: "",
+                                 appId: "",
                                  formSubmitButtonColor: RgbModel(r: 255, g: 0, b: 255, opacity: 1.00), 
                                  formSubmitButtonTextColor: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
                                  formGroupTitleColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
@@ -101,12 +101,6 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
 
         return;
       }
-      if (event is ChangedMonaStyleAttributesDescription) {
-        newValue = currentState.value!.copyWith(description: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
-
-        return;
-      }
       if (event is ChangedMonaStyleAttributesFormSubmitButtonColor) {
         newValue = currentState.value!.copyWith(formSubmitButtonColor: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
@@ -119,7 +113,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: null,
                                  appBackground: currentState.value!.appBackground,
@@ -169,7 +163,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: null,
@@ -249,7 +243,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -323,7 +317,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -391,7 +385,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -441,7 +435,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -491,7 +485,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -541,7 +535,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -591,7 +585,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -641,7 +635,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -703,7 +697,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -753,7 +747,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -803,7 +797,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -853,7 +847,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -903,7 +897,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -953,7 +947,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -1003,7 +997,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -1053,7 +1047,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -1103,7 +1097,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -1153,7 +1147,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,
@@ -1203,7 +1197,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         else
           newValue = new MonaStyleAttributesModel(
                                  documentID: currentState.value!.documentID,
-                                 description: currentState.value!.description,
+                                 appId: currentState.value!.appId,
                                  formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
                                  formBackground: currentState.value!.formBackground,
                                  appBackground: currentState.value!.appBackground,

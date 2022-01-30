@@ -79,15 +79,15 @@ class DocumentIDMonaStyleAttributesFormError extends MonaStyleAttributesFormErro
 }
 
 
-class DescriptionMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
-  const DescriptionMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+class AppIdMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const AppIdMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
   List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
-    return '''DescriptionMonaStyleAttributesFormError {
+    return '''AppIdMonaStyleAttributesFormError {
       value: $value,
       message: $message,
     }''';

@@ -110,7 +110,7 @@ class ListComponent extends StatelessWidget with HasFab {
       providers: [
         BlocProvider<MonaStyleAttributesListBloc>(
           create: (context) => MonaStyleAttributesListBloc(
-            monaStyleAttributesRepository: monaStyleAttributesRepository()!,
+            monaStyleAttributesRepository: monaStyleAttributesRepository(appId: app.documentID!)!,
           )..add(LoadMonaStyleAttributesList()),
         )
       ],
@@ -145,7 +145,7 @@ class DropdownButtonComponent extends StatelessWidget {
       providers: [
         BlocProvider<MonaStyleAttributesListBloc>(
           create: (context) => MonaStyleAttributesListBloc(
-            monaStyleAttributesRepository: monaStyleAttributesRepository()!,
+            monaStyleAttributesRepository: monaStyleAttributesRepository(appId: app.documentID!)!,
           )..add(LoadMonaStyleAttributesList()),
         )
       ],

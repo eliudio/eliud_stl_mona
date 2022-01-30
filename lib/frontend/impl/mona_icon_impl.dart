@@ -4,7 +4,7 @@ import 'package:eliud_core/style/frontend/has_icon.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaIconImpl implements HasIcon {
   final MonaStyle _monaStyle;

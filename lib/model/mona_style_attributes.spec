@@ -1,6 +1,7 @@
 {
   "id": "MonaStyleAttributes",
   "packageName": "eliud_stl_mona",
+  "isAppModel": true,
   "generate": {
     "generateComponent": true,
     "generateRepository": true,
@@ -13,7 +14,8 @@
     "generateList": true,
     "generateDropDownButton": true,
     "generateInternalComponent": true,
-    "generateEmbeddedComponent": false
+    "generateEmbeddedComponent": false,
+    "documentSubCollectionOf": "app"
   },
   "fields": [
     {
@@ -24,10 +26,11 @@
       "group": "general"
     },
     {
-      "fieldName": "description",
-      "displayName": "Description",
+      "fieldName": "appId",
+      "displayName": "App ID",
       "fieldType": "String",
-      "iconName": "text_format",
+      "iconName": "vpn_key",
+      "hidden": true,
       "group": "general"
     },
     {
@@ -424,8 +427,7 @@
     }
   ],
   "listFields": {
-    "title": "value.documentID != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.documentID!)) : Container()",
-    "subTitle": "value.description != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.description!)) : Container()"
+    "title": "value.documentID != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.documentID!)) : Container()"
   },
   "depends": ["eliud_core"]
 }

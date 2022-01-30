@@ -7,7 +7,7 @@ import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorful_tab/flutter_colorful_tab.dart';
 
-import '../../mona_style.dart';
+import '../../styles/mona_style.dart';
 
 class MonaPageRouteBuilderImpl
     implements HasPageRouteBuilder {

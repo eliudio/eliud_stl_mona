@@ -23,10 +23,11 @@ import '../model/mona_style_attributes_cache.dart';
 import '../model/mona_style_attributes_model.dart';
 
 class RepositorySingleton extends AbstractRepositorySingleton {
-    var _monaStyleAttributesRepository = MonaStyleAttributesCache(MonaStyleAttributesFirestore());
+    var _monaStyleAttributesRepository = HashMap<String, MonaStyleAttributesRepository>();
 
-    MonaStyleAttributesRepository? monaStyleAttributesRepository() {
-      return _monaStyleAttributesRepository;
+    MonaStyleAttributesRepository? monaStyleAttributesRepository(String? appId) {
+      if ((appId != null) && (_monaStyleAttributesRepository[appId] == null)) _monaStyleAttributesRepository[appId] = MonaStyleAttributesCache(MonaStyleAttributesFirestore(() => appRepository()!.getSubCollection(appId, 'monastyleattributes'), appId));
+      return _monaStyleAttributesRepository[appId];
     }
 
 }
