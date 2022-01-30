@@ -223,105 +223,6 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
       } catch (_) {}
     }
 
-    FontModel? h1Holder;
-    if (model.h1 != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.h1!.documentID).then((val) {
-          h1Holder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? h2Holder;
-    if (model.h2 != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.h2!.documentID).then((val) {
-          h2Holder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? h3Holder;
-    if (model.h3 != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.h3!.documentID).then((val) {
-          h3Holder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? h4Holder;
-    if (model.h4 != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.h4!.documentID).then((val) {
-          h4Holder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? h5Holder;
-    if (model.h5 != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.h5!.documentID).then((val) {
-          h5Holder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? textFieldHeaderHolder;
-    if (model.textFieldHeader != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.textFieldHeader!.documentID).then((val) {
-          textFieldHeaderHolder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? fontTextHolder;
-    if (model.fontText != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.fontText!.documentID).then((val) {
-          fontTextHolder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? fontSmallTextHolder;
-    if (model.fontSmallText != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.fontSmallText!.documentID).then((val) {
-          fontSmallTextHolder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? fontHighlight1Holder;
-    if (model.fontHighlight1 != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.fontHighlight1!.documentID).then((val) {
-          fontHighlight1Holder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? fontHighlight2Holder;
-    if (model.fontHighlight2 != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.fontHighlight2!.documentID).then((val) {
-          fontHighlight2Holder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
-    FontModel? fontLinkHolder;
-    if (model.fontLink != null) {
-      try {
-        await fontRepository(appId: model.appId)!.get(model.fontLink!.documentID).then((val) {
-          fontLinkHolder = val;
-        }).catchError((error) {});
-      } catch (_) {}
-    }
-
     return model.copyWith(
         formBackground: formBackgroundHolder,
 
@@ -342,28 +243,6 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
         profileDrawerHeaderBG: profileDrawerHeaderBGHolder,
 
         backgroundHomeMenu: backgroundHomeMenuHolder,
-
-        h1: h1Holder,
-
-        h2: h2Holder,
-
-        h3: h3Holder,
-
-        h4: h4Holder,
-
-        h5: h5Holder,
-
-        textFieldHeader: textFieldHeaderHolder,
-
-        fontText: fontTextHolder,
-
-        fontSmallText: fontSmallTextHolder,
-
-        fontHighlight1: fontHighlight1Holder,
-
-        fontHighlight2: fontHighlight2Holder,
-
-        fontLink: fontLinkHolder,
 
 
     );

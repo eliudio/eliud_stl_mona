@@ -384,7 +384,7 @@ class ChangedMonaStyleAttributesIconColorHomeMenu extends MonaStyleAttributesFor
 }
 
 class ChangedMonaStyleAttributesH1 extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesH1({this.value});
 
@@ -396,7 +396,7 @@ class ChangedMonaStyleAttributesH1 extends MonaStyleAttributesFormEvent {
 }
 
 class ChangedMonaStyleAttributesH2 extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesH2({this.value});
 
@@ -408,7 +408,7 @@ class ChangedMonaStyleAttributesH2 extends MonaStyleAttributesFormEvent {
 }
 
 class ChangedMonaStyleAttributesH3 extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesH3({this.value});
 
@@ -420,7 +420,7 @@ class ChangedMonaStyleAttributesH3 extends MonaStyleAttributesFormEvent {
 }
 
 class ChangedMonaStyleAttributesH4 extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesH4({this.value});
 
@@ -432,7 +432,7 @@ class ChangedMonaStyleAttributesH4 extends MonaStyleAttributesFormEvent {
 }
 
 class ChangedMonaStyleAttributesH5 extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesH5({this.value});
 
@@ -444,7 +444,7 @@ class ChangedMonaStyleAttributesH5 extends MonaStyleAttributesFormEvent {
 }
 
 class ChangedMonaStyleAttributesTextFieldHeader extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesTextFieldHeader({this.value});
 
@@ -456,7 +456,7 @@ class ChangedMonaStyleAttributesTextFieldHeader extends MonaStyleAttributesFormE
 }
 
 class ChangedMonaStyleAttributesFontText extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesFontText({this.value});
 
@@ -468,7 +468,7 @@ class ChangedMonaStyleAttributesFontText extends MonaStyleAttributesFormEvent {
 }
 
 class ChangedMonaStyleAttributesFontSmallText extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesFontSmallText({this.value});
 
@@ -480,7 +480,7 @@ class ChangedMonaStyleAttributesFontSmallText extends MonaStyleAttributesFormEve
 }
 
 class ChangedMonaStyleAttributesFontHighlight1 extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesFontHighlight1({this.value});
 
@@ -492,7 +492,7 @@ class ChangedMonaStyleAttributesFontHighlight1 extends MonaStyleAttributesFormEv
 }
 
 class ChangedMonaStyleAttributesFontHighlight2 extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesFontHighlight2({this.value});
 
@@ -504,7 +504,7 @@ class ChangedMonaStyleAttributesFontHighlight2 extends MonaStyleAttributesFormEv
 }
 
 class ChangedMonaStyleAttributesFontLink extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final FontModel? value;
 
   ChangedMonaStyleAttributesFontLink({this.value});
 

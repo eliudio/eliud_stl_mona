@@ -6,6 +6,7 @@ import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/frontend/has_bottom_navigation_bar.dart';
 import 'package:eliud_core/style/frontend/types.dart';
 import 'package:eliud_core/tools/etc.dart';
+import 'package:eliud_stl_mona/tools/font_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

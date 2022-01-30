@@ -692,551 +692,67 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         return;
       }
       if (event is ChangedMonaStyleAttributesH1) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(h1: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: null,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(h1: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesH2) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(h2: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: null,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(h2: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesH3) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(h3: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: null,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(h3: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesH4) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(h4: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: null,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(h4: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesH5) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(h5: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: null,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(h5: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesTextFieldHeader) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(textFieldHeader: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: null,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(textFieldHeader: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesFontText) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(fontText: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: null,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(fontText: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesFontSmallText) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(fontSmallText: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: null,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(fontSmallText: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesFontHighlight1) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(fontHighlight1: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: null,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(fontHighlight1: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesFontHighlight2) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(fontHighlight2: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: null,
-                                 fontLink: currentState.value!.fontLink,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(fontHighlight2: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;
       }
       if (event is ChangedMonaStyleAttributesFontLink) {
-        if (event.value != null)
-          newValue = currentState.value!.copyWith(fontLink: await fontRepository(appId: appId)!.get(event.value));
-        else
-          newValue = new MonaStyleAttributesModel(
-                                 documentID: currentState.value!.documentID,
-                                 appId: currentState.value!.appId,
-                                 formSubmitButtonColor: currentState.value!.formSubmitButtonColor,
-                                 formBackground: currentState.value!.formBackground,
-                                 appBackground: currentState.value!.appBackground,
-                                 formSubmitButtonTextColor: currentState.value!.formSubmitButtonTextColor,
-                                 formGroupTitleColor: currentState.value!.formGroupTitleColor,
-                                 formFieldTextColor: currentState.value!.formFieldTextColor,
-                                 formFieldHeaderColor: currentState.value!.formFieldHeaderColor,
-                                 formFieldFocusColor: currentState.value!.formFieldFocusColor,
-                                 listBackground: currentState.value!.listBackground,
-                                 listTextItemColor: currentState.value!.listTextItemColor,
-                                 floatingButtonForegroundColor: currentState.value!.floatingButtonForegroundColor,
-                                 floatingButtonBackgroundColor: currentState.value!.floatingButtonBackgroundColor,
-                                 dividerColor: currentState.value!.dividerColor,
-                                 appBarBG: currentState.value!.appBarBG,
-                                 appBarIconColor: currentState.value!.appBarIconColor,
-                                 appBarSelectedIconColor: currentState.value!.appBarSelectedIconColor,
-                                 appBarMenuBackgroundColor: currentState.value!.appBarMenuBackgroundColor,
-                                 bottomNavigationBarBG: currentState.value!.bottomNavigationBarBG,
-                                 drawerBG: currentState.value!.drawerBG,
-                                 drawerHeaderBG: currentState.value!.drawerHeaderBG,
-                                 profileDrawerBG: currentState.value!.profileDrawerBG,
-                                 profileDrawerHeaderBG: currentState.value!.profileDrawerHeaderBG,
-                                 backgroundHomeMenu: currentState.value!.backgroundHomeMenu,
-                                 backgroundColorHomeMenu: currentState.value!.backgroundColorHomeMenu,
-                                 iconColorHomeMenu: currentState.value!.iconColorHomeMenu,
-                                 h1: currentState.value!.h1,
-                                 h2: currentState.value!.h2,
-                                 h3: currentState.value!.h3,
-                                 h4: currentState.value!.h4,
-                                 h5: currentState.value!.h5,
-                                 textFieldHeader: currentState.value!.textFieldHeader,
-                                 fontText: currentState.value!.fontText,
-                                 fontSmallText: currentState.value!.fontSmallText,
-                                 fontHighlight1: currentState.value!.fontHighlight1,
-                                 fontHighlight2: currentState.value!.fontHighlight2,
-                                 fontLink: null,
-                                 routeBuilder: currentState.value!.routeBuilder,
-                                 routeAnimationDuration: currentState.value!.routeAnimationDuration,
-          );
+        newValue = currentState.value!.copyWith(fontLink: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;

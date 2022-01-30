@@ -49,28 +49,28 @@ class MonaStyleAttributesEntity {
   final String? backgroundHomeMenuId;
   final RgbEntity? backgroundColorHomeMenu;
   final RgbEntity? iconColorHomeMenu;
-  final String? h1Id;
-  final String? h2Id;
-  final String? h3Id;
-  final String? h4Id;
-  final String? h5Id;
-  final String? textFieldHeaderId;
-  final String? fontTextId;
-  final String? fontSmallTextId;
-  final String? fontHighlight1Id;
-  final String? fontHighlight2Id;
-  final String? fontLinkId;
+  final FontEntity? h1;
+  final FontEntity? h2;
+  final FontEntity? h3;
+  final FontEntity? h4;
+  final FontEntity? h5;
+  final FontEntity? textFieldHeader;
+  final FontEntity? fontText;
+  final FontEntity? fontSmallText;
+  final FontEntity? fontHighlight1;
+  final FontEntity? fontHighlight2;
+  final FontEntity? fontLink;
   final int? routeBuilder;
   final int? routeAnimationDuration;
 
-  MonaStyleAttributesEntity({this.appId, this.formSubmitButtonColor, this.formBackgroundId, this.appBackgroundId, this.formSubmitButtonTextColor, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackgroundId, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBGId, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBGId, this.drawerBGId, this.drawerHeaderBGId, this.profileDrawerBGId, this.profileDrawerHeaderBGId, this.backgroundHomeMenuId, this.backgroundColorHomeMenu, this.iconColorHomeMenu, this.h1Id, this.h2Id, this.h3Id, this.h4Id, this.h5Id, this.textFieldHeaderId, this.fontTextId, this.fontSmallTextId, this.fontHighlight1Id, this.fontHighlight2Id, this.fontLinkId, this.routeBuilder, this.routeAnimationDuration, });
+  MonaStyleAttributesEntity({this.appId, this.formSubmitButtonColor, this.formBackgroundId, this.appBackgroundId, this.formSubmitButtonTextColor, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackgroundId, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBGId, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBGId, this.drawerBGId, this.drawerHeaderBGId, this.profileDrawerBGId, this.profileDrawerHeaderBGId, this.backgroundHomeMenuId, this.backgroundColorHomeMenu, this.iconColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, });
 
 
-  List<Object?> get props => [appId, formSubmitButtonColor, formBackgroundId, appBackgroundId, formSubmitButtonTextColor, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackgroundId, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor, dividerColor, appBarBGId, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBGId, drawerBGId, drawerHeaderBGId, profileDrawerBGId, profileDrawerHeaderBGId, backgroundHomeMenuId, backgroundColorHomeMenu, iconColorHomeMenu, h1Id, h2Id, h3Id, h4Id, h5Id, textFieldHeaderId, fontTextId, fontSmallTextId, fontHighlight1Id, fontHighlight2Id, fontLinkId, routeBuilder, routeAnimationDuration, ];
+  List<Object?> get props => [appId, formSubmitButtonColor, formBackgroundId, appBackgroundId, formSubmitButtonTextColor, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackgroundId, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor, dividerColor, appBarBGId, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBGId, drawerBGId, drawerHeaderBGId, profileDrawerBGId, profileDrawerHeaderBGId, backgroundHomeMenuId, backgroundColorHomeMenu, iconColorHomeMenu, h1, h2, h3, h4, h5, textFieldHeader, fontText, fontSmallText, fontHighlight1, fontHighlight2, fontLink, routeBuilder, routeAnimationDuration, ];
 
   @override
   String toString() {
-    return 'MonaStyleAttributesEntity{appId: $appId, formSubmitButtonColor: $formSubmitButtonColor, formBackgroundId: $formBackgroundId, appBackgroundId: $appBackgroundId, formSubmitButtonTextColor: $formSubmitButtonTextColor, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackgroundId: $listBackgroundId, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBGId: $appBarBGId, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBGId: $bottomNavigationBarBGId, drawerBGId: $drawerBGId, drawerHeaderBGId: $drawerHeaderBGId, profileDrawerBGId: $profileDrawerBGId, profileDrawerHeaderBGId: $profileDrawerHeaderBGId, backgroundHomeMenuId: $backgroundHomeMenuId, backgroundColorHomeMenu: $backgroundColorHomeMenu, iconColorHomeMenu: $iconColorHomeMenu, h1Id: $h1Id, h2Id: $h2Id, h3Id: $h3Id, h4Id: $h4Id, h5Id: $h5Id, textFieldHeaderId: $textFieldHeaderId, fontTextId: $fontTextId, fontSmallTextId: $fontSmallTextId, fontHighlight1Id: $fontHighlight1Id, fontHighlight2Id: $fontHighlight2Id, fontLinkId: $fontLinkId, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
+    return 'MonaStyleAttributesEntity{appId: $appId, formSubmitButtonColor: $formSubmitButtonColor, formBackgroundId: $formBackgroundId, appBackgroundId: $appBackgroundId, formSubmitButtonTextColor: $formSubmitButtonTextColor, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackgroundId: $listBackgroundId, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBGId: $appBarBGId, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBGId: $bottomNavigationBarBGId, drawerBGId: $drawerBGId, drawerHeaderBGId: $drawerHeaderBGId, profileDrawerBGId: $profileDrawerBGId, profileDrawerHeaderBGId: $profileDrawerHeaderBGId, backgroundHomeMenuId: $backgroundHomeMenuId, backgroundColorHomeMenu: $backgroundColorHomeMenu, iconColorHomeMenu: $iconColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
   }
 
   static MonaStyleAttributesEntity? fromMap(Object? o) {
@@ -137,6 +137,50 @@ class MonaStyleAttributesEntity {
     iconColorHomeMenuFromMap = map['iconColorHomeMenu'];
     if (iconColorHomeMenuFromMap != null)
       iconColorHomeMenuFromMap = RgbEntity.fromMap(iconColorHomeMenuFromMap);
+    var h1FromMap;
+    h1FromMap = map['h1'];
+    if (h1FromMap != null)
+      h1FromMap = FontEntity.fromMap(h1FromMap);
+    var h2FromMap;
+    h2FromMap = map['h2'];
+    if (h2FromMap != null)
+      h2FromMap = FontEntity.fromMap(h2FromMap);
+    var h3FromMap;
+    h3FromMap = map['h3'];
+    if (h3FromMap != null)
+      h3FromMap = FontEntity.fromMap(h3FromMap);
+    var h4FromMap;
+    h4FromMap = map['h4'];
+    if (h4FromMap != null)
+      h4FromMap = FontEntity.fromMap(h4FromMap);
+    var h5FromMap;
+    h5FromMap = map['h5'];
+    if (h5FromMap != null)
+      h5FromMap = FontEntity.fromMap(h5FromMap);
+    var textFieldHeaderFromMap;
+    textFieldHeaderFromMap = map['textFieldHeader'];
+    if (textFieldHeaderFromMap != null)
+      textFieldHeaderFromMap = FontEntity.fromMap(textFieldHeaderFromMap);
+    var fontTextFromMap;
+    fontTextFromMap = map['fontText'];
+    if (fontTextFromMap != null)
+      fontTextFromMap = FontEntity.fromMap(fontTextFromMap);
+    var fontSmallTextFromMap;
+    fontSmallTextFromMap = map['fontSmallText'];
+    if (fontSmallTextFromMap != null)
+      fontSmallTextFromMap = FontEntity.fromMap(fontSmallTextFromMap);
+    var fontHighlight1FromMap;
+    fontHighlight1FromMap = map['fontHighlight1'];
+    if (fontHighlight1FromMap != null)
+      fontHighlight1FromMap = FontEntity.fromMap(fontHighlight1FromMap);
+    var fontHighlight2FromMap;
+    fontHighlight2FromMap = map['fontHighlight2'];
+    if (fontHighlight2FromMap != null)
+      fontHighlight2FromMap = FontEntity.fromMap(fontHighlight2FromMap);
+    var fontLinkFromMap;
+    fontLinkFromMap = map['fontLink'];
+    if (fontLinkFromMap != null)
+      fontLinkFromMap = FontEntity.fromMap(fontLinkFromMap);
 
     return MonaStyleAttributesEntity(
       appId: map['appId'], 
@@ -165,17 +209,17 @@ class MonaStyleAttributesEntity {
       backgroundHomeMenuId: map['backgroundHomeMenuId'], 
       backgroundColorHomeMenu: backgroundColorHomeMenuFromMap, 
       iconColorHomeMenu: iconColorHomeMenuFromMap, 
-      h1Id: map['h1Id'], 
-      h2Id: map['h2Id'], 
-      h3Id: map['h3Id'], 
-      h4Id: map['h4Id'], 
-      h5Id: map['h5Id'], 
-      textFieldHeaderId: map['textFieldHeaderId'], 
-      fontTextId: map['fontTextId'], 
-      fontSmallTextId: map['fontSmallTextId'], 
-      fontHighlight1Id: map['fontHighlight1Id'], 
-      fontHighlight2Id: map['fontHighlight2Id'], 
-      fontLinkId: map['fontLinkId'], 
+      h1: h1FromMap, 
+      h2: h2FromMap, 
+      h3: h3FromMap, 
+      h4: h4FromMap, 
+      h5: h5FromMap, 
+      textFieldHeader: textFieldHeaderFromMap, 
+      fontText: fontTextFromMap, 
+      fontSmallText: fontSmallTextFromMap, 
+      fontHighlight1: fontHighlight1FromMap, 
+      fontHighlight2: fontHighlight2FromMap, 
+      fontLink: fontLinkFromMap, 
       routeBuilder: map['routeBuilder'], 
       routeAnimationDuration: int.tryParse(map['routeAnimationDuration'].toString()), 
     );
@@ -226,6 +270,39 @@ class MonaStyleAttributesEntity {
         : null;
     final Map<String, dynamic>? iconColorHomeMenuMap = iconColorHomeMenu != null 
         ? iconColorHomeMenu!.toDocument()
+        : null;
+    final Map<String, dynamic>? h1Map = h1 != null 
+        ? h1!.toDocument()
+        : null;
+    final Map<String, dynamic>? h2Map = h2 != null 
+        ? h2!.toDocument()
+        : null;
+    final Map<String, dynamic>? h3Map = h3 != null 
+        ? h3!.toDocument()
+        : null;
+    final Map<String, dynamic>? h4Map = h4 != null 
+        ? h4!.toDocument()
+        : null;
+    final Map<String, dynamic>? h5Map = h5 != null 
+        ? h5!.toDocument()
+        : null;
+    final Map<String, dynamic>? textFieldHeaderMap = textFieldHeader != null 
+        ? textFieldHeader!.toDocument()
+        : null;
+    final Map<String, dynamic>? fontTextMap = fontText != null 
+        ? fontText!.toDocument()
+        : null;
+    final Map<String, dynamic>? fontSmallTextMap = fontSmallText != null 
+        ? fontSmallText!.toDocument()
+        : null;
+    final Map<String, dynamic>? fontHighlight1Map = fontHighlight1 != null 
+        ? fontHighlight1!.toDocument()
+        : null;
+    final Map<String, dynamic>? fontHighlight2Map = fontHighlight2 != null 
+        ? fontHighlight2!.toDocument()
+        : null;
+    final Map<String, dynamic>? fontLinkMap = fontLink != null 
+        ? fontLink!.toDocument()
         : null;
 
     Map<String, Object?> theDocument = HashMap();
@@ -281,28 +358,28 @@ class MonaStyleAttributesEntity {
       else theDocument["backgroundColorHomeMenu"] = null;
     if (iconColorHomeMenu != null) theDocument["iconColorHomeMenu"] = iconColorHomeMenuMap;
       else theDocument["iconColorHomeMenu"] = null;
-    if (h1Id != null) theDocument["h1Id"] = h1Id;
-      else theDocument["h1Id"] = null;
-    if (h2Id != null) theDocument["h2Id"] = h2Id;
-      else theDocument["h2Id"] = null;
-    if (h3Id != null) theDocument["h3Id"] = h3Id;
-      else theDocument["h3Id"] = null;
-    if (h4Id != null) theDocument["h4Id"] = h4Id;
-      else theDocument["h4Id"] = null;
-    if (h5Id != null) theDocument["h5Id"] = h5Id;
-      else theDocument["h5Id"] = null;
-    if (textFieldHeaderId != null) theDocument["textFieldHeaderId"] = textFieldHeaderId;
-      else theDocument["textFieldHeaderId"] = null;
-    if (fontTextId != null) theDocument["fontTextId"] = fontTextId;
-      else theDocument["fontTextId"] = null;
-    if (fontSmallTextId != null) theDocument["fontSmallTextId"] = fontSmallTextId;
-      else theDocument["fontSmallTextId"] = null;
-    if (fontHighlight1Id != null) theDocument["fontHighlight1Id"] = fontHighlight1Id;
-      else theDocument["fontHighlight1Id"] = null;
-    if (fontHighlight2Id != null) theDocument["fontHighlight2Id"] = fontHighlight2Id;
-      else theDocument["fontHighlight2Id"] = null;
-    if (fontLinkId != null) theDocument["fontLinkId"] = fontLinkId;
-      else theDocument["fontLinkId"] = null;
+    if (h1 != null) theDocument["h1"] = h1Map;
+      else theDocument["h1"] = null;
+    if (h2 != null) theDocument["h2"] = h2Map;
+      else theDocument["h2"] = null;
+    if (h3 != null) theDocument["h3"] = h3Map;
+      else theDocument["h3"] = null;
+    if (h4 != null) theDocument["h4"] = h4Map;
+      else theDocument["h4"] = null;
+    if (h5 != null) theDocument["h5"] = h5Map;
+      else theDocument["h5"] = null;
+    if (textFieldHeader != null) theDocument["textFieldHeader"] = textFieldHeaderMap;
+      else theDocument["textFieldHeader"] = null;
+    if (fontText != null) theDocument["fontText"] = fontTextMap;
+      else theDocument["fontText"] = null;
+    if (fontSmallText != null) theDocument["fontSmallText"] = fontSmallTextMap;
+      else theDocument["fontSmallText"] = null;
+    if (fontHighlight1 != null) theDocument["fontHighlight1"] = fontHighlight1Map;
+      else theDocument["fontHighlight1"] = null;
+    if (fontHighlight2 != null) theDocument["fontHighlight2"] = fontHighlight2Map;
+      else theDocument["fontHighlight2"] = null;
+    if (fontLink != null) theDocument["fontLink"] = fontLinkMap;
+      else theDocument["fontLink"] = null;
     if (routeBuilder != null) theDocument["routeBuilder"] = routeBuilder;
       else theDocument["routeBuilder"] = null;
     if (routeAnimationDuration != null) theDocument["routeAnimationDuration"] = routeAnimationDuration;

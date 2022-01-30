@@ -14,3 +14,4 @@
 */
 
 export '../model/mona_style_attributes_entity.dart';
+export '../model/font_entity.dart';

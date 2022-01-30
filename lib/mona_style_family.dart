@@ -55,7 +55,6 @@ class MonaStyleFamily extends StyleFamily {
     }
     return _instance!;
   }
-  make font type like rgb, so copy the specs from rgb to font and define the font fields like the rgb fields in monastylattributes
 
   Future<void> addApp(MemberModel? currentMember, AppModel app) async {
     if (app.styleFamily == monaStyleFamilyName) {
@@ -69,41 +68,20 @@ class MonaStyleFamily extends StyleFamily {
             _monaStyles[appId] =
                 MonaStyle(this, app.styleName!, monaStyleAttributesModel);
           } else {
-            throw Exception(
-                "Style with name " + styleName + " not found for app " + appId);
+            // if the member is the owner then add the style if one of the defaults
+            if ((currentMember != null) &&
+                (app.ownerID == currentMember.documentID)) {
+              if (styleName == eliudStyleName) await createEliudStyle(appId);
+              else if (styleName == incidamusStyleName) await createIncidamusStyle(appId);
+              else if (styleName == juuwleStyleName) await createJuuwleStyle(appId);
+              else if (styleName == minkeyStyleName) await createMinkeyStyle(appId);
+            } else {
+              throw Exception(
+                  "Style with name " + styleName + " not found for app " +
+                      appId);
+            }
           }
         }
-
-        // TODO: move this to a method where we explicitly generate these, then add a button in the GUI "generate default styles for this family"
-/*      if (_monaStyles[appId] == null) {
-        if ((currentMember != null) &&
-            (app.ownerID == currentMember.documentID)) {
-          // Create the default styles if they don't exist
-          if (await monaStyleAttributesRepository(appId: appId)!.get(
-              eliudStyleName) == null) {
-            await monaStyleAttributesRepository(appId: appId)!.add(
-                await MonaEliudStyle.defaultStyleAttributesModel(
-                    appId, eliudStyleName));
-          }
-          if (await monaStyleAttributesRepository(appId: appId)!.get(
-              incidamusStyleName) == null) {
-            await monaStyleAttributesRepository(appId: appId)!.add(
-                await MonaIncidamusStyle.defaultStyleAttributesModel(
-                    appId, incidamusStyleName));
-          }
-          if (await monaStyleAttributesRepository(appId: appId)!.get(
-              juuwleStyleName) == null) {
-            await monaStyleAttributesRepository(appId: appId)!.add(
-                await MonaJuuwleStyle.defaultStyleAttributesModel(
-                    appId, juuwleStyleName));
-          }
-          if (await monaStyleAttributesRepository(appId: appId)!.get(
-              minkeyStyleName) == null) {
-            await monaStyleAttributesRepository(appId: appId)!.add(
-                await MonaMinkeyStyle.defaultStyleAttributesModel(
-                    appId, minkeyStyleName));
-          }
-        }*/
 
         // listen, but wait for the first listen to finish and the styles to be loaded so that when a style is retrieved (through method style) then it's available.
         listen(appId, styleName);
@@ -113,6 +91,46 @@ class MonaStyleFamily extends StyleFamily {
       } else {
         throw Exception("styleName is null for for app " + appId);
       }
+    }
+  }
+
+  Future<void> createEliudStyle(String appId) async {
+    if (await monaStyleAttributesRepository(appId: appId)!
+        .get(eliudStyleName) ==
+        null) {
+      await monaStyleAttributesRepository(appId: appId)!.add(
+          await MonaEliudStyle.defaultStyleAttributesModel(
+              appId, eliudStyleName));
+    }
+  }
+
+  Future<void> createIncidamusStyle(String appId) async {
+    if (await monaStyleAttributesRepository(appId: appId)!
+            .get(incidamusStyleName) ==
+        null) {
+      await monaStyleAttributesRepository(appId: appId)!.add(
+          await MonaIncidamusStyle.defaultStyleAttributesModel(
+              appId, incidamusStyleName));
+    }
+  }
+
+  Future<void> createJuuwleStyle(String appId) async {
+    if (await monaStyleAttributesRepository(appId: appId)!
+            .get(juuwleStyleName) ==
+        null) {
+      await monaStyleAttributesRepository(appId: appId)!.add(
+          await MonaJuuwleStyle.defaultStyleAttributesModel(
+              appId, juuwleStyleName));
+    }
+  }
+
+  Future<void> createMinkeyStyle(String appId) async {
+    if (await monaStyleAttributesRepository(appId: appId)!
+            .get(minkeyStyleName) ==
+        null) {
+      await monaStyleAttributesRepository(appId: appId)!.add(
+          await MonaMinkeyStyle.defaultStyleAttributesModel(
+              appId, minkeyStyleName));
     }
   }
 

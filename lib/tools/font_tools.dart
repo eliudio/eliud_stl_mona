@@ -1,5 +1,9 @@
 import 'package:eliud_core/model/abstract_repository_singleton.dart';
 import 'package:eliud_core/model/model_export.dart';
+import 'package:eliud_core/tools/etc.dart';
+import 'package:eliud_stl_mona/model/font_model.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FontTools {
   // Use this for reference:
@@ -82,7 +86,6 @@ class FontTools {
     var size = _sizes[styleIndex];
     var documentID = key(styleName, fontKeys[fontIndex], _styleLabels[styleIndex]);
     var fontModel = FontModel(
-      documentID: documentID,
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
       weight: _weights[styleIndex],
@@ -98,7 +101,6 @@ class FontTools {
     var size = _defaultSize;
     var documentID = key(styleName, fontKeys[fontIndex], normalLabel);
     var fontModel = FontModel(
-      documentID: documentID,
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
       weight: EliudFontWeight.Normal,
@@ -114,7 +116,6 @@ class FontTools {
     var size = _defaultSmallSize;
     var documentID = key(styleName, fontKeys[fontIndex], smallLabel);
     var fontModel = FontModel(
-      documentID: documentID,
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
       weight: EliudFontWeight.Normal,
@@ -130,7 +131,6 @@ class FontTools {
     var size = _textFieldHeaderSize;
     var documentID = key(styleName, fontKeys[fontIndex], textFieldHeaderLabel);
     var fontModel = FontModel(
-      documentID: documentID,
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
       weight: EliudFontWeight.Normal,
@@ -146,7 +146,6 @@ class FontTools {
     var size = _defaultSize;
     var documentID = key(styleName, fontKeys[fontIndex], highlightLabel1);
     var fontModel = FontModel(
-      documentID: documentID,
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
       weight: EliudFontWeight.MostThick,
@@ -162,7 +161,6 @@ class FontTools {
     var size = _defaultSize;
     var documentID = key(styleName, fontKeys[fontIndex], highlightLabel2);
     var fontModel = FontModel(
-      documentID: documentID,
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
       weight: EliudFontWeight.MostThick,
@@ -178,7 +176,6 @@ class FontTools {
     var size = _defaultSize;
     var documentID = key(styleName, fontKeys[fontIndex], linkLabel);
     var fontModel = FontModel(
-      documentID: documentID,
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
       weight: EliudFontWeight.Normal,
@@ -242,20 +239,47 @@ class FontTools {
     }
   }
 
-  /*
-   * In case we want to store the fonts in a repository, to re-retrieve
-   */
-  Future<void> storeFonts(String appId) async {
-    fonts.forEach((key, value) async {
-      await AbstractRepositorySingleton.singleton.fontRepository(appId)!.add(value);
-    });
-  }
-
   FontModel? getFont(String fontKey) {
     var fontModel = fonts[fontKey];
     if (fontModel == null) {
       print('Warning: font $fontKey not found');
     }
     return fontModel;
+  }
+
+  static FontWeight toFontWeight(EliudFontWeight? eliudFontWeight) {
+    if (eliudFontWeight == null) return FontWeight.w400;
+    switch (eliudFontWeight) {
+      case EliudFontWeight.Thin:
+        return FontWeight.w100;
+      case EliudFontWeight.ExtraLight:
+        return FontWeight.w200;
+      case EliudFontWeight.Light:
+        return FontWeight.w300;
+      case EliudFontWeight.Normal:
+        return FontWeight.w400;
+      case EliudFontWeight.Medium:
+        return FontWeight.w500;
+      case EliudFontWeight.SemiBold:
+        return FontWeight.w600;
+      case EliudFontWeight.Bold:
+        return FontWeight.w700;
+      case EliudFontWeight.ExtraBold:
+        return FontWeight.w800;
+      case EliudFontWeight.MostThick:
+        return FontWeight.w900;
+      case EliudFontWeight.Unknown:
+        return FontWeight.w900;
+    }
+    return FontWeight.w400;
+  }
+
+  static TextStyle? textStyle(FontModel? fontModel) {
+    if (fontModel == null) return null;
+    return GoogleFonts.getFont(fontModel.fontName!,
+        fontSize: fontModel.size,
+        fontWeight: FontTools.toFontWeight(fontModel.weight),
+        color: RgbHelper.color(rgbo: fontModel.color),
+        fontStyle: FontStyle.italic);
   }
 }

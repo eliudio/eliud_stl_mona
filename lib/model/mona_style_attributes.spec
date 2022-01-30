@@ -256,7 +256,6 @@
       "fieldName": "h1",
       "displayName": "Font header 1",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontH1"
     },
@@ -264,7 +263,6 @@
       "fieldName": "h2",
       "displayName": "Font header 2",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontH2"
     },
@@ -272,7 +270,6 @@
       "fieldName": "h3",
       "displayName": "Font header 3",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontH3"
     },
@@ -280,7 +277,6 @@
       "fieldName": "h4",
       "displayName": "Font header 4",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontH4"
     },
@@ -288,7 +284,6 @@
       "fieldName": "h5",
       "displayName": "Font header 5",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontH5"
     },
@@ -296,7 +291,6 @@
       "fieldName": "textFieldHeader",
       "displayName": "Text Field Header Font Text",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontText"
     },
@@ -304,7 +298,6 @@
       "fieldName": "fontText",
       "displayName": "Font Text",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontText"
     },
@@ -312,7 +305,6 @@
       "fieldName": "fontSmallText",
       "displayName": "Font Small Text",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontText"
     },
@@ -320,7 +312,6 @@
       "fieldName": "fontHighlight1",
       "displayName": "Font Bold Text",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontHighlight1"
     },
@@ -328,7 +319,6 @@
       "fieldName": "fontHighlight2",
       "displayName": "Font Bold Text",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontHighlight2"
     },
@@ -336,7 +326,6 @@
       "fieldName": "fontLink",
       "displayName": "Font Link",
       "fieldType": "Font",
-      "association": true,
       "optional": true,
       "group": "fontLink"
     },

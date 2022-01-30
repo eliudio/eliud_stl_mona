@@ -136,17 +136,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   String? _profileDrawerBG;
   String? _profileDrawerHeaderBG;
   String? _backgroundHomeMenu;
-  String? _h1;
-  String? _h2;
-  String? _h3;
-  String? _h4;
-  String? _h5;
-  String? _textFieldHeader;
-  String? _fontText;
-  String? _fontSmallText;
-  String? _fontHighlight1;
-  String? _fontHighlight2;
-  String? _fontLink;
   int? _routeBuilderSelectedRadioTile;
   final TextEditingController _routeAnimationDurationController = TextEditingController();
 
@@ -220,50 +209,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
           _backgroundHomeMenu= state.value!.backgroundHomeMenu!.documentID;
         else
           _backgroundHomeMenu= "";
-        if (state.value!.h1 != null)
-          _h1= state.value!.h1!.documentID;
-        else
-          _h1= "";
-        if (state.value!.h2 != null)
-          _h2= state.value!.h2!.documentID;
-        else
-          _h2= "";
-        if (state.value!.h3 != null)
-          _h3= state.value!.h3!.documentID;
-        else
-          _h3= "";
-        if (state.value!.h4 != null)
-          _h4= state.value!.h4!.documentID;
-        else
-          _h4= "";
-        if (state.value!.h5 != null)
-          _h5= state.value!.h5!.documentID;
-        else
-          _h5= "";
-        if (state.value!.textFieldHeader != null)
-          _textFieldHeader= state.value!.textFieldHeader!.documentID;
-        else
-          _textFieldHeader= "";
-        if (state.value!.fontText != null)
-          _fontText= state.value!.fontText!.documentID;
-        else
-          _fontText= "";
-        if (state.value!.fontSmallText != null)
-          _fontSmallText= state.value!.fontSmallText!.documentID;
-        else
-          _fontSmallText= "";
-        if (state.value!.fontHighlight1 != null)
-          _fontHighlight1= state.value!.fontHighlight1!.documentID;
-        else
-          _fontHighlight1= "";
-        if (state.value!.fontHighlight2 != null)
-          _fontHighlight2= state.value!.fontHighlight2!.documentID;
-        else
-          _fontHighlight2= "";
-        if (state.value!.fontLink != null)
-          _fontLink= state.value!.fontLink!.documentID;
-        else
-          _fontLink= "";
         if (state.value!.routeBuilder != null)
           _routeBuilderSelectedRadioTile = state.value!.routeBuilder!.index;
         else
@@ -336,10 +281,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                 RgbField(widget.app, "Icon Color Home Menu", state.value!.iconColorHomeMenu, _onIconColorHomeMenuChanged)
           );
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontLink, trigger: _onFontLinkSelected, optional: true),
-          );
 
         children.add(
 
@@ -541,10 +482,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 1')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h1, trigger: _onH1Selected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -557,10 +494,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 2')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h2, trigger: _onH2Selected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -573,10 +506,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 3')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h3, trigger: _onH3Selected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -589,10 +518,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 4')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h4, trigger: _onH4Selected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -605,10 +530,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 5')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _h5, trigger: _onH5Selected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -621,20 +542,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font header 5')
                 ));
 
-        children.add(
 
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _textFieldHeader, trigger: _onTextFieldHeaderSelected, optional: true),
-          );
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontText, trigger: _onFontTextSelected, optional: true),
-          );
-
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontSmallText, trigger: _onFontSmallTextSelected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -647,10 +556,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font highlight 1')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontHighlight1, trigger: _onFontHighlight1Selected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -663,10 +568,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Font hightlight 2')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "fonts", value: _fontHighlight2, trigger: _onFontHighlight2Selected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -980,94 +881,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   void _onIconColorHomeMenuChanged(value) {
     _myFormBloc.add(ChangedMonaStyleAttributesIconColorHomeMenu(value: value));
     
-  }
-
-
-  void _onH1Selected(String? val) {
-    setState(() {
-      _h1 = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesH1(value: val));
-  }
-
-
-  void _onH2Selected(String? val) {
-    setState(() {
-      _h2 = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesH2(value: val));
-  }
-
-
-  void _onH3Selected(String? val) {
-    setState(() {
-      _h3 = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesH3(value: val));
-  }
-
-
-  void _onH4Selected(String? val) {
-    setState(() {
-      _h4 = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesH4(value: val));
-  }
-
-
-  void _onH5Selected(String? val) {
-    setState(() {
-      _h5 = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesH5(value: val));
-  }
-
-
-  void _onTextFieldHeaderSelected(String? val) {
-    setState(() {
-      _textFieldHeader = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesTextFieldHeader(value: val));
-  }
-
-
-  void _onFontTextSelected(String? val) {
-    setState(() {
-      _fontText = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesFontText(value: val));
-  }
-
-
-  void _onFontSmallTextSelected(String? val) {
-    setState(() {
-      _fontSmallText = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesFontSmallText(value: val));
-  }
-
-
-  void _onFontHighlight1Selected(String? val) {
-    setState(() {
-      _fontHighlight1 = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesFontHighlight1(value: val));
-  }
-
-
-  void _onFontHighlight2Selected(String? val) {
-    setState(() {
-      _fontHighlight2 = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesFontHighlight2(value: val));
-  }
-
-
-  void _onFontLinkSelected(String? val) {
-    setState(() {
-      _fontLink = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesFontLink(value: val));
   }
 
 

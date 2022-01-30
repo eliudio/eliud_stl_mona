@@ -190,17 +190,17 @@ class MonaStyleAttributesModel {
           backgroundHomeMenuId: (backgroundHomeMenu != null) ? backgroundHomeMenu!.documentID : null, 
           backgroundColorHomeMenu: (backgroundColorHomeMenu != null) ? backgroundColorHomeMenu!.toEntity(appId: appId) : null, 
           iconColorHomeMenu: (iconColorHomeMenu != null) ? iconColorHomeMenu!.toEntity(appId: appId) : null, 
-          h1Id: (h1 != null) ? h1!.documentID : null, 
-          h2Id: (h2 != null) ? h2!.documentID : null, 
-          h3Id: (h3 != null) ? h3!.documentID : null, 
-          h4Id: (h4 != null) ? h4!.documentID : null, 
-          h5Id: (h5 != null) ? h5!.documentID : null, 
-          textFieldHeaderId: (textFieldHeader != null) ? textFieldHeader!.documentID : null, 
-          fontTextId: (fontText != null) ? fontText!.documentID : null, 
-          fontSmallTextId: (fontSmallText != null) ? fontSmallText!.documentID : null, 
-          fontHighlight1Id: (fontHighlight1 != null) ? fontHighlight1!.documentID : null, 
-          fontHighlight2Id: (fontHighlight2 != null) ? fontHighlight2!.documentID : null, 
-          fontLinkId: (fontLink != null) ? fontLink!.documentID : null, 
+          h1: (h1 != null) ? h1!.toEntity(appId: appId) : null, 
+          h2: (h2 != null) ? h2!.toEntity(appId: appId) : null, 
+          h3: (h3 != null) ? h3!.toEntity(appId: appId) : null, 
+          h4: (h4 != null) ? h4!.toEntity(appId: appId) : null, 
+          h5: (h5 != null) ? h5!.toEntity(appId: appId) : null, 
+          textFieldHeader: (textFieldHeader != null) ? textFieldHeader!.toEntity(appId: appId) : null, 
+          fontText: (fontText != null) ? fontText!.toEntity(appId: appId) : null, 
+          fontSmallText: (fontSmallText != null) ? fontSmallText!.toEntity(appId: appId) : null, 
+          fontHighlight1: (fontHighlight1 != null) ? fontHighlight1!.toEntity(appId: appId) : null, 
+          fontHighlight2: (fontHighlight2 != null) ? fontHighlight2!.toEntity(appId: appId) : null, 
+          fontLink: (fontLink != null) ? fontLink!.toEntity(appId: appId) : null, 
           routeBuilder: (routeBuilder != null) ? routeBuilder!.index : null, 
           routeAnimationDuration: (routeAnimationDuration != null) ? routeAnimationDuration : null, 
     );
@@ -242,6 +242,28 @@ class MonaStyleAttributesModel {
             await RgbModel.fromEntity(entity.backgroundColorHomeMenu), 
           iconColorHomeMenu: 
             await RgbModel.fromEntity(entity.iconColorHomeMenu), 
+          h1: 
+            await FontModel.fromEntity(entity.h1), 
+          h2: 
+            await FontModel.fromEntity(entity.h2), 
+          h3: 
+            await FontModel.fromEntity(entity.h3), 
+          h4: 
+            await FontModel.fromEntity(entity.h4), 
+          h5: 
+            await FontModel.fromEntity(entity.h5), 
+          textFieldHeader: 
+            await FontModel.fromEntity(entity.textFieldHeader), 
+          fontText: 
+            await FontModel.fromEntity(entity.fontText), 
+          fontSmallText: 
+            await FontModel.fromEntity(entity.fontSmallText), 
+          fontHighlight1: 
+            await FontModel.fromEntity(entity.fontHighlight1), 
+          fontHighlight2: 
+            await FontModel.fromEntity(entity.fontHighlight2), 
+          fontLink: 
+            await FontModel.fromEntity(entity.fontLink), 
           routeBuilder: toPageTransitionAnimation(entity.routeBuilder), 
           routeAnimationDuration: entity.routeAnimationDuration, 
     );
@@ -360,127 +382,6 @@ class MonaStyleAttributesModel {
       }
     }
 
-    FontModel? h1Holder;
-    if (entity.h1Id != null) {
-      try {
-          h1Holder = await fontRepository(appId: appId)!.get(entity.h1Id);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise h1');
-        print('Error whilst retrieving font with id ${entity.h1Id}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? h2Holder;
-    if (entity.h2Id != null) {
-      try {
-          h2Holder = await fontRepository(appId: appId)!.get(entity.h2Id);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise h2');
-        print('Error whilst retrieving font with id ${entity.h2Id}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? h3Holder;
-    if (entity.h3Id != null) {
-      try {
-          h3Holder = await fontRepository(appId: appId)!.get(entity.h3Id);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise h3');
-        print('Error whilst retrieving font with id ${entity.h3Id}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? h4Holder;
-    if (entity.h4Id != null) {
-      try {
-          h4Holder = await fontRepository(appId: appId)!.get(entity.h4Id);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise h4');
-        print('Error whilst retrieving font with id ${entity.h4Id}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? h5Holder;
-    if (entity.h5Id != null) {
-      try {
-          h5Holder = await fontRepository(appId: appId)!.get(entity.h5Id);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise h5');
-        print('Error whilst retrieving font with id ${entity.h5Id}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? textFieldHeaderHolder;
-    if (entity.textFieldHeaderId != null) {
-      try {
-          textFieldHeaderHolder = await fontRepository(appId: appId)!.get(entity.textFieldHeaderId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise textFieldHeader');
-        print('Error whilst retrieving font with id ${entity.textFieldHeaderId}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? fontTextHolder;
-    if (entity.fontTextId != null) {
-      try {
-          fontTextHolder = await fontRepository(appId: appId)!.get(entity.fontTextId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise fontText');
-        print('Error whilst retrieving font with id ${entity.fontTextId}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? fontSmallTextHolder;
-    if (entity.fontSmallTextId != null) {
-      try {
-          fontSmallTextHolder = await fontRepository(appId: appId)!.get(entity.fontSmallTextId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise fontSmallText');
-        print('Error whilst retrieving font with id ${entity.fontSmallTextId}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? fontHighlight1Holder;
-    if (entity.fontHighlight1Id != null) {
-      try {
-          fontHighlight1Holder = await fontRepository(appId: appId)!.get(entity.fontHighlight1Id);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise fontHighlight1');
-        print('Error whilst retrieving font with id ${entity.fontHighlight1Id}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? fontHighlight2Holder;
-    if (entity.fontHighlight2Id != null) {
-      try {
-          fontHighlight2Holder = await fontRepository(appId: appId)!.get(entity.fontHighlight2Id);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise fontHighlight2');
-        print('Error whilst retrieving font with id ${entity.fontHighlight2Id}');
-        print('Exception: $e');
-      }
-    }
-
-    FontModel? fontLinkHolder;
-    if (entity.fontLinkId != null) {
-      try {
-          fontLinkHolder = await fontRepository(appId: appId)!.get(entity.fontLinkId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise fontLink');
-        print('Error whilst retrieving font with id ${entity.fontLinkId}');
-        print('Exception: $e');
-      }
-    }
-
     var counter = 0;
     return MonaStyleAttributesModel(
           documentID: documentID, 
@@ -525,17 +426,28 @@ class MonaStyleAttributesModel {
             await RgbModel.fromEntityPlus(entity.backgroundColorHomeMenu, appId: appId), 
           iconColorHomeMenu: 
             await RgbModel.fromEntityPlus(entity.iconColorHomeMenu, appId: appId), 
-          h1: h1Holder, 
-          h2: h2Holder, 
-          h3: h3Holder, 
-          h4: h4Holder, 
-          h5: h5Holder, 
-          textFieldHeader: textFieldHeaderHolder, 
-          fontText: fontTextHolder, 
-          fontSmallText: fontSmallTextHolder, 
-          fontHighlight1: fontHighlight1Holder, 
-          fontHighlight2: fontHighlight2Holder, 
-          fontLink: fontLinkHolder, 
+          h1: 
+            await FontModel.fromEntityPlus(entity.h1, appId: appId), 
+          h2: 
+            await FontModel.fromEntityPlus(entity.h2, appId: appId), 
+          h3: 
+            await FontModel.fromEntityPlus(entity.h3, appId: appId), 
+          h4: 
+            await FontModel.fromEntityPlus(entity.h4, appId: appId), 
+          h5: 
+            await FontModel.fromEntityPlus(entity.h5, appId: appId), 
+          textFieldHeader: 
+            await FontModel.fromEntityPlus(entity.textFieldHeader, appId: appId), 
+          fontText: 
+            await FontModel.fromEntityPlus(entity.fontText, appId: appId), 
+          fontSmallText: 
+            await FontModel.fromEntityPlus(entity.fontSmallText, appId: appId), 
+          fontHighlight1: 
+            await FontModel.fromEntityPlus(entity.fontHighlight1, appId: appId), 
+          fontHighlight2: 
+            await FontModel.fromEntityPlus(entity.fontHighlight2, appId: appId), 
+          fontLink: 
+            await FontModel.fromEntityPlus(entity.fontLink, appId: appId), 
           routeBuilder: toPageTransitionAnimation(entity.routeBuilder), 
           routeAnimationDuration: entity.routeAnimationDuration, 
     );

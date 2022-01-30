@@ -23,7 +23,6 @@ class MonaEliudStyle {
         defaultColor: defaultColor,
         highlightColor: highlightColor,
         linkColor: linkColor);
-    await fontTools.storeFonts(appId);
     return MonaStyleAttributesModel(
       documentID: documentID,
       appBackground: pageBG(),
