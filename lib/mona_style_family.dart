@@ -55,7 +55,6 @@ class MonaStyleFamily extends StyleFamily {
     }
     return _instance!;
   }
-  check in stuff first on a branch
   make font type like rgb, so copy the specs from rgb to font and define the font fields like the rgb fields in monastylattributes
 
   Future<void> addApp(MemberModel? currentMember, AppModel app) async {
