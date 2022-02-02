@@ -21,7 +21,6 @@ abstract class MonaShared {
 
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      documentID: bgName,
       beginGradientPosition: StartGradientPosition.CenterLeft,
       endGradientPosition: EndGradientPosition.CenterRight,
       decorationColors: decorationColorModels,
@@ -31,7 +30,6 @@ abstract class MonaShared {
 
   static BackgroundModel appBarBG(String bgName, RgbModel appColor1, RgbModel appColor2,) {
     return Backgrounds.gradient(
-      documentId: bgName,
       fromColor: appColor1,
       toColor: appColor2,
       startPosition: StartGradientPosition.TopLeft,
@@ -41,7 +39,6 @@ abstract class MonaShared {
 
   static BackgroundModel bottomNavigationBarBG(String bgName, RgbModel appColor1, RgbModel appColor2,) {
     return Backgrounds.gradient(
-      documentId: bgName,
       fromColor: appColor1,
       toColor: appColor2,
       startPosition: StartGradientPosition.TopLeft,
@@ -58,7 +55,6 @@ abstract class MonaShared {
     DecorationColorModel(documentID: '2', color: appColor1, stop: -1);
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      documentID: bgName,
       beginGradientPosition: StartGradientPosition.TopLeft,
       endGradientPosition: EndGradientPosition.BottomRight,
       decorationColors: decorationColorModels,
@@ -69,7 +65,6 @@ abstract class MonaShared {
   static BackgroundModel drawerHeaderBG(String bgName) {
     var decorationColorModels = <DecorationColorModel>[];
     var backgroundModel = BackgroundModel(
-        documentID: bgName,
         decorationColors: decorationColorModels);
     return backgroundModel;
   }
@@ -83,7 +78,6 @@ abstract class MonaShared {
     DecorationColorModel(documentID: '2', color: appColor1, stop: -1);
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      documentID: bgName,
       beginGradientPosition: StartGradientPosition.TopRight,
       endGradientPosition: EndGradientPosition.BottomLeft,
       decorationColors: decorationColorModels,
@@ -94,7 +88,6 @@ abstract class MonaShared {
   static BackgroundModel profileDrawerHeaderBG(String bgNBame) {
     var decorationColorModels = <DecorationColorModel>[];
     var backgroundModel = BackgroundModel(
-        documentID: 'profile_drawer_header_bg',
         decorationColors: decorationColorModels,
         useProfilePhotoAsBackground: true);
     return backgroundModel;
@@ -115,7 +108,6 @@ abstract class MonaShared {
 
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      documentID: bgName,
       beginGradientPosition: StartGradientPosition.CenterLeft,
       endGradientPosition: EndGradientPosition.CenterRight,
       decorationColors: decorationColorModels,

@@ -166,28 +166,28 @@ class MonaStyleAttributesModel {
     return MonaStyleAttributesEntity(
           appId: (appId != null) ? appId : null, 
           formSubmitButtonColor: (formSubmitButtonColor != null) ? formSubmitButtonColor!.toEntity(appId: appId) : null, 
-          formBackgroundId: (formBackground != null) ? formBackground!.documentID : null, 
-          appBackgroundId: (appBackground != null) ? appBackground!.documentID : null, 
+          formBackground: (formBackground != null) ? formBackground!.toEntity(appId: appId) : null, 
+          appBackground: (appBackground != null) ? appBackground!.toEntity(appId: appId) : null, 
           formSubmitButtonTextColor: (formSubmitButtonTextColor != null) ? formSubmitButtonTextColor!.toEntity(appId: appId) : null, 
           formGroupTitleColor: (formGroupTitleColor != null) ? formGroupTitleColor!.toEntity(appId: appId) : null, 
           formFieldTextColor: (formFieldTextColor != null) ? formFieldTextColor!.toEntity(appId: appId) : null, 
           formFieldHeaderColor: (formFieldHeaderColor != null) ? formFieldHeaderColor!.toEntity(appId: appId) : null, 
           formFieldFocusColor: (formFieldFocusColor != null) ? formFieldFocusColor!.toEntity(appId: appId) : null, 
-          listBackgroundId: (listBackground != null) ? listBackground!.documentID : null, 
+          listBackground: (listBackground != null) ? listBackground!.toEntity(appId: appId) : null, 
           listTextItemColor: (listTextItemColor != null) ? listTextItemColor!.toEntity(appId: appId) : null, 
           floatingButtonForegroundColor: (floatingButtonForegroundColor != null) ? floatingButtonForegroundColor!.toEntity(appId: appId) : null, 
           floatingButtonBackgroundColor: (floatingButtonBackgroundColor != null) ? floatingButtonBackgroundColor!.toEntity(appId: appId) : null, 
           dividerColor: (dividerColor != null) ? dividerColor!.toEntity(appId: appId) : null, 
-          appBarBGId: (appBarBG != null) ? appBarBG!.documentID : null, 
+          appBarBG: (appBarBG != null) ? appBarBG!.toEntity(appId: appId) : null, 
           appBarIconColor: (appBarIconColor != null) ? appBarIconColor!.toEntity(appId: appId) : null, 
           appBarSelectedIconColor: (appBarSelectedIconColor != null) ? appBarSelectedIconColor!.toEntity(appId: appId) : null, 
           appBarMenuBackgroundColor: (appBarMenuBackgroundColor != null) ? appBarMenuBackgroundColor!.toEntity(appId: appId) : null, 
-          bottomNavigationBarBGId: (bottomNavigationBarBG != null) ? bottomNavigationBarBG!.documentID : null, 
-          drawerBGId: (drawerBG != null) ? drawerBG!.documentID : null, 
-          drawerHeaderBGId: (drawerHeaderBG != null) ? drawerHeaderBG!.documentID : null, 
-          profileDrawerBGId: (profileDrawerBG != null) ? profileDrawerBG!.documentID : null, 
-          profileDrawerHeaderBGId: (profileDrawerHeaderBG != null) ? profileDrawerHeaderBG!.documentID : null, 
-          backgroundHomeMenuId: (backgroundHomeMenu != null) ? backgroundHomeMenu!.documentID : null, 
+          bottomNavigationBarBG: (bottomNavigationBarBG != null) ? bottomNavigationBarBG!.toEntity(appId: appId) : null, 
+          drawerBG: (drawerBG != null) ? drawerBG!.toEntity(appId: appId) : null, 
+          drawerHeaderBG: (drawerHeaderBG != null) ? drawerHeaderBG!.toEntity(appId: appId) : null, 
+          profileDrawerBG: (profileDrawerBG != null) ? profileDrawerBG!.toEntity(appId: appId) : null, 
+          profileDrawerHeaderBG: (profileDrawerHeaderBG != null) ? profileDrawerHeaderBG!.toEntity(appId: appId) : null, 
+          backgroundHomeMenu: (backgroundHomeMenu != null) ? backgroundHomeMenu!.toEntity(appId: appId) : null, 
           backgroundColorHomeMenu: (backgroundColorHomeMenu != null) ? backgroundColorHomeMenu!.toEntity(appId: appId) : null, 
           iconColorHomeMenu: (iconColorHomeMenu != null) ? iconColorHomeMenu!.toEntity(appId: appId) : null, 
           h1: (h1 != null) ? h1!.toEntity(appId: appId) : null, 
@@ -214,6 +214,10 @@ class MonaStyleAttributesModel {
           appId: entity.appId, 
           formSubmitButtonColor: 
             await RgbModel.fromEntity(entity.formSubmitButtonColor), 
+          formBackground: 
+            await BackgroundModel.fromEntity(entity.formBackground), 
+          appBackground: 
+            await BackgroundModel.fromEntity(entity.appBackground), 
           formSubmitButtonTextColor: 
             await RgbModel.fromEntity(entity.formSubmitButtonTextColor), 
           formGroupTitleColor: 
@@ -224,6 +228,8 @@ class MonaStyleAttributesModel {
             await RgbModel.fromEntity(entity.formFieldHeaderColor), 
           formFieldFocusColor: 
             await RgbModel.fromEntity(entity.formFieldFocusColor), 
+          listBackground: 
+            await BackgroundModel.fromEntity(entity.listBackground), 
           listTextItemColor: 
             await RgbModel.fromEntity(entity.listTextItemColor), 
           floatingButtonForegroundColor: 
@@ -232,12 +238,26 @@ class MonaStyleAttributesModel {
             await RgbModel.fromEntity(entity.floatingButtonBackgroundColor), 
           dividerColor: 
             await RgbModel.fromEntity(entity.dividerColor), 
+          appBarBG: 
+            await BackgroundModel.fromEntity(entity.appBarBG), 
           appBarIconColor: 
             await RgbModel.fromEntity(entity.appBarIconColor), 
           appBarSelectedIconColor: 
             await RgbModel.fromEntity(entity.appBarSelectedIconColor), 
           appBarMenuBackgroundColor: 
             await RgbModel.fromEntity(entity.appBarMenuBackgroundColor), 
+          bottomNavigationBarBG: 
+            await BackgroundModel.fromEntity(entity.bottomNavigationBarBG), 
+          drawerBG: 
+            await BackgroundModel.fromEntity(entity.drawerBG), 
+          drawerHeaderBG: 
+            await BackgroundModel.fromEntity(entity.drawerHeaderBG), 
+          profileDrawerBG: 
+            await BackgroundModel.fromEntity(entity.profileDrawerBG), 
+          profileDrawerHeaderBG: 
+            await BackgroundModel.fromEntity(entity.profileDrawerHeaderBG), 
+          backgroundHomeMenu: 
+            await BackgroundModel.fromEntity(entity.backgroundHomeMenu), 
           backgroundColorHomeMenu: 
             await RgbModel.fromEntity(entity.backgroundColorHomeMenu), 
           iconColorHomeMenu: 
@@ -272,124 +292,16 @@ class MonaStyleAttributesModel {
   static Future<MonaStyleAttributesModel?> fromEntityPlus(String documentID, MonaStyleAttributesEntity? entity, { String? appId}) async {
     if (entity == null) return null;
 
-    BackgroundModel? formBackgroundHolder;
-    if (entity.formBackgroundId != null) {
-      try {
-          formBackgroundHolder = await backgroundRepository(appId: appId)!.get(entity.formBackgroundId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise formBackground');
-        print('Error whilst retrieving background with id ${entity.formBackgroundId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? appBackgroundHolder;
-    if (entity.appBackgroundId != null) {
-      try {
-          appBackgroundHolder = await backgroundRepository(appId: appId)!.get(entity.appBackgroundId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise appBackground');
-        print('Error whilst retrieving background with id ${entity.appBackgroundId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? listBackgroundHolder;
-    if (entity.listBackgroundId != null) {
-      try {
-          listBackgroundHolder = await backgroundRepository(appId: appId)!.get(entity.listBackgroundId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise listBackground');
-        print('Error whilst retrieving background with id ${entity.listBackgroundId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? appBarBGHolder;
-    if (entity.appBarBGId != null) {
-      try {
-          appBarBGHolder = await backgroundRepository(appId: appId)!.get(entity.appBarBGId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise appBarBG');
-        print('Error whilst retrieving background with id ${entity.appBarBGId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? bottomNavigationBarBGHolder;
-    if (entity.bottomNavigationBarBGId != null) {
-      try {
-          bottomNavigationBarBGHolder = await backgroundRepository(appId: appId)!.get(entity.bottomNavigationBarBGId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise bottomNavigationBarBG');
-        print('Error whilst retrieving background with id ${entity.bottomNavigationBarBGId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? drawerBGHolder;
-    if (entity.drawerBGId != null) {
-      try {
-          drawerBGHolder = await backgroundRepository(appId: appId)!.get(entity.drawerBGId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise drawerBG');
-        print('Error whilst retrieving background with id ${entity.drawerBGId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? drawerHeaderBGHolder;
-    if (entity.drawerHeaderBGId != null) {
-      try {
-          drawerHeaderBGHolder = await backgroundRepository(appId: appId)!.get(entity.drawerHeaderBGId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise drawerHeaderBG');
-        print('Error whilst retrieving background with id ${entity.drawerHeaderBGId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? profileDrawerBGHolder;
-    if (entity.profileDrawerBGId != null) {
-      try {
-          profileDrawerBGHolder = await backgroundRepository(appId: appId)!.get(entity.profileDrawerBGId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise profileDrawerBG');
-        print('Error whilst retrieving background with id ${entity.profileDrawerBGId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? profileDrawerHeaderBGHolder;
-    if (entity.profileDrawerHeaderBGId != null) {
-      try {
-          profileDrawerHeaderBGHolder = await backgroundRepository(appId: appId)!.get(entity.profileDrawerHeaderBGId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise profileDrawerHeaderBG');
-        print('Error whilst retrieving background with id ${entity.profileDrawerHeaderBGId}');
-        print('Exception: $e');
-      }
-    }
-
-    BackgroundModel? backgroundHomeMenuHolder;
-    if (entity.backgroundHomeMenuId != null) {
-      try {
-          backgroundHomeMenuHolder = await backgroundRepository(appId: appId)!.get(entity.backgroundHomeMenuId);
-      } on Exception catch(e) {
-        print('Error whilst trying to initialise backgroundHomeMenu');
-        print('Error whilst retrieving background with id ${entity.backgroundHomeMenuId}');
-        print('Exception: $e');
-      }
-    }
-
     var counter = 0;
     return MonaStyleAttributesModel(
           documentID: documentID, 
           appId: entity.appId, 
           formSubmitButtonColor: 
             await RgbModel.fromEntityPlus(entity.formSubmitButtonColor, appId: appId), 
-          formBackground: formBackgroundHolder, 
-          appBackground: appBackgroundHolder, 
+          formBackground: 
+            await BackgroundModel.fromEntityPlus(entity.formBackground, appId: appId), 
+          appBackground: 
+            await BackgroundModel.fromEntityPlus(entity.appBackground, appId: appId), 
           formSubmitButtonTextColor: 
             await RgbModel.fromEntityPlus(entity.formSubmitButtonTextColor, appId: appId), 
           formGroupTitleColor: 
@@ -400,7 +312,8 @@ class MonaStyleAttributesModel {
             await RgbModel.fromEntityPlus(entity.formFieldHeaderColor, appId: appId), 
           formFieldFocusColor: 
             await RgbModel.fromEntityPlus(entity.formFieldFocusColor, appId: appId), 
-          listBackground: listBackgroundHolder, 
+          listBackground: 
+            await BackgroundModel.fromEntityPlus(entity.listBackground, appId: appId), 
           listTextItemColor: 
             await RgbModel.fromEntityPlus(entity.listTextItemColor, appId: appId), 
           floatingButtonForegroundColor: 
@@ -409,19 +322,26 @@ class MonaStyleAttributesModel {
             await RgbModel.fromEntityPlus(entity.floatingButtonBackgroundColor, appId: appId), 
           dividerColor: 
             await RgbModel.fromEntityPlus(entity.dividerColor, appId: appId), 
-          appBarBG: appBarBGHolder, 
+          appBarBG: 
+            await BackgroundModel.fromEntityPlus(entity.appBarBG, appId: appId), 
           appBarIconColor: 
             await RgbModel.fromEntityPlus(entity.appBarIconColor, appId: appId), 
           appBarSelectedIconColor: 
             await RgbModel.fromEntityPlus(entity.appBarSelectedIconColor, appId: appId), 
           appBarMenuBackgroundColor: 
             await RgbModel.fromEntityPlus(entity.appBarMenuBackgroundColor, appId: appId), 
-          bottomNavigationBarBG: bottomNavigationBarBGHolder, 
-          drawerBG: drawerBGHolder, 
-          drawerHeaderBG: drawerHeaderBGHolder, 
-          profileDrawerBG: profileDrawerBGHolder, 
-          profileDrawerHeaderBG: profileDrawerHeaderBGHolder, 
-          backgroundHomeMenu: backgroundHomeMenuHolder, 
+          bottomNavigationBarBG: 
+            await BackgroundModel.fromEntityPlus(entity.bottomNavigationBarBG, appId: appId), 
+          drawerBG: 
+            await BackgroundModel.fromEntityPlus(entity.drawerBG, appId: appId), 
+          drawerHeaderBG: 
+            await BackgroundModel.fromEntityPlus(entity.drawerHeaderBG, appId: appId), 
+          profileDrawerBG: 
+            await BackgroundModel.fromEntityPlus(entity.profileDrawerBG, appId: appId), 
+          profileDrawerHeaderBG: 
+            await BackgroundModel.fromEntityPlus(entity.profileDrawerHeaderBG, appId: appId), 
+          backgroundHomeMenu: 
+            await BackgroundModel.fromEntityPlus(entity.backgroundHomeMenu, appId: appId), 
           backgroundColorHomeMenu: 
             await RgbModel.fromEntityPlus(entity.backgroundColorHomeMenu, appId: appId), 
           iconColorHomeMenu: 

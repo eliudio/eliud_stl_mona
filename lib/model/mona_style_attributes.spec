@@ -47,7 +47,6 @@
       "remark": "Background of forms in admin section",
       "displayName": "Form Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "formBackground"
     },
@@ -56,7 +55,6 @@
       "remark": "Background of pages in app",
       "displayName": "Form Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "formBackground"
     },
@@ -110,7 +108,6 @@
       "remark": "Background of list in admin section",
       "displayName": "List Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "listBackground"
     },
@@ -154,7 +151,6 @@
       "fieldName": "appBarBG",
       "displayName": "AppBar Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "appBarBackground"
     },
@@ -189,7 +185,6 @@
       "fieldName": "bottomNavigationBarBG",
       "displayName": "Bottom NavigationBar Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "bottomNavigationBarBG"
     },
@@ -197,7 +192,6 @@
       "fieldName": "drawerBG",
       "displayName": "Left Drawer Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "drawerBarBackground"
     },
@@ -205,7 +199,6 @@
       "fieldName": "drawerHeaderBG",
       "displayName": "Left Drawer Header Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "drawerBarBackground"
     },
@@ -213,7 +206,6 @@
       "fieldName": "profileDrawerBG",
       "displayName": "Right Drawer Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "drawerBarBackground"
     },
@@ -221,7 +213,6 @@
       "fieldName": "profileDrawerHeaderBG",
       "displayName": "Right Drawer Header Background",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "drawerBarBackground"
     },
@@ -230,7 +221,6 @@
       "remark": "Override the style background",
       "displayName": "Background Override",
       "fieldType": "Background",
-      "association": true,
       "optional": true,
       "group": "background"
     },

@@ -22,7 +22,6 @@ import 'package:eliud_stl_mona/model/mona_style_attributes_component_state.dart'
 import 'package:eliud_stl_mona/model/mona_style_attributes_repository.dart';
 import 'package:flutter/services.dart';
 
-
 class MonaStyleAttributesComponentBloc extends Bloc<MonaStyleAttributesComponentEvent, MonaStyleAttributesComponentState> {
   final MonaStyleAttributesRepository? monaStyleAttributesRepository;
   StreamSubscription? _monaStyleAttributesSubscription;

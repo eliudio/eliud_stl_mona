@@ -126,16 +126,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
   final TextEditingController _documentIDController = TextEditingController();
   final TextEditingController _appIdController = TextEditingController();
-  String? _formBackground;
-  String? _appBackground;
-  String? _listBackground;
-  String? _appBarBG;
-  String? _bottomNavigationBarBG;
-  String? _drawerBG;
-  String? _drawerHeaderBG;
-  String? _profileDrawerBG;
-  String? _profileDrawerHeaderBG;
-  String? _backgroundHomeMenu;
   int? _routeBuilderSelectedRadioTile;
   final TextEditingController _routeAnimationDurationController = TextEditingController();
 
@@ -169,46 +159,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
           _appIdController.text = state.value!.appId.toString();
         else
           _appIdController.text = "";
-        if (state.value!.formBackground != null)
-          _formBackground= state.value!.formBackground!.documentID;
-        else
-          _formBackground= "";
-        if (state.value!.appBackground != null)
-          _appBackground= state.value!.appBackground!.documentID;
-        else
-          _appBackground= "";
-        if (state.value!.listBackground != null)
-          _listBackground= state.value!.listBackground!.documentID;
-        else
-          _listBackground= "";
-        if (state.value!.appBarBG != null)
-          _appBarBG= state.value!.appBarBG!.documentID;
-        else
-          _appBarBG= "";
-        if (state.value!.bottomNavigationBarBG != null)
-          _bottomNavigationBarBG= state.value!.bottomNavigationBarBG!.documentID;
-        else
-          _bottomNavigationBarBG= "";
-        if (state.value!.drawerBG != null)
-          _drawerBG= state.value!.drawerBG!.documentID;
-        else
-          _drawerBG= "";
-        if (state.value!.drawerHeaderBG != null)
-          _drawerHeaderBG= state.value!.drawerHeaderBG!.documentID;
-        else
-          _drawerHeaderBG= "";
-        if (state.value!.profileDrawerBG != null)
-          _profileDrawerBG= state.value!.profileDrawerBG!.documentID;
-        else
-          _profileDrawerBG= "";
-        if (state.value!.profileDrawerHeaderBG != null)
-          _profileDrawerHeaderBG= state.value!.profileDrawerHeaderBG!.documentID;
-        else
-          _profileDrawerHeaderBG= "";
-        if (state.value!.backgroundHomeMenu != null)
-          _backgroundHomeMenu= state.value!.backgroundHomeMenu!.documentID;
-        else
-          _backgroundHomeMenu= "";
         if (state.value!.routeBuilder != null)
           _routeBuilderSelectedRadioTile = state.value!.routeBuilder!.index;
         else
@@ -241,35 +191,11 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                 RgbField(widget.app, "AppBar Menu Background Color", state.value!.appBarMenuBackgroundColor, _onAppBarMenuBackgroundColorChanged)
           );
 
-        children.add(
 
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _bottomNavigationBarBG, trigger: _onBottomNavigationBarBGSelected, optional: true),
-          );
 
-        children.add(
 
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _drawerBG, trigger: _onDrawerBGSelected, optional: true),
-          );
 
-        children.add(
 
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _drawerHeaderBG, trigger: _onDrawerHeaderBGSelected, optional: true),
-          );
-
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _profileDrawerBG, trigger: _onProfileDrawerBGSelected, optional: true),
-          );
-
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _profileDrawerHeaderBG, trigger: _onProfileDrawerHeaderBGSelected, optional: true),
-          );
-
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _backgroundHomeMenu, trigger: _onBackgroundHomeMenuSelected, optional: true),
-          );
 
         children.add(
 
@@ -429,15 +355,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'Background forms')
                 ));
 
-        children.add(
 
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _formBackground, trigger: _onFormBackgroundSelected, optional: true),
-          );
-
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _appBackground, trigger: _onAppBackgroundSelected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -450,10 +368,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'AppBar Background')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _appBarBG, trigger: _onAppBarBGSelected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -466,10 +380,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'List Background')
                 ));
 
-        children.add(
-
-                DropdownButtonComponentFactory().createNew(app: widget.app, id: "backgrounds", value: _listBackground, trigger: _onListBackgroundSelected, optional: true),
-          );
 
 
         children.add(Container(height: 20.0));
@@ -720,22 +630,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
 
-  void _onFormBackgroundSelected(String? val) {
-    setState(() {
-      _formBackground = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesFormBackground(value: val));
-  }
-
-
-  void _onAppBackgroundSelected(String? val) {
-    setState(() {
-      _appBackground = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesAppBackground(value: val));
-  }
-
-
   void _onFormSubmitButtonTextColorChanged(value) {
     _myFormBloc.add(ChangedMonaStyleAttributesFormSubmitButtonTextColor(value: value));
     
@@ -766,14 +660,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
 
-  void _onListBackgroundSelected(String? val) {
-    setState(() {
-      _listBackground = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesListBackground(value: val));
-  }
-
-
   void _onListTextItemColorChanged(value) {
     _myFormBloc.add(ChangedMonaStyleAttributesListTextItemColor(value: value));
     
@@ -798,14 +684,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
 
-  void _onAppBarBGSelected(String? val) {
-    setState(() {
-      _appBarBG = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesAppBarBG(value: val));
-  }
-
-
   void _onAppBarIconColorChanged(value) {
     _myFormBloc.add(ChangedMonaStyleAttributesAppBarIconColor(value: value));
     
@@ -821,54 +699,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   void _onAppBarMenuBackgroundColorChanged(value) {
     _myFormBloc.add(ChangedMonaStyleAttributesAppBarMenuBackgroundColor(value: value));
     
-  }
-
-
-  void _onBottomNavigationBarBGSelected(String? val) {
-    setState(() {
-      _bottomNavigationBarBG = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesBottomNavigationBarBG(value: val));
-  }
-
-
-  void _onDrawerBGSelected(String? val) {
-    setState(() {
-      _drawerBG = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesDrawerBG(value: val));
-  }
-
-
-  void _onDrawerHeaderBGSelected(String? val) {
-    setState(() {
-      _drawerHeaderBG = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesDrawerHeaderBG(value: val));
-  }
-
-
-  void _onProfileDrawerBGSelected(String? val) {
-    setState(() {
-      _profileDrawerBG = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesProfileDrawerBG(value: val));
-  }
-
-
-  void _onProfileDrawerHeaderBGSelected(String? val) {
-    setState(() {
-      _profileDrawerHeaderBG = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesProfileDrawerHeaderBG(value: val));
-  }
-
-
-  void _onBackgroundHomeMenuSelected(String? val) {
-    setState(() {
-      _backgroundHomeMenu = val;
-    });
-    _myFormBloc.add(ChangedMonaStyleAttributesBackgroundHomeMenu(value: val));
   }
 
 

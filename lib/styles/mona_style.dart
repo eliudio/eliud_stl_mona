@@ -1,10 +1,12 @@
 import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/model/app_model.dart';
+import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_core/style/style_registry.dart';
 import 'package:eliud_core/tools/action/action_model.dart';
 import 'package:eliud_core/tools/enums.dart';
+import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widget.dart';
 import 'package:flutter/widgets.dart';
 
@@ -55,19 +57,17 @@ class MonaStyle extends Style {
       monaStyleAttributesModel.copyWith(documentID: newName));
 
   bool update(AppModel app, BuildContext context) {
-
-    openComplexDialog(app, context,
-        app.documentID! + '/_updatestyle',
+    openFlexibleDialog(app, context, app.documentID! + '/_updatestyle',
         title: 'Update style',
-        child: MonaStyleAttributesForm(app:app,
-            value: null,
-            formAction: FormAction.UpdateAction));
-/*
-        child: UpdateStyleWidget(
-          app: app,
-            value: monaStyleAttributesModel,
-        ));
-*/
+        child: UpdateStyleWidget(app: app, value: monaStyleAttributesModel),
+        buttons: [
+          dialogButton(app, context,
+              label: 'Cancel', onPressed: () => Navigator.of(context).pop()),
+          dialogButton(app, context, label: 'Save', onPressed: () {
+            monaStyleAttributesRepository(appId: app.documentID!)!.update(monaStyleAttributesModel);
+            Navigator.of(context).pop();
+          })
+        ]);
     return false;
   }
 

@@ -20,7 +20,6 @@ import '../model/mona_style_attributes_firestore.dart';
 import '../model/mona_style_attributes_repository.dart';
 import '../model/mona_style_attributes_cache.dart';
 
-import '../model/mona_style_attributes_model.dart';
 
 class RepositorySingleton extends AbstractRepositorySingleton {
     var _monaStyleAttributesRepository = HashMap<String, MonaStyleAttributesRepository>();

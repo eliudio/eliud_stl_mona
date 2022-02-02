@@ -14,20 +14,21 @@ class UpdateStyleWidget extends StatefulWidget {
 
   @override
   _UpdateStyleWidgetState createState() => _UpdateStyleWidgetState();
-
 }
-
 
 class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView(shrinkWrap: true, physics: ScrollPhysics(), children: [
       StyleColorWidget(
-        app: widget.app,
-        value: widget.value.appBarIconColor!,
-        label: 'Appbar Icon Color'),
+          app: widget.app,
+          value: widget.value.appBarIconColor!,
+          label: 'Appbar Icon Color'),
+      StyleColorWidget(
+          app: widget.app,
+          value: widget.value.backgroundColorHomeMenu!,
+          label: 'Background colour home menu'),
     ]);
-
   }
 }
 
@@ -40,7 +41,6 @@ class StyleColorWidget extends StatefulWidget {
 
   @override
   _StyleColorWidgetState createState() => _StyleColorWidgetState();
-
 }
 
 class _StyleColorWidgetState extends State<StyleColorWidget> {

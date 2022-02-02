@@ -96,7 +96,7 @@ class ChangedMonaStyleAttributesFormSubmitButtonColor extends MonaStyleAttribute
 }
 
 class ChangedMonaStyleAttributesFormBackground extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesFormBackground({this.value});
 
@@ -108,7 +108,7 @@ class ChangedMonaStyleAttributesFormBackground extends MonaStyleAttributesFormEv
 }
 
 class ChangedMonaStyleAttributesAppBackground extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesAppBackground({this.value});
 
@@ -180,7 +180,7 @@ class ChangedMonaStyleAttributesFormFieldFocusColor extends MonaStyleAttributesF
 }
 
 class ChangedMonaStyleAttributesListBackground extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesListBackground({this.value});
 
@@ -240,7 +240,7 @@ class ChangedMonaStyleAttributesDividerColor extends MonaStyleAttributesFormEven
 }
 
 class ChangedMonaStyleAttributesAppBarBG extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesAppBarBG({this.value});
 
@@ -288,7 +288,7 @@ class ChangedMonaStyleAttributesAppBarMenuBackgroundColor extends MonaStyleAttri
 }
 
 class ChangedMonaStyleAttributesBottomNavigationBarBG extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesBottomNavigationBarBG({this.value});
 
@@ -300,7 +300,7 @@ class ChangedMonaStyleAttributesBottomNavigationBarBG extends MonaStyleAttribute
 }
 
 class ChangedMonaStyleAttributesDrawerBG extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesDrawerBG({this.value});
 
@@ -312,7 +312,7 @@ class ChangedMonaStyleAttributesDrawerBG extends MonaStyleAttributesFormEvent {
 }
 
 class ChangedMonaStyleAttributesDrawerHeaderBG extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesDrawerHeaderBG({this.value});
 
@@ -324,7 +324,7 @@ class ChangedMonaStyleAttributesDrawerHeaderBG extends MonaStyleAttributesFormEv
 }
 
 class ChangedMonaStyleAttributesProfileDrawerBG extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesProfileDrawerBG({this.value});
 
@@ -336,7 +336,7 @@ class ChangedMonaStyleAttributesProfileDrawerBG extends MonaStyleAttributesFormE
 }
 
 class ChangedMonaStyleAttributesProfileDrawerHeaderBG extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesProfileDrawerHeaderBG({this.value});
 
@@ -348,7 +348,7 @@ class ChangedMonaStyleAttributesProfileDrawerHeaderBG extends MonaStyleAttribute
 }
 
 class ChangedMonaStyleAttributesBackgroundHomeMenu extends MonaStyleAttributesFormEvent {
-  final String? value;
+  final BackgroundModel? value;
 
   ChangedMonaStyleAttributesBackgroundHomeMenu({this.value});
 
