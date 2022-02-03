@@ -196,15 +196,9 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
 
 
-
         children.add(
 
                 RgbField(widget.app, "Background Color Home Menu", state.value!.backgroundColorHomeMenu, _onBackgroundColorHomeMenuChanged)
-          );
-
-        children.add(
-
-                RgbField(widget.app, "Icon Color Home Menu", state.value!.iconColorHomeMenu, _onIconColorHomeMenuChanged)
           );
 
 
@@ -528,9 +522,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               drawerHeaderBG: state.value!.drawerHeaderBG, 
                               profileDrawerBG: state.value!.profileDrawerBG, 
                               profileDrawerHeaderBG: state.value!.profileDrawerHeaderBG, 
-                              backgroundHomeMenu: state.value!.backgroundHomeMenu, 
                               backgroundColorHomeMenu: state.value!.backgroundColorHomeMenu, 
-                              iconColorHomeMenu: state.value!.iconColorHomeMenu, 
                               h1: state.value!.h1, 
                               h2: state.value!.h2, 
                               h3: state.value!.h3, 
@@ -572,9 +564,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               drawerHeaderBG: state.value!.drawerHeaderBG, 
                               profileDrawerBG: state.value!.profileDrawerBG, 
                               profileDrawerHeaderBG: state.value!.profileDrawerHeaderBG, 
-                              backgroundHomeMenu: state.value!.backgroundHomeMenu, 
                               backgroundColorHomeMenu: state.value!.backgroundColorHomeMenu, 
-                              iconColorHomeMenu: state.value!.iconColorHomeMenu, 
                               h1: state.value!.h1, 
                               h2: state.value!.h2, 
                               h3: state.value!.h3, 
@@ -704,12 +694,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
   void _onBackgroundColorHomeMenuChanged(value) {
     _myFormBloc.add(ChangedMonaStyleAttributesBackgroundColorHomeMenu(value: value));
-    
-  }
-
-
-  void _onIconColorHomeMenuChanged(value) {
-    _myFormBloc.add(ChangedMonaStyleAttributesIconColorHomeMenu(value: value));
     
   }
 

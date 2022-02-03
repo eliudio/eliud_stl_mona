@@ -118,7 +118,6 @@ abstract class MonaShared {
 
   static ShadowModel shadowModel() {
     var shadowModel = ShadowModel(
-        documentID: 'normal_shadow',
         comments: 'Normal shadow',
         color: MonaColors.gray,
         offsetDX: 4,

@@ -46,9 +46,7 @@ class MonaStyleAttributesEntity {
   final BackgroundEntity? drawerHeaderBG;
   final BackgroundEntity? profileDrawerBG;
   final BackgroundEntity? profileDrawerHeaderBG;
-  final BackgroundEntity? backgroundHomeMenu;
   final RgbEntity? backgroundColorHomeMenu;
-  final RgbEntity? iconColorHomeMenu;
   final FontEntity? h1;
   final FontEntity? h2;
   final FontEntity? h3;
@@ -63,14 +61,14 @@ class MonaStyleAttributesEntity {
   final int? routeBuilder;
   final int? routeAnimationDuration;
 
-  MonaStyleAttributesEntity({this.appId, this.formSubmitButtonColor, this.formBackground, this.appBackground, this.formSubmitButtonTextColor, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundHomeMenu, this.backgroundColorHomeMenu, this.iconColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, });
+  MonaStyleAttributesEntity({this.appId, this.formSubmitButtonColor, this.formBackground, this.appBackground, this.formSubmitButtonTextColor, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, });
 
 
-  List<Object?> get props => [appId, formSubmitButtonColor, formBackground, appBackground, formSubmitButtonTextColor, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackground, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor, dividerColor, appBarBG, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBG, drawerBG, drawerHeaderBG, profileDrawerBG, profileDrawerHeaderBG, backgroundHomeMenu, backgroundColorHomeMenu, iconColorHomeMenu, h1, h2, h3, h4, h5, textFieldHeader, fontText, fontSmallText, fontHighlight1, fontHighlight2, fontLink, routeBuilder, routeAnimationDuration, ];
+  List<Object?> get props => [appId, formSubmitButtonColor, formBackground, appBackground, formSubmitButtonTextColor, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackground, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor, dividerColor, appBarBG, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBG, drawerBG, drawerHeaderBG, profileDrawerBG, profileDrawerHeaderBG, backgroundColorHomeMenu, h1, h2, h3, h4, h5, textFieldHeader, fontText, fontSmallText, fontHighlight1, fontHighlight2, fontLink, routeBuilder, routeAnimationDuration, ];
 
   @override
   String toString() {
-    return 'MonaStyleAttributesEntity{appId: $appId, formSubmitButtonColor: $formSubmitButtonColor, formBackground: $formBackground, appBackground: $appBackground, formSubmitButtonTextColor: $formSubmitButtonTextColor, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundHomeMenu: $backgroundHomeMenu, backgroundColorHomeMenu: $backgroundColorHomeMenu, iconColorHomeMenu: $iconColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
+    return 'MonaStyleAttributesEntity{appId: $appId, formSubmitButtonColor: $formSubmitButtonColor, formBackground: $formBackground, appBackground: $appBackground, formSubmitButtonTextColor: $formSubmitButtonTextColor, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundColorHomeMenu: $backgroundColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
   }
 
   static MonaStyleAttributesEntity? fromMap(Object? o) {
@@ -165,18 +163,10 @@ class MonaStyleAttributesEntity {
     profileDrawerHeaderBGFromMap = map['profileDrawerHeaderBG'];
     if (profileDrawerHeaderBGFromMap != null)
       profileDrawerHeaderBGFromMap = BackgroundEntity.fromMap(profileDrawerHeaderBGFromMap);
-    var backgroundHomeMenuFromMap;
-    backgroundHomeMenuFromMap = map['backgroundHomeMenu'];
-    if (backgroundHomeMenuFromMap != null)
-      backgroundHomeMenuFromMap = BackgroundEntity.fromMap(backgroundHomeMenuFromMap);
     var backgroundColorHomeMenuFromMap;
     backgroundColorHomeMenuFromMap = map['backgroundColorHomeMenu'];
     if (backgroundColorHomeMenuFromMap != null)
       backgroundColorHomeMenuFromMap = RgbEntity.fromMap(backgroundColorHomeMenuFromMap);
-    var iconColorHomeMenuFromMap;
-    iconColorHomeMenuFromMap = map['iconColorHomeMenu'];
-    if (iconColorHomeMenuFromMap != null)
-      iconColorHomeMenuFromMap = RgbEntity.fromMap(iconColorHomeMenuFromMap);
     var h1FromMap;
     h1FromMap = map['h1'];
     if (h1FromMap != null)
@@ -246,9 +236,7 @@ class MonaStyleAttributesEntity {
       drawerHeaderBG: drawerHeaderBGFromMap, 
       profileDrawerBG: profileDrawerBGFromMap, 
       profileDrawerHeaderBG: profileDrawerHeaderBGFromMap, 
-      backgroundHomeMenu: backgroundHomeMenuFromMap, 
       backgroundColorHomeMenu: backgroundColorHomeMenuFromMap, 
-      iconColorHomeMenu: iconColorHomeMenuFromMap, 
       h1: h1FromMap, 
       h2: h2FromMap, 
       h3: h3FromMap, 
@@ -332,14 +320,8 @@ class MonaStyleAttributesEntity {
     final Map<String, dynamic>? profileDrawerHeaderBGMap = profileDrawerHeaderBG != null 
         ? profileDrawerHeaderBG!.toDocument()
         : null;
-    final Map<String, dynamic>? backgroundHomeMenuMap = backgroundHomeMenu != null 
-        ? backgroundHomeMenu!.toDocument()
-        : null;
     final Map<String, dynamic>? backgroundColorHomeMenuMap = backgroundColorHomeMenu != null 
         ? backgroundColorHomeMenu!.toDocument()
-        : null;
-    final Map<String, dynamic>? iconColorHomeMenuMap = iconColorHomeMenu != null 
-        ? iconColorHomeMenu!.toDocument()
         : null;
     final Map<String, dynamic>? h1Map = h1 != null 
         ? h1!.toDocument()
@@ -422,12 +404,8 @@ class MonaStyleAttributesEntity {
       else theDocument["profileDrawerBG"] = null;
     if (profileDrawerHeaderBG != null) theDocument["profileDrawerHeaderBG"] = profileDrawerHeaderBGMap;
       else theDocument["profileDrawerHeaderBG"] = null;
-    if (backgroundHomeMenu != null) theDocument["backgroundHomeMenu"] = backgroundHomeMenuMap;
-      else theDocument["backgroundHomeMenu"] = null;
     if (backgroundColorHomeMenu != null) theDocument["backgroundColorHomeMenu"] = backgroundColorHomeMenuMap;
       else theDocument["backgroundColorHomeMenu"] = null;
-    if (iconColorHomeMenu != null) theDocument["iconColorHomeMenu"] = iconColorHomeMenuMap;
-      else theDocument["iconColorHomeMenu"] = null;
     if (h1 != null) theDocument["h1"] = h1Map;
       else theDocument["h1"] = null;
     if (h2 != null) theDocument["h2"] = h2Map;

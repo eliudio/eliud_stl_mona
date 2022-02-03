@@ -347,18 +347,6 @@ class ChangedMonaStyleAttributesProfileDrawerHeaderBG extends MonaStyleAttribute
   String toString() => 'ChangedMonaStyleAttributesProfileDrawerHeaderBG{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesBackgroundHomeMenu extends MonaStyleAttributesFormEvent {
-  final BackgroundModel? value;
-
-  ChangedMonaStyleAttributesBackgroundHomeMenu({this.value});
-
-  @override
-  List<Object?> get props => [ value ];
-
-  @override
-  String toString() => 'ChangedMonaStyleAttributesBackgroundHomeMenu{ value: $value }';
-}
-
 class ChangedMonaStyleAttributesBackgroundColorHomeMenu extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
@@ -369,18 +357,6 @@ class ChangedMonaStyleAttributesBackgroundColorHomeMenu extends MonaStyleAttribu
 
   @override
   String toString() => 'ChangedMonaStyleAttributesBackgroundColorHomeMenu{ value: $value }';
-}
-
-class ChangedMonaStyleAttributesIconColorHomeMenu extends MonaStyleAttributesFormEvent {
-  final RgbModel? value;
-
-  ChangedMonaStyleAttributesIconColorHomeMenu({this.value});
-
-  @override
-  List<Object?> get props => [ value ];
-
-  @override
-  String toString() => 'ChangedMonaStyleAttributesIconColorHomeMenu{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesH1 extends MonaStyleAttributesFormEvent {

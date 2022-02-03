@@ -69,7 +69,6 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  appBarSelectedIconColor: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
                                  appBarMenuBackgroundColor: RgbModel(r: 64, g: 6, b: 64, opacity: 1.00), 
                                  backgroundColorHomeMenu: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
-                                 iconColorHomeMenu: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
                                  routeAnimationDuration: 1000, 
 
         ));
@@ -233,20 +232,8 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
 
         return;
       }
-      if (event is ChangedMonaStyleAttributesBackgroundHomeMenu) {
-        newValue = currentState.value!.copyWith(backgroundHomeMenu: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
-
-        return;
-      }
       if (event is ChangedMonaStyleAttributesBackgroundColorHomeMenu) {
         newValue = currentState.value!.copyWith(backgroundColorHomeMenu: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
-
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesIconColorHomeMenu) {
-        newValue = currentState.value!.copyWith(iconColorHomeMenu: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;

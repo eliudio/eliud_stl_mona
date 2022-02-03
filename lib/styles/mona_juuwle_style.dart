@@ -65,9 +65,7 @@ class MonaJuuwleStyle {
           FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.smallLabel)),
       fontText: fontTools.getFont(
           FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.normalLabel)),
-      backgroundHomeMenu: backgroundHomeMenu(),
       backgroundColorHomeMenu: homeMenuPopupBGColor(),
-      iconColorHomeMenu: homeMenuIconColor(),
       drawerBG: drawerBG(),
       drawerHeaderBG: drawerHeaderBG(),
       profileDrawerBG: profileDrawerBG(),
@@ -83,7 +81,6 @@ class MonaJuuwleStyle {
   static RgbModel appColor2() => MonaColors.ochre;
   static RgbModel appColor3() => MonaColors.ochreTransparent;
   static RgbModel appColor4() => MonaColors.white;
-  static RgbModel homeMenuIconColor() => MonaColors.black;
   static RgbModel homeMenuPopupBGColor() => MonaColors.white;
 
   static BackgroundModel appBarBG() => MonaShared.appBarBG('juuwle-appbar-bg', appColor1(), appColor2());
@@ -93,5 +90,4 @@ class MonaJuuwleStyle {
   static BackgroundModel drawerHeaderBG()  => MonaShared.drawerHeaderBG('juuwle-drawer-header-bg');
   static BackgroundModel profileDrawerBG() => MonaShared.profileDrawerBG('juuwle-profile-drawer-bg', appColor1(), appColor2());
   static BackgroundModel profileDrawerHeaderBG() => MonaShared.profileDrawerHeaderBG('juuwle-profile-drawer-header-bg');
-  static BackgroundModel backgroundHomeMenu() => MonaShared.homeMenuBG('juuwle-homemenu', appColor1(), appColor2());
 }

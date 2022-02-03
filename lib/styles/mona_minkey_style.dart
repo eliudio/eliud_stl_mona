@@ -62,9 +62,7 @@ class MonaMinkeyStyle {
             FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.smallLabel)),
         fontText: fontTools.getFont(
             FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.normalLabel)),
-        backgroundHomeMenu: backgroundHomeMenu(),
         backgroundColorHomeMenu: homeMenuPopupBGColor(),
-        iconColorHomeMenu: homeMenuIconColor(),
         drawerBG: drawerBG(),
         drawerHeaderBG: drawerHeaderBG(),
         profileDrawerBG: profileDrawerBG(),
@@ -77,15 +75,9 @@ class MonaMinkeyStyle {
   }
 
   static RgbModel appColor1() => MonaColors.red;
-
   static RgbModel appColor2() => MonaColors.white;
-
   static RgbModel appColor3() => MonaColors.lightRed;
-
   static RgbModel appColor4() => MonaColors.white;
-
-  static RgbModel homeMenuIconColor() => MonaColors.black;
-
   static RgbModel homeMenuPopupBGColor() => MonaColors.white;
 
   static BackgroundModel appBarBG() => MonaShared.appBarBG('minkey-appbar-bg', appColor1(), appColor2());
@@ -95,5 +87,4 @@ class MonaMinkeyStyle {
   static BackgroundModel drawerHeaderBG() => MonaShared.drawerHeaderBG('minkey-drawer-header-bg');
   static BackgroundModel profileDrawerBG() => MonaShared.profileDrawerBG('minkey-profile-drawer-bg', appColor1(), appColor2());
   static BackgroundModel profileDrawerHeaderBG() => MonaShared.profileDrawerHeaderBG('minkey-profile-drawer-header-bg');
-  static BackgroundModel backgroundHomeMenu() => MonaShared.homeMenuBG('minkey-homemenu', appColor1(), appColor2());
 }

@@ -217,14 +217,6 @@
       "group": "drawerBarBackground"
     },
     {
-      "fieldName": "backgroundHomeMenu",
-      "remark": "Override the style background",
-      "displayName": "Background Override",
-      "fieldType": "Background",
-      "optional": true,
-      "group": "background"
-    },
-    {
       "fieldName": "backgroundColorHomeMenu",
       "displayName": "Popup Menu Background Color Override",
       "fieldType": "Rgb",
@@ -232,15 +224,6 @@
       "iconName": "color_lens",
       "defaultValue": "RgbModel(r: 255, g: 255, b: 255, opacity: 1.00)",
       "bespokeFormField": "RgbField(widget.app, \"Background Color Home Menu\", state.value!.backgroundColorHomeMenu, _onBackgroundColorHomeMenuChanged)"
-    },
-    {
-      "fieldName": "iconColorHomeMenu",
-      "displayName": "Icon Color",
-      "defaultValue": "RgbModel(r: 255, g: 255, b: 255, opacity: 1.00)",
-      "fieldType": "Rgb",
-      "group": "colors",
-      "iconName": "color_lens",
-      "bespokeFormField": "RgbField(widget.app, \"Icon Color Home Menu\", state.value!.iconColorHomeMenu, _onIconColorHomeMenuChanged)"
     },
     {
       "fieldName": "h1",

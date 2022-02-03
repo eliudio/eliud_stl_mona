@@ -65,9 +65,7 @@ class MonaIncidamusStyle {
           .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.smallLabel)),
       fontText: fontTools
           .getFont(FontTools.key(styleName, FontTools.latoLabel, FontTools.normalLabel)),
-      backgroundHomeMenu: backgroundHomeMenu(),
       backgroundColorHomeMenu: homeMenuPopupBGColor(),
-      iconColorHomeMenu: homeMenuIconColor(),
       drawerBG: drawerBG(),
       drawerHeaderBG: drawerHeaderBG(),
       profileDrawerBG: profileDrawerBG(),
@@ -83,7 +81,6 @@ class MonaIncidamusStyle {
   static RgbModel appColor2() => MonaColors.black;
   static RgbModel appColor3() => MonaColors.darkRed2;
   static RgbModel appColor4() => MonaColors.black;
-  static RgbModel homeMenuIconColor() => MonaColors.orange1;
   static RgbModel homeMenuPopupBGColor() => MonaColors.black;
 
   static BackgroundModel appBarBG() => MonaShared.appBarBG('incidamus-appbar-bg', appColor1(), appColor2());
@@ -93,5 +90,4 @@ class MonaIncidamusStyle {
   static BackgroundModel drawerHeaderBG()  => MonaShared.drawerHeaderBG('incidamus-drawer-header-bg');
   static BackgroundModel profileDrawerBG()  => MonaShared.profileDrawerBG('incidamus-profile-drawer-bg', appColor1(), appColor2());
   static BackgroundModel profileDrawerHeaderBG()  => MonaShared.profileDrawerHeaderBG('incidamus-profile-drawer-header-bg');
-  static BackgroundModel backgroundHomeMenu() => MonaShared.homeMenuBG('incidamus-homemenu', appColor1(), appColor2());
 }

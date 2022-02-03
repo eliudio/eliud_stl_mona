@@ -63,9 +63,7 @@ class MonaEliudStyle {
             .getFont(FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.smallLabel)),
       fontText: fontTools
             .getFont(FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.normalLabel)),
-      backgroundHomeMenu: backgroundHomeMenu(),
       backgroundColorHomeMenu: homeMenuPopupBGColor(),
-      iconColorHomeMenu: homeMenuIconColor(),
       drawerBG: drawerBG(),
       drawerHeaderBG: drawerHeaderBG(),
       profileDrawerBG: profileDrawerBG(),
@@ -81,7 +79,6 @@ class MonaEliudStyle {
   static RgbModel appColor2() => MonaColors.blackTransparent;
   static RgbModel appColor3() => MonaColors.gray;
   static RgbModel appColor4() => MonaColors.gray;
-  static RgbModel homeMenuIconColor() => MonaColors.white;
   static RgbModel homeMenuPopupBGColor() => MonaColors.lightRed;
 
   static BackgroundModel appBarBG() => MonaShared.appBarBG('eliud-appbar-bg', appColor1(), appColor2());
@@ -91,5 +88,4 @@ class MonaEliudStyle {
   static BackgroundModel drawerHeaderBG()  => MonaShared.drawerHeaderBG('eliud-drawer-header-bg');
   static BackgroundModel profileDrawerBG()  => MonaShared.profileDrawerBG('eliud-profile-drawer-bg', appColor1(), appColor2());
   static BackgroundModel profileDrawerHeaderBG()  => MonaShared.profileDrawerHeaderBG('eliud-profile-drawer-header-bg');
-  static BackgroundModel backgroundHomeMenu() => MonaShared.homeMenuBG('eliud-homemenu', appColor1(), appColor2());
 }

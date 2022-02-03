@@ -447,22 +447,6 @@ class ProfileDrawerHeaderBGMonaStyleAttributesFormError extends MonaStyleAttribu
 }
 
 
-class BackgroundHomeMenuMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
-  const BackgroundHomeMenuMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
-
-  @override
-  List<Object?> get props => [ message, value ];
-
-  @override
-  String toString() {
-    return '''BackgroundHomeMenuMonaStyleAttributesFormError {
-      value: $value,
-      message: $message,
-    }''';
-  }
-}
-
-
 class BackgroundColorHomeMenuMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
   const BackgroundColorHomeMenuMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
@@ -472,22 +456,6 @@ class BackgroundColorHomeMenuMonaStyleAttributesFormError extends MonaStyleAttri
   @override
   String toString() {
     return '''BackgroundColorHomeMenuMonaStyleAttributesFormError {
-      value: $value,
-      message: $message,
-    }''';
-  }
-}
-
-
-class IconColorHomeMenuMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
-  const IconColorHomeMenuMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
-
-  @override
-  List<Object?> get props => [ message, value ];
-
-  @override
-  String toString() {
-    return '''IconColorHomeMenuMonaStyleAttributesFormError {
       value: $value,
       message: $message,
     }''';
