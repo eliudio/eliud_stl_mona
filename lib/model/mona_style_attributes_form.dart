@@ -257,16 +257,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
         children.add(
 
-                RgbField(widget.app, "Form Submit Button Color", state.value!.formSubmitButtonColor, _onFormSubmitButtonColorChanged)
-          );
-
-        children.add(
-
-                RgbField(widget.app, "Form Submit Button Text Color", state.value!.formSubmitButtonTextColor, _onFormSubmitButtonTextColorChanged)
-          );
-
-        children.add(
-
                 RgbField(widget.app, "Form Group Title Color", state.value!.formGroupTitleColor, _onFormGroupTitleColorChanged)
           );
 
@@ -500,10 +490,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                           UpdateMonaStyleAttributesList(value: state.value!.copyWith(
                               documentID: state.value!.documentID, 
                               appId: state.value!.appId, 
-                              formSubmitButtonColor: state.value!.formSubmitButtonColor, 
                               formBackground: state.value!.formBackground, 
                               appBackground: state.value!.appBackground, 
-                              formSubmitButtonTextColor: state.value!.formSubmitButtonTextColor, 
                               formGroupTitleColor: state.value!.formGroupTitleColor, 
                               formFieldTextColor: state.value!.formFieldTextColor, 
                               formFieldHeaderColor: state.value!.formFieldHeaderColor, 
@@ -542,10 +530,8 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                           AddMonaStyleAttributesList(value: MonaStyleAttributesModel(
                               documentID: state.value!.documentID, 
                               appId: state.value!.appId, 
-                              formSubmitButtonColor: state.value!.formSubmitButtonColor, 
                               formBackground: state.value!.formBackground, 
                               appBackground: state.value!.appBackground, 
-                              formSubmitButtonTextColor: state.value!.formSubmitButtonTextColor, 
                               formGroupTitleColor: state.value!.formGroupTitleColor, 
                               formFieldTextColor: state.value!.formFieldTextColor, 
                               formFieldHeaderColor: state.value!.formFieldHeaderColor, 
@@ -611,18 +597,6 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
   void _onAppIdChanged() {
     _myFormBloc.add(ChangedMonaStyleAttributesAppId(value: _appIdController.text));
-  }
-
-
-  void _onFormSubmitButtonColorChanged(value) {
-    _myFormBloc.add(ChangedMonaStyleAttributesFormSubmitButtonColor(value: value));
-    
-  }
-
-
-  void _onFormSubmitButtonTextColorChanged(value) {
-    _myFormBloc.add(ChangedMonaStyleAttributesFormSubmitButtonTextColor(value: value));
-    
   }
 
 

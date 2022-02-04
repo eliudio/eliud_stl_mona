@@ -34,15 +34,6 @@
       "group": "general"
     },
     {
-      "fieldName": "formSubmitButtonColor",
-      "displayName": "Button Color",
-      "defaultValue": "RgbModel(r: 255, g: 0, b: 255, opacity: 1.00)",
-      "fieldType": "Rgb",
-      "group": "formColors",
-      "iconName": "color_lens",
-      "bespokeFormField": "RgbField(widget.app, \"Form Submit Button Color\", state.value!.formSubmitButtonColor, _onFormSubmitButtonColorChanged)"
-    },
-    {
       "fieldName": "formBackground",
       "remark": "Background of forms in admin section",
       "displayName": "Form Background",
@@ -57,15 +48,6 @@
       "fieldType": "Background",
       "optional": true,
       "group": "formBackground"
-    },
-    {
-      "fieldName": "formSubmitButtonTextColor",
-      "displayName": "Form Submit Button Text Color",
-      "defaultValue": "RgbModel(r: 255, g: 255, b: 255, opacity: 1.00)",
-      "fieldType": "Rgb",
-      "group": "formColors",
-      "iconName": "color_lens",
-      "bespokeFormField": "RgbField(widget.app, \"Form Submit Button Text Color\", state.value!.formSubmitButtonTextColor, _onFormSubmitButtonTextColorChanged)"
     },
     {
       "fieldName": "formGroupTitleColor",

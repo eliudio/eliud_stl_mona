@@ -2,6 +2,7 @@ import 'package:eliud_core/model/abstract_repository_singleton.dart';
 import 'package:eliud_core/model/model_export.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:eliud_stl_mona/model/font_model.dart';
+import 'package:eliud_stl_mona/tools/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -66,6 +67,28 @@ class FontTools {
   List<String> fontKeys = <String>[robotoLabel, latoLabel, dancingScriptLabel];
   List<String> fontNames = <String>['Roboto', 'Lato', 'Dancing Script'];
   final String styleName;
+
+  static String defaultStyleName = 'default';
+  static FontTools defaultFontTools() {
+    return FontTools(
+        styleName: defaultStyleName,
+        headerColor1To3: MonaColors.red,
+        headerColor4To5: MonaColors.white,
+        defaultColor: MonaColors.black,
+        highlightColor: MonaColors.green,
+        linkColor: MonaColors.ochre);
+  }
+
+  static FontModel defaultH1() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h1Label))!;
+  static FontModel defaultH2() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h2Label))!;
+  static FontModel defaultH3() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h3Label))!;
+  static FontModel defaultH4() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h4Label))!;
+  static FontModel defaultH5() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h5Label))!;
+  static FontModel defaultFontHighlight1() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.highlightLabel1))!;
+  static FontModel defaultFontHighlight2() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.highlightLabel2))!;
+  static FontModel defaultFontLink() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.linkLabel))!;
+  static FontModel defaultFontSmallText() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.smallLabel))!;
+  static FontModel defaultFontText() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.normalLabel))!;
 
   FontTools({
     required this.styleName,

@@ -83,18 +83,6 @@ class ChangedMonaStyleAttributesAppId extends MonaStyleAttributesFormEvent {
   String toString() => 'ChangedMonaStyleAttributesAppId{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFormSubmitButtonColor extends MonaStyleAttributesFormEvent {
-  final RgbModel? value;
-
-  ChangedMonaStyleAttributesFormSubmitButtonColor({this.value});
-
-  @override
-  List<Object?> get props => [ value ];
-
-  @override
-  String toString() => 'ChangedMonaStyleAttributesFormSubmitButtonColor{ value: $value }';
-}
-
 class ChangedMonaStyleAttributesFormBackground extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
@@ -117,18 +105,6 @@ class ChangedMonaStyleAttributesAppBackground extends MonaStyleAttributesFormEve
 
   @override
   String toString() => 'ChangedMonaStyleAttributesAppBackground{ value: $value }';
-}
-
-class ChangedMonaStyleAttributesFormSubmitButtonTextColor extends MonaStyleAttributesFormEvent {
-  final RgbModel? value;
-
-  ChangedMonaStyleAttributesFormSubmitButtonTextColor({this.value});
-
-  @override
-  List<Object?> get props => [ value ];
-
-  @override
-  String toString() => 'ChangedMonaStyleAttributesFormSubmitButtonTextColor{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesFormGroupTitleColor extends MonaStyleAttributesFormEvent {

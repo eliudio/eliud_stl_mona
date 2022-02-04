@@ -55,8 +55,6 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
         MonaStyleAttributesFormLoaded loaded = MonaStyleAttributesFormLoaded(value: MonaStyleAttributesModel(
                                                documentID: "",
                                  appId: "",
-                                 formSubmitButtonColor: RgbModel(r: 255, g: 0, b: 255, opacity: 1.00), 
-                                 formSubmitButtonTextColor: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
                                  formGroupTitleColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
                                  formFieldTextColor: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
                                  formFieldHeaderColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
@@ -100,12 +98,6 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
 
         return;
       }
-      if (event is ChangedMonaStyleAttributesFormSubmitButtonColor) {
-        newValue = currentState.value!.copyWith(formSubmitButtonColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
-
-        return;
-      }
       if (event is ChangedMonaStyleAttributesFormBackground) {
         newValue = currentState.value!.copyWith(formBackground: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
@@ -114,12 +106,6 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
       }
       if (event is ChangedMonaStyleAttributesAppBackground) {
         newValue = currentState.value!.copyWith(appBackground: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
-
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFormSubmitButtonTextColor) {
-        newValue = currentState.value!.copyWith(formSubmitButtonTextColor: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);
 
         return;

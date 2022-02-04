@@ -10,6 +10,7 @@ class StyleColorWidget extends StatefulWidget {
   final RgbModel value;
   final String label;
   final bool withContainer;
+  VoidCallback? changeTrigger;
 
   StyleColorWidget({
     Key? key,
@@ -17,6 +18,7 @@ class StyleColorWidget extends StatefulWidget {
     required this.label,
     required this.value,
     this.withContainer = true,
+    this.changeTrigger,
   }) : super(key: key);
 
   @override
@@ -63,6 +65,9 @@ class _StyleColorWidgetState extends State<StyleColorWidget> {
 
   void changeColor(Color c) {
     setState(() {
+      if (widget.changeTrigger != null) {
+        widget.changeTrigger!();
+      }
       color = c;
       widget.value.r = c.red;
       widget.value.g = c.green;

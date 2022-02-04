@@ -95,22 +95,6 @@ class AppIdMonaStyleAttributesFormError extends MonaStyleAttributesFormError {
 }
 
 
-class FormSubmitButtonColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
-  const FormSubmitButtonColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
-
-  @override
-  List<Object?> get props => [ message, value ];
-
-  @override
-  String toString() {
-    return '''FormSubmitButtonColorMonaStyleAttributesFormError {
-      value: $value,
-      message: $message,
-    }''';
-  }
-}
-
-
 class FormBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
   const FormBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
@@ -136,22 +120,6 @@ class AppBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormE
   @override
   String toString() {
     return '''AppBackgroundMonaStyleAttributesFormError {
-      value: $value,
-      message: $message,
-    }''';
-  }
-}
-
-
-class FormSubmitButtonTextColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
-  const FormSubmitButtonTextColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
-
-  @override
-  List<Object?> get props => [ message, value ];
-
-  @override
-  String toString() {
-    return '''FormSubmitButtonTextColorMonaStyleAttributesFormError {
       value: $value,
       message: $message,
     }''';

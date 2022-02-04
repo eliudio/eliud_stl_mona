@@ -119,75 +119,35 @@ class MonaStyleFamily extends StyleFamily {
   }
 
   Future<MonaStyle?> createEliudStyle(String appId) async {
-/*
-    if (await monaStyleAttributesRepository(appId: appId)!
-            .get(eliudStyleName) ==
-        null) {
-*/
       var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
           await MonaEliudStyle.defaultStyleAttributesModel(
               appId, eliudStyleName));
       var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
       return monaStyle;
-/*
-    } else {
-      return null;
-    }
-*/
   }
 
   Future<MonaStyle?> createIncidamusStyle(String appId) async {
-/*
-    if (await monaStyleAttributesRepository(appId: appId)!
-            .get(incidamusStyleName) ==
-        null) {
-*/
       var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
           await MonaIncidamusStyle.defaultStyleAttributesModel(
               appId, incidamusStyleName));
       var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
       return monaStyle;
-/*
-    } else {
-      return null;
-    }
-*/
   }
 
   Future<MonaStyle?> createJuuwleStyle(String appId) async {
-/*
-    if (await monaStyleAttributesRepository(appId: appId)!
-            .get(juuwleStyleName) ==
-        null) {
-*/
       var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
           await MonaJuuwleStyle.defaultStyleAttributesModel(
               appId, juuwleStyleName));
       var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
       return monaStyle;
-/*
-    } else {
-      return null;
-    }
-*/
   }
 
   Future<MonaStyle?> createMinkeyStyle(String appId) async {
-/*
-    if (await monaStyleAttributesRepository(appId: appId)!
-            .get(minkeyStyleName) ==
-        null) {
-*/
       var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
           await MonaMinkeyStyle.defaultStyleAttributesModel(
               appId, minkeyStyleName));
       var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
       return monaStyle;
-/*
-    } else {
-      return null;
-    }
-*/
   }
 
   MonaStyleFamily._() : super(monaStyleFamilyName, true, true);
@@ -207,12 +167,20 @@ class MonaStyleFamily extends StyleFamily {
   }
 
   Future<List<Style>> allStyles(AppModel app) async {
-    return (await monaStyleAttributesRepository(appId: app.documentID!)!
+    var allStyles = (await monaStyleAttributesRepository(appId: app.documentID!)!
             .valuesListWithDetails())
         .map((monaStyleAttributesModel) {
       return MonaStyle(this, monaStyleAttributesModel!.documentID!,
           monaStyleAttributesModel);
     }).toList();
+
+    // add a default style
+    if (allStyles.where((element) => element.monaStyleAttributesModel.documentID == 'DefaultStyle').isEmpty) {
+      var monaStyleAttributes = await MonaMinkeyStyle.defaultStyleAttributesModel(app.documentID!, 'DefaultStyle');
+      var monaStyle = MonaStyle(this, 'DefaultStyle', monaStyleAttributes);
+      allStyles.add(monaStyle);
+    }
+    return allStyles;
   }
 
   @override
@@ -226,9 +194,9 @@ class MonaStyleFamily extends StyleFamily {
   }
 
   @override
-  void delete(AppModel app, Style style) {
+  Future<void> delete(AppModel app, Style style) {
     if (style is MonaStyle) {
-      monaStyleAttributesRepository(appId: app.documentID!)!.delete(
+      return monaStyleAttributesRepository(appId: app.documentID!)!.delete(
           style.monaStyleAttributesModel);
     } else {
       throw Exception("Style is not a mona style");
@@ -236,20 +204,27 @@ class MonaStyleFamily extends StyleFamily {
   }
 
   @override
-  void update(AppModel app, Style style) {
+  Future<void> update(AppModel app, Style style) {
     if (style is MonaStyle) {
       var currentStyle = getStyle(app, style.styleName);
       if ((currentStyle != null) && (currentStyle == style) && (currentStyleTrigger != null)) {
-        monaStyleAttributesRepository(appId: app.documentID!)!.update(
+        return monaStyleAttributesRepository(appId: app.documentID!)!.update(
             style.monaStyleAttributesModel).then((value) {
         });
       } else {
-        monaStyleAttributesRepository(appId: app.documentID!)!.update(
+        return monaStyleAttributesRepository(appId: app.documentID!)!.update(
             style.monaStyleAttributesModel);
       }
     } else {
       throw Exception("Style is not a mona style");
     }
+  }
+
+  @override
+  Future<Style> newStyle(AppModel app, String newName) async {
+    var newModel = await MonaMinkeyStyle.defaultStyleAttributesModel(app.documentID!, newName);
+    await monaStyleAttributesRepository(appId: app.documentID!)!.add(newModel);
+    return MonaStyle(this, newName, newModel);
   }
 
   @override

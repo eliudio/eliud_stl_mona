@@ -53,8 +53,11 @@ class MonaStyle extends Style {
   @override
   MonaFrontEndStyle frontEndStyle() => _frontEndFormStyle;
 
-  MonaStyle? copy(String newName) => MonaStyle(styleFamily, newName,
-      monaStyleAttributesModel.copyWith(documentID: newName));
+  Future<MonaStyle?> copy(AppModel app, String newName) async {
+    var newModel = monaStyleAttributesModel.copyWith(documentID: newName);
+    await monaStyleAttributesRepository(appId: app.documentID!)!.add(newModel);
+    return MonaStyle(styleFamily, newName, newModel);
+  }
 
   bool update(AppModel app, BuildContext context) {
     var member = AccessBloc.member(context);

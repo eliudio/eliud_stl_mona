@@ -54,6 +54,7 @@ class _DecorationColorListState extends State<DecorationColorListWidget> {
                       valueChanged: (value) {
                         color.stop = double.parse(value);
                       },
+                      keyboardType: TextInputType.numberWithOptions(signed: false, ),
                       decoration: const InputDecoration(
                         hintText: 'Stop',
                         labelText: 'Stop',

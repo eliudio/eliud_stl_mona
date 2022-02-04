@@ -6,9 +6,10 @@ import 'package:eliud_core/style/frontend/has_divider.dart';
 import 'package:eliud_core/style/frontend/has_list_tile.dart';
 import 'package:flutter/material.dart';
 
+import 'background_widgets/image_widget.dart';
+import 'background_widgets/shadow_widget.dart';
 import 'decoration_color_list_widget.dart';
 import 'gradient_position_widget.dart';
-import 'image_widget.dart';
 
 class BackgroundWidget extends StatefulWidget {
   final AppModel app;
@@ -36,14 +37,6 @@ class _BackgroundWidgetWidgetState extends State<BackgroundWidget> {
         collapsible: true,
         collapsed: true,
         children: [
-/*
-          checkboxListTile(
-              widget.app,
-              context,
-              'Use Profile Photo As Background',
-              widget.value.useProfilePhotoAsBackground ?? false,
-              _changed),
-*/
           ImageWidget(
             app: widget.app,
             label: 'Background image',
@@ -74,17 +67,28 @@ class _BackgroundWidgetWidgetState extends State<BackgroundWidget> {
             colorListChanged: _setColorListChanged,
             colors: widget.value.decorationColors ?? [],
           ),
+          topicContainer(widget.app, context,
+              title: 'Border',
+              collapsible: true,
+              collapsed: true,
+              children: [
+                checkboxListTile(widget.app, context, 'With border',
+                    widget.value.border ?? false, _borderChanged),
+              ]),
+          ShadowWidget(
+            app: widget.app,
+            label: 'Shadow',
+            backgroundModel: widget.value,
+          )
         ]);
   }
 
-/*
-  void _changed(bool? value) {
+  void _borderChanged(bool? value) {
     setState(() {
-      widget.value.useProfilePhotoAsBackground = value;
+      widget.value.border = value;
     });
   }
 
-*/
   void _setBeginGradientPosition(int? value) {
     setState(() {
       widget.value.beginGradientPosition = toStartGradientPosition(value);

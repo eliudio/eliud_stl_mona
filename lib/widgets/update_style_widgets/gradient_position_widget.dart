@@ -36,7 +36,7 @@ class _GradientPositionState extends State<GradientPositionWidget> {
       collapsible: true,
       collapsed: true,
       children: [
-        radioListTile(widget.app, context, 0, widget.value, 'TopLeft',
+        radioListTile(widget.app, context, 0, widget.value, 'Top Left',
             'TopLeft', widget.gradientPositionChanged),
         radioListTile(widget.app, context, 1, widget.value, 'Top Center',
             'TopCenter', widget.gradientPositionChanged),

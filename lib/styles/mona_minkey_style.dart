@@ -24,11 +24,10 @@ class MonaMinkeyStyle {
         linkColor: linkColor);
     return MonaStyleAttributesModel(
         documentID: documentID,
+        appId: appId,
         appBackground: pageBG(),
         listBackground: pageBG(),
         formBackground: pageBG(),
-        formSubmitButtonColor: MonaColors.red,
-        formSubmitButtonTextColor: MonaColors.white,
         formGroupTitleColor: MonaColors.red,
         formFieldTextColor: MonaColors.white,
         formFieldHeaderColor: MonaColors.red,

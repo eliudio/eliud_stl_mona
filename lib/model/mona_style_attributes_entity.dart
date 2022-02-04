@@ -24,10 +24,8 @@ import 'package:eliud_stl_mona/model/entity_export.dart';
 import 'package:eliud_core/tools/common_tools.dart';
 class MonaStyleAttributesEntity {
   final String? appId;
-  final RgbEntity? formSubmitButtonColor;
   final BackgroundEntity? formBackground;
   final BackgroundEntity? appBackground;
-  final RgbEntity? formSubmitButtonTextColor;
   final RgbEntity? formGroupTitleColor;
   final RgbEntity? formFieldTextColor;
   final RgbEntity? formFieldHeaderColor;
@@ -61,24 +59,20 @@ class MonaStyleAttributesEntity {
   final int? routeBuilder;
   final int? routeAnimationDuration;
 
-  MonaStyleAttributesEntity({this.appId, this.formSubmitButtonColor, this.formBackground, this.appBackground, this.formSubmitButtonTextColor, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, });
+  MonaStyleAttributesEntity({this.appId, this.formBackground, this.appBackground, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, });
 
 
-  List<Object?> get props => [appId, formSubmitButtonColor, formBackground, appBackground, formSubmitButtonTextColor, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackground, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor, dividerColor, appBarBG, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBG, drawerBG, drawerHeaderBG, profileDrawerBG, profileDrawerHeaderBG, backgroundColorHomeMenu, h1, h2, h3, h4, h5, textFieldHeader, fontText, fontSmallText, fontHighlight1, fontHighlight2, fontLink, routeBuilder, routeAnimationDuration, ];
+  List<Object?> get props => [appId, formBackground, appBackground, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackground, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor, dividerColor, appBarBG, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBG, drawerBG, drawerHeaderBG, profileDrawerBG, profileDrawerHeaderBG, backgroundColorHomeMenu, h1, h2, h3, h4, h5, textFieldHeader, fontText, fontSmallText, fontHighlight1, fontHighlight2, fontLink, routeBuilder, routeAnimationDuration, ];
 
   @override
   String toString() {
-    return 'MonaStyleAttributesEntity{appId: $appId, formSubmitButtonColor: $formSubmitButtonColor, formBackground: $formBackground, appBackground: $appBackground, formSubmitButtonTextColor: $formSubmitButtonTextColor, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundColorHomeMenu: $backgroundColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
+    return 'MonaStyleAttributesEntity{appId: $appId, formBackground: $formBackground, appBackground: $appBackground, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundColorHomeMenu: $backgroundColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
   }
 
   static MonaStyleAttributesEntity? fromMap(Object? o) {
     if (o == null) return null;
     var map = o as Map<String, dynamic>;
 
-    var formSubmitButtonColorFromMap;
-    formSubmitButtonColorFromMap = map['formSubmitButtonColor'];
-    if (formSubmitButtonColorFromMap != null)
-      formSubmitButtonColorFromMap = RgbEntity.fromMap(formSubmitButtonColorFromMap);
     var formBackgroundFromMap;
     formBackgroundFromMap = map['formBackground'];
     if (formBackgroundFromMap != null)
@@ -87,10 +81,6 @@ class MonaStyleAttributesEntity {
     appBackgroundFromMap = map['appBackground'];
     if (appBackgroundFromMap != null)
       appBackgroundFromMap = BackgroundEntity.fromMap(appBackgroundFromMap);
-    var formSubmitButtonTextColorFromMap;
-    formSubmitButtonTextColorFromMap = map['formSubmitButtonTextColor'];
-    if (formSubmitButtonTextColorFromMap != null)
-      formSubmitButtonTextColorFromMap = RgbEntity.fromMap(formSubmitButtonTextColorFromMap);
     var formGroupTitleColorFromMap;
     formGroupTitleColorFromMap = map['formGroupTitleColor'];
     if (formGroupTitleColorFromMap != null)
@@ -214,10 +204,8 @@ class MonaStyleAttributesEntity {
 
     return MonaStyleAttributesEntity(
       appId: map['appId'], 
-      formSubmitButtonColor: formSubmitButtonColorFromMap, 
       formBackground: formBackgroundFromMap, 
       appBackground: appBackgroundFromMap, 
-      formSubmitButtonTextColor: formSubmitButtonTextColorFromMap, 
       formGroupTitleColor: formGroupTitleColorFromMap, 
       formFieldTextColor: formFieldTextColorFromMap, 
       formFieldHeaderColor: formFieldHeaderColorFromMap, 
@@ -254,17 +242,11 @@ class MonaStyleAttributesEntity {
   }
 
   Map<String, Object?> toDocument() {
-    final Map<String, dynamic>? formSubmitButtonColorMap = formSubmitButtonColor != null 
-        ? formSubmitButtonColor!.toDocument()
-        : null;
     final Map<String, dynamic>? formBackgroundMap = formBackground != null 
         ? formBackground!.toDocument()
         : null;
     final Map<String, dynamic>? appBackgroundMap = appBackground != null 
         ? appBackground!.toDocument()
-        : null;
-    final Map<String, dynamic>? formSubmitButtonTextColorMap = formSubmitButtonTextColor != null 
-        ? formSubmitButtonTextColor!.toDocument()
         : null;
     final Map<String, dynamic>? formGroupTitleColorMap = formGroupTitleColor != null 
         ? formGroupTitleColor!.toDocument()
@@ -360,14 +342,10 @@ class MonaStyleAttributesEntity {
     Map<String, Object?> theDocument = HashMap();
     if (appId != null) theDocument["appId"] = appId;
       else theDocument["appId"] = null;
-    if (formSubmitButtonColor != null) theDocument["formSubmitButtonColor"] = formSubmitButtonColorMap;
-      else theDocument["formSubmitButtonColor"] = null;
     if (formBackground != null) theDocument["formBackground"] = formBackgroundMap;
       else theDocument["formBackground"] = null;
     if (appBackground != null) theDocument["appBackground"] = appBackgroundMap;
       else theDocument["appBackground"] = null;
-    if (formSubmitButtonTextColor != null) theDocument["formSubmitButtonTextColor"] = formSubmitButtonTextColorMap;
-      else theDocument["formSubmitButtonTextColor"] = null;
     if (formGroupTitleColor != null) theDocument["formGroupTitleColor"] = formGroupTitleColorMap;
       else theDocument["formGroupTitleColor"] = null;
     if (formFieldTextColor != null) theDocument["formFieldTextColor"] = formFieldTextColorMap;
