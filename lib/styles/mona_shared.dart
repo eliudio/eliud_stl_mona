@@ -12,11 +12,13 @@ abstract class MonaShared {
     var decorationColorModel1 = DecorationColorModel(
       documentID: '1',
       color: appColor4, // appColor4
+      stop: .1,
     );
     decorationColorModels.add(decorationColorModel1);
     var decorationColorModel2 = DecorationColorModel(
       documentID: '2',
       color: appColor3, // appColor3
+      stop: .9,
     );
 
     decorationColorModels.add(decorationColorModel2);
@@ -99,11 +101,13 @@ abstract class MonaShared {
     var decorationColorModel1 = DecorationColorModel(
       documentID: '1',
       color: appColor1,
+      stop: .1,
     );
     decorationColorModels.add(decorationColorModel1);
     var decorationColorModel2 = DecorationColorModel(
       documentID: '2',
       color: appColor2,
+      stop: .9,
     );
 
     decorationColorModels.add(decorationColorModel2);

@@ -35,11 +35,11 @@ class MonaStyle extends Style {
   late MonaAdminListStyle _adminListStyle;
   late MonaFrontEndStyle _frontEndFormStyle;
 
-  MonaStyle(StyleFamily family, String styleName, this.monaStyleAttributesModel)
+  MonaStyle(StyleFamily family, String styleName, AllowedUpdates allowedUpdates, this.monaStyleAttributesModel)
       : super(
           family,
           styleName,
-          AllowedUpdates.allAllowed(),
+    allowedUpdates,
         ) {
     _adminFormStyle = MonaAdminFormStyle(this);
     _adminListStyle = MonaAdminListStyle(this);
@@ -56,7 +56,7 @@ class MonaStyle extends Style {
   Future<MonaStyle?> copy(AppModel app, String newName) async {
     var newModel = monaStyleAttributesModel.copyWith(documentID: newName);
     await monaStyleAttributesRepository(appId: app.documentID!)!.add(newModel);
-    return MonaStyle(styleFamily, newName, newModel);
+    return MonaStyle(styleFamily, newName, AllowedUpdates.allAllowed(), newModel);
   }
 
   bool update(AppModel app, BuildContext context) {

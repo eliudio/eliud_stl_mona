@@ -4,7 +4,6 @@ import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
-import 'model/mona_style_attributes_model.dart';
 import 'styles/mona_eliud_style.dart';
 import 'styles/mona_incidamus_style.dart';
 import 'styles/mona_juuwle_style.dart';
@@ -21,23 +20,40 @@ class MonaStyleFamily extends StyleFamily {
   static MonaStyleFamily? _instance;
 
   // map appId -> subscription to mona attributes model
-  Map<String, StreamSubscription?> _monaStyleAttributessListSubscription = {};
+  final Map<String, StreamSubscription?> _monaStyleAttributessListSubscription = {};
 
   // map appId -> styles
-  Map<String, MonaStyle> _monaStyles = {};
+  final Map<String, MonaStyle> _monaStyles = {};
 
   // currentStyleTrigger is used to inform client of a change to the current style (and refresh)
   CurrentStyleTrigger? currentStyleTrigger;
 
   Future<MonaStyle?> listenToCurrentStyle(AppModel app, String styleName) async {
     var appId = app.documentID!;
+    if (styleName == eliudStyleName) {
+      _monaStyles[appId] = await createEliudStyle(appId);
+      return _monaStyles[appId];
+    }
+    if (styleName == incidamusStyleName) {
+      _monaStyles[appId] = await createIncidamusStyle(appId);
+      return _monaStyles[appId];
+    }
+    if (styleName == juuwleStyleName) {
+      _monaStyles[appId] = await createJuuwleStyle(appId);
+      return _monaStyles[appId];
+    }
+    if (styleName == minkeyStyleName) {
+      _monaStyles[appId] = await createMinkeyStyle(appId);
+      return _monaStyles[appId];
+    }
+
     final completer = Completer<MonaStyle?>();
     _monaStyleAttributessListSubscription[appId]?.cancel();
     _monaStyleAttributessListSubscription[appId] =
         monaStyleAttributesRepository(appId: appId)!.listenTo(styleName,
             (value) {
       if (value != null) {
-        var newStyle = MonaStyle(this, styleName, value);;
+        var newStyle = MonaStyle(this, styleName, AllowedUpdates.allAllowed(), value);;
         _monaStyles[appId] = newStyle;
         if (completer.isCompleted) {
           currentStyleTrigger!();
@@ -56,9 +72,11 @@ class MonaStyleFamily extends StyleFamily {
     var stream =
         monaStyleAttributesRepository(appId: appId)!.listenWithDetails((list) {
       var mappedToStylesTriggers = list.map((value) {
-        return MonaStyle(this, value!.documentID!, value);
+        return MonaStyle(this, value!.documentID!, AllowedUpdates.allAllowed(), value);
       });
-      stylesTrigger(mappedToStylesTriggers.toList());
+      var theList = mappedToStylesTriggers.toList();
+      addTheFourDefaults(appId, theList);
+      stylesTrigger(theList);
       return mappedToStylesTriggers;
     });
     return stream;
@@ -79,107 +97,66 @@ class MonaStyleFamily extends StyleFamily {
         if ((_monaStyles[appId] == null) || (_monaStyles[appId]!.monaStyleAttributesModel.documentID != styleName)) {
           var monaStyle = await listenToCurrentStyle(app, styleName);
           if (monaStyle != null) {
-            var monaStyleAttributesModel = monaStyle.monaStyleAttributesModel;
-            _monaStyles[appId] =
-                MonaStyle(this, app.styleName!, monaStyleAttributesModel);
+            _monaStyles[appId] = monaStyle;
           } else {
-            // if the member is the owner then add the style if one of the defaults
-            if ((currentMember != null) &&
-                (app.ownerID == currentMember.documentID)) {
-              var newStyle;
-              if (styleName == eliudStyleName)
-                newStyle = await createEliudStyle(appId);
-              else if (styleName == incidamusStyleName)
-                newStyle = await createIncidamusStyle(appId);
-              else if (styleName == juuwleStyleName)
-                newStyle = await createJuuwleStyle(appId);
-              else if (styleName == minkeyStyleName)
-                newStyle = await createMinkeyStyle(appId);
-              if (newStyle != null) {
-                _monaStyles[appId] = newStyle;
-              }
-            } else {
               throw Exception("Style with name " +
                   styleName +
                   " not found for app " +
                   appId);
             }
           }
-        }
-
-        // listen, but wait for the first listen to finish and the styles to be loaded so that when a style is retrieved (through method style) then it's available.
-        //listenToCurrentApp(app, styleName);
-/*
-      }
-*/
       } else {
         throw Exception("styleName is null for for app " + appId);
       }
     }
   }
 
-  Future<MonaStyle?> createEliudStyle(String appId) async {
-      var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
-          await MonaEliudStyle.defaultStyleAttributesModel(
-              appId, eliudStyleName));
-      var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
-      return monaStyle;
+  Future<MonaStyle> createEliudStyle(String appId) async {
+      return MonaStyle(this, eliudStyleName, AllowedUpdates.readOnly(), await MonaEliudStyle.defaultStyleAttributesModel(
+          appId, eliudStyleName));
   }
 
-  Future<MonaStyle?> createIncidamusStyle(String appId) async {
-      var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
-          await MonaIncidamusStyle.defaultStyleAttributesModel(
-              appId, incidamusStyleName));
-      var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
-      return monaStyle;
+  Future<MonaStyle> createIncidamusStyle(String appId) async {
+      return MonaStyle(this, incidamusStyleName, AllowedUpdates.readOnly(), await MonaIncidamusStyle.defaultStyleAttributesModel(
+          appId, incidamusStyleName));
   }
 
-  Future<MonaStyle?> createJuuwleStyle(String appId) async {
-      var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
-          await MonaJuuwleStyle.defaultStyleAttributesModel(
-              appId, juuwleStyleName));
-      var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
-      return monaStyle;
+  Future<MonaStyle> createJuuwleStyle(String appId) async {
+      return MonaStyle(this, juuwleStyleName, AllowedUpdates.readOnly(), await MonaJuuwleStyle.defaultStyleAttributesModel(
+          appId, juuwleStyleName));
   }
 
-  Future<MonaStyle?> createMinkeyStyle(String appId) async {
-      var monaStyleAttributes = await monaStyleAttributesRepository(appId: appId)!.add(
-          await MonaMinkeyStyle.defaultStyleAttributesModel(
-              appId, minkeyStyleName));
-      var monaStyle = MonaStyle(this, monaStyleAttributes.documentID!, monaStyleAttributes);
-      return monaStyle;
+  Future<MonaStyle> createMinkeyStyle(String appId) async {
+      return  MonaStyle(this, minkeyStyleName, AllowedUpdates.readOnly(), await MonaMinkeyStyle.defaultStyleAttributesModel(
+    appId, minkeyStyleName));
   }
 
-  MonaStyleFamily._() : super(monaStyleFamilyName, true, true);
+  Future<void> addTheFourDefaults(String appId, List<Style> allStyles) async {
+    allStyles.add(await createEliudStyle(appId));
+    allStyles.add(await createIncidamusStyle(appId));
+    allStyles.add(await createJuuwleStyle(appId));
+    allStyles.add(await createMinkeyStyle(appId));
+  }
+
+  MonaStyleFamily._() : super(monaStyleFamilyName, true);
 
   Future<Style?> defaultNew(String appId, String newName) async => MonaStyle(
       this,
       newName,
+      AllowedUpdates.allAllowed(),
       await MonaEliudStyle.defaultStyleAttributesModel(appId, newName));
 
-  @override
-  Future<void> installDefaults(AppModel app) async {
-    var appId = app.documentID!;
-    await createEliudStyle(appId);
-    await createIncidamusStyle(appId);
-    await createJuuwleStyle(appId);
-    await createMinkeyStyle(appId);
-  }
-
   Future<List<Style>> allStyles(AppModel app) async {
-    var allStyles = (await monaStyleAttributesRepository(appId: app.documentID!)!
+    var appId = app.documentID!;
+    var allStyles = (await monaStyleAttributesRepository(appId: appId)!
             .valuesListWithDetails())
         .map((monaStyleAttributesModel) {
-      return MonaStyle(this, monaStyleAttributesModel!.documentID!,
+      return MonaStyle(this, monaStyleAttributesModel!.documentID!, AllowedUpdates.allAllowed(),
           monaStyleAttributesModel);
     }).toList();
 
-    // add a default style
-    if (allStyles.where((element) => element.monaStyleAttributesModel.documentID == 'DefaultStyle').isEmpty) {
-      var monaStyleAttributes = await MonaMinkeyStyle.defaultStyleAttributesModel(app.documentID!, 'DefaultStyle');
-      var monaStyle = MonaStyle(this, 'DefaultStyle', monaStyleAttributes);
-      allStyles.add(monaStyle);
-    }
+    // add the read-only default styles
+    addTheFourDefaults(appId, allStyles);
     return allStyles;
   }
 
@@ -224,7 +201,7 @@ class MonaStyleFamily extends StyleFamily {
   Future<Style> newStyle(AppModel app, String newName) async {
     var newModel = await MonaMinkeyStyle.defaultStyleAttributesModel(app.documentID!, newName);
     await monaStyleAttributesRepository(appId: app.documentID!)!.add(newModel);
-    return MonaStyle(this, newName, newModel);
+    return MonaStyle(this, newName, AllowedUpdates.allAllowed(), newModel);
   }
 
   @override
