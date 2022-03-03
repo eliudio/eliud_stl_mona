@@ -22,14 +22,6 @@ class MonaButtonImpl implements HasButton {
                   .frontEndStyle()
                   .containerStyle()
                   .actionContainer(app, context, child: icon)));
-
-/*
-      return ElevatedButton.icon(
-        onPressed: onPressed,
-        icon: icon,
-        label: Text(label),
-      );
-*/
     } else {
       return GestureDetector(
           onTap: onPressed,
@@ -37,16 +29,11 @@ class MonaButtonImpl implements HasButton {
               context,
               child: Padding(
                   padding: const EdgeInsets.all(7.0),
-                  child: _style
+                  child: FittedBox(fit: BoxFit.scaleDown, child:
+                  _style
                       .frontEndStyle()
                       .textStyle()
-                      .text(app, context, label))));
-/*
-      return ElevatedButton(
-        onPressed: onPressed,
-        child: Text(label),
-      );
-*/
+                      .text(app, context, label)))));
     }
   }
 
