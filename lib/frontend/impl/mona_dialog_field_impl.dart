@@ -4,6 +4,7 @@ import 'package:eliud_core/style/frontend/has_dialog_field.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MonaDialogFieldImpl implements HasDialogField {
   final Style _style;
@@ -18,6 +19,7 @@ class MonaDialogFieldImpl implements HasDialogField {
     String? initialValue,
     TextInputType? keyboardType,
     TextCapitalization? textCapitalization,
+    List<TextInputFormatter>? inputFormatters,
     TextAlign? textAlign,
     TextAlignVertical? textAlignVertical,
     TextDirection? textDirection,
@@ -37,6 +39,7 @@ class MonaDialogFieldImpl implements HasDialogField {
       initialValue: initialValue,
       keyboardType: keyboardType,
       textCapitalization: textCapitalization,
+      inputFormatters: inputFormatters,
       textAlign: textAlign,
       textAlignVertical: textAlignVertical,
       textDirection: textDirection,
