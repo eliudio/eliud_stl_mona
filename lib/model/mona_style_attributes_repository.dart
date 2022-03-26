@@ -32,11 +32,12 @@ import 'package:eliud_stl_mona/model/entity_export.dart';
 import 'dart:async';
 import 'package:eliud_core/tools/query/query_tools.dart';
 import 'package:eliud_core/tools/common_tools.dart';
+import 'package:eliud_core/tools/repository_base.dart';
 
 typedef MonaStyleAttributesModelTrigger(List<MonaStyleAttributesModel?> list);
 typedef MonaStyleAttributesChanged(MonaStyleAttributesModel? value);
 
-abstract class MonaStyleAttributesRepository {
+abstract class MonaStyleAttributesRepository extends RepositoryBase<MonaStyleAttributesModel> {
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value);
   Future<void> delete(MonaStyleAttributesModel value);
   Future<MonaStyleAttributesModel?> get(String? id, { Function(Exception)? onError });
