@@ -13,6 +13,7 @@
 
 */
 
+import 'package:eliud_core/tools/query/query_tools.dart';
 import 'package:equatable/equatable.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 
@@ -73,5 +74,17 @@ class MonaStyleAttributesListUpdated extends MonaStyleAttributesListEvent {
 
   @override
   String toString() => 'MonaStyleAttributesListUpdated{ value: $value, mightHaveMore: $mightHaveMore }';
+}
+
+class MonaStyleAttributesChangeQuery extends MonaStyleAttributesListEvent {
+  final EliudQuery newQuery;
+
+  const MonaStyleAttributesChangeQuery({ required this.newQuery });
+
+  @override
+  List<Object?> get props => [ newQuery ];
+
+  @override
+  String toString() => 'MonaStyleAttributesChangeQuery{ value: $newQuery }';
 }
 

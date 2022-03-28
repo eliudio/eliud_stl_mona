@@ -27,7 +27,7 @@ import 'package:eliud_core/tools/query/query_tools.dart';
 class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, MonaStyleAttributesListState> {
   final MonaStyleAttributesRepository _monaStyleAttributesRepository;
   StreamSubscription? _monaStyleAttributessListSubscription;
-  final EliudQuery? eliudQuery;
+  EliudQuery? eliudQuery;
   int pages = 1;
   final bool? paged;
   final String? orderBy;
@@ -99,6 +99,13 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
     if (event is NewPage) {
       pages = pages + 1; // it doesn't matter so much if we increase pages beyond the end
       yield* _mapLoadMonaStyleAttributesListWithDetailsToState();
+    } else if (event is MonaStyleAttributesChangeQuery) {
+      eliudQuery = event.newQuery;
+      if ((detailed == null) || (!detailed!)) {
+        yield* _mapLoadMonaStyleAttributesListToState();
+      } else {
+        yield* _mapLoadMonaStyleAttributesListWithDetailsToState();
+      }
     } else if (event is AddMonaStyleAttributesList) {
       yield* _mapAddMonaStyleAttributesListToState(event);
     } else if (event is UpdateMonaStyleAttributesList) {
