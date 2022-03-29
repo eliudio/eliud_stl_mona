@@ -1,6 +1,6 @@
 import 'package:eliud_core/style/frontend/has_container.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
-import 'package:eliud_stl_mona/widgets/update_style_widgets/background_widget.dart';
+import 'package:eliud_pkg_medium/editors/widgets/background_widget.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widgets/font_widget.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widgets/page_transition_animation_widget.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widgets/style_color_widget.dart';
