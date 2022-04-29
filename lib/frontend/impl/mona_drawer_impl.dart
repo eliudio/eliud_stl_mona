@@ -16,13 +16,19 @@ class MonaDrawerImpl implements HasDrawer {
   MonaDrawerImpl(this._monaStyle);
 
   Widget _constructHeaderContainer(AppModel app,BuildContext context, String text, double? height, MemberModel? member, BackgroundModel? background) {
-    return Container(
-        height: height,
-        child: DrawerHeader(
-        child: Center(
-        child:
-        _monaStyle.frontEndStyle().textStyle().h3(app, context, text)),
-    decoration: BoxDecorationHelper.boxDecoration(member, background)));
+    var boxDecoration = BoxDecorationHelper.boxDecoration(member, background);
+    if (boxDecoration != null) {
+      return Container(
+          height: height,
+          child: DrawerHeader(
+              child: Center(
+                  child:
+                  _monaStyle.frontEndStyle().textStyle().h3(
+                      app, context, text)),
+              decoration: boxDecoration));
+    } else {
+      return Container();
+    }
   }
 
   @override
