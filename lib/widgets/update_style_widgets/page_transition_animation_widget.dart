@@ -10,8 +10,6 @@ import 'package:eliud_stl_mona/widgets/update_style_widgets/style_color_widget.d
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-import 'etc/string_combobox_widget.dart';
-
 typedef PageTransitionFeedback(PageTransitionAnimation pageTransitionAnimation);
 typedef RouteAnimationDurationFeedback(int routeAnimationDuration);
 

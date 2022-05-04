@@ -299,10 +299,14 @@ class FontTools {
 
   static TextStyle? textStyle(FontModel? fontModel) {
     if (fontModel == null) return null;
-    return GoogleFonts.getFont(fontModel.fontName!,
-        fontSize: fontModel.size,
-        fontWeight: FontTools.toFontWeight(fontModel.weight),
-        color: RgbHelper.color(rgbo: fontModel.color),
-        fontStyle: FontStyle.italic);
+    try {
+      return GoogleFonts.getFont(fontModel.fontName!,
+          fontSize: fontModel.size,
+          fontWeight: FontTools.toFontWeight(fontModel.weight),
+          color: RgbHelper.color(rgbo: fontModel.color),
+          fontStyle: FontStyle.italic);
+    } catch (_) {
+      return null;
+    }
   }
 }
