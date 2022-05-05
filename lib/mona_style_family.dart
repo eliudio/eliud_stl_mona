@@ -4,6 +4,7 @@ import 'package:eliud_core/model/member_model.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
+import 'package:eliud_stl_mona/styles/mona_johan_style.dart';
 import 'styles/mona_eliud_style.dart';
 import 'styles/mona_incidamus_style.dart';
 import 'styles/mona_juuwle_style.dart';
@@ -15,6 +16,7 @@ class MonaStyleFamily extends StyleFamily {
   static final String eliudStyleName = 'eliud';
   static final String incidamusStyleName = 'incidamus';
   static final String juuwleStyleName = 'juuwle';
+  static final String johanStyleName = 'johan';
   static final String minkeyStyleName = 'minkey';
 
   static MonaStyleFamily? _instance;
@@ -38,6 +40,11 @@ class MonaStyleFamily extends StyleFamily {
       _monaStyles[appId] = await createIncidamusStyle(appId);
       return _monaStyles[appId];
     }
+    if (styleName == johanStyleName) {
+      _monaStyles[appId] = await createJohanStyle(appId);
+      return _monaStyles[appId];
+    }
+
     if (styleName == juuwleStyleName) {
       _monaStyles[appId] = await createJuuwleStyle(appId);
       return _monaStyles[appId];
@@ -117,8 +124,13 @@ class MonaStyleFamily extends StyleFamily {
   }
 
   Future<MonaStyle> createIncidamusStyle(String appId) async {
-      return MonaStyle(this, incidamusStyleName, AllowedUpdates.readOnly(), await MonaIncidamusStyle.defaultStyleAttributesModel(
-          appId, incidamusStyleName));
+    return MonaStyle(this, incidamusStyleName, AllowedUpdates.readOnly(), await MonaIncidamusStyle.defaultStyleAttributesModel(
+        appId, incidamusStyleName));
+  }
+
+  Future<MonaStyle> createJohanStyle(String appId) async {
+    return MonaStyle(this, johanStyleName, AllowedUpdates.readOnly(), await MonaJohanStyle.defaultStyleAttributesModel(
+        appId, johanStyleName));
   }
 
   Future<MonaStyle> createJuuwleStyle(String appId) async {
@@ -136,6 +148,7 @@ class MonaStyleFamily extends StyleFamily {
     allStyles.add(await createIncidamusStyle(appId));
     allStyles.add(await createJuuwleStyle(appId));
     allStyles.add(await createMinkeyStyle(appId));
+    allStyles.add(await createJohanStyle(appId));
   }
 
   MonaStyleFamily._() : super(monaStyleFamilyName, true);

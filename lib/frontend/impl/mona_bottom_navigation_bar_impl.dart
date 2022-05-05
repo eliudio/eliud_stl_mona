@@ -64,6 +64,7 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
             )), // sets the inactive color of the `BottomNavigationBar`
             child: BottomNavigationBar(
               key: key,
+              elevation: 0,
               selectedFontSize: 18,
                 unselectedFontSize: 14,
                 type: BottomNavigationBarType.fixed,

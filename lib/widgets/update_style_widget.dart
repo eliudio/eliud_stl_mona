@@ -1,4 +1,6 @@
+import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:eliud_core/style/frontend/has_container.dart';
+import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:eliud_core/tools/widgets/background_widget.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widgets/font_widget.dart';
@@ -9,6 +11,7 @@ import 'package:flutter/foundation.dart';
 import 'package:eliud_core/model/model_export.dart';
 import 'package:eliud_stl_mona/model/model_export.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
+import 'package:flutter/services.dart';
 
 class UpdateStyleWidget extends StatefulWidget {
   AppModel app;
@@ -160,14 +163,14 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
       PageTransitionAnimationWidget(
         app: widget.app,
         pageTransitionAnimation:
-        widget.value.routeBuilder ?? PageTransitionAnimation.FadeRoute,
+            widget.value.routeBuilder ?? PageTransitionAnimation.FadeRoute,
         routeAnimationDuration: widget.value.routeAnimationDuration ?? 1000,
         label: 'Page Transition Animation',
         routeAnimationDurationFeedback: (int routeAnimationDuration) =>
-        widget.value.routeAnimationDuration = routeAnimationDuration,
+            widget.value.routeAnimationDuration = routeAnimationDuration,
         pageTransitionFeedback:
             (PageTransitionAnimation pageTransitionAnimation) =>
-        widget.value.routeBuilder = pageTransitionAnimation,
+                widget.value.routeBuilder = pageTransitionAnimation,
       ),
       _inContainer(context, 'Etc', [
         StyleColorWidget(
@@ -224,6 +227,21 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
               value: widget.value.floatingButtonBackgroundColor!,
               label: 'Background Color'),
         ]),
+      ]),
+      _inContainer(context, 'Json representation', [
+        iconButton(widget.app, context, icon: Icon(Icons.copy),
+            onPressed: () async {
+              await Clipboard.setData(ClipboardData(
+                  text: widget.value
+                      .toEntity(appId: widget.app.documentID!)
+                      .toJsonString()));
+            }),
+        text(
+            widget.app,
+            context,
+            widget.value
+                .toEntity(appId: widget.app.documentID!)
+                .toJsonString()),
       ]),
     ]);
   }

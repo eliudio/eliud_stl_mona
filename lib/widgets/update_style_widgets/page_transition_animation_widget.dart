@@ -3,6 +3,7 @@ import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/frontend/has_container.dart';
 import 'package:eliud_core/style/frontend/has_dialog_field.dart';
 import 'package:eliud_core/style/frontend/has_list_tile.dart';
+import 'package:eliud_core/tools/helpers/parse_helper.dart';
 import 'package:eliud_stl_mona/model/font_model.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
@@ -129,7 +130,7 @@ class _PageTransitionAnimationState
                       initialValue: widget.routeAnimationDuration.toString(),
                       valueChanged: (value) {
                         setState(() {
-                          widget.routeAnimationDuration = int.parse(value);
+                          widget.routeAnimationDuration = int_parse(value);
                         });
                       },
                       keyboardType: TextInputType.numberWithOptions(signed: false, ),
