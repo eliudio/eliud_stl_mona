@@ -16,7 +16,7 @@ class MonaDrawerImpl implements HasDrawer {
   MonaDrawerImpl(this._monaStyle);
 
   Widget _constructHeaderContainer(AppModel app,BuildContext context, String text, double? height, MemberModel? member, BackgroundModel? background) {
-    var boxDecoration = BoxDecorationHelper.boxDecoration(member, background);
+    var boxDecoration = BoxDecorationHelper.boxDecoration(app, member, background);
     if (boxDecoration != null) {
       return Container(
           height: height,
@@ -116,7 +116,8 @@ class MonaDrawerImpl implements HasDrawer {
     return Drawer(
         key: key,
         child: Container(
-            decoration: BoxDecorationHelper.boxDecoration(member, background2),
+            clipBehavior: (background2 == null) ? Clip.none : Clip.hardEdge,
+            decoration: BoxDecorationHelper.boxDecoration(app, member, background2),
             child: ListView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

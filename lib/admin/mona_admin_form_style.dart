@@ -61,16 +61,18 @@ class MonaAdminFormStyle implements AdminFormStyle {
    */
   @override
   Widget container(AppModel app, BuildContext context, Widget child, FormAction formAction) {
+    var decoration = ((formAction == FormAction.ShowData) ||
+                (formAction == FormAction.ShowPreloadedData))
+            ? null
+            : BoxDecorationHelper.boxDecoration(app, AccessBloc.getState(context).getMember(),
+                _monaStyle.monaStyleAttributesModel.formBackground);
     return Container(
+        clipBehavior: (decoration == null) ? Clip.none : Clip.hardEdge,
         color: ((formAction == FormAction.ShowData) ||
                 (formAction == FormAction.ShowPreloadedData))
             ? Colors.transparent
             : null,
-        decoration: ((formAction == FormAction.ShowData) ||
-                (formAction == FormAction.ShowPreloadedData))
-            ? null
-            : BoxDecorationHelper.boxDecoration(AccessBloc.getState(context).getMember(),
-                _monaStyle.monaStyleAttributesModel.formBackground),
+        decoration: decoration,
         padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
         child: child);
   }
@@ -81,7 +83,7 @@ class MonaAdminFormStyle implements AdminFormStyle {
       List<Widget>? actions,
       IconThemeData? iconTheme,
       BackgroundModel? backgroundOverride}) {
-    return appBarWithWidget(context,
+    return appBarWithWidget(app, context,
         title: Text(title,
             style: TextStyle(
                 color: RgbHelper.color(
@@ -92,7 +94,7 @@ class MonaAdminFormStyle implements AdminFormStyle {
         backgroundOverride: backgroundOverride);
   }
 
-  PreferredSizeWidget appBarWithWidget(BuildContext context,
+  PreferredSizeWidget appBarWithWidget(AppModel app, BuildContext context,
       {required Widget title,
       List<Widget>? actions,
       IconThemeData? iconTheme,
@@ -109,8 +111,9 @@ class MonaAdminFormStyle implements AdminFormStyle {
       actions: actions,
       iconTheme: iconTheme,
       flexibleSpace: Container(
+          clipBehavior: (background == null) ? Clip.none : Clip.hardEdge,
           decoration:
-              BoxDecorationHelper.boxDecoration(accessState.getMember(), background)),
+              BoxDecorationHelper.boxDecoration(app, accessState.getMember(), background)),
     );
   }
 

@@ -54,9 +54,10 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
         _monaStyle.monaStyleAttributesModel.bottomNavigationBarBG;
 
     return Container(
+        clipBehavior: ((backgroundOverride == null) && (background == null)) ? Clip.none : Clip.hardEdge,
         decoration: backgroundOverride == null
             ? null
-            : BoxDecorationHelper.boxDecoration(member, background),
+            : BoxDecorationHelper.boxDecoration(app, member, background),
         child: Theme(
             data: Theme.of(context).copyWith(
                 textTheme: Theme.of(context).textTheme.copyWith(

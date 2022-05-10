@@ -35,7 +35,7 @@ class MonaAdminListStyle extends AdminListStyle {
   @override
   BoxDecoration? boxDecorator(AppModel app, BuildContext context, MemberModel? member) {
     var accessState = AccessBloc.getState(context);
-    return BoxDecorationHelper.boxDecoration(member, _monaStyle.monaStyleAttributesModel.listBackground);
+    return BoxDecorationHelper.boxDecoration(app, member, _monaStyle.monaStyleAttributesModel.listBackground);
   }
 
   @override

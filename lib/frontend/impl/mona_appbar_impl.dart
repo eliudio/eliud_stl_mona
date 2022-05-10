@@ -76,7 +76,8 @@ class MonaAppBarImpl implements HasAppBar {
         title: _title,
         actions: buttons,
         flexibleSpace: Container(
-            decoration: BoxDecorationHelper.boxDecoration(member, background)));
+            clipBehavior: (background == null) ? Clip.none : Clip.hardEdge,
+            decoration: BoxDecorationHelper.boxDecoration(app, member, background)));
   }
 /*
 
