@@ -29,7 +29,7 @@ class ComponentRegistry {
     Registry.registry()!.addInternalComponents('eliud_stl_mona', ["monaStyleAttributess", ]);
 
     Registry.registry()!.register(componentName: "eliud_stl_mona_internalWidgets", componentConstructor: ListComponentFactory());
-    Registry.registry()!.addComponentSpec('eliud_stl_mona', [
+    Registry.registry()!.addComponentSpec('eliud_stl_mona', 'mona-style', [
     ]);
 
   }

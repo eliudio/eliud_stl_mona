@@ -1,6 +1,7 @@
 {
   "id": "MonaStyleAttributes",
   "packageName": "eliud_stl_mona",
+  "packageFriendlyName": "mona-style",
   "isAppModel": true,
   "generate": {
     "generateComponent": true,
