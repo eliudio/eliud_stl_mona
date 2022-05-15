@@ -170,6 +170,12 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
 
         return;
       }
+      if (event is ChangedMonaStyleAttributesActionContainerBackground) {
+        newValue = currentState.value!.copyWith(actionContainerBackground: event.value);
+        yield SubmittableMonaStyleAttributesForm(value: newValue);
+
+        return;
+      }
       if (event is ChangedMonaStyleAttributesAppBarBG) {
         newValue = currentState.value!.copyWith(appBarBG: event.value);
         yield SubmittableMonaStyleAttributesForm(value: newValue);

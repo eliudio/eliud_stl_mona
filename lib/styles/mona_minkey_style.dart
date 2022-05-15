@@ -75,6 +75,7 @@ class MonaMinkeyStyle {
       routeBuilder: PageTransitionAnimation.ScaleRoute,
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
+      actionContainerBackground: pageBG(),
     );
   }
 

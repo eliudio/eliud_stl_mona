@@ -227,6 +227,18 @@ class ChangedMonaStyleAttributesTopicContainerBackground extends MonaStyleAttrib
   String toString() => 'ChangedMonaStyleAttributesTopicContainerBackground{ value: $value }';
 }
 
+class ChangedMonaStyleAttributesActionContainerBackground extends MonaStyleAttributesFormEvent {
+  final BackgroundModel? value;
+
+  ChangedMonaStyleAttributesActionContainerBackground({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesActionContainerBackground{ value: $value }';
+}
+
 class ChangedMonaStyleAttributesAppBarBG extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 

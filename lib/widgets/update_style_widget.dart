@@ -102,6 +102,9 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
     widget.value.topicContainerBackground =
         widget.value.topicContainerBackground ??
             defaultStyleTemplate.topicContainerBackground;
+    widget.value.actionContainerBackground =
+        widget.value.actionContainerBackground ??
+            defaultStyleTemplate.actionContainerBackground;
     widget.value.listBackground = widget.value.listBackground ??
         defaultStyleTemplate.listBackground;
     widget.value.listTextItemColor = widget.value.listTextItemColor ??
@@ -270,6 +273,11 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
             memberId: widget.memberId,
             value: widget.value.topicContainerBackground!,
             label: 'Background topic container'),
+        BackgroundWidget(
+            app: widget.app,
+            memberId: widget.memberId,
+            value: widget.value.actionContainerBackground!,
+            label: 'Background action container'),
       ]),
       _inContainer(context, 'Admin', [
         _inContainer(context, 'List', [

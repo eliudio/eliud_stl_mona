@@ -287,6 +287,22 @@ class TopicContainerBackgroundMonaStyleAttributesFormError extends MonaStyleAttr
 }
 
 
+class ActionContainerBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ActionContainerBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''ActionContainerBackgroundMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
 class AppBarBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
   const AppBarBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 

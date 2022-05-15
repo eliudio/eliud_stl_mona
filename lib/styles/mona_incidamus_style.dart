@@ -74,6 +74,7 @@ class MonaIncidamusStyle {
       routeBuilder: PageTransitionAnimation.FadeRoute,
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
+      actionContainerBackground: pageBG(),
     );
   }
 

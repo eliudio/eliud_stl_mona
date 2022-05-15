@@ -138,6 +138,13 @@
       "optional": true
     },
     {
+      "fieldName": "actionContainerBackground",
+      "remark": "Background for action container",
+      "displayName": "Action Background",
+      "fieldType": "Background",
+      "optional": true
+    },
+    {
       "fieldName": "appBarBG",
       "displayName": "AppBar Background",
       "fieldType": "Background",

@@ -72,6 +72,7 @@ class MonaEliudStyle {
       routeBuilder: PageTransitionAnimation.SlideRightToLeft,
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
+      actionContainerBackground: pageBG(),
     );
   }
 

@@ -74,6 +74,7 @@ class MonaJuuwleStyle {
       routeBuilder: PageTransitionAnimation.RotationRoute,
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
+      actionContainerBackground: pageBG(),
     );
   }
 
