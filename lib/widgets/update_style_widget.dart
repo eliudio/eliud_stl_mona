@@ -13,6 +13,9 @@ import 'package:eliud_stl_mona/model/model_export.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:flutter/services.dart';
 
+import '../mona_style_family.dart';
+import '../styles/mona_minkey_style.dart';
+
 class UpdateStyleWidget extends StatefulWidget {
   AppModel app;
   MonaStyleAttributesModel value;
@@ -54,6 +57,87 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
         widget.value.fontSmallText ?? FontTools.defaultFontSmallText();
     widget.value.fontText =
         widget.value.fontText ?? FontTools.defaultFontText();
+
+    // just apply default values in case of null values
+    var defaultStyleTemplate = MonaMinkeyStyle.styleAttributesModel(widget.app.documentID!, 'template');
+    widget.value.textFieldHeader = widget.value.textFieldHeader ??
+        defaultStyleTemplate.textFieldHeader;
+    widget.value.fontText = widget.value.fontText ??
+        defaultStyleTemplate.fontText;
+    widget.value.fontSmallText = widget.value.fontSmallText ??
+        defaultStyleTemplate.fontSmallText;
+    widget.value.fontHighlight1 = widget.value.fontHighlight1 ??
+        defaultStyleTemplate.fontHighlight1;
+    widget.value.fontHighlight2 = widget.value.fontHighlight2 ??
+        defaultStyleTemplate.fontHighlight2;
+    widget.value.fontLink = widget.value.fontLink ??
+        defaultStyleTemplate.fontLink;
+    widget.value.appBarIconColor = widget.value.appBarIconColor ??
+        defaultStyleTemplate.appBarIconColor;
+    widget.value.appBarSelectedIconColor =
+        widget.value.appBarSelectedIconColor ??
+            defaultStyleTemplate.appBarMenuBackgroundColor;
+    widget.value.appBarMenuBackgroundColor =
+        widget.value.appBarMenuBackgroundColor ??
+            defaultStyleTemplate.appBarMenuBackgroundColor;
+    widget.value.bottomNavigationBarBG = widget.value.bottomNavigationBarBG ??
+        defaultStyleTemplate.bottomNavigationBarBG;
+    widget.value.drawerBG = widget.value.drawerBG ??
+        defaultStyleTemplate.drawerBG;
+    widget.value.drawerHeaderBG = widget.value.drawerHeaderBG ??
+        defaultStyleTemplate.drawerHeaderBG;
+    widget.value.profileDrawerBG = widget.value.profileDrawerBG ??
+        defaultStyleTemplate.profileDrawerBG;
+    widget.value.profileDrawerHeaderBG = widget.value.profileDrawerHeaderBG ??
+        defaultStyleTemplate.profileDrawerHeaderBG;
+    widget.value.appBackground = widget.value.appBackground ??
+        defaultStyleTemplate.appBackground;
+    widget.value.routeAnimationDuration = widget.value.routeAnimationDuration ??
+        defaultStyleTemplate.routeAnimationDuration;
+    widget.value.dividerColor = widget.value.dividerColor ??
+        defaultStyleTemplate.dividerColor;
+    widget.value.backgroundColorHomeMenu =
+        widget.value.backgroundColorHomeMenu ??
+            defaultStyleTemplate.backgroundColorHomeMenu;
+    widget.value.topicContainerBackground =
+        widget.value.topicContainerBackground ??
+            defaultStyleTemplate.topicContainerBackground;
+    widget.value.listBackground = widget.value.listBackground ??
+        defaultStyleTemplate.listBackground;
+    widget.value.listTextItemColor = widget.value.listTextItemColor ??
+        defaultStyleTemplate.listTextItemColor;
+    widget.value.formBackground = widget.value.formBackground ??
+        defaultStyleTemplate.formBackground;
+    widget.value.formGroupTitleColor = widget.value.formGroupTitleColor ??
+        defaultStyleTemplate.formGroupTitleColor;
+    widget.value.formFieldTextColor = widget.value.formFieldTextColor ??
+        defaultStyleTemplate.formFieldTextColor;
+    widget.value.formFieldHeaderColor = widget.value.formFieldHeaderColor ??
+        defaultStyleTemplate.formFieldHeaderColor;
+    widget.value.formFieldFocusColor = widget.value.formFieldFocusColor ??
+        defaultStyleTemplate.formFieldFocusColor;
+    widget.value.floatingButtonForegroundColor = widget
+            .value.floatingButtonForegroundColor ??
+        defaultStyleTemplate.floatingButtonForegroundColor;
+    widget.value.floatingButtonBackgroundColor = widget
+            .value.floatingButtonBackgroundColor ??
+        defaultStyleTemplate.floatingButtonBackgroundColor;
+    widget.value.appBarBG = widget.value.appBarBG ??
+        defaultStyleTemplate.appBarBG;
+    widget.value.routeBuilder = widget.value.routeBuilder ??
+        defaultStyleTemplate.routeBuilder;
+    widget.value.h1 =
+        widget.value.h1 ?? defaultStyleTemplate.h1;
+    widget.value.h2 =
+        widget.value.h2 ?? defaultStyleTemplate.h2;
+    widget.value.h3 =
+        widget.value.h3 ?? defaultStyleTemplate.h3;
+    widget.value.h4 =
+        widget.value.h4 ?? defaultStyleTemplate.h4;
+    widget.value.h5 =
+        widget.value.h5 ?? defaultStyleTemplate.h4;
+    widget.value.h5 =
+        widget.value.h5 ?? defaultStyleTemplate.h4;
   }
 
   @override
@@ -181,6 +265,11 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
             app: widget.app,
             value: widget.value.backgroundColorHomeMenu!,
             label: 'Background Color Popup Menu'),
+        BackgroundWidget(
+            app: widget.app,
+            memberId: widget.memberId,
+            value: widget.value.topicContainerBackground!,
+            label: 'Background topic container'),
       ]),
       _inContainer(context, 'Admin', [
         _inContainer(context, 'List', [
@@ -231,11 +320,11 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
       _inContainer(context, 'Json representation', [
         iconButton(widget.app, context, icon: Icon(Icons.copy),
             onPressed: () async {
-              await Clipboard.setData(ClipboardData(
-                  text: widget.value
-                      .toEntity(appId: widget.app.documentID!)
-                      .toJsonString()));
-            }),
+          await Clipboard.setData(ClipboardData(
+              text: widget.value
+                  .toEntity(appId: widget.app.documentID!)
+                  .toJsonString()));
+        }),
         text(
             widget.app,
             context,

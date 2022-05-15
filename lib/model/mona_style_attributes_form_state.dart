@@ -271,6 +271,22 @@ class DividerColorMonaStyleAttributesFormError extends MonaStyleAttributesFormEr
 }
 
 
+class TopicContainerBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const TopicContainerBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''TopicContainerBackgroundMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
 class AppBarBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
   const AppBarBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 

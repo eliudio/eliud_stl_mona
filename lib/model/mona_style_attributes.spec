@@ -131,6 +131,13 @@
       "bespokeFormField": "RgbField(widget.app, \"Divider Color\", state.value!.dividerColor, _onDividerColorChanged)"
     },
     {
+      "fieldName": "topicContainerBackground",
+      "remark": "Background for topic container",
+      "displayName": "Topic Background",
+      "fieldType": "Background",
+      "optional": true
+    },
+    {
       "fieldName": "appBarBG",
       "displayName": "AppBar Background",
       "fieldType": "Background",

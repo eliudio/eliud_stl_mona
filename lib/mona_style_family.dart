@@ -106,7 +106,7 @@ class MonaStyleFamily extends StyleFamily {
           if (monaStyle != null) {
             _monaStyles[appId] = monaStyle;
           } else {
-              throw Exception("Style with name " +
+              print("Style with name " +
                   styleName +
                   " not found for app " +
                   appId);
@@ -175,6 +175,10 @@ class MonaStyleFamily extends StyleFamily {
 
   @override
   Style? getStyle(AppModel currentApp, String styleName) {
+    return getMonaStyle(currentApp, styleName);
+  }
+
+  MonaStyle? getMonaStyle(AppModel currentApp, String styleName) {
     var appId = currentApp.documentID!;
     var style = _monaStyles[appId];
     if ((style == null) || (style.styleName != styleName)) {

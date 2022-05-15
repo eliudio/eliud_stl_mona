@@ -176,6 +176,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                   child: StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().groupTitle(widget.app, context, 'General')
                 ));
 
+
         children.add(
 
                 RgbField(widget.app, "Text color", state.value!.appBarIconColor, _onAppBarIconColorChanged)
@@ -501,6 +502,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               floatingButtonForegroundColor: state.value!.floatingButtonForegroundColor, 
                               floatingButtonBackgroundColor: state.value!.floatingButtonBackgroundColor, 
                               dividerColor: state.value!.dividerColor, 
+                              topicContainerBackground: state.value!.topicContainerBackground, 
                               appBarBG: state.value!.appBarBG, 
                               appBarIconColor: state.value!.appBarIconColor, 
                               appBarSelectedIconColor: state.value!.appBarSelectedIconColor, 
@@ -541,6 +543,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               floatingButtonForegroundColor: state.value!.floatingButtonForegroundColor, 
                               floatingButtonBackgroundColor: state.value!.floatingButtonBackgroundColor, 
                               dividerColor: state.value!.dividerColor, 
+                              topicContainerBackground: state.value!.topicContainerBackground, 
                               appBarBG: state.value!.appBarBG, 
                               appBarIconColor: state.value!.appBarIconColor, 
                               appBarSelectedIconColor: state.value!.appBarSelectedIconColor, 

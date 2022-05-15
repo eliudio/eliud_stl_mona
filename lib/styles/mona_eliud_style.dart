@@ -71,6 +71,7 @@ class MonaEliudStyle {
           .getFont(FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
       routeBuilder: PageTransitionAnimation.SlideRightToLeft,
       routeAnimationDuration: 800,
+      topicContainerBackground: pageBG(),
     );
   }
 

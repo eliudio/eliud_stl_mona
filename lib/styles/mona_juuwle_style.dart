@@ -73,6 +73,7 @@ class MonaJuuwleStyle {
           .getFont(FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
       routeBuilder: PageTransitionAnimation.RotationRoute,
       routeAnimationDuration: 800,
+      topicContainerBackground: pageBG(),
     );
   }
 

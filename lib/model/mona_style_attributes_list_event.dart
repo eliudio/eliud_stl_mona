@@ -77,7 +77,7 @@ class MonaStyleAttributesListUpdated extends MonaStyleAttributesListEvent {
 }
 
 class MonaStyleAttributesChangeQuery extends MonaStyleAttributesListEvent {
-  final EliudQuery newQuery;
+  final EliudQuery? newQuery;
 
   const MonaStyleAttributesChangeQuery({ required this.newQuery });
 

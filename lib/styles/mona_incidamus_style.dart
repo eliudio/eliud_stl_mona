@@ -73,6 +73,7 @@ class MonaIncidamusStyle {
           .getFont(FontTools.key(styleName, FontTools.dancingScriptLabel, FontTools.textFieldHeaderLabel)),
       routeBuilder: PageTransitionAnimation.FadeRoute,
       routeAnimationDuration: 800,
+      topicContainerBackground: pageBG(),
     );
   }
 

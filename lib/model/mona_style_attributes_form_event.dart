@@ -215,6 +215,18 @@ class ChangedMonaStyleAttributesDividerColor extends MonaStyleAttributesFormEven
   String toString() => 'ChangedMonaStyleAttributesDividerColor{ value: $value }';
 }
 
+class ChangedMonaStyleAttributesTopicContainerBackground extends MonaStyleAttributesFormEvent {
+  final BackgroundModel? value;
+
+  ChangedMonaStyleAttributesTopicContainerBackground({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesTopicContainerBackground{ value: $value }';
+}
+
 class ChangedMonaStyleAttributesAppBarBG extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 

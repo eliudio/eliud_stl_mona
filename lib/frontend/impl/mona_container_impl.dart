@@ -1,14 +1,18 @@
 import 'package:eliud_core/model/app_model.dart';
+import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/style/frontend/has_container.dart';
 import 'package:eliud_core/style/frontend/has_divider.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:eliud_core/style/style.dart';
+import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 
-class MonaContainerImpl implements HasContainer {
-  final Style _style;
+import '../../styles/mona_style.dart';
 
-  MonaContainerImpl(this._style);
+class MonaContainerImpl implements HasContainer {
+  final MonaStyle _monaStyle;
+
+  MonaContainerImpl(this._monaStyle);
 
   @override
   Widget actionContainer(AppModel app, BuildContext context,
@@ -40,7 +44,8 @@ class MonaContainerImpl implements HasContainer {
       double? width,
       String? title,
       bool? collapsible,
-      bool? collapsed = false}) {
+      bool? collapsed = false,
+      BackgroundModel? backgroundOverride}) {
     return TopicContainerWidget(
       app: app,
       children: children,
@@ -50,6 +55,7 @@ class MonaContainerImpl implements HasContainer {
       title: title,
       collapsible: collapsible ?? false,
       collapsed: collapsed ?? false,
+      bdm: backgroundOverride ?? _monaStyle.monaStyleAttributesModel.topicContainerBackground
     );
   }
 
@@ -77,6 +83,7 @@ class TopicContainerWidget extends StatefulWidget {
   final String? title;
   final bool collapsible;
   final bool collapsed;
+  final BackgroundModel? bdm;
 
   const TopicContainerWidget(
       {Key? key,
@@ -87,7 +94,8 @@ class TopicContainerWidget extends StatefulWidget {
       required this.app,
       required this.collapsible,
       required this.collapsed,
-      required this.children})
+      required this.children,
+      required this.bdm})
       : super(key: key);
 
   @override
@@ -136,6 +144,8 @@ class _TopicContainerState extends State<TopicContainerWidget> {
         child: Container(
             width: widget.width,
             height: widget.height,
+            decoration: BoxDecorationHelper.boxDecoration(widget.app, null, widget.bdm, overridingImage: widget.image,),
+/*
             decoration: BoxDecoration(
                 color: Colors.white,
                 image: widget.image,
@@ -149,6 +159,7 @@ class _TopicContainerState extends State<TopicContainerWidget> {
                 borderRadius: BorderRadius.all(
                   const Radius.circular(10.0),
                 )),
+*/
             child: Padding(
                 padding: const EdgeInsets.all(7.0),
                 child: Column(
