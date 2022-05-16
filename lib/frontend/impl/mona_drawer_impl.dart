@@ -33,7 +33,7 @@ class MonaDrawerImpl implements HasDrawer {
               .h3(app, context, text));
       if (padding == null) {
         return Container(
-            clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, member, background),
+            clipBehavior: Clip.none,
             height: height,
             child: DrawerHeader(
                 child: child,
@@ -41,7 +41,7 @@ class MonaDrawerImpl implements HasDrawer {
                 decoration: boxDecoration));
       } else {
         return Container(
-            clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, member, background),
+            clipBehavior: Clip.none,
             height: height,
             child: DrawerHeader(
                 child: child,

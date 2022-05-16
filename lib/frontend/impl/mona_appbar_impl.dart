@@ -195,9 +195,10 @@ class MonaAppBarImpl implements HasAppBar {
                       .textStyleStyle()
                       .styleH4(context);
               var label = thisItem.label!;
-              var menuItem = PopupMenuItem<int>(
+              var menuItem = popupMenuItem<int>(
+                app, context,
                 value: index,
-                child: _monaStyle.frontEndStyle().textStyle().text(context, label),
+                label: label,
                 textStyle: style,
               );
               entries.add(menuItem);

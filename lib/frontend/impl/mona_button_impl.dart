@@ -1,5 +1,6 @@
 import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_button.dart';
+import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:eliud_core/style/style.dart';
 import 'package:flutter/material.dart';
 
@@ -73,8 +74,7 @@ class MonaButtonImpl implements HasButton {
       Color? color,
       String? tooltip,
       required Widget icon}) {
-    return /*_style.frontEndStyle().containerStyle().actionContainer(context,
-        child: */IconButton(
+    return IconButton(
       padding: const EdgeInsets.all(8.0),
             icon: icon, color: color, tooltip: tooltip, onPressed: onPressed)/*)*/;
   }
@@ -82,7 +82,27 @@ class MonaButtonImpl implements HasButton {
   @override
   Widget simpleButton(AppModel app,BuildContext context,
       {VoidCallback? onPressed, required String label}) {
-    return /*_style.frontEndStyle().containerStyle().actionContainer(context,
-        child: */TextButton(onPressed: onPressed, child: _style.frontEndStyle().textStyle().text(app, context, label),);
+    return TextButton(onPressed: onPressed, child: text(app, context, label),);
   }
+
+  @override
+  PopupMenuItem<T> popupMenuItem<T>(AppModel app, BuildContext context, {required String label, bool enabled = true, T? value}) {
+    return PopupMenuItem<T>(child: text(app, context, label), enabled: enabled, value: value);
+  }
+
+  @override
+  PopupMenuButton<T> popupMenuButton<T>(AppModel app, BuildContext context, {String? tooltip, Widget? child, Widget? icon, required PopupMenuItemBuilder<T> itemBuilder,
+    PopupMenuItemSelected<T>? onSelected}) {
+    return PopupMenuButton<T>(
+        tooltip: tooltip,
+        elevation: 10,
+        padding: EdgeInsets.all(8.0),
+        child: child,
+        icon: icon,
+        itemBuilder: itemBuilder,
+        onSelected: onSelected);
+  }
+
+  @override
+  PopupMenuDivider popupMenuDivider(AppModel app, BuildContext context) => PopupMenuDivider();
 }
