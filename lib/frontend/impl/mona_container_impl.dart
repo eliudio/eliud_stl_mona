@@ -16,30 +16,15 @@ class MonaContainerImpl implements HasContainer {
 
   @override
   Widget actionContainer(AppModel app, BuildContext context,
-      {required Widget child, double? height, double? width}) {
-    var backgroundOverride;
+      {required Widget child, double? height, double? width, BackgroundModel? backgroundOverride,}) {
     return Container(
-//        margin: EdgeInsets.all(7.0),
         width: width,
         height: height,
         clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground, ),
         decoration: BoxDecorationHelper.boxDecoration(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground,),
         margin: BoxDecorationHelper.determineMargin(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground),
         padding: BoxDecorationHelper.determinePadding(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground ),
-/*
-        decoration: BoxDecoration(
-            color: Color.fromRGBO(220, 200, 200, 1),
-            border: Border.all(color: Colors.white, width: 1),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black,
-                blurRadius: 5.0,
-              ),
-            ],
-            borderRadius: BorderRadius.all(
-              const Radius.circular(10.0),
-            )),
-*/
+
         child: child);
   }
 
