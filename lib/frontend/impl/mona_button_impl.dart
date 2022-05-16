@@ -75,6 +75,7 @@ class MonaButtonImpl implements HasButton {
       required Widget icon}) {
     return /*_style.frontEndStyle().containerStyle().actionContainer(context,
         child: */IconButton(
+      padding: const EdgeInsets.all(8.0),
             icon: icon, color: color, tooltip: tooltip, onPressed: onPressed)/*)*/;
   }
 
