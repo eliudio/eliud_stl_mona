@@ -91,6 +91,7 @@ class MonaDrawerImpl implements HasDrawer {
       }
     }
 
+/*
     if (header2 != null) {
       widgets.add(Container(
         height: header2.height == 0 ? null : header2.height,
@@ -103,6 +104,7 @@ class MonaDrawerImpl implements HasDrawer {
         )),
       ));
     }
+*/
 
     for (var item in items) {
       var style = item.isActive
@@ -154,8 +156,8 @@ class MonaDrawerImpl implements HasDrawer {
             clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, member, background2),
             decoration:
                 BoxDecorationHelper.boxDecoration(app, member, background2),
-            margin: BoxDecorationHelper.determineMargin(app, member, background),
-            padding: BoxDecorationHelper.determinePadding(app, member, background),
+            margin: BoxDecorationHelper.determineMargin(app, member, background2),
+            padding: BoxDecorationHelper.determinePadding(app, member, background2),
             child: ListView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
