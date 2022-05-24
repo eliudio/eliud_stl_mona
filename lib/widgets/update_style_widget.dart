@@ -59,7 +59,7 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
         widget.value.fontText ?? FontTools.defaultFontText();
 
     // just apply default values in case of null values
-    var defaultStyleTemplate = MonaMinkeyStyle.styleAttributesModel(widget.app.documentID!, 'template');
+    var defaultStyleTemplate = MonaMinkeyStyle.styleAttributesModel(widget.app.documentID, 'template');
     widget.value.textFieldHeader = widget.value.textFieldHeader ??
         defaultStyleTemplate.textFieldHeader;
     widget.value.fontText = widget.value.fontText ??
@@ -330,14 +330,14 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
             onPressed: () async {
           await Clipboard.setData(ClipboardData(
               text: widget.value
-                  .toEntity(appId: widget.app.documentID!)
+                  .toEntity(appId: widget.app.documentID)
                   .toJsonString()));
         }),
         text(
             widget.app,
             context,
             widget.value
-                .toEntity(appId: widget.app.documentID!)
+                .toEntity(appId: widget.app.documentID)
                 .toJsonString()),
       ]),
     ]);

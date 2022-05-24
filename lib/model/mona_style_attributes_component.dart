@@ -39,7 +39,7 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<MonaStyleAttributesComponentBloc> (
           create: (context) => MonaStyleAttributesComponentBloc(
-            monaStyleAttributesRepository: monaStyleAttributesRepository(appId: app.documentID!)!)
+            monaStyleAttributesRepository: monaStyleAttributesRepository(appId: app.documentID)!)
         ..add(FetchMonaStyleAttributesComponent(id: monaStyleAttributesId)),
       child: _monaStyleAttributesBlockBuilder(context),
     );

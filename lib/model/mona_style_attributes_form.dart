@@ -74,7 +74,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var accessState = AccessBloc.getState(context);
-    var appId = app.documentID!;
+    var appId = app.documentID;
     if (formAction == FormAction.ShowData) {
       return BlocProvider<MonaStyleAttributesFormBloc >(
             create: (context) => MonaStyleAttributesFormBloc(appId,
@@ -206,23 +206,23 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
         children.add(
 
-                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'SlideRightToLeft', 'SlideRightToLeft', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'SlideRightToLeft', 'SlideRightToLeft', !accessState.memberIsOwner(widget.app.documentID) ? null : (dynamic val) => setSelectionRouteBuilder(val))
           );
         children.add(
 
-                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'SlideBottomToTop', 'SlideBottomToTop', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'SlideBottomToTop', 'SlideBottomToTop', !accessState.memberIsOwner(widget.app.documentID) ? null : (dynamic val) => setSelectionRouteBuilder(val))
           );
         children.add(
 
-                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'ScaleRoute', 'ScaleRoute', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'ScaleRoute', 'ScaleRoute', !accessState.memberIsOwner(widget.app.documentID) ? null : (dynamic val) => setSelectionRouteBuilder(val))
           );
         children.add(
 
-                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'RotationRoute', 'RotationRoute', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'RotationRoute', 'RotationRoute', !accessState.memberIsOwner(widget.app.documentID) ? null : (dynamic val) => setSelectionRouteBuilder(val))
           );
         children.add(
 
-                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'FadeRoute', 'FadeRoute', !accessState.memberIsOwner(widget.app.documentID!) ? null : (dynamic val) => setSelectionRouteBuilder(val))
+                  StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().radioListTile(widget.app, context, 0, _routeBuilderSelectedRadioTile, 'FadeRoute', 'FadeRoute', !accessState.memberIsOwner(widget.app.documentID) ? null : (dynamic val) => setSelectionRouteBuilder(val))
           );
 
         children.add(
@@ -701,7 +701,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
   }
 
   bool _readOnly(AccessState accessState, MonaStyleAttributesFormInitialized state) {
-    return (formAction == FormAction.ShowData) || (formAction == FormAction.ShowPreloadedData) || (!accessState.memberIsOwner(widget.app.documentID!));
+    return (formAction == FormAction.ShowData) || (formAction == FormAction.ShowPreloadedData) || (!accessState.memberIsOwner(widget.app.documentID));
   }
   
 

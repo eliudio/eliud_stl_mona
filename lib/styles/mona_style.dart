@@ -55,23 +55,23 @@ class MonaStyle extends Style {
 
   Future<MonaStyle?> copy(AppModel app, String newName) async {
     var newModel = monaStyleAttributesModel.copyWith(documentID: newName);
-    await monaStyleAttributesRepository(appId: app.documentID!)!.add(newModel);
+    await monaStyleAttributesRepository(appId: app.documentID)!.add(newModel);
     return MonaStyle(styleFamily, newName, AllowedUpdates.allAllowed(), newModel);
   }
 
   bool update(AppModel app, BuildContext context) {
     var member = AccessBloc.member(context);
     if (member != null) {
-      openFlexibleDialog(app, context, app.documentID! + '/_updatestyle',
+      openFlexibleDialog(app, context, app.documentID + '/_updatestyle',
           title: 'Update style',
           child: UpdateStyleWidget(app: app,
             value: monaStyleAttributesModel,
-            memberId: member.documentID!,),
+            memberId: member.documentID,),
           buttons: [
             dialogButton(app, context,
                 label: 'Cancel', onPressed: () => Navigator.of(context).pop()),
             dialogButton(app, context, label: 'Save', onPressed: () {
-              monaStyleAttributesRepository(appId: app.documentID!)!.update(
+              monaStyleAttributesRepository(appId: app.documentID)!.update(
                   monaStyleAttributesModel);
               Navigator.of(context).pop();
             })

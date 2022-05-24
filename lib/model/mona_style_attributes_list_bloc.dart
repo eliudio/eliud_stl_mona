@@ -38,9 +38,47 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
   MonaStyleAttributesListBloc({this.paged, this.orderBy, this.descending, this.detailed, this.eliudQuery, required MonaStyleAttributesRepository monaStyleAttributesRepository, this.monaStyleAttributesLimit = 5})
       : assert(monaStyleAttributesRepository != null),
         _monaStyleAttributesRepository = monaStyleAttributesRepository,
-        super(MonaStyleAttributesListLoading());
+        super(MonaStyleAttributesListLoading()) {
+    on <LoadMonaStyleAttributesList> ((event, emit) {
+      if ((detailed == null) || (!detailed!)) {
+        _mapLoadMonaStyleAttributesListToState();
+      } else {
+        _mapLoadMonaStyleAttributesListWithDetailsToState();
+      }
+    });
+    
+    on <NewPage> ((event, emit) {
+      pages = pages + 1; // it doesn't matter so much if we increase pages beyond the end
+      _mapLoadMonaStyleAttributesListWithDetailsToState();
+    });
+    
+    on <MonaStyleAttributesChangeQuery> ((event, emit) {
+      eliudQuery = event.newQuery;
+      if ((detailed == null) || (!detailed!)) {
+        _mapLoadMonaStyleAttributesListToState();
+      } else {
+        _mapLoadMonaStyleAttributesListWithDetailsToState();
+      }
+    });
+      
+    on <AddMonaStyleAttributesList> ((event, emit) async {
+      await _mapAddMonaStyleAttributesListToState(event);
+    });
+    
+    on <UpdateMonaStyleAttributesList> ((event, emit) async {
+      await _mapUpdateMonaStyleAttributesListToState(event);
+    });
+    
+    on <DeleteMonaStyleAttributesList> ((event, emit) async {
+      await _mapDeleteMonaStyleAttributesListToState(event);
+    });
+    
+    on <MonaStyleAttributesListUpdated> ((event, emit) {
+      emit(_mapMonaStyleAttributesListUpdatedToState(event));
+    });
+  }
 
-  Stream<MonaStyleAttributesListState> _mapLoadMonaStyleAttributesListToState() async* {
+  Future<void> _mapLoadMonaStyleAttributesListToState() async {
     int amountNow =  (state is MonaStyleAttributesListLoaded) ? (state as MonaStyleAttributesListLoaded).values!.length : 0;
     _monaStyleAttributessListSubscription?.cancel();
     _monaStyleAttributessListSubscription = _monaStyleAttributesRepository.listen(
@@ -52,7 +90,7 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
     );
   }
 
-  Stream<MonaStyleAttributesListState> _mapLoadMonaStyleAttributesListWithDetailsToState() async* {
+  Future<void> _mapLoadMonaStyleAttributesListWithDetailsToState() async {
     int amountNow =  (state is MonaStyleAttributesListLoaded) ? (state as MonaStyleAttributesListLoaded).values!.length : 0;
     _monaStyleAttributessListSubscription?.cancel();
     _monaStyleAttributessListSubscription = _monaStyleAttributesRepository.listenWithDetails(
@@ -64,58 +102,29 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
     );
   }
 
-  Stream<MonaStyleAttributesListState> _mapAddMonaStyleAttributesListToState(AddMonaStyleAttributesList event) async* {
+  Future<void> _mapAddMonaStyleAttributesListToState(AddMonaStyleAttributesList event) async {
     var value = event.value;
-    if (value != null) 
-      _monaStyleAttributesRepository.add(value);
-  }
-
-  Stream<MonaStyleAttributesListState> _mapUpdateMonaStyleAttributesListToState(UpdateMonaStyleAttributesList event) async* {
-    var value = event.value;
-    if (value != null) 
-      _monaStyleAttributesRepository.update(value);
-  }
-
-  Stream<MonaStyleAttributesListState> _mapDeleteMonaStyleAttributesListToState(DeleteMonaStyleAttributesList event) async* {
-    var value = event.value;
-    if (value != null) 
-      _monaStyleAttributesRepository.delete(value);
-  }
-
-  Stream<MonaStyleAttributesListState> _mapMonaStyleAttributesListUpdatedToState(
-      MonaStyleAttributesListUpdated event) async* {
-    yield MonaStyleAttributesListLoaded(values: event.value, mightHaveMore: event.mightHaveMore);
-  }
-
-  @override
-  Stream<MonaStyleAttributesListState> mapEventToState(MonaStyleAttributesListEvent event) async* {
-    if (event is LoadMonaStyleAttributesList) {
-      if ((detailed == null) || (!detailed!)) {
-        yield* _mapLoadMonaStyleAttributesListToState();
-      } else {
-        yield* _mapLoadMonaStyleAttributesListWithDetailsToState();
-      }
-    }
-    if (event is NewPage) {
-      pages = pages + 1; // it doesn't matter so much if we increase pages beyond the end
-      yield* _mapLoadMonaStyleAttributesListWithDetailsToState();
-    } else if (event is MonaStyleAttributesChangeQuery) {
-      eliudQuery = event.newQuery;
-      if ((detailed == null) || (!detailed!)) {
-        yield* _mapLoadMonaStyleAttributesListToState();
-      } else {
-        yield* _mapLoadMonaStyleAttributesListWithDetailsToState();
-      }
-    } else if (event is AddMonaStyleAttributesList) {
-      yield* _mapAddMonaStyleAttributesListToState(event);
-    } else if (event is UpdateMonaStyleAttributesList) {
-      yield* _mapUpdateMonaStyleAttributesListToState(event);
-    } else if (event is DeleteMonaStyleAttributesList) {
-      yield* _mapDeleteMonaStyleAttributesListToState(event);
-    } else if (event is MonaStyleAttributesListUpdated) {
-      yield* _mapMonaStyleAttributesListUpdatedToState(event);
+    if (value != null) {
+      await _monaStyleAttributesRepository.add(value);
     }
   }
+
+  Future<void> _mapUpdateMonaStyleAttributesListToState(UpdateMonaStyleAttributesList event) async {
+    var value = event.value;
+    if (value != null) {
+      await _monaStyleAttributesRepository.update(value);
+    }
+  }
+
+  Future<void> _mapDeleteMonaStyleAttributesListToState(DeleteMonaStyleAttributesList event) async {
+    var value = event.value;
+    if (value != null) {
+      await _monaStyleAttributesRepository.delete(value);
+    }
+  }
+
+  MonaStyleAttributesListLoaded _mapMonaStyleAttributesListUpdatedToState(
+      MonaStyleAttributesListUpdated event) => MonaStyleAttributesListLoaded(values: event.value, mightHaveMore: event.mightHaveMore);
 
   @override
   Future<void> close() {

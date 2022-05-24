@@ -26,23 +26,22 @@ class MonaStyleAttributesComponentBloc extends Bloc<MonaStyleAttributesComponent
   final MonaStyleAttributesRepository? monaStyleAttributesRepository;
   StreamSubscription? _monaStyleAttributesSubscription;
 
-  Stream<MonaStyleAttributesComponentState> _mapLoadMonaStyleAttributesComponentUpdateToState(String documentId) async* {
+  void _mapLoadMonaStyleAttributesComponentUpdateToState(String documentId) {
     _monaStyleAttributesSubscription?.cancel();
     _monaStyleAttributesSubscription = monaStyleAttributesRepository!.listenTo(documentId, (value) {
-      if (value != null) add(MonaStyleAttributesComponentUpdated(value: value));
+      if (value != null) {
+        add(MonaStyleAttributesComponentUpdated(value: value));
+      }
     });
   }
 
-  MonaStyleAttributesComponentBloc({ this.monaStyleAttributesRepository }): super(MonaStyleAttributesComponentUninitialized());
-
-  @override
-  Stream<MonaStyleAttributesComponentState> mapEventToState(MonaStyleAttributesComponentEvent event) async* {
-    final currentState = state;
-    if (event is FetchMonaStyleAttributesComponent) {
-      yield* _mapLoadMonaStyleAttributesComponentUpdateToState(event.id!);
-    } else if (event is MonaStyleAttributesComponentUpdated) {
-      yield MonaStyleAttributesComponentLoaded(value: event.value);
-    }
+  MonaStyleAttributesComponentBloc({ this.monaStyleAttributesRepository }): super(MonaStyleAttributesComponentUninitialized()) {
+    on <FetchMonaStyleAttributesComponent> ((event, emit) {
+      _mapLoadMonaStyleAttributesComponentUpdateToState(event.id!);
+    });
+    on <MonaStyleAttributesComponentUpdated> ((event, emit) {
+      emit(MonaStyleAttributesComponentLoaded(value: event.value));
+    });
   }
 
   @override

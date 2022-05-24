@@ -15,6 +15,7 @@
 
 import 'package:eliud_core/tools/common_tools.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eliud_core/core/base/model_base.dart';
 
 import 'package:eliud_core/model/repository_export.dart';
 import 'package:eliud_core/model/abstract_repository_singleton.dart';
@@ -50,9 +51,9 @@ PageTransitionAnimation toPageTransitionAnimation(int? index) {
 }
 
 
-class MonaStyleAttributesModel {
-  String? documentID;
-  String? appId;
+class MonaStyleAttributesModel implements ModelBase, WithAppId {
+  String documentID;
+  String appId;
 
   // Background of forms in admin section
   BackgroundModel? formBackground;
@@ -100,7 +101,7 @@ class MonaStyleAttributesModel {
   PageTransitionAnimation? routeBuilder;
   int? routeAnimationDuration;
 
-  MonaStyleAttributesModel({this.documentID, this.appId, this.formBackground, this.appBackground, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.topicContainerBackground, this.actionContainerBackground, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, })  {
+  MonaStyleAttributesModel({required this.documentID, required this.appId, this.formBackground, this.appBackground, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.topicContainerBackground, this.actionContainerBackground, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, })  {
     assert(documentID != null);
   }
 
@@ -207,7 +208,7 @@ class MonaStyleAttributesModel {
     var counter = 0;
     return MonaStyleAttributesModel(
           documentID: documentID, 
-          appId: entity.appId, 
+          appId: entity.appId ?? '', 
           formBackground: 
             await BackgroundModel.fromEntity(entity.formBackground), 
           appBackground: 
@@ -287,7 +288,7 @@ class MonaStyleAttributesModel {
     var counter = 0;
     return MonaStyleAttributesModel(
           documentID: documentID, 
-          appId: entity.appId, 
+          appId: entity.appId ?? '', 
           formBackground: 
             await BackgroundModel.fromEntityPlus(entity.formBackground, appId: appId), 
           appBackground: 

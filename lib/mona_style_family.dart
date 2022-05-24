@@ -31,7 +31,7 @@ class MonaStyleFamily extends StyleFamily {
   CurrentStyleTrigger? currentStyleTrigger;
 
   Future<MonaStyle?> listenToCurrentStyle(AppModel app, String styleName) async {
-    var appId = app.documentID!;
+    var appId = app.documentID;
     if (styleName == eliudStyleName) {
       _monaStyles[appId] = await createEliudStyle(appId);
       return _monaStyles[appId];
@@ -79,7 +79,7 @@ class MonaStyleFamily extends StyleFamily {
     var stream =
         monaStyleAttributesRepository(appId: appId)!.listenWithDetails((list) {
       var mappedToStylesTriggers = list.map((value) {
-        return MonaStyle(this, value!.documentID!, AllowedUpdates.allAllowed(), value);
+        return MonaStyle(this, value!.documentID, AllowedUpdates.allAllowed(), value);
       });
       var theList = mappedToStylesTriggers.toList();
       addTheFourDefaults(appId, theList);
@@ -98,7 +98,7 @@ class MonaStyleFamily extends StyleFamily {
 
   Future<void> addApp(MemberModel? currentMember, AppModel app) async {
     if (app.styleFamily == monaStyleFamilyName) {
-      var appId = app.documentID!;
+      var appId = app.documentID;
       var styleName = app.styleName;
       if (styleName != null) {
         if ((_monaStyles[appId] == null) || (_monaStyles[appId]!.monaStyleAttributesModel.documentID != styleName)) {
@@ -160,11 +160,11 @@ class MonaStyleFamily extends StyleFamily {
       await MonaEliudStyle.defaultStyleAttributesModel(appId, newName));
 
   Future<List<Style>> allStyles(AppModel app) async {
-    var appId = app.documentID!;
+    var appId = app.documentID;
     var allStyles = (await monaStyleAttributesRepository(appId: appId)!
             .valuesListWithDetails())
         .map((monaStyleAttributesModel) {
-      return MonaStyle(this, monaStyleAttributesModel!.documentID!, AllowedUpdates.allAllowed(),
+      return MonaStyle(this, monaStyleAttributesModel!.documentID, AllowedUpdates.allAllowed(),
           monaStyleAttributesModel);
     }).toList();
 
@@ -179,7 +179,7 @@ class MonaStyleFamily extends StyleFamily {
   }
 
   MonaStyle? getMonaStyle(AppModel currentApp, String styleName) {
-    var appId = currentApp.documentID!;
+    var appId = currentApp.documentID;
     var style = _monaStyles[appId];
     if ((style == null) || (style.styleName != styleName)) {
       return null;
@@ -190,7 +190,7 @@ class MonaStyleFamily extends StyleFamily {
   @override
   Future<void> delete(AppModel app, Style style) {
     if (style is MonaStyle) {
-      return monaStyleAttributesRepository(appId: app.documentID!)!.delete(
+      return monaStyleAttributesRepository(appId: app.documentID)!.delete(
           style.monaStyleAttributesModel);
     } else {
       throw Exception("Style is not a mona style");
@@ -202,11 +202,11 @@ class MonaStyleFamily extends StyleFamily {
     if (style is MonaStyle) {
       var currentStyle = getStyle(app, style.styleName);
       if ((currentStyle != null) && (currentStyle == style) && (currentStyleTrigger != null)) {
-        return monaStyleAttributesRepository(appId: app.documentID!)!.update(
+        return monaStyleAttributesRepository(appId: app.documentID)!.update(
             style.monaStyleAttributesModel).then((value) {
         });
       } else {
-        return monaStyleAttributesRepository(appId: app.documentID!)!.update(
+        return monaStyleAttributesRepository(appId: app.documentID)!.update(
             style.monaStyleAttributesModel);
       }
     } else {
@@ -216,8 +216,8 @@ class MonaStyleFamily extends StyleFamily {
 
   @override
   Future<Style> newStyle(AppModel app, String newName) async {
-    var newModel = await MonaMinkeyStyle.defaultStyleAttributesModel(app.documentID!, newName);
-    await monaStyleAttributesRepository(appId: app.documentID!)!.add(newModel);
+    var newModel = await MonaMinkeyStyle.defaultStyleAttributesModel(app.documentID, newName);
+    await monaStyleAttributesRepository(appId: app.documentID)!.add(newModel);
     return MonaStyle(this, newName, AllowedUpdates.allAllowed(), newModel);
   }
 

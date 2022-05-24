@@ -51,7 +51,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
   Stream<MonaStyleAttributesFormState> mapEventToState(MonaStyleAttributesFormEvent event) async* {
     final currentState = state;
     if (currentState is MonaStyleAttributesFormUninitialized) {
-      if (event is InitialiseNewMonaStyleAttributesFormEvent) {
+      on <InitialiseNewMonaStyleAttributesFormEvent> ((event, emit) {
         MonaStyleAttributesFormLoaded loaded = MonaStyleAttributesFormLoaded(value: MonaStyleAttributesModel(
                                                documentID: "",
                                  appId: "",
@@ -70,255 +70,214 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  routeAnimationDuration: 1000, 
 
         ));
-        yield loaded;
-        return;
-
-      }
+        emit(loaded);
+      });
 
 
       if (event is InitialiseMonaStyleAttributesFormEvent) {
         // Need to re-retrieve the document from the repository so that I get all associated types
         MonaStyleAttributesFormLoaded loaded = MonaStyleAttributesFormLoaded(value: await monaStyleAttributesRepository(appId: appId)!.get(event.value!.documentID));
-        yield loaded;
-        return;
+        emit(loaded);
       } else if (event is InitialiseMonaStyleAttributesFormNoLoadEvent) {
         MonaStyleAttributesFormLoaded loaded = MonaStyleAttributesFormLoaded(value: event.value);
-        yield loaded;
-        return;
+        emit(loaded);
       }
     } else if (currentState is MonaStyleAttributesFormInitialized) {
       MonaStyleAttributesModel? newValue = null;
-      if (event is ChangedMonaStyleAttributesDocumentID) {
+      on <ChangedMonaStyleAttributesDocumentID> ((event, emit) async {
         newValue = currentState.value!.copyWith(documentID: event.value);
         if (formAction == FormAction.AddAction) {
-          yield* _isDocumentIDValid(event.value, newValue).asStream();
+          emit(await _isDocumentIDValid(event.value, newValue!));
         } else {
-          yield SubmittableMonaStyleAttributesForm(value: newValue);
+          emit(SubmittableMonaStyleAttributesForm(value: newValue));
         }
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFormBackground) {
+      });
+      on <ChangedMonaStyleAttributesFormBackground> ((event, emit) async {
         newValue = currentState.value!.copyWith(formBackground: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesAppBackground) {
+      });
+      on <ChangedMonaStyleAttributesAppBackground> ((event, emit) async {
         newValue = currentState.value!.copyWith(appBackground: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFormGroupTitleColor) {
+      });
+      on <ChangedMonaStyleAttributesFormGroupTitleColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(formGroupTitleColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFormFieldTextColor) {
+      });
+      on <ChangedMonaStyleAttributesFormFieldTextColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(formFieldTextColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFormFieldHeaderColor) {
+      });
+      on <ChangedMonaStyleAttributesFormFieldHeaderColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(formFieldHeaderColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFormFieldFocusColor) {
+      });
+      on <ChangedMonaStyleAttributesFormFieldFocusColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(formFieldFocusColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesListBackground) {
+      });
+      on <ChangedMonaStyleAttributesListBackground> ((event, emit) async {
         newValue = currentState.value!.copyWith(listBackground: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesListTextItemColor) {
+      });
+      on <ChangedMonaStyleAttributesListTextItemColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(listTextItemColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFloatingButtonForegroundColor) {
+      });
+      on <ChangedMonaStyleAttributesFloatingButtonForegroundColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(floatingButtonForegroundColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFloatingButtonBackgroundColor) {
+      });
+      on <ChangedMonaStyleAttributesFloatingButtonBackgroundColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(floatingButtonBackgroundColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesDividerColor) {
+      });
+      on <ChangedMonaStyleAttributesDividerColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(dividerColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesTopicContainerBackground) {
+      });
+      on <ChangedMonaStyleAttributesTopicContainerBackground> ((event, emit) async {
         newValue = currentState.value!.copyWith(topicContainerBackground: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesActionContainerBackground) {
+      });
+      on <ChangedMonaStyleAttributesActionContainerBackground> ((event, emit) async {
         newValue = currentState.value!.copyWith(actionContainerBackground: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesAppBarBG) {
+      });
+      on <ChangedMonaStyleAttributesAppBarBG> ((event, emit) async {
         newValue = currentState.value!.copyWith(appBarBG: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesAppBarIconColor) {
+      });
+      on <ChangedMonaStyleAttributesAppBarIconColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(appBarIconColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesAppBarSelectedIconColor) {
+      });
+      on <ChangedMonaStyleAttributesAppBarSelectedIconColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(appBarSelectedIconColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesAppBarMenuBackgroundColor) {
+      });
+      on <ChangedMonaStyleAttributesAppBarMenuBackgroundColor> ((event, emit) async {
         newValue = currentState.value!.copyWith(appBarMenuBackgroundColor: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesBottomNavigationBarBG) {
+      });
+      on <ChangedMonaStyleAttributesBottomNavigationBarBG> ((event, emit) async {
         newValue = currentState.value!.copyWith(bottomNavigationBarBG: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesDrawerBG) {
+      });
+      on <ChangedMonaStyleAttributesDrawerBG> ((event, emit) async {
         newValue = currentState.value!.copyWith(drawerBG: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesDrawerHeaderBG) {
+      });
+      on <ChangedMonaStyleAttributesDrawerHeaderBG> ((event, emit) async {
         newValue = currentState.value!.copyWith(drawerHeaderBG: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesProfileDrawerBG) {
+      });
+      on <ChangedMonaStyleAttributesProfileDrawerBG> ((event, emit) async {
         newValue = currentState.value!.copyWith(profileDrawerBG: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesProfileDrawerHeaderBG) {
+      });
+      on <ChangedMonaStyleAttributesProfileDrawerHeaderBG> ((event, emit) async {
         newValue = currentState.value!.copyWith(profileDrawerHeaderBG: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesBackgroundColorHomeMenu) {
+      });
+      on <ChangedMonaStyleAttributesBackgroundColorHomeMenu> ((event, emit) async {
         newValue = currentState.value!.copyWith(backgroundColorHomeMenu: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesH1) {
+      });
+      on <ChangedMonaStyleAttributesH1> ((event, emit) async {
         newValue = currentState.value!.copyWith(h1: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesH2) {
+      });
+      on <ChangedMonaStyleAttributesH2> ((event, emit) async {
         newValue = currentState.value!.copyWith(h2: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesH3) {
+      });
+      on <ChangedMonaStyleAttributesH3> ((event, emit) async {
         newValue = currentState.value!.copyWith(h3: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesH4) {
+      });
+      on <ChangedMonaStyleAttributesH4> ((event, emit) async {
         newValue = currentState.value!.copyWith(h4: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesH5) {
+      });
+      on <ChangedMonaStyleAttributesH5> ((event, emit) async {
         newValue = currentState.value!.copyWith(h5: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesTextFieldHeader) {
+      });
+      on <ChangedMonaStyleAttributesTextFieldHeader> ((event, emit) async {
         newValue = currentState.value!.copyWith(textFieldHeader: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFontText) {
+      });
+      on <ChangedMonaStyleAttributesFontText> ((event, emit) async {
         newValue = currentState.value!.copyWith(fontText: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFontSmallText) {
+      });
+      on <ChangedMonaStyleAttributesFontSmallText> ((event, emit) async {
         newValue = currentState.value!.copyWith(fontSmallText: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFontHighlight1) {
+      });
+      on <ChangedMonaStyleAttributesFontHighlight1> ((event, emit) async {
         newValue = currentState.value!.copyWith(fontHighlight1: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFontHighlight2) {
+      });
+      on <ChangedMonaStyleAttributesFontHighlight2> ((event, emit) async {
         newValue = currentState.value!.copyWith(fontHighlight2: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesFontLink) {
+      });
+      on <ChangedMonaStyleAttributesFontLink> ((event, emit) async {
         newValue = currentState.value!.copyWith(fontLink: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesRouteBuilder) {
+      });
+      on <ChangedMonaStyleAttributesRouteBuilder> ((event, emit) async {
         newValue = currentState.value!.copyWith(routeBuilder: event.value);
-        yield SubmittableMonaStyleAttributesForm(value: newValue);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
-        return;
-      }
-      if (event is ChangedMonaStyleAttributesRouteAnimationDuration) {
+      });
+      on <ChangedMonaStyleAttributesRouteAnimationDuration> ((event, emit) async {
         if (isInt(event.value)) {
           newValue = currentState.value!.copyWith(routeAnimationDuration: int.parse(event.value!));
-          yield SubmittableMonaStyleAttributesForm(value: newValue);
+          emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
         } else {
           newValue = currentState.value!.copyWith(routeAnimationDuration: 0);
-          yield RouteAnimationDurationMonaStyleAttributesFormError(message: "Value should be a number", value: newValue);
+          emit(RouteAnimationDurationMonaStyleAttributesFormError(message: "Value should be a number", value: newValue));
         }
-        return;
-      }
+      });
     }
   }
 
