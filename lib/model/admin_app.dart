@@ -63,6 +63,7 @@ class AdminApp extends AdminAppInstallerBase {
         appId: appId,
         documentID: "eliud_stl_mona_monastyleattributess_page",
         title: "MonaStyleAttributess",
+        description: "MonaStyleAttributess",
         drawer: _drawer,
         endDrawer: _endDrawer,
         appBar: _appBar,
