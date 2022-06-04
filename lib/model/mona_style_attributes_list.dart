@@ -156,7 +156,7 @@ class MonaStyleAttributesListWidgetState extends State<MonaStyleAttributesListWi
             onDismissed: (direction) {
               BlocProvider.of<MonaStyleAttributesListBloc>(context)
                   .add(DeleteMonaStyleAttributesList(value: value));
-              Scaffold.of(context).showSnackBar(DeleteSnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(DeleteSnackBar(
                 message: "MonaStyleAttributes " + value.documentID,
                 onUndo: () => BlocProvider.of<MonaStyleAttributesListBloc>(context)
                     .add(AddMonaStyleAttributesList(value: value)),
@@ -168,7 +168,7 @@ class MonaStyleAttributesListWidgetState extends State<MonaStyleAttributesListWi
                               value: BlocProvider.of<MonaStyleAttributesListBloc>(context),
                               child: getForm(value, FormAction.UpdateAction))));
                       if (removedItem != null) {
-                        Scaffold.of(context).showSnackBar(
+                        ScaffoldMessenger.of(context).showSnackBar(
                           DeleteSnackBar(
                         message: "MonaStyleAttributes " + value.documentID,
                             onUndo: () => BlocProvider.of<MonaStyleAttributesListBloc>(context)
