@@ -113,6 +113,10 @@ class FontModel {
           decoration == other.decoration &&
           color == other.color;
 
+  String toJsonString({String? appId}) {
+    return toEntity(appId: appId).toJsonString();
+  }
+
   @override
   String toString() {
     return 'FontModel{fontName: $fontName, size: $size, weight: $weight, style: $style, decoration: $decoration, color: $color}';
