@@ -16,7 +16,7 @@ class MonaProgressIndicatorImpl implements HasProgressIndicator {
 
   @override
   Widget progressIndicatorWithValue(AppModel app,BuildContext context, {Animation<Color>? valueColor, required double value}) {
-    return Center(child: CircularProgressIndicator(value: value, valueColor: valueColor));
+    return Container(height: 100, child: Center(child: CircularProgressIndicator(value: value, valueColor: valueColor)));
   }
 }
 
