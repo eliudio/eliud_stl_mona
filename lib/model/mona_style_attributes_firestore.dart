@@ -36,6 +36,14 @@ import 'package:eliud_core/tools/firestore/firestore_tools.dart';
 import 'package:eliud_core/tools/common_tools.dart';
 
 class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
+  Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value) {
+    return MonaStyleAttributesCollection.doc(documentID).set(value.toDocument()).then((_) => value);
+  }
+
+  Future<MonaStyleAttributesEntity> updateEntity(String documentID, MonaStyleAttributesEntity value) {
+    return MonaStyleAttributesCollection.doc(documentID).update(value.toDocument()).then((_) => value);
+  }
+
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value) {
     return MonaStyleAttributesCollection.doc(value.documentID).set(value.toEntity(appId: appId).toDocument()).then((_) => value);
   }
@@ -54,6 +62,21 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
 
   Future<MonaStyleAttributesModel?> _populateDocPlus(DocumentSnapshot value) async {
     return MonaStyleAttributesModel.fromEntityPlus(value.id, MonaStyleAttributesEntity.fromMap(value.data()), appId: appId);  }
+
+  Future<MonaStyleAttributesEntity?> getEntity(String? id, {Function(Exception)? onError}) async {
+    try {
+      var collection = MonaStyleAttributesCollection.doc(id);
+      var doc = await collection.get();
+      return MonaStyleAttributesEntity.fromMap(doc.data());
+    } on Exception catch(e) {
+      if (onError != null) {
+        onError(e);
+      } else {
+        print("Error whilst retrieving MonaStyleAttributes with id $id");
+        print("Exceptoin: $e");
+      }
+    };
+  }
 
   Future<MonaStyleAttributesModel?> get(String? id, {Function(Exception)? onError}) async {
     try {

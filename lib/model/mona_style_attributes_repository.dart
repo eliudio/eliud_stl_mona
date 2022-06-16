@@ -38,6 +38,8 @@ typedef MonaStyleAttributesModelTrigger(List<MonaStyleAttributesModel?> list);
 typedef MonaStyleAttributesChanged(MonaStyleAttributesModel? value);
 
 abstract class MonaStyleAttributesRepository extends RepositoryBase<MonaStyleAttributesModel> {
+  Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value);
+  Future<MonaStyleAttributesEntity> updateEntity(String documentID, MonaStyleAttributesEntity value);
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value);
   Future<void> delete(MonaStyleAttributesModel value);
   Future<MonaStyleAttributesModel?> get(String? id, { Function(Exception)? onError });

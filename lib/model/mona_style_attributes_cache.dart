@@ -47,6 +47,14 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
     });
   }
 
+  Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value) {
+    return reference.addEntity(documentID, value);
+  }
+
+  Future<MonaStyleAttributesEntity> updateEntity(String documentID, MonaStyleAttributesEntity value) {
+    return reference.updateEntity(documentID, value);
+  }
+
   Future<void> delete(MonaStyleAttributesModel value){
     fullCache.remove(value.documentID);
     reference.delete(value);
