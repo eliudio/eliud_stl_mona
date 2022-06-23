@@ -18,6 +18,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eliud_core/core/base/model_base.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:eliud_core/model/app_model.dart';
 
 import 'package:eliud_core/model/repository_export.dart';
 import 'package:eliud_core/model/abstract_repository_singleton.dart';
@@ -116,24 +117,20 @@ class FontModel {
           color == other.color;
 
   @override
-  Future<String> toRichJsonString({String? appId}) async {
-    var document = toEntity(appId: appId).toDocument();
-    return jsonEncode(document);
-  }
-
-  @override
   String toString() {
     return 'FontModel{fontName: $fontName, size: $size, weight: $weight, style: $style, decoration: $decoration, color: $color}';
   }
 
-  FontEntity toEntity({String? appId}) {
+  FontEntity toEntity({String? appId, List<ModelBase>? referencesCollector}) {
+    if (referencesCollector != null) {
+    }
     return FontEntity(
           fontName: (fontName != null) ? fontName : null, 
           size: (size != null) ? size : null, 
           weight: (weight != null) ? weight!.index : null, 
           style: (style != null) ? style!.index : null, 
           decoration: (decoration != null) ? decoration!.index : null, 
-          color: (color != null) ? color!.toEntity(appId: appId) : null, 
+          color: (color != null) ? color!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
     );
   }
 

@@ -37,7 +37,7 @@ import 'package:eliud_core/core/base/repository_base.dart';
 typedef MonaStyleAttributesModelTrigger(List<MonaStyleAttributesModel?> list);
 typedef MonaStyleAttributesChanged(MonaStyleAttributesModel? value);
 
-abstract class MonaStyleAttributesRepository extends RepositoryBase<MonaStyleAttributesModel> {
+abstract class MonaStyleAttributesRepository extends RepositoryBase<MonaStyleAttributesModel, MonaStyleAttributesEntity> {
   Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value);
   Future<MonaStyleAttributesEntity> updateEntity(String documentID, MonaStyleAttributesEntity value);
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value);
