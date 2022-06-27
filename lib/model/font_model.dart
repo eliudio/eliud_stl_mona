@@ -85,6 +85,9 @@ EliudFontDecoration toEliudFontDecoration(int? index) {
 
 
 class FontModel {
+  static const String packageName = 'eliud_stl_mona';
+  static const String id = 'Font';
+
 
   // See https://fonts.google.com/
   String? fontName;
@@ -121,7 +124,7 @@ class FontModel {
     return 'FontModel{fontName: $fontName, size: $size, weight: $weight, style: $style, decoration: $decoration, color: $color}';
   }
 
-  FontEntity toEntity({String? appId, List<ModelBase>? referencesCollector}) {
+  FontEntity toEntity({String? appId, Set<ModelReference>? referencesCollector}) {
     if (referencesCollector != null) {
     }
     return FontEntity(
