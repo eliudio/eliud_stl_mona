@@ -124,7 +124,7 @@ class FontModel {
     return 'FontModel{fontName: $fontName, size: $size, weight: $weight, style: $style, decoration: $decoration, color: $color}';
   }
 
-  FontEntity toEntity({String? appId, Set<ModelReference>? referencesCollector}) {
+  FontEntity toEntity({String? appId, List<ModelReference>? referencesCollector}) {
     if (referencesCollector != null) {
     }
     return FontEntity(
