@@ -56,7 +56,7 @@ PageTransitionAnimation toPageTransitionAnimation(int? index) {
 
 class MonaStyleAttributesModel implements ModelBase, WithAppId {
   static const String packageName = 'eliud_stl_mona';
-  static const String id = 'MonaStyleAttributes';
+  static const String id = 'monaStyleAttributess';
 
   String documentID;
   String appId;

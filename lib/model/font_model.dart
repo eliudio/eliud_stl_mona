@@ -86,7 +86,7 @@ EliudFontDecoration toEliudFontDecoration(int? index) {
 
 class FontModel {
   static const String packageName = 'eliud_stl_mona';
-  static const String id = 'Font';
+  static const String id = 'fonts';
 
 
   // See https://fonts.google.com/

@@ -32,6 +32,7 @@ class ComponentRegistry {
     Registry.registry()!.register(componentName: "eliud_stl_mona_internalWidgets", componentConstructor: ListComponentFactory());
     Registry.registry()!.addComponentSpec('eliud_stl_mona', 'mona-style', [
     ]);
+      Registry.registry()!.registerRetrieveRepository('eliud_stl_mona', 'monaStyleAttributess', ({String? appId}) => monaStyleAttributesRepository(appId: appId)!);
 
   }
 }
