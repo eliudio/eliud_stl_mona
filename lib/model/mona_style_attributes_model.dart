@@ -167,45 +167,82 @@ class MonaStyleAttributesModel implements ModelBase, WithAppId {
     return 'MonaStyleAttributesModel{documentID: $documentID, appId: $appId, formBackground: $formBackground, appBackground: $appBackground, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, topicContainerBackground: $topicContainerBackground, actionContainerBackground: $actionContainerBackground, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundColorHomeMenu: $backgroundColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
   }
 
-  MonaStyleAttributesEntity toEntity({String? appId, List<ModelReference>? referencesCollector}) {
-    if (referencesCollector != null) {
-    }
+  Future<List<ModelReference>> collectReferences({String? appId}) async {
+    List<ModelReference> referencesCollector = [];
+    if (formBackground != null) referencesCollector.addAll(await formBackground!.collectReferences(appId: appId));
+    if (appBackground != null) referencesCollector.addAll(await appBackground!.collectReferences(appId: appId));
+    if (formGroupTitleColor != null) referencesCollector.addAll(await formGroupTitleColor!.collectReferences(appId: appId));
+    if (formFieldTextColor != null) referencesCollector.addAll(await formFieldTextColor!.collectReferences(appId: appId));
+    if (formFieldHeaderColor != null) referencesCollector.addAll(await formFieldHeaderColor!.collectReferences(appId: appId));
+    if (formFieldFocusColor != null) referencesCollector.addAll(await formFieldFocusColor!.collectReferences(appId: appId));
+    if (listBackground != null) referencesCollector.addAll(await listBackground!.collectReferences(appId: appId));
+    if (listTextItemColor != null) referencesCollector.addAll(await listTextItemColor!.collectReferences(appId: appId));
+    if (floatingButtonForegroundColor != null) referencesCollector.addAll(await floatingButtonForegroundColor!.collectReferences(appId: appId));
+    if (floatingButtonBackgroundColor != null) referencesCollector.addAll(await floatingButtonBackgroundColor!.collectReferences(appId: appId));
+    if (dividerColor != null) referencesCollector.addAll(await dividerColor!.collectReferences(appId: appId));
+    if (topicContainerBackground != null) referencesCollector.addAll(await topicContainerBackground!.collectReferences(appId: appId));
+    if (actionContainerBackground != null) referencesCollector.addAll(await actionContainerBackground!.collectReferences(appId: appId));
+    if (appBarBG != null) referencesCollector.addAll(await appBarBG!.collectReferences(appId: appId));
+    if (appBarIconColor != null) referencesCollector.addAll(await appBarIconColor!.collectReferences(appId: appId));
+    if (appBarSelectedIconColor != null) referencesCollector.addAll(await appBarSelectedIconColor!.collectReferences(appId: appId));
+    if (appBarMenuBackgroundColor != null) referencesCollector.addAll(await appBarMenuBackgroundColor!.collectReferences(appId: appId));
+    if (bottomNavigationBarBG != null) referencesCollector.addAll(await bottomNavigationBarBG!.collectReferences(appId: appId));
+    if (drawerBG != null) referencesCollector.addAll(await drawerBG!.collectReferences(appId: appId));
+    if (drawerHeaderBG != null) referencesCollector.addAll(await drawerHeaderBG!.collectReferences(appId: appId));
+    if (profileDrawerBG != null) referencesCollector.addAll(await profileDrawerBG!.collectReferences(appId: appId));
+    if (profileDrawerHeaderBG != null) referencesCollector.addAll(await profileDrawerHeaderBG!.collectReferences(appId: appId));
+    if (backgroundColorHomeMenu != null) referencesCollector.addAll(await backgroundColorHomeMenu!.collectReferences(appId: appId));
+    if (h1 != null) referencesCollector.addAll(await h1!.collectReferences(appId: appId));
+    if (h2 != null) referencesCollector.addAll(await h2!.collectReferences(appId: appId));
+    if (h3 != null) referencesCollector.addAll(await h3!.collectReferences(appId: appId));
+    if (h4 != null) referencesCollector.addAll(await h4!.collectReferences(appId: appId));
+    if (h5 != null) referencesCollector.addAll(await h5!.collectReferences(appId: appId));
+    if (textFieldHeader != null) referencesCollector.addAll(await textFieldHeader!.collectReferences(appId: appId));
+    if (fontText != null) referencesCollector.addAll(await fontText!.collectReferences(appId: appId));
+    if (fontSmallText != null) referencesCollector.addAll(await fontSmallText!.collectReferences(appId: appId));
+    if (fontHighlight1 != null) referencesCollector.addAll(await fontHighlight1!.collectReferences(appId: appId));
+    if (fontHighlight2 != null) referencesCollector.addAll(await fontHighlight2!.collectReferences(appId: appId));
+    if (fontLink != null) referencesCollector.addAll(await fontLink!.collectReferences(appId: appId));
+    return referencesCollector;
+  }
+
+  MonaStyleAttributesEntity toEntity({String? appId}) {
     return MonaStyleAttributesEntity(
           appId: (appId != null) ? appId : null, 
-          formBackground: (formBackground != null) ? formBackground!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          appBackground: (appBackground != null) ? appBackground!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          formGroupTitleColor: (formGroupTitleColor != null) ? formGroupTitleColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          formFieldTextColor: (formFieldTextColor != null) ? formFieldTextColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          formFieldHeaderColor: (formFieldHeaderColor != null) ? formFieldHeaderColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          formFieldFocusColor: (formFieldFocusColor != null) ? formFieldFocusColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          listBackground: (listBackground != null) ? listBackground!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          listTextItemColor: (listTextItemColor != null) ? listTextItemColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          floatingButtonForegroundColor: (floatingButtonForegroundColor != null) ? floatingButtonForegroundColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          floatingButtonBackgroundColor: (floatingButtonBackgroundColor != null) ? floatingButtonBackgroundColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          dividerColor: (dividerColor != null) ? dividerColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          topicContainerBackground: (topicContainerBackground != null) ? topicContainerBackground!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          actionContainerBackground: (actionContainerBackground != null) ? actionContainerBackground!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          appBarBG: (appBarBG != null) ? appBarBG!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          appBarIconColor: (appBarIconColor != null) ? appBarIconColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          appBarSelectedIconColor: (appBarSelectedIconColor != null) ? appBarSelectedIconColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          appBarMenuBackgroundColor: (appBarMenuBackgroundColor != null) ? appBarMenuBackgroundColor!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          bottomNavigationBarBG: (bottomNavigationBarBG != null) ? bottomNavigationBarBG!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          drawerBG: (drawerBG != null) ? drawerBG!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          drawerHeaderBG: (drawerHeaderBG != null) ? drawerHeaderBG!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          profileDrawerBG: (profileDrawerBG != null) ? profileDrawerBG!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          profileDrawerHeaderBG: (profileDrawerHeaderBG != null) ? profileDrawerHeaderBG!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          backgroundColorHomeMenu: (backgroundColorHomeMenu != null) ? backgroundColorHomeMenu!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          h1: (h1 != null) ? h1!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          h2: (h2 != null) ? h2!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          h3: (h3 != null) ? h3!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          h4: (h4 != null) ? h4!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          h5: (h5 != null) ? h5!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          textFieldHeader: (textFieldHeader != null) ? textFieldHeader!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          fontText: (fontText != null) ? fontText!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          fontSmallText: (fontSmallText != null) ? fontSmallText!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          fontHighlight1: (fontHighlight1 != null) ? fontHighlight1!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          fontHighlight2: (fontHighlight2 != null) ? fontHighlight2!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
-          fontLink: (fontLink != null) ? fontLink!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
+          formBackground: (formBackground != null) ? formBackground!.toEntity(appId: appId) : null, 
+          appBackground: (appBackground != null) ? appBackground!.toEntity(appId: appId) : null, 
+          formGroupTitleColor: (formGroupTitleColor != null) ? formGroupTitleColor!.toEntity(appId: appId) : null, 
+          formFieldTextColor: (formFieldTextColor != null) ? formFieldTextColor!.toEntity(appId: appId) : null, 
+          formFieldHeaderColor: (formFieldHeaderColor != null) ? formFieldHeaderColor!.toEntity(appId: appId) : null, 
+          formFieldFocusColor: (formFieldFocusColor != null) ? formFieldFocusColor!.toEntity(appId: appId) : null, 
+          listBackground: (listBackground != null) ? listBackground!.toEntity(appId: appId) : null, 
+          listTextItemColor: (listTextItemColor != null) ? listTextItemColor!.toEntity(appId: appId) : null, 
+          floatingButtonForegroundColor: (floatingButtonForegroundColor != null) ? floatingButtonForegroundColor!.toEntity(appId: appId) : null, 
+          floatingButtonBackgroundColor: (floatingButtonBackgroundColor != null) ? floatingButtonBackgroundColor!.toEntity(appId: appId) : null, 
+          dividerColor: (dividerColor != null) ? dividerColor!.toEntity(appId: appId) : null, 
+          topicContainerBackground: (topicContainerBackground != null) ? topicContainerBackground!.toEntity(appId: appId) : null, 
+          actionContainerBackground: (actionContainerBackground != null) ? actionContainerBackground!.toEntity(appId: appId) : null, 
+          appBarBG: (appBarBG != null) ? appBarBG!.toEntity(appId: appId) : null, 
+          appBarIconColor: (appBarIconColor != null) ? appBarIconColor!.toEntity(appId: appId) : null, 
+          appBarSelectedIconColor: (appBarSelectedIconColor != null) ? appBarSelectedIconColor!.toEntity(appId: appId) : null, 
+          appBarMenuBackgroundColor: (appBarMenuBackgroundColor != null) ? appBarMenuBackgroundColor!.toEntity(appId: appId) : null, 
+          bottomNavigationBarBG: (bottomNavigationBarBG != null) ? bottomNavigationBarBG!.toEntity(appId: appId) : null, 
+          drawerBG: (drawerBG != null) ? drawerBG!.toEntity(appId: appId) : null, 
+          drawerHeaderBG: (drawerHeaderBG != null) ? drawerHeaderBG!.toEntity(appId: appId) : null, 
+          profileDrawerBG: (profileDrawerBG != null) ? profileDrawerBG!.toEntity(appId: appId) : null, 
+          profileDrawerHeaderBG: (profileDrawerHeaderBG != null) ? profileDrawerHeaderBG!.toEntity(appId: appId) : null, 
+          backgroundColorHomeMenu: (backgroundColorHomeMenu != null) ? backgroundColorHomeMenu!.toEntity(appId: appId) : null, 
+          h1: (h1 != null) ? h1!.toEntity(appId: appId) : null, 
+          h2: (h2 != null) ? h2!.toEntity(appId: appId) : null, 
+          h3: (h3 != null) ? h3!.toEntity(appId: appId) : null, 
+          h4: (h4 != null) ? h4!.toEntity(appId: appId) : null, 
+          h5: (h5 != null) ? h5!.toEntity(appId: appId) : null, 
+          textFieldHeader: (textFieldHeader != null) ? textFieldHeader!.toEntity(appId: appId) : null, 
+          fontText: (fontText != null) ? fontText!.toEntity(appId: appId) : null, 
+          fontSmallText: (fontSmallText != null) ? fontSmallText!.toEntity(appId: appId) : null, 
+          fontHighlight1: (fontHighlight1 != null) ? fontHighlight1!.toEntity(appId: appId) : null, 
+          fontHighlight2: (fontHighlight2 != null) ? fontHighlight2!.toEntity(appId: appId) : null, 
+          fontLink: (fontLink != null) ? fontLink!.toEntity(appId: appId) : null, 
           routeBuilder: (routeBuilder != null) ? routeBuilder!.index : null, 
           routeAnimationDuration: (routeAnimationDuration != null) ? routeAnimationDuration : null, 
     );

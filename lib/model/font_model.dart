@@ -124,16 +124,20 @@ class FontModel {
     return 'FontModel{fontName: $fontName, size: $size, weight: $weight, style: $style, decoration: $decoration, color: $color}';
   }
 
-  FontEntity toEntity({String? appId, List<ModelReference>? referencesCollector}) {
-    if (referencesCollector != null) {
-    }
+  Future<List<ModelReference>> collectReferences({String? appId}) async {
+    List<ModelReference> referencesCollector = [];
+    if (color != null) referencesCollector.addAll(await color!.collectReferences(appId: appId));
+    return referencesCollector;
+  }
+
+  FontEntity toEntity({String? appId}) {
     return FontEntity(
           fontName: (fontName != null) ? fontName : null, 
           size: (size != null) ? size : null, 
           weight: (weight != null) ? weight!.index : null, 
           style: (style != null) ? style!.index : null, 
           decoration: (decoration != null) ? decoration!.index : null, 
-          color: (color != null) ? color!.toEntity(appId: appId, referencesCollector: referencesCollector) : null, 
+          color: (color != null) ? color!.toEntity(appId: appId) : null, 
     );
   }
 
