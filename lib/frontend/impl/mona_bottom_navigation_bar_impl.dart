@@ -17,7 +17,8 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
 
   MonaBottomNavigationBarImpl(this._monaStyle);
 
-  Widget getIconExcl(AppModel app, BuildContext context, AbstractMenuItemAttributes item) {
+  Widget getIconExcl(
+      AppModel app, BuildContext context, AbstractMenuItemAttributes item) {
     if (item.icon != null) {
       return item.isActive
           ? _monaStyle
@@ -42,9 +43,10 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
   }
 
   @override
-  Widget bottomNavigationBar(AppModel app,
+  Widget bottomNavigationBar(
+    AppModel app,
     BuildContext context, {
-      required MemberModel? member,
+    required MemberModel? member,
     BackgroundModel? backgroundOverride,
     RgbModel? popupMenuBackgroundColorOverride,
     required List<AbstractMenuItemAttributes> items,
@@ -53,20 +55,29 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
     var background = backgroundOverride ??=
         _monaStyle.monaStyleAttributesModel.bottomNavigationBarBG;
 
+    int? selected; // must have 1 selected
+    for (int i = 0; i < items.length; i++) {
+      if (items[i].isActive) {
+        selected = i;
+        break;
+      }
+    }
     return Container(
-        clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, member, background),
+        clipBehavior:
+            BoxDecorationHelper.determineClipBehaviour(app, member, background),
         margin: BoxDecorationHelper.determineMargin(app, member, background),
         padding: BoxDecorationHelper.determinePadding(app, member, background),
         decoration: BoxDecorationHelper.boxDecoration(app, member, background),
         child: Theme(
             data: Theme.of(context).copyWith(
                 textTheme: Theme.of(context).textTheme.copyWith(
-                bodyText2: FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h1),
-            )), // sets the inactive color of the `BottomNavigationBar`
+                      bodyText2: FontTools.textStyle(
+                          _monaStyle.monaStyleAttributesModel.h1),
+                    )), // sets the inactive color of the `BottomNavigationBar`
             child: BottomNavigationBar(
-              key: key,
-              elevation: 0,
-              selectedFontSize: 18,
+                key: key,
+                elevation: 0,
+                selectedFontSize: selected != null ? 18 : 14,
                 unselectedFontSize: 14,
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Colors.transparent,
@@ -75,7 +86,8 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
                   if (theItem is MenuItemAttributes) {
                     theItem.onTap();
                   } else if (theItem is MenuItemWithMenuItems) {
-                    _monaStyle.frontEndStyle().menuStyle().openMenu(app, context,
+                    _monaStyle.frontEndStyle().menuStyle().openMenu(
+                        app, context,
                         position:
                             RelativeRect.fromLTRB(1000.0, 1000.0, 0.0, 0.0),
                         menuItems: theItem.items,
@@ -83,8 +95,9 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
                             popupMenuBackgroundColorOverride);
                   }
                 },
-                currentIndex: 0,
-                fixedColor: Colors.teal,
+                currentIndex: selected ?? 0,
+                fixedColor: selected == null ? Colors.black : Colors.teal,
+                unselectedItemColor: Colors.black,
                 items: items.map((item) {
                   return BottomNavigationBarItem(
                     label: item.label,

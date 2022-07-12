@@ -91,21 +91,6 @@ class MonaDrawerImpl implements HasDrawer {
       }
     }
 
-/*
-    if (header2 != null) {
-      widgets.add(Container(
-        height: header2.height == 0 ? null : header2.height,
-        child: DrawerHeader(
-            child: Center(
-          child: _monaStyle
-              .frontEndStyle()
-              .textStyle()
-              .h4(app, context, header2.text),
-        )),
-      ));
-    }
-*/
-
     for (var item in items) {
       var style = item.isActive
           ? _monaStyle.frontEndStyle().textStyleStyle().styleH3(app, context)
