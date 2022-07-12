@@ -82,7 +82,7 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
             child: BottomNavigationBar(
                 key: key,
                 elevation: 0,
-                selectedFontSize: selected != null ? 18 : 14,
+                selectedFontSize: 14,
                 unselectedFontSize: 14,
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Colors.transparent,

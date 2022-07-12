@@ -1,15 +1,10 @@
 import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/style/frontend/has_container.dart';
 import 'package:eliud_core/style/frontend/has_dialog_field.dart';
 import 'package:eliud_core/style/frontend/has_list_tile.dart';
 import 'package:eliud_core/tools/helpers/parse_helper.dart';
-import 'package:eliud_stl_mona/model/font_model.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
-import 'package:eliud_stl_mona/tools/font_tools.dart';
-import 'package:eliud_stl_mona/widgets/update_style_widgets/style_color_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 typedef PageTransitionFeedback(PageTransitionAnimation pageTransitionAnimation);
 typedef RouteAnimationDurationFeedback(int routeAnimationDuration);
