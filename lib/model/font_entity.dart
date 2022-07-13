@@ -33,7 +33,9 @@ class FontEntity implements EntityBase {
 
   FontEntity({this.fontName, this.size, this.weight, this.style, this.decoration, this.color, });
 
-
+  FontEntity copyWith({String? fontName, double? size, int? weight, int? style, int? decoration, RgbEntity? color, }) {
+    return FontEntity(fontName : fontName ?? this.fontName, size : size ?? this.size, weight : weight ?? this.weight, style : style ?? this.style, decoration : decoration ?? this.decoration, color : color ?? this.color, );
+  }
   List<Object?> get props => [fontName, size, weight, style, decoration, color, ];
 
   @override
@@ -79,6 +81,12 @@ class FontEntity implements EntityBase {
     if (color != null) theDocument["color"] = colorMap;
       else theDocument["color"] = null;
     return theDocument;
+  }
+
+  @override
+  FontEntity switchAppId({required String newAppId}) {
+    var newEntity = copyWith();
+    return newEntity;
   }
 
   static FontEntity? fromJsonString(String json) {
