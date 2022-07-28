@@ -55,9 +55,9 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
     var background = backgroundOverride ??=
         _monaStyle.monaStyleAttributesModel.bottomNavigationBarBG;
     var selectedRgbColor = _monaStyle.monaStyleAttributesModel.h3!.color;
-    var selectedColor = selectedRgbColor == null ? Colors.teal : RgbHelper.color(rgbo: selectedRgbColor);
+    var selectedColor = selectedRgbColor == null ? Colors.black : RgbHelper.color(rgbo: selectedRgbColor);
 
-    var rgbColor = _monaStyle.monaStyleAttributesModel.fontText!.color;
+    var rgbColor = _monaStyle.monaStyleAttributesModel.h4!.color;
     var color = rgbColor == null ? Colors.black : RgbHelper.color(rgbo: rgbColor);
 
     int? selected; // must have 1 selected
@@ -77,12 +77,12 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
             data: Theme.of(context).copyWith(
                 textTheme: Theme.of(context).textTheme.copyWith(
                       bodyText2: FontTools.textStyle(
-                          _monaStyle.monaStyleAttributesModel.h3),
+                          _monaStyle.monaStyleAttributesModel.h4),
                     )), // sets the inactive color of the `BottomNavigationBar`
             child: BottomNavigationBar(
                 key: key,
                 elevation: 0,
-                selectedFontSize: 14,
+                selectedFontSize: 16,
                 unselectedFontSize: 14,
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Colors.transparent,
