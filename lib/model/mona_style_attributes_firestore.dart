@@ -37,8 +37,8 @@ import 'package:eliud_core/tools/common_tools.dart';
 
 class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
   @override
-  MonaStyleAttributesEntity? fromMap(Object? o) {
-    return MonaStyleAttributesEntity.fromMap(o);
+  MonaStyleAttributesEntity? fromMap(Object? o, {Map<String, String>? newDocumentIds}) {
+    return MonaStyleAttributesEntity.fromMap(o, newDocumentIds: newDocumentIds);
   }
 
   Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value) {

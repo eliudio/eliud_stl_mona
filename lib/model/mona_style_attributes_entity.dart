@@ -15,6 +15,7 @@
 
 import 'dart:collection';
 import 'dart:convert';
+import 'package:eliud_core/tools/random.dart';
 import 'abstract_repository_singleton.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eliud_core/core/base/entity_base.dart';
@@ -74,146 +75,146 @@ class MonaStyleAttributesEntity implements EntityBase {
     return 'MonaStyleAttributesEntity{appId: $appId, formBackground: $formBackground, appBackground: $appBackground, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, topicContainerBackground: $topicContainerBackground, actionContainerBackground: $actionContainerBackground, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundColorHomeMenu: $backgroundColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
   }
 
-  static MonaStyleAttributesEntity? fromMap(Object? o) {
+  static MonaStyleAttributesEntity? fromMap(Object? o, {Map<String, String>? newDocumentIds}) {
     if (o == null) return null;
     var map = o as Map<String, dynamic>;
 
     var formBackgroundFromMap;
     formBackgroundFromMap = map['formBackground'];
     if (formBackgroundFromMap != null)
-      formBackgroundFromMap = BackgroundEntity.fromMap(formBackgroundFromMap);
+      formBackgroundFromMap = BackgroundEntity.fromMap(formBackgroundFromMap, newDocumentIds: newDocumentIds);
     var appBackgroundFromMap;
     appBackgroundFromMap = map['appBackground'];
     if (appBackgroundFromMap != null)
-      appBackgroundFromMap = BackgroundEntity.fromMap(appBackgroundFromMap);
+      appBackgroundFromMap = BackgroundEntity.fromMap(appBackgroundFromMap, newDocumentIds: newDocumentIds);
     var formGroupTitleColorFromMap;
     formGroupTitleColorFromMap = map['formGroupTitleColor'];
     if (formGroupTitleColorFromMap != null)
-      formGroupTitleColorFromMap = RgbEntity.fromMap(formGroupTitleColorFromMap);
+      formGroupTitleColorFromMap = RgbEntity.fromMap(formGroupTitleColorFromMap, newDocumentIds: newDocumentIds);
     var formFieldTextColorFromMap;
     formFieldTextColorFromMap = map['formFieldTextColor'];
     if (formFieldTextColorFromMap != null)
-      formFieldTextColorFromMap = RgbEntity.fromMap(formFieldTextColorFromMap);
+      formFieldTextColorFromMap = RgbEntity.fromMap(formFieldTextColorFromMap, newDocumentIds: newDocumentIds);
     var formFieldHeaderColorFromMap;
     formFieldHeaderColorFromMap = map['formFieldHeaderColor'];
     if (formFieldHeaderColorFromMap != null)
-      formFieldHeaderColorFromMap = RgbEntity.fromMap(formFieldHeaderColorFromMap);
+      formFieldHeaderColorFromMap = RgbEntity.fromMap(formFieldHeaderColorFromMap, newDocumentIds: newDocumentIds);
     var formFieldFocusColorFromMap;
     formFieldFocusColorFromMap = map['formFieldFocusColor'];
     if (formFieldFocusColorFromMap != null)
-      formFieldFocusColorFromMap = RgbEntity.fromMap(formFieldFocusColorFromMap);
+      formFieldFocusColorFromMap = RgbEntity.fromMap(formFieldFocusColorFromMap, newDocumentIds: newDocumentIds);
     var listBackgroundFromMap;
     listBackgroundFromMap = map['listBackground'];
     if (listBackgroundFromMap != null)
-      listBackgroundFromMap = BackgroundEntity.fromMap(listBackgroundFromMap);
+      listBackgroundFromMap = BackgroundEntity.fromMap(listBackgroundFromMap, newDocumentIds: newDocumentIds);
     var listTextItemColorFromMap;
     listTextItemColorFromMap = map['listTextItemColor'];
     if (listTextItemColorFromMap != null)
-      listTextItemColorFromMap = RgbEntity.fromMap(listTextItemColorFromMap);
+      listTextItemColorFromMap = RgbEntity.fromMap(listTextItemColorFromMap, newDocumentIds: newDocumentIds);
     var floatingButtonForegroundColorFromMap;
     floatingButtonForegroundColorFromMap = map['floatingButtonForegroundColor'];
     if (floatingButtonForegroundColorFromMap != null)
-      floatingButtonForegroundColorFromMap = RgbEntity.fromMap(floatingButtonForegroundColorFromMap);
+      floatingButtonForegroundColorFromMap = RgbEntity.fromMap(floatingButtonForegroundColorFromMap, newDocumentIds: newDocumentIds);
     var floatingButtonBackgroundColorFromMap;
     floatingButtonBackgroundColorFromMap = map['floatingButtonBackgroundColor'];
     if (floatingButtonBackgroundColorFromMap != null)
-      floatingButtonBackgroundColorFromMap = RgbEntity.fromMap(floatingButtonBackgroundColorFromMap);
+      floatingButtonBackgroundColorFromMap = RgbEntity.fromMap(floatingButtonBackgroundColorFromMap, newDocumentIds: newDocumentIds);
     var dividerColorFromMap;
     dividerColorFromMap = map['dividerColor'];
     if (dividerColorFromMap != null)
-      dividerColorFromMap = RgbEntity.fromMap(dividerColorFromMap);
+      dividerColorFromMap = RgbEntity.fromMap(dividerColorFromMap, newDocumentIds: newDocumentIds);
     var topicContainerBackgroundFromMap;
     topicContainerBackgroundFromMap = map['topicContainerBackground'];
     if (topicContainerBackgroundFromMap != null)
-      topicContainerBackgroundFromMap = BackgroundEntity.fromMap(topicContainerBackgroundFromMap);
+      topicContainerBackgroundFromMap = BackgroundEntity.fromMap(topicContainerBackgroundFromMap, newDocumentIds: newDocumentIds);
     var actionContainerBackgroundFromMap;
     actionContainerBackgroundFromMap = map['actionContainerBackground'];
     if (actionContainerBackgroundFromMap != null)
-      actionContainerBackgroundFromMap = BackgroundEntity.fromMap(actionContainerBackgroundFromMap);
+      actionContainerBackgroundFromMap = BackgroundEntity.fromMap(actionContainerBackgroundFromMap, newDocumentIds: newDocumentIds);
     var appBarBGFromMap;
     appBarBGFromMap = map['appBarBG'];
     if (appBarBGFromMap != null)
-      appBarBGFromMap = BackgroundEntity.fromMap(appBarBGFromMap);
+      appBarBGFromMap = BackgroundEntity.fromMap(appBarBGFromMap, newDocumentIds: newDocumentIds);
     var appBarIconColorFromMap;
     appBarIconColorFromMap = map['appBarIconColor'];
     if (appBarIconColorFromMap != null)
-      appBarIconColorFromMap = RgbEntity.fromMap(appBarIconColorFromMap);
+      appBarIconColorFromMap = RgbEntity.fromMap(appBarIconColorFromMap, newDocumentIds: newDocumentIds);
     var appBarSelectedIconColorFromMap;
     appBarSelectedIconColorFromMap = map['appBarSelectedIconColor'];
     if (appBarSelectedIconColorFromMap != null)
-      appBarSelectedIconColorFromMap = RgbEntity.fromMap(appBarSelectedIconColorFromMap);
+      appBarSelectedIconColorFromMap = RgbEntity.fromMap(appBarSelectedIconColorFromMap, newDocumentIds: newDocumentIds);
     var appBarMenuBackgroundColorFromMap;
     appBarMenuBackgroundColorFromMap = map['appBarMenuBackgroundColor'];
     if (appBarMenuBackgroundColorFromMap != null)
-      appBarMenuBackgroundColorFromMap = RgbEntity.fromMap(appBarMenuBackgroundColorFromMap);
+      appBarMenuBackgroundColorFromMap = RgbEntity.fromMap(appBarMenuBackgroundColorFromMap, newDocumentIds: newDocumentIds);
     var bottomNavigationBarBGFromMap;
     bottomNavigationBarBGFromMap = map['bottomNavigationBarBG'];
     if (bottomNavigationBarBGFromMap != null)
-      bottomNavigationBarBGFromMap = BackgroundEntity.fromMap(bottomNavigationBarBGFromMap);
+      bottomNavigationBarBGFromMap = BackgroundEntity.fromMap(bottomNavigationBarBGFromMap, newDocumentIds: newDocumentIds);
     var drawerBGFromMap;
     drawerBGFromMap = map['drawerBG'];
     if (drawerBGFromMap != null)
-      drawerBGFromMap = BackgroundEntity.fromMap(drawerBGFromMap);
+      drawerBGFromMap = BackgroundEntity.fromMap(drawerBGFromMap, newDocumentIds: newDocumentIds);
     var drawerHeaderBGFromMap;
     drawerHeaderBGFromMap = map['drawerHeaderBG'];
     if (drawerHeaderBGFromMap != null)
-      drawerHeaderBGFromMap = BackgroundEntity.fromMap(drawerHeaderBGFromMap);
+      drawerHeaderBGFromMap = BackgroundEntity.fromMap(drawerHeaderBGFromMap, newDocumentIds: newDocumentIds);
     var profileDrawerBGFromMap;
     profileDrawerBGFromMap = map['profileDrawerBG'];
     if (profileDrawerBGFromMap != null)
-      profileDrawerBGFromMap = BackgroundEntity.fromMap(profileDrawerBGFromMap);
+      profileDrawerBGFromMap = BackgroundEntity.fromMap(profileDrawerBGFromMap, newDocumentIds: newDocumentIds);
     var profileDrawerHeaderBGFromMap;
     profileDrawerHeaderBGFromMap = map['profileDrawerHeaderBG'];
     if (profileDrawerHeaderBGFromMap != null)
-      profileDrawerHeaderBGFromMap = BackgroundEntity.fromMap(profileDrawerHeaderBGFromMap);
+      profileDrawerHeaderBGFromMap = BackgroundEntity.fromMap(profileDrawerHeaderBGFromMap, newDocumentIds: newDocumentIds);
     var backgroundColorHomeMenuFromMap;
     backgroundColorHomeMenuFromMap = map['backgroundColorHomeMenu'];
     if (backgroundColorHomeMenuFromMap != null)
-      backgroundColorHomeMenuFromMap = RgbEntity.fromMap(backgroundColorHomeMenuFromMap);
+      backgroundColorHomeMenuFromMap = RgbEntity.fromMap(backgroundColorHomeMenuFromMap, newDocumentIds: newDocumentIds);
     var h1FromMap;
     h1FromMap = map['h1'];
     if (h1FromMap != null)
-      h1FromMap = FontEntity.fromMap(h1FromMap);
+      h1FromMap = FontEntity.fromMap(h1FromMap, newDocumentIds: newDocumentIds);
     var h2FromMap;
     h2FromMap = map['h2'];
     if (h2FromMap != null)
-      h2FromMap = FontEntity.fromMap(h2FromMap);
+      h2FromMap = FontEntity.fromMap(h2FromMap, newDocumentIds: newDocumentIds);
     var h3FromMap;
     h3FromMap = map['h3'];
     if (h3FromMap != null)
-      h3FromMap = FontEntity.fromMap(h3FromMap);
+      h3FromMap = FontEntity.fromMap(h3FromMap, newDocumentIds: newDocumentIds);
     var h4FromMap;
     h4FromMap = map['h4'];
     if (h4FromMap != null)
-      h4FromMap = FontEntity.fromMap(h4FromMap);
+      h4FromMap = FontEntity.fromMap(h4FromMap, newDocumentIds: newDocumentIds);
     var h5FromMap;
     h5FromMap = map['h5'];
     if (h5FromMap != null)
-      h5FromMap = FontEntity.fromMap(h5FromMap);
+      h5FromMap = FontEntity.fromMap(h5FromMap, newDocumentIds: newDocumentIds);
     var textFieldHeaderFromMap;
     textFieldHeaderFromMap = map['textFieldHeader'];
     if (textFieldHeaderFromMap != null)
-      textFieldHeaderFromMap = FontEntity.fromMap(textFieldHeaderFromMap);
+      textFieldHeaderFromMap = FontEntity.fromMap(textFieldHeaderFromMap, newDocumentIds: newDocumentIds);
     var fontTextFromMap;
     fontTextFromMap = map['fontText'];
     if (fontTextFromMap != null)
-      fontTextFromMap = FontEntity.fromMap(fontTextFromMap);
+      fontTextFromMap = FontEntity.fromMap(fontTextFromMap, newDocumentIds: newDocumentIds);
     var fontSmallTextFromMap;
     fontSmallTextFromMap = map['fontSmallText'];
     if (fontSmallTextFromMap != null)
-      fontSmallTextFromMap = FontEntity.fromMap(fontSmallTextFromMap);
+      fontSmallTextFromMap = FontEntity.fromMap(fontSmallTextFromMap, newDocumentIds: newDocumentIds);
     var fontHighlight1FromMap;
     fontHighlight1FromMap = map['fontHighlight1'];
     if (fontHighlight1FromMap != null)
-      fontHighlight1FromMap = FontEntity.fromMap(fontHighlight1FromMap);
+      fontHighlight1FromMap = FontEntity.fromMap(fontHighlight1FromMap, newDocumentIds: newDocumentIds);
     var fontHighlight2FromMap;
     fontHighlight2FromMap = map['fontHighlight2'];
     if (fontHighlight2FromMap != null)
-      fontHighlight2FromMap = FontEntity.fromMap(fontHighlight2FromMap);
+      fontHighlight2FromMap = FontEntity.fromMap(fontHighlight2FromMap, newDocumentIds: newDocumentIds);
     var fontLinkFromMap;
     fontLinkFromMap = map['fontLink'];
     if (fontLinkFromMap != null)
-      fontLinkFromMap = FontEntity.fromMap(fontLinkFromMap);
+      fontLinkFromMap = FontEntity.fromMap(fontLinkFromMap, newDocumentIds: newDocumentIds);
 
     return MonaStyleAttributesEntity(
       appId: map['appId'], 
@@ -444,9 +445,9 @@ class MonaStyleAttributesEntity implements EntityBase {
     return newEntity;
   }
 
-  static MonaStyleAttributesEntity? fromJsonString(String json) {
+  static MonaStyleAttributesEntity? fromJsonString(String json, {Map<String, String>? newDocumentIds}) {
     Map<String, dynamic>? generationSpecificationMap = jsonDecode(json);
-    return fromMap(generationSpecificationMap);
+    return fromMap(generationSpecificationMap, newDocumentIds: newDocumentIds);
   }
 
   String toJsonString() {
