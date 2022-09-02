@@ -12,18 +12,22 @@ class MonaDialogImpl implements HasDialog {
   MonaDialogImpl(this._style);
 
   @override
-  void openMessageDialog(AppModel app,
-    BuildContext context, String name, {
+  Future<void> openMessageDialog(
+    AppModel app,
+    BuildContext context,
+    String name, {
     required String title,
     required String message,
     String? closeLabel,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
-  }) {
+  }) async {
     // MessageDialog
-    DialogStatefulWidgetHelper.openIt(
-      context,name,
-      _style.frontEndStyle().dialogWidgetStyle().messageDialog(app,
+    await DialogStatefulWidgetHelper.openIt(
+      context,
+      name,
+      _style.frontEndStyle().dialogWidgetStyle().messageDialog(
+            app,
             context,
             title: title,
             message: message,
@@ -34,17 +38,21 @@ class MonaDialogImpl implements HasDialog {
   }
 
   @override
-  void openErrorDialog(AppModel app,
-    BuildContext context, String name, {
+  Future<void> openErrorDialog(
+    AppModel app,
+    BuildContext context,
+    String name, {
     required String title,
     required String errorMessage,
     String? closeLabel,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
-  }) =>
-      DialogStatefulWidgetHelper.openIt(
-        context, name,
-        _style.frontEndStyle().dialogWidgetStyle().errorDialog(app,
+  }) async =>
+      await DialogStatefulWidgetHelper.openIt(
+        context,
+        name,
+        _style.frontEndStyle().dialogWidgetStyle().errorDialog(
+              app,
               context,
               title: title,
               errorMessage: errorMessage,
@@ -54,8 +62,10 @@ class MonaDialogImpl implements HasDialog {
       );
 
   @override
-  void openAckNackDialog(AppModel app,
-    BuildContext context, String name, {
+  Future<void> openAckNackDialog(
+    AppModel app,
+    BuildContext context,
+    String name, {
     required String title,
     required String message,
     required OnSelection onSelection,
@@ -63,10 +73,12 @@ class MonaDialogImpl implements HasDialog {
     String? nackButtonLabel,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
-  }) =>
-      DialogStatefulWidgetHelper.openIt(
-          context, name,
-          _style.frontEndStyle().dialogWidgetStyle().ackNackDialog(app,
+  }) async =>
+      await DialogStatefulWidgetHelper.openIt(
+          context,
+          name,
+          _style.frontEndStyle().dialogWidgetStyle().ackNackDialog(
+                app,
                 context,
                 title: title,
                 message: message,
@@ -78,8 +90,10 @@ class MonaDialogImpl implements HasDialog {
               ));
 
   @override
-  void openEntryDialog(AppModel app,
-    BuildContext context, String name, {
+  Future<void> openEntryDialog(
+    AppModel app,
+    BuildContext context,
+    String name, {
     required String title,
     String? ackButtonLabel,
     String? nackButtonLabel,
@@ -88,11 +102,12 @@ class MonaDialogImpl implements HasDialog {
     String? initialValue,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
-  }) =>
-      DialogStatefulWidgetHelper.openIt(
+  }) async =>
+      await DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().entryDialog(app,
+        _style.frontEndStyle().dialogWidgetStyle().entryDialog(
+              app,
               context,
               title: title,
               ackButtonLabel: ackButtonLabel,
@@ -106,19 +121,22 @@ class MonaDialogImpl implements HasDialog {
       );
 
   @override
-  void openSelectionDialog(AppModel app,
-    BuildContext context, String name, {
+  Future<void> openSelectionDialog(
+    AppModel app,
+    BuildContext context,
+    String name, {
     required String title,
     required List<String> options,
     required OnSelection onSelection,
     String? buttonLabel,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
-  }) {
-    DialogStatefulWidgetHelper.openIt(
+  }) async {
+    await DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().selectionDialog(app,
+        _style.frontEndStyle().dialogWidgetStyle().selectionDialog(
+              app,
               context,
               title: title,
               options: options,
@@ -130,19 +148,22 @@ class MonaDialogImpl implements HasDialog {
   }
 
   @override
-  void openComplexDialog(AppModel app,
-    BuildContext context, String name, {
+  Future<void> openComplexDialog(
+    AppModel app,
+    BuildContext context,
+    String name, {
     required String title,
     required Widget child,
     VoidCallback? onPressed,
     String? buttonLabel,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
-  }) =>
-      DialogStatefulWidgetHelper.openIt(
+  }) async =>
+      await DialogStatefulWidgetHelper.openIt(
           context,
           name,
-          _style.frontEndStyle().dialogWidgetStyle().complexDialog(app,
+          _style.frontEndStyle().dialogWidgetStyle().complexDialog(
+                app,
                 context,
                 title: title,
                 child: child,
@@ -153,18 +174,21 @@ class MonaDialogImpl implements HasDialog {
               ));
 
   @override
-  void openFlexibleDialog(AppModel app,
-    BuildContext context, String name, {
+  Future<void> openFlexibleDialog(
+    AppModel app,
+    BuildContext context,
+    String name, {
     String? title,
     required Widget child,
     List<Widget>? buttons,
     double? widthFraction, // percentage of screen width
     bool? includeHeading,
-  }) {
-    DialogStatefulWidgetHelper.openIt(
+  }) async {
+    await DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().flexibleDialog(app,
+        _style.frontEndStyle().dialogWidgetStyle().flexibleDialog(
+              app,
               context,
               title: title,
               child: child,
@@ -175,7 +199,8 @@ class MonaDialogImpl implements HasDialog {
   }
 
   @override
-  void openWidgetDialog(AppModel app,BuildContext context, String name, {required Widget child}) {
-    DialogStatefulWidgetHelper.openIt(context, name, child);
+  Future<void> openWidgetDialog(AppModel app, BuildContext context, String name,
+      {required Widget child}) async {
+    await DialogStatefulWidgetHelper.openIt(context, name, child);
   }
 }
