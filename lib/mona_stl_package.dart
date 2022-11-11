@@ -11,6 +11,10 @@ import 'model/component_registry.dart';
 import 'model/repository_singleton.dart';
 import 'mona_style_family.dart';
 
+import 'mona_stl_package_stub.dart'
+if (dart.library.io) 'mona_stl_mobile_package.dart'
+if (dart.library.html) 'mona_stl_web_package.dart';
+
 abstract class MonaStlPackage extends Package {
   MonaStlPackage() : super('eliud_stl_mona');
 
@@ -35,4 +39,6 @@ abstract class MonaStlPackage extends Package {
 
   @override
   List<Object?> get props => [];
+
+  static MonaStlPackage instance() => getMonaStlPackage();
 }
