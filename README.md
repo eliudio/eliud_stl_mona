@@ -4,7 +4,7 @@ Eliud mona style
 
 ## Dependency diagram
 
-![Dependency diagram](https://github.com/eliudio/eliud_stl_mona/blob/main/depends.jpg)
+![Dependency diagram](https://github.com/eliudio/eliud_stl_mona/raw/main/depends.jpg)
 
 ## eliud.io
 
