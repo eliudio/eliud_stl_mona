@@ -74,6 +74,7 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
         defaultStyleTemplate.fontLink;
     widget.value.appBarIconColor = widget.value.appBarIconColor ??
         defaultStyleTemplate.appBarIconColor;
+
     widget.value.appBarSelectedIconColor =
         widget.value.appBarSelectedIconColor ??
             defaultStyleTemplate.appBarMenuBackgroundColor;
@@ -141,6 +142,13 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
         widget.value.h5 ?? defaultStyleTemplate.h4;
     widget.value.h5 =
         widget.value.h5 ?? defaultStyleTemplate.h4;
+
+    widget.value.dialogBackgroundColor = widget.value.dialogBackgroundColor ??
+        defaultStyleTemplate.dialogBackgroundColor;
+    widget.value.dialogSeperatorColor = widget.value.dialogSeperatorColor ??
+        defaultStyleTemplate.dialogSeperatorColor;
+    widget.value.popupMenuButtonColor = widget.value.popupMenuButtonColor ??
+        defaultStyleTemplate.popupMenuButtonColor;
   }
 
   @override
@@ -240,6 +248,18 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
               label: 'Header background'),
         ]),
       ]),
+
+      _inContainer(context, 'Dialog', [
+        StyleColorWidget(
+            app: widget.app,
+            value: widget.value.dialogBackgroundColor!,
+            label: 'Dialog Background Color'),
+        StyleColorWidget(
+            app: widget.app,
+            value: widget.value.dialogSeperatorColor!,
+            label: 'Dialog Separator Color'),
+      ]),
+
       _inContainer(context, 'Page', [
         BackgroundWidget(
             app: widget.app,
@@ -268,6 +288,10 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
             app: widget.app,
             value: widget.value.backgroundColorHomeMenu!,
             label: 'Background Color Popup Menu'),
+        StyleColorWidget(
+            app: widget.app,
+            value: widget.value.popupMenuButtonColor!,
+            label: 'Popup Menu Button Color'),
         BackgroundWidget(
             app: widget.app,
             memberId: widget.memberId,

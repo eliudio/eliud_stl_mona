@@ -75,6 +75,9 @@ class MonaIncidamusStyle {
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
       actionContainerBackground: pageBG(),
+      dialogBackgroundColor: MonaColors.dialogGray,
+      dialogSeperatorColor: MonaColors.red,
+      popupMenuButtonColor: MonaColors.dialogGray,
     );
   }
 

@@ -62,17 +62,53 @@ class MonaStyleAttributesEntity implements EntityBase {
   final FontEntity? fontLink;
   final int? routeBuilder;
   final int? routeAnimationDuration;
+  final RgbEntity? dialogBackgroundColor;
+  final RgbEntity? dialogSeperatorColor;
+  final RgbEntity? popupMenuButtonColor;
 
-  MonaStyleAttributesEntity({required this.appId, this.formBackground, this.appBackground, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground, this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.topicContainerBackground, this.actionContainerBackground, this.appBarBG, this.appBarIconColor, this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundColorHomeMenu, this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration, });
+  MonaStyleAttributesEntity({required this.appId, this.formBackground, this.appBackground, this.formGroupTitleColor, this.formFieldTextColor, this.formFieldHeaderColor, this.formFieldFocusColor, this.listBackground,
+        this.listTextItemColor, this.floatingButtonForegroundColor, this.floatingButtonBackgroundColor, this.dividerColor, this.topicContainerBackground, this.actionContainerBackground, this.appBarBG, this.appBarIconColor,
+        this.appBarSelectedIconColor, this.appBarMenuBackgroundColor, this.bottomNavigationBarBG, this.drawerBG, this.drawerHeaderBG, this.profileDrawerBG, this.profileDrawerHeaderBG, this.backgroundColorHomeMenu,
+        this.h1, this.h2, this.h3, this.h4, this.h5, this.textFieldHeader, this.fontText, this.fontSmallText, this.fontHighlight1, this.fontHighlight2, this.fontLink, this.routeBuilder, this.routeAnimationDuration,
+        this.dialogBackgroundColor, this.dialogSeperatorColor, this.popupMenuButtonColor});
 
-  MonaStyleAttributesEntity copyWith({String? documentID, String? appId, BackgroundEntity? formBackground, BackgroundEntity? appBackground, RgbEntity? formGroupTitleColor, RgbEntity? formFieldTextColor, RgbEntity? formFieldHeaderColor, RgbEntity? formFieldFocusColor, BackgroundEntity? listBackground, RgbEntity? listTextItemColor, RgbEntity? floatingButtonForegroundColor, RgbEntity? floatingButtonBackgroundColor, RgbEntity? dividerColor, BackgroundEntity? topicContainerBackground, BackgroundEntity? actionContainerBackground, BackgroundEntity? appBarBG, RgbEntity? appBarIconColor, RgbEntity? appBarSelectedIconColor, RgbEntity? appBarMenuBackgroundColor, BackgroundEntity? bottomNavigationBarBG, BackgroundEntity? drawerBG, BackgroundEntity? drawerHeaderBG, BackgroundEntity? profileDrawerBG, BackgroundEntity? profileDrawerHeaderBG, RgbEntity? backgroundColorHomeMenu, FontEntity? h1, FontEntity? h2, FontEntity? h3, FontEntity? h4, FontEntity? h5, FontEntity? textFieldHeader, FontEntity? fontText, FontEntity? fontSmallText, FontEntity? fontHighlight1, FontEntity? fontHighlight2, FontEntity? fontLink, int? routeBuilder, int? routeAnimationDuration, }) {
-    return MonaStyleAttributesEntity(appId : appId ?? this.appId, formBackground : formBackground ?? this.formBackground, appBackground : appBackground ?? this.appBackground, formGroupTitleColor : formGroupTitleColor ?? this.formGroupTitleColor, formFieldTextColor : formFieldTextColor ?? this.formFieldTextColor, formFieldHeaderColor : formFieldHeaderColor ?? this.formFieldHeaderColor, formFieldFocusColor : formFieldFocusColor ?? this.formFieldFocusColor, listBackground : listBackground ?? this.listBackground, listTextItemColor : listTextItemColor ?? this.listTextItemColor, floatingButtonForegroundColor : floatingButtonForegroundColor ?? this.floatingButtonForegroundColor, floatingButtonBackgroundColor : floatingButtonBackgroundColor ?? this.floatingButtonBackgroundColor, dividerColor : dividerColor ?? this.dividerColor, topicContainerBackground : topicContainerBackground ?? this.topicContainerBackground, actionContainerBackground : actionContainerBackground ?? this.actionContainerBackground, appBarBG : appBarBG ?? this.appBarBG, appBarIconColor : appBarIconColor ?? this.appBarIconColor, appBarSelectedIconColor : appBarSelectedIconColor ?? this.appBarSelectedIconColor, appBarMenuBackgroundColor : appBarMenuBackgroundColor ?? this.appBarMenuBackgroundColor, bottomNavigationBarBG : bottomNavigationBarBG ?? this.bottomNavigationBarBG, drawerBG : drawerBG ?? this.drawerBG, drawerHeaderBG : drawerHeaderBG ?? this.drawerHeaderBG, profileDrawerBG : profileDrawerBG ?? this.profileDrawerBG, profileDrawerHeaderBG : profileDrawerHeaderBG ?? this.profileDrawerHeaderBG, backgroundColorHomeMenu : backgroundColorHomeMenu ?? this.backgroundColorHomeMenu, h1 : h1 ?? this.h1, h2 : h2 ?? this.h2, h3 : h3 ?? this.h3, h4 : h4 ?? this.h4, h5 : h5 ?? this.h5, textFieldHeader : textFieldHeader ?? this.textFieldHeader, fontText : fontText ?? this.fontText, fontSmallText : fontSmallText ?? this.fontSmallText, fontHighlight1 : fontHighlight1 ?? this.fontHighlight1, fontHighlight2 : fontHighlight2 ?? this.fontHighlight2, fontLink : fontLink ?? this.fontLink, routeBuilder : routeBuilder ?? this.routeBuilder, routeAnimationDuration : routeAnimationDuration ?? this.routeAnimationDuration, );
+  MonaStyleAttributesEntity copyWith({String? documentID, String? appId, BackgroundEntity? formBackground, BackgroundEntity? appBackground, RgbEntity? formGroupTitleColor, RgbEntity? formFieldTextColor,
+        RgbEntity? formFieldHeaderColor, RgbEntity? formFieldFocusColor, BackgroundEntity? listBackground, RgbEntity? listTextItemColor, RgbEntity? floatingButtonForegroundColor, RgbEntity? floatingButtonBackgroundColor,
+        RgbEntity? dividerColor, BackgroundEntity? topicContainerBackground, BackgroundEntity? actionContainerBackground, BackgroundEntity? appBarBG, RgbEntity? appBarIconColor, RgbEntity? appBarSelectedIconColor,
+        RgbEntity? appBarMenuBackgroundColor, BackgroundEntity? bottomNavigationBarBG, BackgroundEntity? drawerBG, BackgroundEntity? drawerHeaderBG, BackgroundEntity? profileDrawerBG, BackgroundEntity? profileDrawerHeaderBG,
+        RgbEntity? backgroundColorHomeMenu, FontEntity? h1, FontEntity? h2, FontEntity? h3, FontEntity? h4, FontEntity? h5, FontEntity? textFieldHeader, FontEntity? fontText, FontEntity? fontSmallText,
+        FontEntity? fontHighlight1, FontEntity? fontHighlight2, FontEntity? fontLink, int? routeBuilder, int? routeAnimationDuration, RgbEntity? dialogBackgroundColor, RgbEntity? dialogSeperatorColor, RgbEntity? popupMenuButtonColor}) {
+    return MonaStyleAttributesEntity(appId : appId ?? this.appId, formBackground : formBackground ?? this.formBackground, appBackground : appBackground ?? this.appBackground,
+          formGroupTitleColor : formGroupTitleColor ?? this.formGroupTitleColor, formFieldTextColor : formFieldTextColor ?? this.formFieldTextColor, formFieldHeaderColor : formFieldHeaderColor ?? this.formFieldHeaderColor,
+          formFieldFocusColor : formFieldFocusColor ?? this.formFieldFocusColor, listBackground : listBackground ?? this.listBackground, listTextItemColor : listTextItemColor ?? this.listTextItemColor,
+          floatingButtonForegroundColor : floatingButtonForegroundColor ?? this.floatingButtonForegroundColor, floatingButtonBackgroundColor : floatingButtonBackgroundColor ?? this.floatingButtonBackgroundColor,
+          dividerColor : dividerColor ?? this.dividerColor, topicContainerBackground : topicContainerBackground ?? this.topicContainerBackground,
+          actionContainerBackground : actionContainerBackground ?? this.actionContainerBackground, appBarBG : appBarBG ?? this.appBarBG, appBarIconColor : appBarIconColor ?? this.appBarIconColor,
+          appBarSelectedIconColor : appBarSelectedIconColor ?? this.appBarSelectedIconColor, appBarMenuBackgroundColor : appBarMenuBackgroundColor ?? this.appBarMenuBackgroundColor,
+          bottomNavigationBarBG : bottomNavigationBarBG ?? this.bottomNavigationBarBG, drawerBG : drawerBG ?? this.drawerBG, drawerHeaderBG : drawerHeaderBG ?? this.drawerHeaderBG,
+          profileDrawerBG : profileDrawerBG ?? this.profileDrawerBG, profileDrawerHeaderBG : profileDrawerHeaderBG ?? this.profileDrawerHeaderBG, backgroundColorHomeMenu : backgroundColorHomeMenu ?? this.backgroundColorHomeMenu,
+          h1 : h1 ?? this.h1, h2 : h2 ?? this.h2, h3 : h3 ?? this.h3, h4 : h4 ?? this.h4, h5 : h5 ?? this.h5, textFieldHeader : textFieldHeader ?? this.textFieldHeader, fontText : fontText ?? this.fontText,
+          fontSmallText : fontSmallText ?? this.fontSmallText, fontHighlight1 : fontHighlight1 ?? this.fontHighlight1, fontHighlight2 : fontHighlight2 ?? this.fontHighlight2, fontLink : fontLink ?? this.fontLink,
+          routeBuilder : routeBuilder ?? this.routeBuilder, routeAnimationDuration : routeAnimationDuration ?? this.routeAnimationDuration,
+          dialogBackgroundColor: dialogBackgroundColor ?? this.dialogBackgroundColor, dialogSeperatorColor: dialogSeperatorColor ?? this.dialogSeperatorColor,
+          popupMenuButtonColor: popupMenuButtonColor ?? this.popupMenuButtonColor,
+    );
   }
-  List<Object?> get props => [appId, formBackground, appBackground, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackground, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor, dividerColor, topicContainerBackground, actionContainerBackground, appBarBG, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBG, drawerBG, drawerHeaderBG, profileDrawerBG, profileDrawerHeaderBG, backgroundColorHomeMenu, h1, h2, h3, h4, h5, textFieldHeader, fontText, fontSmallText, fontHighlight1, fontHighlight2, fontLink, routeBuilder, routeAnimationDuration, ];
+
+  List<Object?> get props => [appId, formBackground, appBackground, formGroupTitleColor, formFieldTextColor, formFieldHeaderColor, formFieldFocusColor, listBackground, listTextItemColor, floatingButtonForegroundColor, floatingButtonBackgroundColor,
+        dividerColor, topicContainerBackground, actionContainerBackground, appBarBG, appBarIconColor, appBarSelectedIconColor, appBarMenuBackgroundColor, bottomNavigationBarBG, drawerBG, drawerHeaderBG, profileDrawerBG,
+        profileDrawerHeaderBG, backgroundColorHomeMenu, h1, h2, h3, h4, h5, textFieldHeader, fontText, fontSmallText, fontHighlight1, fontHighlight2, fontLink, routeBuilder, routeAnimationDuration, dialogBackgroundColor, dialogSeperatorColor,
+        popupMenuButtonColor];
 
   @override
   String toString() {
-    return 'MonaStyleAttributesEntity{appId: $appId, formBackground: $formBackground, appBackground: $appBackground, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, topicContainerBackground: $topicContainerBackground, actionContainerBackground: $actionContainerBackground, appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundColorHomeMenu: $backgroundColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration}';
+    return 'MonaStyleAttributesEntity{appId: $appId, formBackground: $formBackground, appBackground: $appBackground, formGroupTitleColor: $formGroupTitleColor, formFieldTextColor: $formFieldTextColor, '
+        'formFieldHeaderColor: $formFieldHeaderColor, formFieldFocusColor: $formFieldFocusColor, listBackground: $listBackground, listTextItemColor: $listTextItemColor, floatingButtonForegroundColor: $floatingButtonForegroundColor, '
+        'floatingButtonBackgroundColor: $floatingButtonBackgroundColor, dividerColor: $dividerColor, topicContainerBackground: $topicContainerBackground, actionContainerBackground: $actionContainerBackground, '
+        'appBarBG: $appBarBG, appBarIconColor: $appBarIconColor, appBarSelectedIconColor: $appBarSelectedIconColor, appBarMenuBackgroundColor: $appBarMenuBackgroundColor, bottomNavigationBarBG: $bottomNavigationBarBG, '
+        'drawerBG: $drawerBG, drawerHeaderBG: $drawerHeaderBG, profileDrawerBG: $profileDrawerBG, profileDrawerHeaderBG: $profileDrawerHeaderBG, backgroundColorHomeMenu: $backgroundColorHomeMenu, h1: $h1, h2: $h2, h3: $h3, '
+        'h4: $h4, h5: $h5, textFieldHeader: $textFieldHeader, fontText: $fontText, fontSmallText: $fontSmallText, fontHighlight1: $fontHighlight1, fontHighlight2: $fontHighlight2, fontLink: $fontLink, '
+        'routeBuilder: $routeBuilder, routeAnimationDuration: $routeAnimationDuration, dialogBackgroundColor: $dialogBackgroundColor, dialogSeperatorColor: $dialogSeperatorColor, popupMenuButtonColor: $popupMenuButtonColor}';
   }
 
   static MonaStyleAttributesEntity? fromMap(Object? o, {Map<String, String>? newDocumentIds}) {
@@ -216,6 +252,21 @@ class MonaStyleAttributesEntity implements EntityBase {
     if (fontLinkFromMap != null)
       fontLinkFromMap = FontEntity.fromMap(fontLinkFromMap, newDocumentIds: newDocumentIds);
 
+    var dialogBackgroundColorFromMap;
+    dialogBackgroundColorFromMap = map['dialogBackgroundColor'];
+    if (dialogBackgroundColorFromMap != null)
+      dialogBackgroundColorFromMap = RgbEntity.fromMap(dialogBackgroundColorFromMap, newDocumentIds: newDocumentIds);
+
+    var dialogSeperatorColorFromMap;
+    dialogSeperatorColorFromMap = map['dialogSeperatorColor'];
+    if (dialogSeperatorColorFromMap != null)
+      dialogSeperatorColorFromMap = RgbEntity.fromMap(dialogSeperatorColorFromMap, newDocumentIds: newDocumentIds);
+
+    var popupMenuButtonColorFromMap;
+    popupMenuButtonColorFromMap = map['popupMenuButtonColor'];
+    if (popupMenuButtonColorFromMap != null)
+      popupMenuButtonColorFromMap = RgbEntity.fromMap(popupMenuButtonColorFromMap, newDocumentIds: newDocumentIds);
+
     return MonaStyleAttributesEntity(
       appId: map['appId'], 
       formBackground: formBackgroundFromMap, 
@@ -253,7 +304,10 @@ class MonaStyleAttributesEntity implements EntityBase {
       fontHighlight2: fontHighlight2FromMap, 
       fontLink: fontLinkFromMap, 
       routeBuilder: map['routeBuilder'], 
-      routeAnimationDuration: int.tryParse(map['routeAnimationDuration'].toString()), 
+      routeAnimationDuration: int.tryParse(map['routeAnimationDuration'].toString()),
+      dialogBackgroundColor: dialogBackgroundColorFromMap,
+      dialogSeperatorColor: dialogSeperatorColorFromMap,
+      popupMenuButtonColor: popupMenuButtonColorFromMap,
     );
   }
 
@@ -360,6 +414,15 @@ class MonaStyleAttributesEntity implements EntityBase {
     final Map<String, dynamic>? fontLinkMap = fontLink != null 
         ? fontLink!.toDocument()
         : null;
+    final Map<String, dynamic>? dialogBackgroundColorMap = dialogBackgroundColor != null
+        ? dialogBackgroundColor!.toDocument()
+        : null;
+    final Map<String, dynamic>? dialogSeperatorColorMap = dialogSeperatorColor != null
+        ? dialogSeperatorColor!.toDocument()
+        : null;
+    final Map<String, dynamic>? popupMenuButtonColorMap = popupMenuButtonColor != null
+        ? popupMenuButtonColor!.toDocument()
+        : null;
 
     Map<String, Object?> theDocument = HashMap();
     if (appId != null) theDocument["appId"] = appId;
@@ -436,6 +499,13 @@ class MonaStyleAttributesEntity implements EntityBase {
       else theDocument["routeBuilder"] = null;
     if (routeAnimationDuration != null) theDocument["routeAnimationDuration"] = routeAnimationDuration;
       else theDocument["routeAnimationDuration"] = null;
+    if (dialogBackgroundColor != null) theDocument["dialogBackgroundColor"] = dialogBackgroundColorMap;
+      else theDocument["dialogBackgroundColor"] = null;
+    if (dialogSeperatorColor != null) theDocument["dialogSeperatorColor"] = dialogSeperatorColorMap;
+    else theDocument["dialogSeperatorColor"] = null;
+    if (popupMenuButtonColor != null) theDocument["popupMenuButtonColor"] = popupMenuButtonColorMap;
+    else theDocument["popupMenuButtonColor"] = null;
+    
     return theDocument;
   }
 

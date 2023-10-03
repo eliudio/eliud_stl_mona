@@ -2,14 +2,15 @@ import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/_default/frontend/helper/dialog/dialog_helper.dart';
 import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/frontend/types.dart';
-import 'package:eliud_core/style/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MonaDialogImpl implements HasDialog {
-  final Style _style;
+import '../../styles/mona_style.dart';
 
-  MonaDialogImpl(this._style);
+class MonaDialogImpl implements HasDialog {
+  final MonaStyle _monaStyle;
+
+  MonaDialogImpl(this._monaStyle);
 
   @override
   Future<void> openMessageDialog(
@@ -26,7 +27,7 @@ class MonaDialogImpl implements HasDialog {
     await DialogStatefulWidgetHelper.openIt(
       context,
       name,
-      _style.frontEndStyle().dialogWidgetStyle().messageDialog(
+      _monaStyle.frontEndStyle().dialogWidgetStyle().messageDialog(
             app,
             context,
             title: title,
@@ -51,7 +52,7 @@ class MonaDialogImpl implements HasDialog {
       await DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().errorDialog(
+        _monaStyle.frontEndStyle().dialogWidgetStyle().errorDialog(
               app,
               context,
               title: title,
@@ -77,7 +78,7 @@ class MonaDialogImpl implements HasDialog {
       await DialogStatefulWidgetHelper.openIt(
           context,
           name,
-          _style.frontEndStyle().dialogWidgetStyle().ackNackDialog(
+          _monaStyle.frontEndStyle().dialogWidgetStyle().ackNackDialog(
                 app,
                 context,
                 title: title,
@@ -106,7 +107,7 @@ class MonaDialogImpl implements HasDialog {
       await DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().entryDialog(
+        _monaStyle.frontEndStyle().dialogWidgetStyle().entryDialog(
               app,
               context,
               title: title,
@@ -135,7 +136,7 @@ class MonaDialogImpl implements HasDialog {
     await DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().selectionDialog(
+        _monaStyle.frontEndStyle().dialogWidgetStyle().selectionDialog(
               app,
               context,
               title: title,
@@ -162,7 +163,7 @@ class MonaDialogImpl implements HasDialog {
       await DialogStatefulWidgetHelper.openIt(
           context,
           name,
-          _style.frontEndStyle().dialogWidgetStyle().complexDialog(
+          _monaStyle.frontEndStyle().dialogWidgetStyle().complexDialog(
                 app,
                 context,
                 title: title,
@@ -187,7 +188,7 @@ class MonaDialogImpl implements HasDialog {
     await DialogStatefulWidgetHelper.openIt(
         context,
         name,
-        _style.frontEndStyle().dialogWidgetStyle().flexibleDialog(
+        _monaStyle.frontEndStyle().dialogWidgetStyle().flexibleDialog(
               app,
               context,
               title: title,

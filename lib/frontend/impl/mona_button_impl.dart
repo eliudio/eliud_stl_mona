@@ -2,12 +2,13 @@ import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:eliud_core/style/style.dart';
+import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/mona_style.dart';
 
 class MonaButtonImpl implements HasButton {
-  final Style _style;
+  final MonaStyle _style;
 
   MonaButtonImpl(this._style);
 
@@ -94,6 +95,8 @@ class MonaButtonImpl implements HasButton {
   PopupMenuButton<T> popupMenuButton<T>(AppModel app, BuildContext context, {String? tooltip, Widget? child, Widget? icon, required PopupMenuItemBuilder<T> itemBuilder,
     PopupMenuItemSelected<T>? onSelected}) {
     return PopupMenuButton<T>(
+      color: _style.monaStyleAttributesModel.popupMenuButtonColor != null ? RgbHelper.color(
+          rgbo: _style.monaStyleAttributesModel.popupMenuButtonColor) : Colors.grey,
         tooltip: tooltip,
         elevation: 10,
         padding: EdgeInsets.all(8.0),

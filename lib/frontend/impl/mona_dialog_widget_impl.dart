@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import '../../styles/mona_style.dart';
 
 class MonaDialogWidgetImpl implements HasDialogWidget {
-  final Style _style;
+  final MonaStyle _style;
   late DialogStateHelper dialogHelper;
 
   MonaDialogWidgetImpl(this._style) {
@@ -39,7 +39,10 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: _style.frontEndStyle().textStyle().text(app, context, message),
         buttons: dialogHelper.getCloseButton(app, context,
-            onPressed: () => Navigator.pop(context), buttonLabel: closeLabel));
+            onPressed: () => Navigator.pop(context), buttonLabel: closeLabel),
+        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    );
   }
 
   @override
@@ -63,7 +66,10 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
             _style.frontEndStyle().textStyle().text(app, context, errorMessage),
         dialogButtonPosition: DialogButtonPosition.TopRight,
         buttons: dialogHelper.getCloseButton(app, context,
-            buttonLabel: closeLabel, onPressed: () => Navigator.pop(context)));
+            buttonLabel: closeLabel, onPressed: () => Navigator.pop(context)),
+        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    );
   }
 
   @override
@@ -93,7 +99,10 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
         }, nackFunction: () {
           Navigator.of(context).pop();
           onSelection(1);
-        }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel));
+        }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel),
+      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    );
   }
 
   @override
@@ -140,7 +149,10 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
           },
           ackButtonLabel: ackButtonLabel,
           nackButtonLabel: nackButtonLabel,
-        ));
+        ),
+      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    );
   }
 
 /*
@@ -195,7 +207,10 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
                   Navigator.of(context).pop();
                 },
               );
-            }));
+            }),
+      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    );
   }
 
   @override
@@ -225,7 +240,10 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
         }, nackFunction: () {
           Navigator.of(context).pop();
           onSelection(1);
-        }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel));
+        }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel),
+      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    );
   }
 
   @override
@@ -253,7 +271,10 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
           if (onPressed != null) {
             onPressed();
           }
-        }, buttonLabel: buttonLabel));
+        }, buttonLabel: buttonLabel),
+        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    );
   }
 
   @override
@@ -276,6 +297,8 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
         dialogButtonPosition: DialogButtonPosition.TopRight,
         contents: child,
         buttons: buttons,
+        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
+        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 }
