@@ -78,6 +78,8 @@ class MonaIncidamusStyle {
       dialogBackgroundColor: MonaColors.dialogGray,
       dialogSeperatorColor: MonaColors.red,
       popupMenuButtonColor: MonaColors.dialogGray,
+      textBubbleBackgroundColor: MonaColors.black,
+      dropdownButtonnColor:  MonaColors.black,
     );
   }
 

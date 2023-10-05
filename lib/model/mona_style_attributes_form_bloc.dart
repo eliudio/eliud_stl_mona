@@ -64,6 +64,11 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  appBarMenuBackgroundColor: RgbModel(r: 64, g: 6, b: 64, opacity: 1.00), 
                                  backgroundColorHomeMenu: RgbModel(r: 255, g: 255, b: 255, opacity: 1.00), 
                                  routeAnimationDuration: 1000, 
+                                 dialogBackgroundColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
+                                 dialogSeperatorColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
+                                 popupMenuButtonColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
+                                 textBubbleBackgroundColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
+                                 dropdownButtonnColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
 
         ));
         emit(loaded);
@@ -383,6 +388,46 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
           newValue = currentState.value!.copyWith(routeAnimationDuration: 0);
           emit(RouteAnimationDurationMonaStyleAttributesFormError(message: "Value should be a number", value: newValue));
         }
+      }
+      });
+      on <ChangedMonaStyleAttributesDialogBackgroundColor> ((event, emit) async {
+      if (state is MonaStyleAttributesFormInitialized) {
+        final currentState = state as MonaStyleAttributesFormInitialized;
+        newValue = currentState.value!.copyWith(dialogBackgroundColor: event.value);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
+
+      }
+      });
+      on <ChangedMonaStyleAttributesDialogSeperatorColor> ((event, emit) async {
+      if (state is MonaStyleAttributesFormInitialized) {
+        final currentState = state as MonaStyleAttributesFormInitialized;
+        newValue = currentState.value!.copyWith(dialogSeperatorColor: event.value);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
+
+      }
+      });
+      on <ChangedMonaStyleAttributesPopupMenuButtonColor> ((event, emit) async {
+      if (state is MonaStyleAttributesFormInitialized) {
+        final currentState = state as MonaStyleAttributesFormInitialized;
+        newValue = currentState.value!.copyWith(popupMenuButtonColor: event.value);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
+
+      }
+      });
+      on <ChangedMonaStyleAttributesTextBubbleBackgroundColor> ((event, emit) async {
+      if (state is MonaStyleAttributesFormInitialized) {
+        final currentState = state as MonaStyleAttributesFormInitialized;
+        newValue = currentState.value!.copyWith(textBubbleBackgroundColor: event.value);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
+
+      }
+      });
+      on <ChangedMonaStyleAttributesDropdownButtonnColor> ((event, emit) async {
+      if (state is MonaStyleAttributesFormInitialized) {
+        final currentState = state as MonaStyleAttributesFormInitialized;
+        newValue = currentState.value!.copyWith(dropdownButtonnColor: event.value);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
+
       }
       });
   }

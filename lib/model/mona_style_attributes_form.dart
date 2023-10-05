@@ -272,6 +272,31 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                 RgbField(widget.app, "Form Field Focus Color", state.value!.formFieldFocusColor, _onFormFieldFocusColorChanged)
           );
 
+        children.add(
+
+                RgbField(widget.app, "Form Group Title Color", state.value!.dialogBackgroundColor, _onDialogBackgroundColorChanged)
+          );
+
+        children.add(
+
+                RgbField(widget.app, "Form Group Title Color", state.value!.dialogSeperatorColor, _onDialogSeperatorColorChanged)
+          );
+
+        children.add(
+
+                RgbField(widget.app, "Form Group Title Color", state.value!.popupMenuButtonColor, _onPopupMenuButtonColorChanged)
+          );
+
+        children.add(
+
+                RgbField(widget.app, "Form Group Title Color", state.value!.textBubbleBackgroundColor, _onTextBubbleBackgroundColorChanged)
+          );
+
+        children.add(
+
+                RgbField(widget.app, "Form Group Title Color", state.value!.dropdownButtonnColor, _onDropdownButtonnColorChanged)
+          );
+
 
         children.add(Container(height: 20.0));
         children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
@@ -528,6 +553,11 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               fontLink: state.value!.fontLink, 
                               routeBuilder: state.value!.routeBuilder, 
                               routeAnimationDuration: state.value!.routeAnimationDuration, 
+                              dialogBackgroundColor: state.value!.dialogBackgroundColor, 
+                              dialogSeperatorColor: state.value!.dialogSeperatorColor, 
+                              popupMenuButtonColor: state.value!.popupMenuButtonColor, 
+                              textBubbleBackgroundColor: state.value!.textBubbleBackgroundColor, 
+                              dropdownButtonnColor: state.value!.dropdownButtonnColor, 
                         )));
                       } else {
                         BlocProvider.of<MonaStyleAttributesListBloc>(context).add(
@@ -570,6 +600,11 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               fontLink: state.value!.fontLink, 
                               routeBuilder: state.value!.routeBuilder, 
                               routeAnimationDuration: state.value!.routeAnimationDuration, 
+                              dialogBackgroundColor: state.value!.dialogBackgroundColor, 
+                              dialogSeperatorColor: state.value!.dialogSeperatorColor, 
+                              popupMenuButtonColor: state.value!.popupMenuButtonColor, 
+                              textBubbleBackgroundColor: state.value!.textBubbleBackgroundColor, 
+                              dropdownButtonnColor: state.value!.dropdownButtonnColor, 
                           )));
                       }
                       if (widget.submitAction != null) {
@@ -688,6 +723,36 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
   void _onRouteAnimationDurationChanged() {
     _myFormBloc.add(ChangedMonaStyleAttributesRouteAnimationDuration(value: _routeAnimationDurationController.text));
+  }
+
+
+  void _onDialogBackgroundColorChanged(value) {
+    _myFormBloc.add(ChangedMonaStyleAttributesDialogBackgroundColor(value: value));
+    
+  }
+
+
+  void _onDialogSeperatorColorChanged(value) {
+    _myFormBloc.add(ChangedMonaStyleAttributesDialogSeperatorColor(value: value));
+    
+  }
+
+
+  void _onPopupMenuButtonColorChanged(value) {
+    _myFormBloc.add(ChangedMonaStyleAttributesPopupMenuButtonColor(value: value));
+    
+  }
+
+
+  void _onTextBubbleBackgroundColorChanged(value) {
+    _myFormBloc.add(ChangedMonaStyleAttributesTextBubbleBackgroundColor(value: value));
+    
+  }
+
+
+  void _onDropdownButtonnColorChanged(value) {
+    _myFormBloc.add(ChangedMonaStyleAttributesDropdownButtonnColor(value: value));
+    
   }
 
 

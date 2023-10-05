@@ -315,6 +315,51 @@
       "fieldType": "int",
       "defaultValue": "1000",
       "group": "route"
+    },
+    {
+      "fieldName": "dialogBackgroundColor",
+      "displayName": "Dialog BG Color",
+      "defaultValue": "RgbModel(r: 255, g: 0, b: 0, opacity: 1.00)",
+      "fieldType": "Rgb",
+      "group": "formColors",
+      "iconName": "color_lens",
+      "bespokeFormField": "RgbField(widget.app, \"Form Group Title Color\", state.value!.dialogBackgroundColor, _onDialogBackgroundColorChanged)"
+    },
+    {
+      "fieldName": "dialogSeperatorColor",
+      "displayName": "Dialog BG Color",
+      "defaultValue": "RgbModel(r: 255, g: 0, b: 0, opacity: 1.00)",
+      "fieldType": "Rgb",
+      "group": "formColors",
+      "iconName": "color_lens",
+      "bespokeFormField": "RgbField(widget.app, \"Form Group Title Color\", state.value!.dialogSeperatorColor, _onDialogSeperatorColorChanged)"
+    },
+    {
+      "fieldName": "popupMenuButtonColor",
+      "displayName": "Dialog BG Color",
+      "defaultValue": "RgbModel(r: 255, g: 0, b: 0, opacity: 1.00)",
+      "fieldType": "Rgb",
+      "group": "formColors",
+      "iconName": "color_lens",
+      "bespokeFormField": "RgbField(widget.app, \"Form Group Title Color\", state.value!.popupMenuButtonColor, _onPopupMenuButtonColorChanged)"
+    },
+    {
+      "fieldName": "textBubbleBackgroundColor",
+      "displayName": "Dialog BG Color",
+      "defaultValue": "RgbModel(r: 255, g: 0, b: 0, opacity: 1.00)",
+      "fieldType": "Rgb",
+      "group": "formColors",
+      "iconName": "color_lens",
+      "bespokeFormField": "RgbField(widget.app, \"Form Group Title Color\", state.value!.textBubbleBackgroundColor, _onTextBubbleBackgroundColorChanged)"
+    },
+    {
+      "fieldName": "dropdownButtonnColor",
+      "displayName": "Dialog BG Color",
+      "defaultValue": "RgbModel(r: 255, g: 0, b: 0, opacity: 1.00)",
+      "fieldType": "Rgb",
+      "group": "formColors",
+      "iconName": "color_lens",
+      "bespokeFormField": "RgbField(widget.app, \"Form Group Title Color\", state.value!.dropdownButtonnColor, _onDropdownButtonnColorChanged)"
     }
   ],
   "groups": [

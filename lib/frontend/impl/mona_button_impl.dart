@@ -108,4 +108,18 @@ class MonaButtonImpl implements HasButton {
 
   @override
   PopupMenuDivider popupMenuDivider(AppModel app, BuildContext context) => PopupMenuDivider();
+
+  @override
+  DropdownButton<T> dropdownButton<T>(AppModel app, BuildContext context, {T? value, List<DropdownMenuItem<T>>? items, Widget? hint, ValueChanged<T?>? onChanged, bool isDense = false, bool isExpanded = false}) {
+    return DropdownButton<T>(
+      value: value,
+      items: items,
+      hint: hint,
+      onChanged: onChanged,
+      isDense: isDense,
+      isExpanded: isExpanded,
+      dropdownColor: RgbHelper.color(
+          rgbo: _style.monaStyleAttributesModel.dropdownButtonnColor),
+    );
+  }
 }

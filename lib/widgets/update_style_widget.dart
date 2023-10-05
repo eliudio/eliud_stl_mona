@@ -149,6 +149,10 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
         defaultStyleTemplate.dialogSeperatorColor;
     widget.value.popupMenuButtonColor = widget.value.popupMenuButtonColor ??
         defaultStyleTemplate.popupMenuButtonColor;
+    widget.value.textBubbleBackgroundColor = widget.value.textBubbleBackgroundColor ??
+        defaultStyleTemplate.textBubbleBackgroundColor;
+    widget.value.dropdownButtonnColor = widget.value.dropdownButtonnColor ??
+        defaultStyleTemplate.dropdownButtonnColor;
   }
 
   @override
@@ -279,6 +283,18 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
             (PageTransitionAnimation pageTransitionAnimation) =>
                 widget.value.routeBuilder = pageTransitionAnimation,
       ),
+      _inContainer(context, 'Text Bubble', [
+        StyleColorWidget(
+            app: widget.app,
+            value: widget.value.textBubbleBackgroundColor!,
+            label: 'Text bubble background Color'),
+      ]),
+      _inContainer(context, 'Drop down button', [
+        StyleColorWidget(
+            app: widget.app,
+            value: widget.value.dropdownButtonnColor!,
+            label: 'Drop down button background Color'),
+      ]),
       _inContainer(context, 'Etc', [
         StyleColorWidget(
             app: widget.app,

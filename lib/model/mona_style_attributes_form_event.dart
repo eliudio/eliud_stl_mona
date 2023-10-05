@@ -515,3 +515,63 @@ class ChangedMonaStyleAttributesRouteAnimationDuration extends MonaStyleAttribut
   String toString() => 'ChangedMonaStyleAttributesRouteAnimationDuration{ value: $value }';
 }
 
+class ChangedMonaStyleAttributesDialogBackgroundColor extends MonaStyleAttributesFormEvent {
+  final RgbModel? value;
+
+  ChangedMonaStyleAttributesDialogBackgroundColor({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesDialogBackgroundColor{ value: $value }';
+}
+
+class ChangedMonaStyleAttributesDialogSeperatorColor extends MonaStyleAttributesFormEvent {
+  final RgbModel? value;
+
+  ChangedMonaStyleAttributesDialogSeperatorColor({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesDialogSeperatorColor{ value: $value }';
+}
+
+class ChangedMonaStyleAttributesPopupMenuButtonColor extends MonaStyleAttributesFormEvent {
+  final RgbModel? value;
+
+  ChangedMonaStyleAttributesPopupMenuButtonColor({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesPopupMenuButtonColor{ value: $value }';
+}
+
+class ChangedMonaStyleAttributesTextBubbleBackgroundColor extends MonaStyleAttributesFormEvent {
+  final RgbModel? value;
+
+  ChangedMonaStyleAttributesTextBubbleBackgroundColor({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesTextBubbleBackgroundColor{ value: $value }';
+}
+
+class ChangedMonaStyleAttributesDropdownButtonnColor extends MonaStyleAttributesFormEvent {
+  final RgbModel? value;
+
+  ChangedMonaStyleAttributesDropdownButtonnColor({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesDropdownButtonnColor{ value: $value }';
+}
+

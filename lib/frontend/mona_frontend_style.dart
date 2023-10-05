@@ -1,5 +1,6 @@
 import 'package:eliud_core/style/frontend/has_page_route_builder.dart';
 import 'package:eliud_core/style/frontend/has_split.dart';
+import 'package:eliud_core/style/frontend/has_text_bubble.dart';
 import 'package:eliud_stl_mona/frontend/impl/mona_page_route_builder_impl.dart';
 
 import '../frontend/impl/mona_button_impl.dart';
@@ -46,6 +47,7 @@ import 'impl/mona_progress_indicator_impl.dart';
 import 'impl/mona_split_impl.dart';
 import 'impl/mona_style_impl.dart';
 import 'impl/mona_table_impl.dart';
+import 'impl/mona_text_bubble_impl.dart';
 import 'impl/mona_text_form_field_impl.dart';
 import 'impl/mona_text_impl.dart';
 
@@ -74,6 +76,7 @@ class MonaFrontEndStyle implements FrontEndStyle {
   late HasTabs monaTabsImpl;
   late HasSplit monaSplitImpl;
   late HasPageRouteBuilder monaPageRouteBuilder;
+  late HasTextBubble monaTextBubbleImpl;
 
   MonaFrontEndStyle(this._monaStyle) {
     monaPageBodyImpl = MonaPageBodyImpl(_monaStyle);
@@ -99,6 +102,7 @@ class MonaFrontEndStyle implements FrontEndStyle {
     monaTabsImpl = MonaTabsImpl(_monaStyle);
     monaSplitImpl = MonaSplitImpl(_monaStyle);
     monaPageRouteBuilder = MonaPageRouteBuilderImpl(_monaStyle);
+    monaTextBubbleImpl = MonaTextBubbleImpl(_monaStyle);
   }
 
   @override
@@ -169,4 +173,7 @@ class MonaFrontEndStyle implements FrontEndStyle {
 
   @override
   HasSplit splitStyle() => monaSplitImpl;
+
+  @override
+  HasTextBubble textBubbleStyle() => monaTextBubbleImpl;
 }

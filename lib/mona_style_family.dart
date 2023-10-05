@@ -5,6 +5,7 @@ import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/style/style_family.dart';
 import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
 import 'package:eliud_stl_mona/styles/mona_johan_style.dart';
+import 'package:eliud_stl_mona/styles/mona_thomas_style.dart';
 import 'styles/mona_eliud_style.dart';
 import 'styles/mona_incidamus_style.dart';
 import 'styles/mona_juuwle_style.dart';
@@ -17,6 +18,7 @@ class MonaStyleFamily extends StyleFamily {
   static final String incidamusStyleName = 'incidamus';
   static final String juuwleStyleName = 'juuwle';
   static final String johanStyleName = 'johan';
+  static final String thomasStyleName = 'thomas';
   static final String minkeyStyleName = 'minkey';
 
   static MonaStyleFamily? _instance;
@@ -42,6 +44,11 @@ class MonaStyleFamily extends StyleFamily {
     }
     if (styleName == johanStyleName) {
       _monaStyles[appId] = await createJohanStyle(appId);
+      return _monaStyles[appId];
+    }
+
+    if (styleName == thomasStyleName) {
+      _monaStyles[appId] = await createThomasStyle(appId);
       return _monaStyles[appId];
     }
 
@@ -133,6 +140,11 @@ class MonaStyleFamily extends StyleFamily {
         appId, johanStyleName));
   }
 
+  Future<MonaStyle> createThomasStyle(String appId) async {
+    return MonaStyle(this, thomasStyleName, AllowedUpdates.readOnly(), await MonaThomasStyle.defaultStyleAttributesModel(
+        appId, thomasStyleName));
+  }
+
   Future<MonaStyle> createJuuwleStyle(String appId) async {
       return MonaStyle(this, juuwleStyleName, AllowedUpdates.readOnly(), await MonaJuuwleStyle.defaultStyleAttributesModel(
           appId, juuwleStyleName));
@@ -149,6 +161,7 @@ class MonaStyleFamily extends StyleFamily {
     allStyles.add(await createJuuwleStyle(appId));
     allStyles.add(await createMinkeyStyle(appId));
     allStyles.add(await createJohanStyle(appId));
+    allStyles.add(await createThomasStyle(appId));
   }
 
   MonaStyleFamily._() : super(monaStyleFamilyName, true);

@@ -671,6 +671,86 @@ class RouteAnimationDurationMonaStyleAttributesFormError extends MonaStyleAttrib
 }
 
 
+class DialogBackgroundColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DialogBackgroundColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''DialogBackgroundColorMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
+class DialogSeperatorColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DialogSeperatorColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''DialogSeperatorColorMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
+class PopupMenuButtonColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const PopupMenuButtonColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''PopupMenuButtonColorMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
+class TextBubbleBackgroundColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const TextBubbleBackgroundColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''TextBubbleBackgroundColorMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
+class DropdownButtonnColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DropdownButtonnColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''DropdownButtonnColorMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
 class MonaStyleAttributesFormLoaded extends MonaStyleAttributesFormInitialized { 
   const MonaStyleAttributesFormLoaded({ MonaStyleAttributesModel? value }): super(value: value);
 
