@@ -36,6 +36,7 @@ import 'package:eliud_core/core/base/repository_base.dart';
 
 typedef MonaStyleAttributesModelTrigger(List<MonaStyleAttributesModel?> list);
 typedef MonaStyleAttributesChanged(MonaStyleAttributesModel? value);
+typedef MonaStyleAttributesErrorHandler(o, e);
 
 abstract class MonaStyleAttributesRepository extends RepositoryBase<MonaStyleAttributesModel, MonaStyleAttributesEntity> {
   Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value);
@@ -52,7 +53,7 @@ abstract class MonaStyleAttributesRepository extends RepositoryBase<MonaStyleAtt
 
   StreamSubscription<List<MonaStyleAttributesModel?>> listen(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery });
   StreamSubscription<List<MonaStyleAttributesModel?>> listenWithDetails(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery });
-  StreamSubscription<MonaStyleAttributesModel?> listenTo(String documentId, MonaStyleAttributesChanged changed);
+  StreamSubscription<MonaStyleAttributesModel?> listenTo(String documentId, MonaStyleAttributesChanged changed, {MonaStyleAttributesErrorHandler? errorHandler});
   void flush();
   
   String? timeStampToString(dynamic timeStamp);

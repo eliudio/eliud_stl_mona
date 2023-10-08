@@ -140,13 +140,13 @@ class MonaStyleAttributesCache implements MonaStyleAttributesRepository {
   }
 
   @override
-  StreamSubscription<MonaStyleAttributesModel?> listenTo(String documentId, MonaStyleAttributesChanged changed) {
+  StreamSubscription<MonaStyleAttributesModel?> listenTo(String documentId, MonaStyleAttributesChanged changed, {MonaStyleAttributesErrorHandler? errorHandler}) {
     return reference.listenTo(documentId, ((value) {
       if (value != null) {
         fullCache[value.documentID] = value;
       }
       changed(value);
-    }));
+    }), errorHandler: errorHandler);
   }
 
   static Future<MonaStyleAttributesModel> refreshRelations(MonaStyleAttributesModel model) async {
