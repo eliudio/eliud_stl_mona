@@ -360,6 +360,15 @@
       "group": "formColors",
       "iconName": "color_lens",
       "bespokeFormField": "RgbField(widget.app, \"Form Group Title Color\", state.value!.dropdownButtonnColor, _onDropdownButtonnColorChanged)"
+    },
+    {
+      "fieldName": "listTileColor",
+      "displayName": "List Tile Color",
+      "defaultValue": "RgbModel(r: 255, g: 0, b: 0, opacity: 1.00)",
+      "fieldType": "Rgb",
+      "group": "formColors",
+      "iconName": "color_lens",
+      "bespokeFormField": "RgbField(widget.app, \"List Title Color\", state.value!.listTileColor, _onListTileColorChanged)"
     }
   ],
   "groups": [

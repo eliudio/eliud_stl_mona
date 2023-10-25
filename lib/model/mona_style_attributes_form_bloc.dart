@@ -69,6 +69,7 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
                                  popupMenuButtonColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
                                  textBubbleBackgroundColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
                                  dropdownButtonnColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
+                                 listTileColor: RgbModel(r: 255, g: 0, b: 0, opacity: 1.00), 
 
         ));
         emit(loaded);
@@ -426,6 +427,14 @@ class MonaStyleAttributesFormBloc extends Bloc<MonaStyleAttributesFormEvent, Mon
       if (state is MonaStyleAttributesFormInitialized) {
         final currentState = state as MonaStyleAttributesFormInitialized;
         newValue = currentState.value!.copyWith(dropdownButtonnColor: event.value);
+        emit(SubmittableMonaStyleAttributesForm(value: newValue));
+
+      }
+      });
+      on <ChangedMonaStyleAttributesListTileColor> ((event, emit) async {
+      if (state is MonaStyleAttributesFormInitialized) {
+        final currentState = state as MonaStyleAttributesFormInitialized;
+        newValue = currentState.value!.copyWith(listTileColor: event.value);
         emit(SubmittableMonaStyleAttributesForm(value: newValue));
 
       }

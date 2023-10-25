@@ -1,12 +1,14 @@
 import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_list_tile.dart';
-import 'package:eliud_core/style/style.dart';
+import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 
-class MonaListTileImpl implements HasListTile {
-  final Style _sStyle;
+import '../../styles/mona_style.dart';
 
-  MonaListTileImpl(this._sStyle);
+class MonaListTileImpl implements HasListTile {
+  final MonaStyle _style;
+
+  MonaListTileImpl(this._style);
 
   @override
   Widget getListTile(AppModel app,BuildContext context, {Key? key, GestureTapCallback? onTap, Widget? leading, Widget? trailing, Widget? title, Widget? subtitle, bool? isThreeLine}) {
@@ -18,6 +20,20 @@ class MonaListTileImpl implements HasListTile {
       trailing: trailing,
       title: title,
       subtitle: subtitle,
+/*      selectedColor: RgbHelper.color(
+          rgbo: _style.monaStyleAttributesModel.listTileColor),
+      iconColor: RgbHelper.color(
+          rgbo: _style.monaStyleAttributesModel.listTileColor),
+      focusColor: RgbHelper.color(
+          rgbo: _style.monaStyleAttributesModel.listTileColor),
+        splashColor: RgbHelper.color(
+            rgbo: _style.monaStyleAttributesModel.listTileColor),
+      textColor: RgbHelper.color(
+          rgbo: _style.monaStyleAttributesModel.listTileColor),
+        selectedTileColor: RgbHelper.color(
+            rgbo: _style.monaStyleAttributesModel.listTileColor),*/
+      tileColor: RgbHelper.color(
+          rgbo: _style.monaStyleAttributesModel.listTileColor),
     );
   }
 
@@ -27,7 +43,7 @@ class MonaListTileImpl implements HasListTile {
     return RadioListTile(
         value: t,
         groupValue: groupValue,
-        title: _sStyle.frontEndStyle().textStyle().text(app, context, title),
+        title: _style.frontEndStyle().textStyle().text(app, context, title),
         subtitle: subTitle != null ? Text(subTitle) : null,
         onChanged: valueChanged);
   }
@@ -36,7 +52,7 @@ class MonaListTileImpl implements HasListTile {
   Widget checkboxListTile(AppModel app,BuildContext context, String title, bool? value,
       ValueChanged<bool?>? onChanged) {
     return CheckboxListTile(
-        title: _sStyle.frontEndStyle().textStyle().text(app, context, title),
+        title: _style.frontEndStyle().textStyle().text(app, context, title),
         value: value,
         onChanged: onChanged);
   }

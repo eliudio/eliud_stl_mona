@@ -751,6 +751,22 @@ class DropdownButtonnColorMonaStyleAttributesFormError extends MonaStyleAttribut
 }
 
 
+class ListTileColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ListTileColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
+
+  @override
+  List<Object?> get props => [ message, value ];
+
+  @override
+  String toString() {
+    return '''ListTileColorMonaStyleAttributesFormError {
+      value: $value,
+      message: $message,
+    }''';
+  }
+}
+
+
 class MonaStyleAttributesFormLoaded extends MonaStyleAttributesFormInitialized { 
   const MonaStyleAttributesFormLoaded({ MonaStyleAttributesModel? value }): super(value: value);
 

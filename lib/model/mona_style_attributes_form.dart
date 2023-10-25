@@ -297,6 +297,11 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                 RgbField(widget.app, "Form Group Title Color", state.value!.dropdownButtonnColor, _onDropdownButtonnColorChanged)
           );
 
+        children.add(
+
+                RgbField(widget.app, "List Title Color", state.value!.listTileColor, _onListTileColorChanged)
+          );
+
 
         children.add(Container(height: 20.0));
         children.add(StyleRegistry.registry().styleWithApp(widget.app).adminFormStyle().divider(widget.app, context));
@@ -558,6 +563,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               popupMenuButtonColor: state.value!.popupMenuButtonColor, 
                               textBubbleBackgroundColor: state.value!.textBubbleBackgroundColor, 
                               dropdownButtonnColor: state.value!.dropdownButtonnColor, 
+                              listTileColor: state.value!.listTileColor, 
                         )));
                       } else {
                         BlocProvider.of<MonaStyleAttributesListBloc>(context).add(
@@ -605,6 +611,7 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
                               popupMenuButtonColor: state.value!.popupMenuButtonColor, 
                               textBubbleBackgroundColor: state.value!.textBubbleBackgroundColor, 
                               dropdownButtonnColor: state.value!.dropdownButtonnColor, 
+                              listTileColor: state.value!.listTileColor, 
                           )));
                       }
                       if (widget.submitAction != null) {
@@ -752,6 +759,12 @@ class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
 
   void _onDropdownButtonnColorChanged(value) {
     _myFormBloc.add(ChangedMonaStyleAttributesDropdownButtonnColor(value: value));
+    
+  }
+
+
+  void _onListTileColorChanged(value) {
+    _myFormBloc.add(ChangedMonaStyleAttributesListTileColor(value: value));
     
   }
 

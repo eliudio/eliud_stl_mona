@@ -153,6 +153,8 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
         defaultStyleTemplate.textBubbleBackgroundColor;
     widget.value.dropdownButtonnColor = widget.value.dropdownButtonnColor ??
         defaultStyleTemplate.dropdownButtonnColor;
+    widget.value.listTileColor = widget.value.listTileColor ??
+        defaultStyleTemplate.listTileColor;
   }
 
   @override
@@ -318,6 +320,10 @@ class _UpdateStyleWidgetState extends State<UpdateStyleWidget> {
             memberId: widget.memberId,
             value: widget.value.actionContainerBackground!,
             label: 'Background action container'),
+        StyleColorWidget(
+            app: widget.app,
+            value: widget.value.listTileColor!,
+            label: 'List tile Color'),
       ]),
       _inContainer(context, 'Admin', [
         _inContainer(context, 'List', [

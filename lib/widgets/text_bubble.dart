@@ -1,5 +1,9 @@
+import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
 class TextBubble1 extends TextBubble {
   TextBubble1({
@@ -19,18 +23,25 @@ class TextBubble1 extends TextBubble {
       color: Colors.black87,
       fontSize: 10,
     ),
+    Widget? button,
   }) : super(
           isSender: isSender,
-          widget: Text(
-            text,
-            style: textStyle,
-            textAlign: TextAlign.left,
-          ),
-          timeWidget: time != null ? Text(
-            time,
-            style: timeTextStyle,
-            textAlign: TextAlign.right,
-          ) : null,
+          widget: Row(children: [
+            Text(
+              text,
+              style: textStyle,
+              textAlign: TextAlign.left,
+            ),
+            if (button != null) Spacer(),
+            if (button != null) button
+          ]),
+          timeWidget: time != null
+              ? Text(
+                  time,
+                  style: timeTextStyle,
+                  textAlign: TextAlign.right,
+                )
+              : null,
           tail: tail,
           color: color,
           sent: sent,
@@ -155,7 +166,7 @@ class TextBubble extends StatelessWidget {
 ///
 /// [color],[alignment] and [tail] can be changed
 
-  class SpecialChatBubbleOne extends CustomPainter {
+class SpecialChatBubbleOne extends CustomPainter {
   final Color color;
   final Alignment alignment;
   final bool tail;

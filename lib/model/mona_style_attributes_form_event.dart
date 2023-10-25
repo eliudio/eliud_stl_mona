@@ -575,3 +575,15 @@ class ChangedMonaStyleAttributesDropdownButtonnColor extends MonaStyleAttributes
   String toString() => 'ChangedMonaStyleAttributesDropdownButtonnColor{ value: $value }';
 }
 
+class ChangedMonaStyleAttributesListTileColor extends MonaStyleAttributesFormEvent {
+  final RgbModel? value;
+
+  ChangedMonaStyleAttributesListTileColor({this.value});
+
+  @override
+  List<Object?> get props => [ value ];
+
+  @override
+  String toString() => 'ChangedMonaStyleAttributesListTileColor{ value: $value }';
+}
+

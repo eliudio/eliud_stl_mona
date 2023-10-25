@@ -80,6 +80,7 @@ class MonaJuuwleStyle {
       popupMenuButtonColor: MonaColors.dialogGray,
       textBubbleBackgroundColor: MonaColors.black,
       dropdownButtonnColor:  MonaColors.black,
+      listTileColor: MonaColors.dialogGray,
     );
   }
 

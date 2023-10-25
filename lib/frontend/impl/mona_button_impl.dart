@@ -14,9 +14,10 @@ class MonaButtonImpl implements HasButton {
 
   @override
   Widget button(AppModel app,BuildContext context,
-      {Icon? icon, required String label, VoidCallback? onPressed}) {
+      {Icon? icon, required String label, String? tooltip, VoidCallback? onPressed}) {
+    var returnMe;
     if (icon != null) {
-      return GestureDetector(
+      returnMe = GestureDetector(
           onTap: onPressed,
           child: Padding(
               padding: const EdgeInsets.all(7.0),
@@ -25,7 +26,7 @@ class MonaButtonImpl implements HasButton {
                   .containerStyle()
                   .actionContainer(app, context, child: icon)));
     } else {
-      return GestureDetector(
+      returnMe = GestureDetector(
           onTap: onPressed,
           child: _style.frontEndStyle().containerStyle().actionContainer(app,
               context,
@@ -37,20 +38,31 @@ class MonaButtonImpl implements HasButton {
                       .textStyle()
                       .text(app, context, label)))));
     }
+    if (tooltip == null) {
+      return returnMe;
+    } else {
+      return Tooltip(message: tooltip, child: returnMe);
+    }
   }
 
   @override
   Widget dialogButton(AppModel app,BuildContext context,
-      {VoidCallback? onPressed, required String label, bool? selected}) {
-    return TextButton(
+      {VoidCallback? onPressed, required String label, String? tooltip, bool? selected}) {
+    var returnMe = OutlinedButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
         primary: Colors.pink,
       ),
+
       child: selected == null || selected == false
           ? _style.frontEndStyle().textStyle().text(app, context, label)
           : _style.frontEndStyle().textStyle().highLight1(app, context, label),
     );
+    if (tooltip == null) {
+      return returnMe;
+    } else {
+      return Tooltip(message: tooltip, child: returnMe);
+    }
   }
 
   @override
