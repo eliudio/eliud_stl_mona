@@ -1,7 +1,6 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 
-import '../../styles/mona_style.dart';
 
 class DelayedCircularProgressIndicator extends StatelessWidget {
   final Animation<Color>? valueColor;

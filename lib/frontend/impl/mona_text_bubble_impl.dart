@@ -1,23 +1,9 @@
 import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/style/frontend/has_button.dart';
-import 'package:eliud_core/style/frontend/has_page_route_builder.dart';
-import 'package:eliud_core/style/frontend/has_tabs.dart';
 import 'package:eliud_core/style/frontend/has_text_bubble.dart';
-import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/tools/etc.dart';
-import 'package:eliud_core/tools/router_builders.dart';
-import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorful_tab/flutter_colorful_tab.dart';
 
 import '../../styles/mona_style.dart';
-import '../../widgets/text_bubble.dart';
-import 'package:eliud_core/style/frontend/has_button.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 
 class MonaTextBubbleImpl implements HasTextBubble {
   final MonaStyle _monaStyle;
@@ -59,21 +45,21 @@ class MonaTextBubbleImpl implements HasTextBubble {
 
 class TextBubble1 extends TextBubble {
   TextBubble1(
-      {bool isSender: true,
+      {bool isSender = true,
       required String text,
       Widget? button,
       Widget? widget,
       String? time,
-      bool tail: true,
-      Color color: Colors.white70,
-      bool sent: false,
-      bool delivered: false,
-      bool seen: false,
-      TextStyle textStyle: const TextStyle(
+      bool tail = true,
+      Color color = Colors.white70,
+      bool sent = false,
+      bool delivered = false,
+      bool seen = false,
+      TextStyle textStyle = const TextStyle(
         color: Colors.black87,
         fontSize: 16,
       ),
-      TextStyle timeTextStyle: const TextStyle(
+      TextStyle timeTextStyle = const TextStyle(
         color: Colors.black87,
         fontSize: 10,
       )})

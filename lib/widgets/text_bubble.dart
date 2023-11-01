@@ -1,25 +1,20 @@
-import 'package:eliud_core/style/frontend/has_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 
 class TextBubble1 extends TextBubble {
   TextBubble1({
-    bool isSender: true,
+    bool isSender = true,
     required String text,
     String? time,
-    bool tail: true,
-    Color color: Colors.white70,
-    bool sent: false,
-    bool delivered: false,
-    bool seen: false,
-    TextStyle textStyle: const TextStyle(
+    bool tail = true,
+    Color color = Colors.white70,
+    bool sent = false,
+    bool delivered = false,
+    bool seen = false,
+    TextStyle textStyle = const TextStyle(
       color: Colors.black87,
       fontSize: 16,
     ),
-    TextStyle timeTextStyle: const TextStyle(
+    TextStyle timeTextStyle = const TextStyle(
       color: Colors.black87,
       fontSize: 10,
     ),

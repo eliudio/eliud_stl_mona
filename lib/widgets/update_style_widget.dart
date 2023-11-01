@@ -7,13 +7,11 @@ import 'package:eliud_stl_mona/tools/font_tools.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widgets/font_widget.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widgets/page_transition_animation_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'package:eliud_core/model/model_export.dart';
 import 'package:eliud_stl_mona/model/model_export.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:flutter/services.dart';
 
-import '../mona_style_family.dart';
 import '../styles/mona_minkey_style.dart';
 
 class UpdateStyleWidget extends StatefulWidget {

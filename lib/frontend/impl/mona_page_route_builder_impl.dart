@@ -1,11 +1,7 @@
-import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_page_route_builder.dart';
-import 'package:eliud_core/style/frontend/has_tabs.dart';
-import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/tools/router_builders.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorful_tab/flutter_colorful_tab.dart';
 
 import '../../styles/mona_style.dart';
 

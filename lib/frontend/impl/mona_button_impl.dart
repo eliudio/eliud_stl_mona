@@ -1,7 +1,6 @@
 import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
-import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +50,7 @@ class MonaButtonImpl implements HasButton {
     var returnMe = OutlinedButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        primary: Colors.pink,
+        foregroundColor: Colors.pink,
       ),
 
       child: selected == null || selected == false

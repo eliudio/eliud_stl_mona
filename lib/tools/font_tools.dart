@@ -1,4 +1,3 @@
-import 'package:eliud_core/model/abstract_repository_singleton.dart';
 import 'package:eliud_core/model/model_export.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:eliud_stl_mona/model/font_model.dart';

@@ -15,16 +15,20 @@
 
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 import 'package:eliud_stl_mona/model/mona_style_attributes_repository.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_list_event.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_list_state.dart';
 import 'package:eliud_core/tools/query/query_tools.dart';
 
+import 'mona_style_attributes_model.dart';
+
+typedef List<MonaStyleAttributesModel?> FilterMonaStyleAttributesModels(List<MonaStyleAttributesModel?> values);
+
 
 
 class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, MonaStyleAttributesListState> {
+  final FilterMonaStyleAttributesModels? filter;
   final MonaStyleAttributesRepository _monaStyleAttributesRepository;
   StreamSubscription? _monaStyleAttributessListSubscription;
   EliudQuery? eliudQuery;
@@ -35,9 +39,8 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
   final bool? detailed;
   final int monaStyleAttributesLimit;
 
-  MonaStyleAttributesListBloc({this.paged, this.orderBy, this.descending, this.detailed, this.eliudQuery, required MonaStyleAttributesRepository monaStyleAttributesRepository, this.monaStyleAttributesLimit = 5})
-      : assert(monaStyleAttributesRepository != null),
-        _monaStyleAttributesRepository = monaStyleAttributesRepository,
+  MonaStyleAttributesListBloc({this.filter, this.paged, this.orderBy, this.descending, this.detailed, this.eliudQuery, required MonaStyleAttributesRepository monaStyleAttributesRepository, this.monaStyleAttributesLimit = 5})
+      : _monaStyleAttributesRepository = monaStyleAttributesRepository,
         super(MonaStyleAttributesListLoading()) {
     on <LoadMonaStyleAttributesList> ((event, emit) {
       if ((detailed == null) || (!detailed!)) {
@@ -78,11 +81,19 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
     });
   }
 
+  List<MonaStyleAttributesModel?> _filter(List<MonaStyleAttributesModel?> original) {
+    if (filter != null) {
+      return filter!(original);
+    } else {
+      return original;
+    }
+  }
+
   Future<void> _mapLoadMonaStyleAttributesListToState() async {
     int amountNow =  (state is MonaStyleAttributesListLoaded) ? (state as MonaStyleAttributesListLoaded).values!.length : 0;
     _monaStyleAttributessListSubscription?.cancel();
     _monaStyleAttributessListSubscription = _monaStyleAttributesRepository.listen(
-          (list) => add(MonaStyleAttributesListUpdated(value: list, mightHaveMore: amountNow != list.length)),
+          (list) => add(MonaStyleAttributesListUpdated(value: _filter(list), mightHaveMore: amountNow != list.length)),
       orderBy: orderBy,
       descending: descending,
       eliudQuery: eliudQuery,
@@ -94,7 +105,7 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
     int amountNow =  (state is MonaStyleAttributesListLoaded) ? (state as MonaStyleAttributesListLoaded).values!.length : 0;
     _monaStyleAttributessListSubscription?.cancel();
     _monaStyleAttributessListSubscription = _monaStyleAttributesRepository.listenWithDetails(
-            (list) => add(MonaStyleAttributesListUpdated(value: list, mightHaveMore: amountNow != list.length)),
+            (list) => add(MonaStyleAttributesListUpdated(value: _filter(list), mightHaveMore: amountNow != list.length)),
         orderBy: orderBy,
         descending: descending,
         eliudQuery: eliudQuery,

@@ -1,15 +1,5 @@
-import 'package:eliud_core/model/background_model.dart';
-import 'package:eliud_core/model/decoration_color_model.dart';
-import 'package:eliud_core/model/rgb_model.dart';
-import 'package:eliud_core/style/style.dart';
-import 'package:eliud_core/style/style_family.dart';
-import 'package:eliud_core/style/tools/backgrounds.dart';
 import 'package:eliud_stl_mona/model/entity_export.dart';
-import '../tools/font_tools.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
-import 'package:eliud_stl_mona/tools/colors.dart';
-import 'mona_style.dart';
-import 'mona_shared.dart';
 
 class MonaThomasStyle {
   static Future<MonaStyleAttributesModel> defaultStyleAttributesModel(String appId, String documentID) async {

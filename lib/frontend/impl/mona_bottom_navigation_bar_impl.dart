@@ -1,4 +1,3 @@
-import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/member_model.dart';
@@ -8,7 +7,6 @@ import 'package:eliud_core/style/frontend/types.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../styles/mona_style.dart';
 
@@ -76,7 +74,7 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
         child: Theme(
             data: Theme.of(context).copyWith(
                 textTheme: Theme.of(context).textTheme.copyWith(
-                      bodyText2: FontTools.textStyle(
+                      bodyMedium: FontTools.textStyle(
                           _monaStyle.monaStyleAttributesModel.h4),
                     )), // sets the inactive color of the `BottomNavigationBar`
             child: BottomNavigationBar(

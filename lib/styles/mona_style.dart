@@ -3,27 +3,15 @@ import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/frontend/has_button.dart';
 import 'package:eliud_core/style/frontend/has_dialog.dart';
 import 'package:eliud_core/style/style_family.dart';
-import 'package:eliud_core/style/style_registry.dart';
-import 'package:eliud_core/tools/action/action_model.dart';
-import 'package:eliud_core/tools/enums.dart';
 import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widget.dart';
 import 'package:flutter/widgets.dart';
 
 import '../frontend/mona_frontend_style.dart';
-import 'package:eliud_core/model/abstract_repository_singleton.dart';
-import 'package:eliud_core/model/background_model.dart';
-import 'package:eliud_core/model/decoration_color_model.dart';
-import 'package:eliud_core/style/admin/admin_form_style.dart';
-import 'package:eliud_core/style/admin/admin_list_style.dart';
-import 'package:eliud_core/style/frontend/frontend_style.dart';
 import 'package:eliud_core/style/style.dart';
-import 'package:eliud_core/style/tools/backgrounds.dart';
 import '../admin/mona_admin_form_style.dart';
 import '../admin/mona_admin_list_style.dart';
-import '../model/mona_style_attributes_form.dart';
 import '../model/mona_style_attributes_model.dart';
-import '../mona_style_family.dart';
 
 /*
  * We should consider to put more in the style API. For example we could include the appBar, the bottom navigation bar, the drawer, popup menu, ...

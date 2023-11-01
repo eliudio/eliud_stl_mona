@@ -6,7 +6,6 @@ import 'package:eliud_core/tools/widgets/background_widgets/style_color_widget.d
 import 'package:eliud_stl_mona/model/font_model.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import 'etc/string_combobox_widget.dart';
 

@@ -16,10 +16,8 @@
 
 import '../model/internal_component.dart';
 import 'package:eliud_core/core/registry.dart';
-import 'package:eliud_core/tools/component/component_spec.dart';
 import 'abstract_repository_singleton.dart';
 
-import 'package:eliud_stl_mona/model/internal_component.dart';
 
 
 

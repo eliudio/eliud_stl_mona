@@ -3,11 +3,8 @@ import 'package:eliud_core/style/_default/frontend/helper/dialog/dialog_field.da
 import 'package:eliud_core/style/_default/frontend/helper/dialog/dialog_helper.dart';
 import 'package:eliud_core/style/frontend/has_dialog_widget.dart';
 import 'package:eliud_core/style/frontend/types.dart';
-import 'package:eliud_core/style/style.dart';
 import 'package:eliud_core/tools/screen_size.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../styles/mona_style.dart';
 

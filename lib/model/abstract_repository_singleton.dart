@@ -14,9 +14,6 @@
 */
 
 import '../model/mona_style_attributes_repository.dart';
-import 'package:eliud_core/core/blocs/access/repo/user_repository.dart';
-import 'package:eliud_core/tools/common_tools.dart';
-import 'package:eliud_core/tools/main_abstract_repository_singleton.dart';
 import 'package:eliud_core/package/package.dart';
 
 MonaStyleAttributesRepository? monaStyleAttributesRepository({ String? appId }) => AbstractRepositorySingleton.singleton.monaStyleAttributesRepository(appId);

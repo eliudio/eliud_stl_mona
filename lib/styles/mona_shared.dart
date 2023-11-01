@@ -3,7 +3,6 @@ import 'package:eliud_core/model/decoration_color_model.dart';
 import 'package:eliud_core/model/rgb_model.dart';
 import 'package:eliud_core/model/shadow_model.dart';
 import 'package:eliud_core/style/tools/backgrounds.dart';
-import '../tools/font_tools.dart';
 import 'package:eliud_stl_mona/tools/colors.dart';
 
 abstract class MonaShared {
