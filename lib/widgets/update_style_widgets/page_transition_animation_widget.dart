@@ -6,34 +6,42 @@ import 'package:eliud_core/tools/helpers/parse_helper.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:flutter/material.dart';
 
-typedef PageTransitionFeedback(PageTransitionAnimation pageTransitionAnimation);
-typedef RouteAnimationDurationFeedback(int routeAnimationDuration);
+typedef PageTransitionFeedback = Function(
+    PageTransitionAnimation pageTransitionAnimation);
+typedef RouteAnimationDurationFeedback = Function(int routeAnimationDuration);
 
 class PageTransitionAnimationWidget extends StatefulWidget {
   final AppModel app;
-  PageTransitionAnimation pageTransitionAnimation;
-  int routeAnimationDuration;
+  final PageTransitionAnimation pageTransitionAnimation;
+  final int routeAnimationDuration;
   final String label;
   final PageTransitionFeedback pageTransitionFeedback;
   final RouteAnimationDurationFeedback routeAnimationDurationFeedback;
 
   PageTransitionAnimationWidget({
-    Key? key,
+    super.key,
     required this.app,
     required this.label,
     required this.pageTransitionAnimation,
     required this.routeAnimationDuration,
     required this.pageTransitionFeedback,
     required this.routeAnimationDurationFeedback,
-  }) : super(key: key);
+  });
 
   @override
-  _PageTransitionAnimationState createState() =>
-      _PageTransitionAnimationState();
+  State<PageTransitionAnimationWidget> createState() =>
+      _PageTransitionAnimationState(
+          pageTransitionAnimation, routeAnimationDuration);
 }
 
 class _PageTransitionAnimationState
     extends State<PageTransitionAnimationWidget> {
+  PageTransitionAnimation pageTransitionAnimation;
+  int routeAnimationDuration;
+
+  _PageTransitionAnimationState(
+      this.pageTransitionAnimation, this.routeAnimationDuration);
+
   @override
   Widget build(BuildContext context) {
     return topicContainer(widget.app, context,
@@ -50,65 +58,65 @@ class _PageTransitionAnimationState
                     widget.app,
                     context,
                     0,
-                    widget.pageTransitionAnimation.index,
+                    pageTransitionAnimation.index,
                     'Slide Right To Left',
                     'Slide Right To Left', (int? newValue) {
                   setState(() {
-                    widget.pageTransitionAnimation =
+                    pageTransitionAnimation =
                         toPageTransitionAnimation(newValue);
-                    widget.pageTransitionFeedback(widget.pageTransitionAnimation);
+                    widget.pageTransitionFeedback(pageTransitionAnimation);
                   });
                 }),
                 radioListTile(
                     widget.app,
                     context,
                     1,
-                    widget.pageTransitionAnimation.index,
+                    pageTransitionAnimation.index,
                     'Slide Bottom To Top',
                     'Slide Bottom To Top', (int? newValue) {
                   setState(() {
-                    widget.pageTransitionAnimation =
+                    pageTransitionAnimation =
                         toPageTransitionAnimation(newValue);
-                    widget.pageTransitionFeedback(widget.pageTransitionAnimation);
+                    widget.pageTransitionFeedback(pageTransitionAnimation);
                   });
                 }),
                 radioListTile(
                     widget.app,
                     context,
                     2,
-                    widget.pageTransitionAnimation.index,
+                    pageTransitionAnimation.index,
                     'Scale Route',
                     'Scale Route', (int? newValue) {
                   setState(() {
-                    widget.pageTransitionAnimation =
+                    pageTransitionAnimation =
                         toPageTransitionAnimation(newValue);
-                    widget.pageTransitionFeedback(widget.pageTransitionAnimation);
+                    widget.pageTransitionFeedback(pageTransitionAnimation);
                   });
                 }),
                 radioListTile(
                     widget.app,
                     context,
                     3,
-                    widget.pageTransitionAnimation.index,
+                    pageTransitionAnimation.index,
                     'Rotation Route',
                     'Rotation Route', (int? newValue) {
                   setState(() {
-                    widget.pageTransitionAnimation =
+                    pageTransitionAnimation =
                         toPageTransitionAnimation(newValue);
-                    widget.pageTransitionFeedback(widget.pageTransitionAnimation);
+                    widget.pageTransitionFeedback(pageTransitionAnimation);
                   });
                 }),
                 radioListTile(
                     widget.app,
                     context,
                     4,
-                    widget.pageTransitionAnimation.index,
+                    pageTransitionAnimation.index,
                     'Fade Route',
                     'Fade Route', (int? newValue) {
                   setState(() {
-                    widget.pageTransitionAnimation =
+                    pageTransitionAnimation =
                         toPageTransitionAnimation(newValue);
-                    widget.pageTransitionFeedback(widget.pageTransitionAnimation);
+                    widget.pageTransitionFeedback(pageTransitionAnimation);
                   });
                 }),
               ]),
@@ -122,13 +130,15 @@ class _PageTransitionAnimationState
                     title: dialogField(
                       widget.app,
                       context,
-                      initialValue: widget.routeAnimationDuration.toString(),
+                      initialValue: routeAnimationDuration.toString(),
                       valueChanged: (value) {
                         setState(() {
-                          widget.routeAnimationDuration = int_parse(value);
+                          routeAnimationDuration = intParse(value);
                         });
                       },
-                      keyboardType: TextInputType.numberWithOptions(signed: false, ),
+                      keyboardType: TextInputType.numberWithOptions(
+                        signed: false,
+                      ),
                       decoration: const InputDecoration(
                         hintText: 'Duration',
                         labelText: 'Duration',

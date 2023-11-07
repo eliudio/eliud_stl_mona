@@ -15,11 +15,9 @@
 
 import 'package:eliud_stl_mona/model/mona_style_attributes_repository.dart';
 
-
 import 'package:eliud_stl_mona/model/repository_export.dart';
 import 'package:eliud_stl_mona/model/model_export.dart';
 import 'package:eliud_stl_mona/model/entity_export.dart';
-
 
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -29,90 +27,122 @@ import 'package:eliud_core/tools/common_tools.dart';
 
 class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
   @override
-  MonaStyleAttributesEntity? fromMap(Object? o, {Map<String, String>? newDocumentIds}) {
+  MonaStyleAttributesEntity? fromMap(Object? o,
+      {Map<String, String>? newDocumentIds}) {
     return MonaStyleAttributesEntity.fromMap(o, newDocumentIds: newDocumentIds);
   }
 
-  Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value) {
-    return MonaStyleAttributesCollection.doc(documentID).set(value.toDocument()).then((_) => value);
+  @override
+  Future<MonaStyleAttributesEntity> addEntity(
+      String documentID, MonaStyleAttributesEntity value) {
+    return monaStyleAttributesCollection
+        .doc(documentID)
+        .set(value.toDocument())
+        .then((_) => value);
   }
 
-  Future<MonaStyleAttributesEntity> updateEntity(String documentID, MonaStyleAttributesEntity value) {
-    return MonaStyleAttributesCollection.doc(documentID).update(value.toDocument()).then((_) => value);
+  @override
+  Future<MonaStyleAttributesEntity> updateEntity(
+      String documentID, MonaStyleAttributesEntity value) {
+    return monaStyleAttributesCollection
+        .doc(documentID)
+        .update(value.toDocument())
+        .then((_) => value);
   }
 
+  @override
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value) {
-    return MonaStyleAttributesCollection.doc(value.documentID).set(value.toEntity(appId: appId).toDocument()).then((_) => value);
+    return monaStyleAttributesCollection
+        .doc(value.documentID)
+        .set(value.toEntity(appId: appId).toDocument())
+        .then((_) => value);
   }
 
+  @override
   Future<void> delete(MonaStyleAttributesModel value) {
-    return MonaStyleAttributesCollection.doc(value.documentID).delete();
+    return monaStyleAttributesCollection.doc(value.documentID).delete();
   }
 
+  @override
   Future<MonaStyleAttributesModel> update(MonaStyleAttributesModel value) {
-    return MonaStyleAttributesCollection.doc(value.documentID).update(value.toEntity(appId: appId).toDocument()).then((_) => value);
+    return monaStyleAttributesCollection
+        .doc(value.documentID)
+        .update(value.toEntity(appId: appId).toDocument())
+        .then((_) => value);
   }
 
   Future<MonaStyleAttributesModel?> _populateDoc(DocumentSnapshot value) async {
-    return MonaStyleAttributesModel.fromEntity(value.id, MonaStyleAttributesEntity.fromMap(value.data()));
+    return MonaStyleAttributesModel.fromEntity(
+        value.id, MonaStyleAttributesEntity.fromMap(value.data()));
   }
 
-  Future<MonaStyleAttributesModel?> _populateDocPlus(DocumentSnapshot value) async {
-    return MonaStyleAttributesModel.fromEntityPlus(value.id, MonaStyleAttributesEntity.fromMap(value.data()), appId: appId);  }
+  Future<MonaStyleAttributesModel?> _populateDocPlus(
+      DocumentSnapshot value) async {
+    return MonaStyleAttributesModel.fromEntityPlus(
+        value.id, MonaStyleAttributesEntity.fromMap(value.data()),
+        appId: appId);
+  }
 
-  Future<MonaStyleAttributesEntity?> getEntity(String? id, {Function(Exception)? onError}) async {
+  @override
+  Future<MonaStyleAttributesEntity?> getEntity(String? id,
+      {Function(Exception)? onError}) async {
     try {
-      var collection = MonaStyleAttributesCollection.doc(id);
+      var collection = monaStyleAttributesCollection.doc(id);
       var doc = await collection.get();
       return MonaStyleAttributesEntity.fromMap(doc.data());
-    } on Exception catch(e) {
+    } on Exception catch (e) {
       if (onError != null) {
         onError(e);
       } else {
         print("Error whilst retrieving MonaStyleAttributes with id $id");
         print("Exceptoin: $e");
       }
-    };
-return null;
+    }
+    return null;
   }
 
-  Future<MonaStyleAttributesModel?> get(String? id, {Function(Exception)? onError}) async {
+  @override
+  Future<MonaStyleAttributesModel?> get(String? id,
+      {Function(Exception)? onError}) async {
     try {
-      var collection = MonaStyleAttributesCollection.doc(id);
+      var collection = monaStyleAttributesCollection.doc(id);
       var doc = await collection.get();
       return await _populateDocPlus(doc);
-    } on Exception catch(e) {
+    } on Exception catch (e) {
       if (onError != null) {
         onError(e);
       } else {
         print("Error whilst retrieving MonaStyleAttributes with id $id");
         print("Exceptoin: $e");
       }
-    };
-return null;
+    }
+    return null;
   }
 
-  StreamSubscription<List<MonaStyleAttributesModel?>> listen(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery}) {
+  @override
+  StreamSubscription<List<MonaStyleAttributesModel?>> listen(
+      MonaStyleAttributesModelTrigger trigger,
+      {String? orderBy,
+      bool? descending,
+      Object? startAfter,
+      int? limit,
+      int? privilegeLevel,
+      EliudQuery? eliudQuery}) {
     Stream<List<MonaStyleAttributesModel?>> stream;
-    stream = getQuery(getCollection(), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
+    stream = getQuery(getCollection(),
+            orderBy: orderBy,
+            descending: descending,
+            startAfter: startAfter as DocumentSnapshot?,
+            limit: limit,
+            privilegeLevel: privilegeLevel,
+            eliudQuery: eliudQuery,
+            appId: appId)!
+        .snapshots()
 //  see comment listen(...) above
-//  stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
+//  stream = getQuery(monaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
         .asyncMap((data) async {
-      return await Future.wait(data.docs.map((doc) =>  _populateDoc(doc)).toList());
-    });
-
-    return stream.listen((listOfMonaStyleAttributesModels) {
-      trigger(listOfMonaStyleAttributesModels);
-    });
-  }
-
-  StreamSubscription<List<MonaStyleAttributesModel?>> listenWithDetails(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery}) {
-    Stream<List<MonaStyleAttributesModel?>> stream;
-    stream = getQuery(getCollection(), orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
-//  see comment listen(...) above
-//  stream = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
-        .asyncMap((data) async {
-      return await Future.wait(data.docs.map((doc) =>  _populateDocPlus(doc)).toList());
+      return await Future.wait(
+          data.docs.map((doc) => _populateDoc(doc)).toList());
     });
 
     return stream.listen((listOfMonaStyleAttributesModels) {
@@ -121,8 +151,42 @@ return null;
   }
 
   @override
-  StreamSubscription<MonaStyleAttributesModel?> listenTo(String documentId, MonaStyleAttributesChanged changed, {MonaStyleAttributesErrorHandler? errorHandler}) {
-    var stream = MonaStyleAttributesCollection.doc(documentId)
+  StreamSubscription<List<MonaStyleAttributesModel?>> listenWithDetails(
+      MonaStyleAttributesModelTrigger trigger,
+      {String? orderBy,
+      bool? descending,
+      Object? startAfter,
+      int? limit,
+      int? privilegeLevel,
+      EliudQuery? eliudQuery}) {
+    Stream<List<MonaStyleAttributesModel?>> stream;
+    stream = getQuery(getCollection(),
+            orderBy: orderBy,
+            descending: descending,
+            startAfter: startAfter as DocumentSnapshot?,
+            limit: limit,
+            privilegeLevel: privilegeLevel,
+            eliudQuery: eliudQuery,
+            appId: appId)!
+        .snapshots()
+//  see comment listen(...) above
+//  stream = getQuery(monaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots()
+        .asyncMap((data) async {
+      return await Future.wait(
+          data.docs.map((doc) => _populateDocPlus(doc)).toList());
+    });
+
+    return stream.listen((listOfMonaStyleAttributesModels) {
+      trigger(listOfMonaStyleAttributesModels);
+    });
+  }
+
+  @override
+  StreamSubscription<MonaStyleAttributesModel?> listenTo(
+      String documentId, MonaStyleAttributesChanged changed,
+      {MonaStyleAttributesErrorHandler? errorHandler}) {
+    var stream = monaStyleAttributesCollection
+        .doc(documentId)
         .snapshots()
         .asyncMap((data) {
       return _populateDocPlus(data);
@@ -138,33 +202,87 @@ return null;
     return theStream;
   }
 
-  Stream<List<MonaStyleAttributesModel?>> values({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) {
+  @override
+  Stream<List<MonaStyleAttributesModel?>> values(
+      {String? orderBy,
+      bool? descending,
+      Object? startAfter,
+      int? limit,
+      SetLastDoc? setLastDoc,
+      int? privilegeLevel,
+      EliudQuery? eliudQuery}) {
     DocumentSnapshot? lastDoc;
-    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots().asyncMap((snapshot) {
+    Stream<List<MonaStyleAttributesModel?>> values = getQuery(
+            monaStyleAttributesCollection,
+            orderBy: orderBy,
+            descending: descending,
+            startAfter: startAfter as DocumentSnapshot?,
+            limit: limit,
+            privilegeLevel: privilegeLevel,
+            eliudQuery: eliudQuery,
+            appId: appId)!
+        .snapshots()
+        .asyncMap((snapshot) {
       return Future.wait(snapshot.docs.map((doc) {
         lastDoc = doc;
         return _populateDoc(doc);
       }).toList());
     });
     if ((setLastDoc != null) && (lastDoc != null)) setLastDoc(lastDoc);
-    return _values;
+    return values;
   }
 
-  Stream<List<MonaStyleAttributesModel?>> valuesWithDetails({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) {
+  @override
+  Stream<List<MonaStyleAttributesModel?>> valuesWithDetails(
+      {String? orderBy,
+      bool? descending,
+      Object? startAfter,
+      int? limit,
+      SetLastDoc? setLastDoc,
+      int? privilegeLevel,
+      EliudQuery? eliudQuery}) {
     DocumentSnapshot? lastDoc;
-    Stream<List<MonaStyleAttributesModel?>> _values = getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?, limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.snapshots().asyncMap((snapshot) {
+    Stream<List<MonaStyleAttributesModel?>> values = getQuery(
+            monaStyleAttributesCollection,
+            orderBy: orderBy,
+            descending: descending,
+            startAfter: startAfter as DocumentSnapshot?,
+            limit: limit,
+            privilegeLevel: privilegeLevel,
+            eliudQuery: eliudQuery,
+            appId: appId)!
+        .snapshots()
+        .asyncMap((snapshot) {
       return Future.wait(snapshot.docs.map((doc) {
         lastDoc = doc;
         return _populateDocPlus(doc);
       }).toList());
     });
     if ((setLastDoc != null) && (lastDoc != null)) setLastDoc(lastDoc);
-    return _values;
+    return values;
   }
 
-  Future<List<MonaStyleAttributesModel?>> valuesList({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) async {
+  @override
+  Future<List<MonaStyleAttributesModel?>> valuesList(
+      {String? orderBy,
+      bool? descending,
+      Object? startAfter,
+      int? limit,
+      SetLastDoc? setLastDoc,
+      int? privilegeLevel,
+      EliudQuery? eliudQuery}) async {
     DocumentSnapshot? lastDoc;
-    List<MonaStyleAttributesModel?> _values = await getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.get().then((value) {
+    List<MonaStyleAttributesModel?> values = await getQuery(
+            monaStyleAttributesCollection,
+            orderBy: orderBy,
+            descending: descending,
+            startAfter: startAfter as DocumentSnapshot?,
+            limit: limit,
+            privilegeLevel: privilegeLevel,
+            eliudQuery: eliudQuery,
+            appId: appId)!
+        .get()
+        .then((value) {
       var list = value.docs;
       return Future.wait(list.map((doc) {
         lastDoc = doc;
@@ -172,12 +290,30 @@ return null;
       }).toList());
     });
     if ((setLastDoc != null) && (lastDoc != null)) setLastDoc(lastDoc);
-    return _values;
+    return values;
   }
 
-  Future<List<MonaStyleAttributesModel?>> valuesListWithDetails({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery }) async {
+  @override
+  Future<List<MonaStyleAttributesModel?>> valuesListWithDetails(
+      {String? orderBy,
+      bool? descending,
+      Object? startAfter,
+      int? limit,
+      SetLastDoc? setLastDoc,
+      int? privilegeLevel,
+      EliudQuery? eliudQuery}) async {
     DocumentSnapshot? lastDoc;
-    List<MonaStyleAttributesModel?> _values = await getQuery(MonaStyleAttributesCollection, orderBy: orderBy,  descending: descending,  startAfter: startAfter as DocumentSnapshot?,  limit: limit, privilegeLevel: privilegeLevel, eliudQuery: eliudQuery, appId: appId)!.get().then((value) {
+    List<MonaStyleAttributesModel?> values = await getQuery(
+            monaStyleAttributesCollection,
+            orderBy: orderBy,
+            descending: descending,
+            startAfter: startAfter as DocumentSnapshot?,
+            limit: limit,
+            privilegeLevel: privilegeLevel,
+            eliudQuery: eliudQuery,
+            appId: appId)!
+        .get()
+        .then((value) {
       var list = value.docs;
       return Future.wait(list.map((doc) {
         lastDoc = doc;
@@ -185,37 +321,44 @@ return null;
       }).toList());
     });
     if ((setLastDoc != null) && (lastDoc != null)) setLastDoc(lastDoc);
-    return _values;
+    return values;
   }
 
+  @override
   void flush() {}
 
+  @override
   Future<void> deleteAll() {
-    return MonaStyleAttributesCollection.get().then((snapshot) {
-      for (DocumentSnapshot ds in snapshot.docs){
+    return monaStyleAttributesCollection.get().then((snapshot) {
+      for (DocumentSnapshot ds in snapshot.docs) {
         ds.reference.delete();
       }
     });
   }
 
+  @override
   dynamic getSubCollection(String documentId, String name) {
-    return MonaStyleAttributesCollection.doc(documentId).collection(name);
+    return monaStyleAttributesCollection.doc(documentId).collection(name);
   }
 
+  @override
   String? timeStampToString(dynamic timeStamp) {
     return firestoreTimeStampToString(timeStamp);
-  } 
-
-  Future<MonaStyleAttributesModel?> changeValue(String documentId, String fieldName, num changeByThisValue) {
-    var change = FieldValue.increment(changeByThisValue);
-    return MonaStyleAttributesCollection.doc(documentId).update({fieldName: change}).then((v) => get(documentId));
   }
 
+  @override
+  Future<MonaStyleAttributesModel?> changeValue(
+      String documentId, String fieldName, num changeByThisValue) {
+    var change = FieldValue.increment(changeByThisValue);
+    return monaStyleAttributesCollection
+        .doc(documentId)
+        .update({fieldName: change}).then((v) => get(documentId));
+  }
 
   final String appId;
-  MonaStyleAttributesFirestore(this.getCollection, this.appId): MonaStyleAttributesCollection = getCollection();
+  MonaStyleAttributesFirestore(this.getCollection, this.appId)
+      : monaStyleAttributesCollection = getCollection();
 
-  final CollectionReference MonaStyleAttributesCollection;
+  final CollectionReference monaStyleAttributesCollection;
   final GetCollection getCollection;
 }
-

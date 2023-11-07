@@ -23,11 +23,11 @@ import 'package:eliud_core/tools/query/query_tools.dart';
 
 import 'mona_style_attributes_model.dart';
 
-typedef List<MonaStyleAttributesModel?> FilterMonaStyleAttributesModels(List<MonaStyleAttributesModel?> values);
+typedef FilterMonaStyleAttributesModels = List<MonaStyleAttributesModel?>
+    Function(List<MonaStyleAttributesModel?> values);
 
-
-
-class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, MonaStyleAttributesListState> {
+class MonaStyleAttributesListBloc
+    extends Bloc<MonaStyleAttributesListEvent, MonaStyleAttributesListState> {
   final FilterMonaStyleAttributesModels? filter;
   final MonaStyleAttributesRepository _monaStyleAttributesRepository;
   StreamSubscription? _monaStyleAttributessListSubscription;
@@ -39,23 +39,32 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
   final bool? detailed;
   final int monaStyleAttributesLimit;
 
-  MonaStyleAttributesListBloc({this.filter, this.paged, this.orderBy, this.descending, this.detailed, this.eliudQuery, required MonaStyleAttributesRepository monaStyleAttributesRepository, this.monaStyleAttributesLimit = 5})
+  MonaStyleAttributesListBloc(
+      {this.filter,
+      this.paged,
+      this.orderBy,
+      this.descending,
+      this.detailed,
+      this.eliudQuery,
+      required MonaStyleAttributesRepository monaStyleAttributesRepository,
+      this.monaStyleAttributesLimit = 5})
       : _monaStyleAttributesRepository = monaStyleAttributesRepository,
         super(MonaStyleAttributesListLoading()) {
-    on <LoadMonaStyleAttributesList> ((event, emit) {
+    on<LoadMonaStyleAttributesList>((event, emit) {
       if ((detailed == null) || (!detailed!)) {
         _mapLoadMonaStyleAttributesListToState();
       } else {
         _mapLoadMonaStyleAttributesListWithDetailsToState();
       }
     });
-    
-    on <NewPage> ((event, emit) {
-      pages = pages + 1; // it doesn't matter so much if we increase pages beyond the end
+
+    on<NewPage>((event, emit) {
+      pages = pages +
+          1; // it doesn't matter so much if we increase pages beyond the end
       _mapLoadMonaStyleAttributesListWithDetailsToState();
     });
-    
-    on <MonaStyleAttributesChangeQuery> ((event, emit) {
+
+    on<MonaStyleAttributesChangeQuery>((event, emit) {
       eliudQuery = event.newQuery;
       if ((detailed == null) || (!detailed!)) {
         _mapLoadMonaStyleAttributesListToState();
@@ -63,25 +72,26 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
         _mapLoadMonaStyleAttributesListWithDetailsToState();
       }
     });
-      
-    on <AddMonaStyleAttributesList> ((event, emit) async {
+
+    on<AddMonaStyleAttributesList>((event, emit) async {
       await _mapAddMonaStyleAttributesListToState(event);
     });
-    
-    on <UpdateMonaStyleAttributesList> ((event, emit) async {
+
+    on<UpdateMonaStyleAttributesList>((event, emit) async {
       await _mapUpdateMonaStyleAttributesListToState(event);
     });
-    
-    on <DeleteMonaStyleAttributesList> ((event, emit) async {
+
+    on<DeleteMonaStyleAttributesList>((event, emit) async {
       await _mapDeleteMonaStyleAttributesListToState(event);
     });
-    
-    on <MonaStyleAttributesListUpdated> ((event, emit) {
+
+    on<MonaStyleAttributesListUpdated>((event, emit) {
       emit(_mapMonaStyleAttributesListUpdatedToState(event));
     });
   }
 
-  List<MonaStyleAttributesModel?> _filter(List<MonaStyleAttributesModel?> original) {
+  List<MonaStyleAttributesModel?> _filter(
+      List<MonaStyleAttributesModel?> original) {
     if (filter != null) {
       return filter!(original);
     } else {
@@ -90,44 +100,57 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
   }
 
   Future<void> _mapLoadMonaStyleAttributesListToState() async {
-    int amountNow =  (state is MonaStyleAttributesListLoaded) ? (state as MonaStyleAttributesListLoaded).values!.length : 0;
+    int amountNow = (state is MonaStyleAttributesListLoaded)
+        ? (state as MonaStyleAttributesListLoaded).values!.length
+        : 0;
     _monaStyleAttributessListSubscription?.cancel();
-    _monaStyleAttributessListSubscription = _monaStyleAttributesRepository.listen(
-          (list) => add(MonaStyleAttributesListUpdated(value: _filter(list), mightHaveMore: amountNow != list.length)),
-      orderBy: orderBy,
-      descending: descending,
-      eliudQuery: eliudQuery,
-      limit: ((paged != null) && paged!) ? pages * monaStyleAttributesLimit : null
-    );
+    _monaStyleAttributessListSubscription =
+        _monaStyleAttributesRepository.listen(
+            (list) => add(MonaStyleAttributesListUpdated(
+                value: _filter(list), mightHaveMore: amountNow != list.length)),
+            orderBy: orderBy,
+            descending: descending,
+            eliudQuery: eliudQuery,
+            limit: ((paged != null) && paged!)
+                ? pages * monaStyleAttributesLimit
+                : null);
   }
 
   Future<void> _mapLoadMonaStyleAttributesListWithDetailsToState() async {
-    int amountNow =  (state is MonaStyleAttributesListLoaded) ? (state as MonaStyleAttributesListLoaded).values!.length : 0;
+    int amountNow = (state is MonaStyleAttributesListLoaded)
+        ? (state as MonaStyleAttributesListLoaded).values!.length
+        : 0;
     _monaStyleAttributessListSubscription?.cancel();
-    _monaStyleAttributessListSubscription = _monaStyleAttributesRepository.listenWithDetails(
-            (list) => add(MonaStyleAttributesListUpdated(value: _filter(list), mightHaveMore: amountNow != list.length)),
-        orderBy: orderBy,
-        descending: descending,
-        eliudQuery: eliudQuery,
-        limit: ((paged != null) && paged!) ? pages * monaStyleAttributesLimit : null
-    );
+    _monaStyleAttributessListSubscription =
+        _monaStyleAttributesRepository.listenWithDetails(
+            (list) => add(MonaStyleAttributesListUpdated(
+                value: _filter(list), mightHaveMore: amountNow != list.length)),
+            orderBy: orderBy,
+            descending: descending,
+            eliudQuery: eliudQuery,
+            limit: ((paged != null) && paged!)
+                ? pages * monaStyleAttributesLimit
+                : null);
   }
 
-  Future<void> _mapAddMonaStyleAttributesListToState(AddMonaStyleAttributesList event) async {
+  Future<void> _mapAddMonaStyleAttributesListToState(
+      AddMonaStyleAttributesList event) async {
     var value = event.value;
     if (value != null) {
       await _monaStyleAttributesRepository.add(value);
     }
   }
 
-  Future<void> _mapUpdateMonaStyleAttributesListToState(UpdateMonaStyleAttributesList event) async {
+  Future<void> _mapUpdateMonaStyleAttributesListToState(
+      UpdateMonaStyleAttributesList event) async {
     var value = event.value;
     if (value != null) {
       await _monaStyleAttributesRepository.update(value);
     }
   }
 
-  Future<void> _mapDeleteMonaStyleAttributesListToState(DeleteMonaStyleAttributesList event) async {
+  Future<void> _mapDeleteMonaStyleAttributesListToState(
+      DeleteMonaStyleAttributesList event) async {
     var value = event.value;
     if (value != null) {
       await _monaStyleAttributesRepository.delete(value);
@@ -135,7 +158,9 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
   }
 
   MonaStyleAttributesListLoaded _mapMonaStyleAttributesListUpdatedToState(
-      MonaStyleAttributesListUpdated event) => MonaStyleAttributesListLoaded(values: event.value, mightHaveMore: event.mightHaveMore);
+          MonaStyleAttributesListUpdated event) =>
+      MonaStyleAttributesListLoaded(
+          values: event.value, mightHaveMore: event.mightHaveMore);
 
   @override
   Future<void> close() {
@@ -143,5 +168,3 @@ class MonaStyleAttributesListBloc extends Bloc<MonaStyleAttributesListEvent, Mon
     return super.close();
   }
 }
-
-

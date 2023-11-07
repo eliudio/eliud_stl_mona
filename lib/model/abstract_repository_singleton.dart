@@ -16,11 +16,11 @@
 import '../model/mona_style_attributes_repository.dart';
 import 'package:eliud_core/package/package.dart';
 
-MonaStyleAttributesRepository? monaStyleAttributesRepository({ String? appId }) => AbstractRepositorySingleton.singleton.monaStyleAttributesRepository(appId);
+MonaStyleAttributesRepository? monaStyleAttributesRepository({String? appId}) =>
+    AbstractRepositorySingleton.singleton.monaStyleAttributesRepository(appId);
 
 abstract class AbstractRepositorySingleton {
-  static List<MemberCollectionInfo> collections = [
-  ];
+  static List<MemberCollectionInfo> collections = [];
   static late AbstractRepositorySingleton singleton;
 
   MonaStyleAttributesRepository? monaStyleAttributesRepository(String? appId);

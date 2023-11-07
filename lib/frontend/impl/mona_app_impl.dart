@@ -1,15 +1,20 @@
 import 'package:eliud_core/style/frontend/has_app.dart';
 import 'package:flutter/material.dart';
 
-import '../../styles/mona_style.dart';
-
 class MonaAppImpl implements HasApp {
-  final MonaStyle _monaStyle;
+//  final MonaStyle _monaStyle;
 
-  MonaAppImpl(this._monaStyle);
+  MonaAppImpl();
 
-    @override
-  Widget app({Key? key, GlobalKey<NavigatorState>? navigatorKey, GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey, String? initialRoute, RouteFactory? onGenerateRoute, RouteFactory? onUnknownRoute, required String title}) {
+  @override
+  Widget app(
+      {Key? key,
+      GlobalKey<NavigatorState>? navigatorKey,
+      GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey,
+      String? initialRoute,
+      RouteFactory? onGenerateRoute,
+      RouteFactory? onUnknownRoute,
+      required String title}) {
     return MaterialApp(
       key: key,
       debugShowCheckedModeBanner: false,
@@ -21,7 +26,7 @@ class MonaAppImpl implements HasApp {
       title: title,
     );
 
-  // on apple we would possibly use:
+    // on apple we would possibly use:
 /*
     return CupertinoApp(
     localizationsDelegates: [
@@ -38,5 +43,4 @@ class MonaAppImpl implements HasApp {
     );
 */
   }
-
 }

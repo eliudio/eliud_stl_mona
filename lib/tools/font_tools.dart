@@ -30,25 +30,25 @@ class FontTools {
   final RgbModel? linkColor;
 
   static final List<EliudFontWeight> _weights = <EliudFontWeight>[
-    EliudFontWeight.Bold,
-    EliudFontWeight.Bold,
-    EliudFontWeight.Bold,
-    EliudFontWeight.Bold,
-    EliudFontWeight.Normal
+    EliudFontWeight.bold,
+    EliudFontWeight.bold,
+    EliudFontWeight.bold,
+    EliudFontWeight.bold,
+    EliudFontWeight.normal
   ];
   static final List<EliudFontStyle> _styles = <EliudFontStyle>[
-    EliudFontStyle.Normal,
-    EliudFontStyle.Normal,
-    EliudFontStyle.Normal,
-    EliudFontStyle.Normal,
-    EliudFontStyle.Normal
+    EliudFontStyle.normal,
+    EliudFontStyle.normal,
+    EliudFontStyle.normal,
+    EliudFontStyle.normal,
+    EliudFontStyle.normal
   ];
   static List<EliudFontDecoration> decorations = <EliudFontDecoration>[
-    EliudFontDecoration.None,
-    EliudFontDecoration.None,
-    EliudFontDecoration.None,
-    EliudFontDecoration.None,
-    EliudFontDecoration.None
+    EliudFontDecoration.none,
+    EliudFontDecoration.none,
+    EliudFontDecoration.none,
+    EliudFontDecoration.none,
+    EliudFontDecoration.none
   ];
 
   static final double _textFieldHeaderSize = 14;
@@ -78,16 +78,31 @@ class FontTools {
         linkColor: MonaColors.ochre);
   }
 
-  static FontModel defaultH1() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h1Label))!;
-  static FontModel defaultH2() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h2Label))!;
-  static FontModel defaultH3() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h3Label))!;
-  static FontModel defaultH4() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h4Label))!;
-  static FontModel defaultH5() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.h5Label))!;
-  static FontModel defaultFontHighlight1() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.highlightLabel1))!;
-  static FontModel defaultFontHighlight2() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.highlightLabel2))!;
-  static FontModel defaultFontLink() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.linkLabel))!;
-  static FontModel defaultFontSmallText() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.smallLabel))!;
-  static FontModel defaultFontText() => defaultFontTools().getFont(FontTools.key(defaultStyleName, FontTools.dancingScriptLabel, FontTools.normalLabel))!;
+  static FontModel defaultH1() => defaultFontTools().getFont(FontTools.key(
+      defaultStyleName, FontTools.dancingScriptLabel, FontTools.h1Label))!;
+  static FontModel defaultH2() => defaultFontTools().getFont(FontTools.key(
+      defaultStyleName, FontTools.dancingScriptLabel, FontTools.h2Label))!;
+  static FontModel defaultH3() => defaultFontTools().getFont(FontTools.key(
+      defaultStyleName, FontTools.dancingScriptLabel, FontTools.h3Label))!;
+  static FontModel defaultH4() => defaultFontTools().getFont(FontTools.key(
+      defaultStyleName, FontTools.dancingScriptLabel, FontTools.h4Label))!;
+  static FontModel defaultH5() => defaultFontTools().getFont(FontTools.key(
+      defaultStyleName, FontTools.dancingScriptLabel, FontTools.h5Label))!;
+  static FontModel defaultFontHighlight1() =>
+      defaultFontTools().getFont(FontTools.key(defaultStyleName,
+          FontTools.dancingScriptLabel, FontTools.highlightLabel1))!;
+  static FontModel defaultFontHighlight2() =>
+      defaultFontTools().getFont(FontTools.key(defaultStyleName,
+          FontTools.dancingScriptLabel, FontTools.highlightLabel2))!;
+  static FontModel defaultFontLink() =>
+      defaultFontTools().getFont(FontTools.key(defaultStyleName,
+          FontTools.dancingScriptLabel, FontTools.linkLabel))!;
+  static FontModel defaultFontSmallText() =>
+      defaultFontTools().getFont(FontTools.key(defaultStyleName,
+          FontTools.dancingScriptLabel, FontTools.smallLabel))!;
+  static FontModel defaultFontText() =>
+      defaultFontTools().getFont(FontTools.key(defaultStyleName,
+          FontTools.dancingScriptLabel, FontTools.normalLabel))!;
 
   FontTools({
     required this.styleName,
@@ -101,12 +116,13 @@ class FontTools {
   }
 
   static String key(String styleName, String fontLabel, String styleLabel) {
-    return styleName + "-" + fontLabel + "-" + styleLabel;
+    return "$styleName-$fontLabel-$styleLabel";
   }
 
   FontModel _getHeaderFont(int fontIndex, int styleIndex) {
     var size = _sizes[styleIndex];
-    var documentID = key(styleName, fontKeys[fontIndex], _styleLabels[styleIndex]);
+    var documentID =
+        key(styleName, fontKeys[fontIndex], _styleLabels[styleIndex]);
     var fontModel = FontModel(
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
@@ -125,9 +141,9 @@ class FontTools {
     var fontModel = FontModel(
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
-      weight: EliudFontWeight.Normal,
-      style: EliudFontStyle.Normal,
-      decoration: EliudFontDecoration.None,
+      weight: EliudFontWeight.normal,
+      style: EliudFontStyle.normal,
+      decoration: EliudFontDecoration.none,
       color: defaultColor,
     );
     fonts[documentID] = fontModel;
@@ -140,9 +156,9 @@ class FontTools {
     var fontModel = FontModel(
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
-      weight: EliudFontWeight.Normal,
-      style: EliudFontStyle.Normal,
-      decoration: EliudFontDecoration.None,
+      weight: EliudFontWeight.normal,
+      style: EliudFontStyle.normal,
+      decoration: EliudFontDecoration.none,
       color: defaultColor,
     );
     fonts[documentID] = fontModel;
@@ -155,9 +171,9 @@ class FontTools {
     var fontModel = FontModel(
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
-      weight: EliudFontWeight.Normal,
-      style: EliudFontStyle.Normal,
-      decoration: EliudFontDecoration.None,
+      weight: EliudFontWeight.normal,
+      style: EliudFontStyle.normal,
+      decoration: EliudFontDecoration.none,
       color: defaultColor,
     );
     fonts[documentID] = fontModel;
@@ -170,9 +186,9 @@ class FontTools {
     var fontModel = FontModel(
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
-      weight: EliudFontWeight.MostThick,
-      style: EliudFontStyle.Italic,
-      decoration: EliudFontDecoration.None,
+      weight: EliudFontWeight.mostThick,
+      style: EliudFontStyle.italic,
+      decoration: EliudFontDecoration.none,
       color: highlightColor,
     );
     fonts[documentID] = fontModel;
@@ -185,9 +201,9 @@ class FontTools {
     var fontModel = FontModel(
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
-      weight: EliudFontWeight.MostThick,
-      style: EliudFontStyle.Normal,
-      decoration: EliudFontDecoration.Underline,
+      weight: EliudFontWeight.mostThick,
+      style: EliudFontStyle.normal,
+      decoration: EliudFontDecoration.underline,
       color: highlightColor,
     );
     fonts[documentID] = fontModel;
@@ -200,9 +216,9 @@ class FontTools {
     var fontModel = FontModel(
       fontName: fontNames[fontIndex],
       size: size.toDouble(),
-      weight: EliudFontWeight.Normal,
-      style: EliudFontStyle.Normal,
-      decoration: EliudFontDecoration.Underline,
+      weight: EliudFontWeight.normal,
+      style: EliudFontStyle.normal,
+      decoration: EliudFontDecoration.underline,
       color: linkColor,
     );
     fonts[documentID] = fontModel;
@@ -217,7 +233,7 @@ class FontTools {
 
   void _installNormalFontFor(int fontIndex) {
 //    for (var i = 0; i < _weights.length; i++) {
-      _getNormalFont(fontIndex);
+    _getNormalFont(fontIndex);
 //    }
   }
 
@@ -225,27 +241,27 @@ class FontTools {
     _getDecorationLabelStyleFont(fontIndex);
   }
 
-    void _installSmallFontFor(int fontIndex) {
+  void _installSmallFontFor(int fontIndex) {
 //    for (var i = 0; i < _weights.length; i++) {
-      _getSmallFont(fontIndex);
+    _getSmallFont(fontIndex);
 //    }
   }
 
   void _installHighlightFont1For(int fontIndex) {
 //    for (var i = 0; i < _weights.length; i++) {
-      _getHightlightFont1(fontIndex);
+    _getHightlightFont1(fontIndex);
 //    }
   }
 
   void _installHighlightFont2For(int fontIndex) {
 //    for (var i = 0; i < _weights.length; i++) {
-      _getHightlightFont2(fontIndex);
+    _getHightlightFont2(fontIndex);
 //    }
   }
 
   void _installLinkFontFor(int fontIndex) {
 //    for (var i = 0; i < _weights.length; i++) {
-      _getLinkFont(fontIndex);
+    _getLinkFont(fontIndex);
 //    }
   }
 
@@ -272,28 +288,27 @@ class FontTools {
   static FontWeight toFontWeight(EliudFontWeight? eliudFontWeight) {
     if (eliudFontWeight == null) return FontWeight.w400;
     switch (eliudFontWeight) {
-      case EliudFontWeight.Thin:
+      case EliudFontWeight.thin:
         return FontWeight.w100;
-      case EliudFontWeight.ExtraLight:
+      case EliudFontWeight.extraLight:
         return FontWeight.w200;
-      case EliudFontWeight.Light:
+      case EliudFontWeight.light:
         return FontWeight.w300;
-      case EliudFontWeight.Normal:
+      case EliudFontWeight.normal:
         return FontWeight.w400;
-      case EliudFontWeight.Medium:
+      case EliudFontWeight.medium:
         return FontWeight.w500;
-      case EliudFontWeight.SemiBold:
+      case EliudFontWeight.semiBold:
         return FontWeight.w600;
-      case EliudFontWeight.Bold:
+      case EliudFontWeight.bold:
         return FontWeight.w700;
-      case EliudFontWeight.ExtraBold:
+      case EliudFontWeight.extraBold:
         return FontWeight.w800;
-      case EliudFontWeight.MostThick:
+      case EliudFontWeight.mostThick:
         return FontWeight.w900;
-      case EliudFontWeight.Unknown:
+      case EliudFontWeight.unknown:
         return FontWeight.w900;
     }
-    return FontWeight.w400;
   }
 
   static TextStyle? textStyle(FontModel? fontModel) {

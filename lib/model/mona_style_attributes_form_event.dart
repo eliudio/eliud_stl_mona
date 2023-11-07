@@ -18,7 +18,6 @@ import 'package:meta/meta.dart';
 import 'package:eliud_core/model/model_export.dart';
 import 'package:eliud_stl_mona/model/model_export.dart';
 
-
 @immutable
 abstract class MonaStyleAttributesFormEvent extends Equatable {
   const MonaStyleAttributesFormEvent();
@@ -27,35 +26,37 @@ abstract class MonaStyleAttributesFormEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class InitialiseNewMonaStyleAttributesFormEvent extends MonaStyleAttributesFormEvent {
-}
+class InitialiseNewMonaStyleAttributesFormEvent
+    extends MonaStyleAttributesFormEvent {}
 
-
-class InitialiseMonaStyleAttributesFormEvent extends MonaStyleAttributesFormEvent {
+class InitialiseMonaStyleAttributesFormEvent
+    extends MonaStyleAttributesFormEvent {
   final MonaStyleAttributesModel? value;
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   InitialiseMonaStyleAttributesFormEvent({this.value});
 }
 
-class InitialiseMonaStyleAttributesFormNoLoadEvent extends MonaStyleAttributesFormEvent {
+class InitialiseMonaStyleAttributesFormNoLoadEvent
+    extends MonaStyleAttributesFormEvent {
   final MonaStyleAttributesModel? value;
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   InitialiseMonaStyleAttributesFormNoLoadEvent({this.value});
 }
 
-class ChangedMonaStyleAttributesDocumentID extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesDocumentID
+    extends MonaStyleAttributesFormEvent {
   final String? value;
 
   ChangedMonaStyleAttributesDocumentID({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesDocumentID{ value: $value }';
@@ -67,166 +68,192 @@ class ChangedMonaStyleAttributesAppId extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesAppId({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesAppId{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFormBackground extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFormBackground
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesFormBackground({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFormBackground{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFormBackground{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesAppBackground extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesAppBackground
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesAppBackground({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesAppBackground{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesAppBackground{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFormGroupTitleColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFormGroupTitleColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesFormGroupTitleColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFormGroupTitleColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFormGroupTitleColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFormFieldTextColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFormFieldTextColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesFormFieldTextColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFormFieldTextColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFormFieldTextColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFormFieldHeaderColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFormFieldHeaderColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesFormFieldHeaderColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFormFieldHeaderColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFormFieldHeaderColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFormFieldFocusColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFormFieldFocusColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesFormFieldFocusColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFormFieldFocusColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFormFieldFocusColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesListBackground extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesListBackground
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesListBackground({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesListBackground{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesListBackground{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesListTextItemColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesListTextItemColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesListTextItemColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesListTextItemColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesListTextItemColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFloatingButtonForegroundColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFloatingButtonForegroundColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesFloatingButtonForegroundColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFloatingButtonForegroundColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFloatingButtonForegroundColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFloatingButtonBackgroundColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFloatingButtonBackgroundColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesFloatingButtonBackgroundColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFloatingButtonBackgroundColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFloatingButtonBackgroundColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesDividerColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesDividerColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesDividerColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesDividerColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesDividerColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesTopicContainerBackground extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesTopicContainerBackground
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesTopicContainerBackground({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesTopicContainerBackground{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesTopicContainerBackground{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesActionContainerBackground extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesActionContainerBackground
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesActionContainerBackground({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesActionContainerBackground{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesActionContainerBackground{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesAppBarBG extends MonaStyleAttributesFormEvent {
@@ -235,58 +262,66 @@ class ChangedMonaStyleAttributesAppBarBG extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesAppBarBG({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesAppBarBG{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesAppBarIconColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesAppBarIconColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesAppBarIconColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesAppBarIconColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesAppBarIconColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesAppBarSelectedIconColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesAppBarSelectedIconColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesAppBarSelectedIconColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesAppBarSelectedIconColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesAppBarSelectedIconColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesAppBarMenuBackgroundColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesAppBarMenuBackgroundColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesAppBarMenuBackgroundColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesAppBarMenuBackgroundColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesAppBarMenuBackgroundColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesBottomNavigationBarBG extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesBottomNavigationBarBG
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesBottomNavigationBarBG({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesBottomNavigationBarBG{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesBottomNavigationBarBG{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesDrawerBG extends MonaStyleAttributesFormEvent {
@@ -295,58 +330,66 @@ class ChangedMonaStyleAttributesDrawerBG extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesDrawerBG({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesDrawerBG{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesDrawerHeaderBG extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesDrawerHeaderBG
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesDrawerHeaderBG({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesDrawerHeaderBG{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesDrawerHeaderBG{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesProfileDrawerBG extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesProfileDrawerBG
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesProfileDrawerBG({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesProfileDrawerBG{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesProfileDrawerBG{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesProfileDrawerHeaderBG extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesProfileDrawerHeaderBG
+    extends MonaStyleAttributesFormEvent {
   final BackgroundModel? value;
 
   ChangedMonaStyleAttributesProfileDrawerHeaderBG({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesProfileDrawerHeaderBG{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesProfileDrawerHeaderBG{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesBackgroundColorHomeMenu extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesBackgroundColorHomeMenu
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesBackgroundColorHomeMenu({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesBackgroundColorHomeMenu{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesBackgroundColorHomeMenu{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesH1 extends MonaStyleAttributesFormEvent {
@@ -355,7 +398,7 @@ class ChangedMonaStyleAttributesH1 extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesH1({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesH1{ value: $value }';
@@ -367,7 +410,7 @@ class ChangedMonaStyleAttributesH2 extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesH2({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesH2{ value: $value }';
@@ -379,7 +422,7 @@ class ChangedMonaStyleAttributesH3 extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesH3({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesH3{ value: $value }';
@@ -391,7 +434,7 @@ class ChangedMonaStyleAttributesH4 extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesH4({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesH4{ value: $value }';
@@ -403,22 +446,24 @@ class ChangedMonaStyleAttributesH5 extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesH5({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesH5{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesTextFieldHeader extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesTextFieldHeader
+    extends MonaStyleAttributesFormEvent {
   final FontModel? value;
 
   ChangedMonaStyleAttributesTextFieldHeader({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesTextFieldHeader{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesTextFieldHeader{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesFontText extends MonaStyleAttributesFormEvent {
@@ -427,46 +472,52 @@ class ChangedMonaStyleAttributesFontText extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesFontText({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesFontText{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFontSmallText extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFontSmallText
+    extends MonaStyleAttributesFormEvent {
   final FontModel? value;
 
   ChangedMonaStyleAttributesFontSmallText({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFontSmallText{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFontSmallText{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFontHighlight1 extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFontHighlight1
+    extends MonaStyleAttributesFormEvent {
   final FontModel? value;
 
   ChangedMonaStyleAttributesFontHighlight1({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFontHighlight1{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFontHighlight1{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesFontHighlight2 extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesFontHighlight2
+    extends MonaStyleAttributesFormEvent {
   final FontModel? value;
 
   ChangedMonaStyleAttributesFontHighlight2({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesFontHighlight2{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesFontHighlight2{ value: $value }';
 }
 
 class ChangedMonaStyleAttributesFontLink extends MonaStyleAttributesFormEvent {
@@ -475,105 +526,120 @@ class ChangedMonaStyleAttributesFontLink extends MonaStyleAttributesFormEvent {
   ChangedMonaStyleAttributesFontLink({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
   String toString() => 'ChangedMonaStyleAttributesFontLink{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesRouteBuilder extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesRouteBuilder
+    extends MonaStyleAttributesFormEvent {
   final PageTransitionAnimation? value;
 
   ChangedMonaStyleAttributesRouteBuilder({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesRouteBuilder{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesRouteBuilder{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesRouteAnimationDuration extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesRouteAnimationDuration
+    extends MonaStyleAttributesFormEvent {
   final String? value;
 
   ChangedMonaStyleAttributesRouteAnimationDuration({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesRouteAnimationDuration{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesRouteAnimationDuration{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesDialogBackgroundColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesDialogBackgroundColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesDialogBackgroundColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesDialogBackgroundColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesDialogBackgroundColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesDialogSeperatorColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesDialogSeperatorColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesDialogSeperatorColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesDialogSeperatorColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesDialogSeperatorColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesPopupMenuButtonColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesPopupMenuButtonColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesPopupMenuButtonColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesPopupMenuButtonColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesPopupMenuButtonColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesTextBubbleBackgroundColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesTextBubbleBackgroundColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesTextBubbleBackgroundColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesTextBubbleBackgroundColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesTextBubbleBackgroundColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesDropdownButtonnColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesDropdownButtonnColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesDropdownButtonnColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesDropdownButtonnColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesDropdownButtonnColor{ value: $value }';
 }
 
-class ChangedMonaStyleAttributesListTileColor extends MonaStyleAttributesFormEvent {
+class ChangedMonaStyleAttributesListTileColor
+    extends MonaStyleAttributesFormEvent {
   final RgbModel? value;
 
   ChangedMonaStyleAttributesListTileColor({this.value});
 
   @override
-  List<Object?> get props => [ value ];
+  List<Object?> get props => [value];
 
   @override
-  String toString() => 'ChangedMonaStyleAttributesListTileColor{ value: $value }';
+  String toString() =>
+      'ChangedMonaStyleAttributesListTileColor{ value: $value }';
 }
-

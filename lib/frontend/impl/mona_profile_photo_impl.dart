@@ -6,14 +6,13 @@ import 'package:eliud_core/style/_default/frontend/helper/profile_photo_helper.d
 import 'package:eliud_core/style/frontend/has_profile_photo.dart';
 import 'package:flutter/material.dart';
 
-
 class MonaProfilePhotoImpl implements HasProfilePhoto {
   @override
-  Widget getProfilePhotoButtonFromMember(AppModel app,BuildContext context,
+  Widget getProfilePhotoButtonFromMember(AppModel app, BuildContext context,
       {MemberModel? member,
-        required double radius,
-        RgbModel? iconColor,
-        VoidCallback? onPressed}) {
+      required double radius,
+      RgbModel? iconColor,
+      VoidCallback? onPressed}) {
     return ProfilePhotoHelper().getProfilePhotoButtonFromMember(context, app,
         member: member,
         radius: radius,
@@ -22,11 +21,12 @@ class MonaProfilePhotoImpl implements HasProfilePhoto {
   }
 
   @override
-  Widget getProfilePhotoButtonFromPublicMember(AppModel app,BuildContext context,
+  Widget getProfilePhotoButtonFromPublicMember(
+      AppModel app, BuildContext context,
       {MemberPublicInfoModel? member,
-        required double radius,
-        RgbModel? iconColor,
-        VoidCallback? onPressed}) {
+      required double radius,
+      RgbModel? iconColor,
+      VoidCallback? onPressed}) {
     return ProfilePhotoHelper().getProfilePhotoButtonFromPublicMember(context,
         member: member,
         radius: radius,
@@ -35,14 +35,15 @@ class MonaProfilePhotoImpl implements HasProfilePhoto {
   }
 
   @override
-  Widget getProfilePhotoButtonFromExternalProvider(AppModel app,BuildContext context,
+  Widget getProfilePhotoButtonFromExternalProvider(
+      AppModel app, BuildContext context,
       {required ExternalProfileURLProvider externalProfileURLProvider,
-        BackupProfileURLProvider? fallBackURLProvider,
-        required double radius,
-        RgbModel? iconColor,
-        VoidCallback? onPressed}) {
-    return ProfilePhotoHelper().getProfilePhotoButtonFromExternalProvider(app,
-        context,
+      BackupProfileURLProvider? fallBackURLProvider,
+      required double radius,
+      RgbModel? iconColor,
+      VoidCallback? onPressed}) {
+    return ProfilePhotoHelper().getProfilePhotoButtonFromExternalProvider(
+        app, context,
         externalProfileURLProvider: externalProfileURLProvider,
         fallBackURLProvider: fallBackURLProvider,
         radius: radius,
@@ -51,18 +52,19 @@ class MonaProfilePhotoImpl implements HasProfilePhoto {
   }
 
   @override
-  Widget getProfilePhotoButtonFromCurrentMember(AppModel app,BuildContext context,
+  Widget getProfilePhotoButtonFromCurrentMember(
+      AppModel app, BuildContext context,
       {RgbModel? iconColor, required double radius, VoidCallback? onPressed}) {
     return ProfilePhotoHelper().getProfilePhotoButtonFromCurrentMember(context,
         iconColor: iconColor, radius: radius, onPressed: onPressed);
   }
 
   @override
-  Widget getProfilePhotoButtonFromURL(AppModel app,BuildContext context,
+  Widget getProfilePhotoButtonFromURL(AppModel app, BuildContext context,
       {String? url,
-        required double radius,
-        RgbModel? iconColor,
-        VoidCallback? onPressed}) {
+      required double radius,
+      RgbModel? iconColor,
+      VoidCallback? onPressed}) {
     return ProfilePhotoHelper().getProfilePhotoButtonFromURL(context,
         url: url, radius: radius, iconColor: iconColor, onPressed: onPressed);
   }

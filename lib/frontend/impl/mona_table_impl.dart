@@ -5,19 +5,21 @@ import 'package:flutter/material.dart';
 
 import '../../styles/mona_style.dart';
 
-class MonaTableImpl
-    implements HasTable {
+class MonaTableImpl implements HasTable {
   final MonaStyle _monaStyle;
 
   MonaTableImpl(this._monaStyle);
 
   @override
-  Widget table(AppModel app,BuildContext context, {required List<TableRow> children}) {
+  Widget table(AppModel app, BuildContext context,
+      {required List<TableRow> children}) {
     return Table(
       defaultColumnWidth: IntrinsicColumnWidth(),
-      border: TableBorder.symmetric(inside: BorderSide(color: RgbHelper.color(rgbo: _monaStyle.monaStyleAttributesModel.dividerColor))),
+      border: TableBorder.symmetric(
+          inside: BorderSide(
+              color: RgbHelper.color(
+                  rgbo: _monaStyle.monaStyleAttributesModel.dividerColor))),
       children: children,
     );
   }
-
 }

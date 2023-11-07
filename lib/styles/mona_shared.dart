@@ -6,7 +6,11 @@ import 'package:eliud_core/style/tools/backgrounds.dart';
 import 'package:eliud_stl_mona/tools/colors.dart';
 
 abstract class MonaShared {
-  static BackgroundModel pageBG(String bgName, RgbModel appColor3, RgbModel appColor4,) {
+  static BackgroundModel pageBG(
+    String bgName,
+    RgbModel appColor3,
+    RgbModel appColor4,
+  ) {
     var decorationColorModels = <DecorationColorModel>[];
     var decorationColorModel1 = DecorationColorModel(
       documentID: '1',
@@ -22,42 +26,54 @@ abstract class MonaShared {
 
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      beginGradientPosition: StartGradientPosition.CenterLeft,
-      endGradientPosition: EndGradientPosition.CenterRight,
+      beginGradientPosition: StartGradientPosition.centerLeft,
+      endGradientPosition: EndGradientPosition.centerRight,
       decorationColors: decorationColorModels,
     );
     return backgroundModel;
   }
 
-  static BackgroundModel appBarBG(String bgName, RgbModel appColor1, RgbModel appColor2,) {
+  static BackgroundModel appBarBG(
+    String bgName,
+    RgbModel appColor1,
+    RgbModel appColor2,
+  ) {
     return Backgrounds.gradient(
       fromColor: appColor1,
       toColor: appColor2,
-      startPosition: StartGradientPosition.TopLeft,
-      endPosition: EndGradientPosition.BottomRight,
+      startPosition: StartGradientPosition.topLeft,
+      endPosition: EndGradientPosition.bottomRight,
     );
   }
 
-  static BackgroundModel bottomNavigationBarBG(String bgName, RgbModel appColor1, RgbModel appColor2,) {
+  static BackgroundModel bottomNavigationBarBG(
+    String bgName,
+    RgbModel appColor1,
+    RgbModel appColor2,
+  ) {
     return Backgrounds.gradient(
       fromColor: appColor1,
       toColor: appColor2,
-      startPosition: StartGradientPosition.TopLeft,
-      endPosition: EndGradientPosition.BottomRight,
+      startPosition: StartGradientPosition.topLeft,
+      endPosition: EndGradientPosition.bottomRight,
     );
   }
 
-  static BackgroundModel drawerBG(String bgName, RgbModel appColor1, RgbModel appColor2, ) {
+  static BackgroundModel drawerBG(
+    String bgName,
+    RgbModel appColor1,
+    RgbModel appColor2,
+  ) {
     var decorationColorModels = <DecorationColorModel>[];
     var decorationColorModel1 =
-    DecorationColorModel(documentID: '1', color: appColor2, stop: -1);
+        DecorationColorModel(documentID: '1', color: appColor2, stop: -1);
     decorationColorModels.add(decorationColorModel1);
     var decorationColorModel2 =
-    DecorationColorModel(documentID: '2', color: appColor1, stop: -1);
+        DecorationColorModel(documentID: '2', color: appColor1, stop: -1);
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      beginGradientPosition: StartGradientPosition.TopLeft,
-      endGradientPosition: EndGradientPosition.BottomRight,
+      beginGradientPosition: StartGradientPosition.topLeft,
+      endGradientPosition: EndGradientPosition.bottomRight,
       decorationColors: decorationColorModels,
     );
     return backgroundModel;
@@ -65,22 +81,23 @@ abstract class MonaShared {
 
   static BackgroundModel drawerHeaderBG(String bgName) {
     var decorationColorModels = <DecorationColorModel>[];
-    var backgroundModel = BackgroundModel(
-        decorationColors: decorationColorModels);
+    var backgroundModel =
+        BackgroundModel(decorationColors: decorationColorModels);
     return backgroundModel;
   }
 
-  static BackgroundModel profileDrawerBG(String bgName, RgbModel appColor1, RgbModel appColor2) {
+  static BackgroundModel profileDrawerBG(
+      String bgName, RgbModel appColor1, RgbModel appColor2) {
     var decorationColorModels = <DecorationColorModel>[];
     var decorationColorModel1 =
-    DecorationColorModel(documentID: '1', color: appColor2, stop: -1);
+        DecorationColorModel(documentID: '1', color: appColor2, stop: -1);
     decorationColorModels.add(decorationColorModel1);
     var decorationColorModel2 =
-    DecorationColorModel(documentID: '2', color: appColor1, stop: -1);
+        DecorationColorModel(documentID: '2', color: appColor1, stop: -1);
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      beginGradientPosition: StartGradientPosition.TopRight,
-      endGradientPosition: EndGradientPosition.BottomLeft,
+      beginGradientPosition: StartGradientPosition.topRight,
+      endGradientPosition: EndGradientPosition.bottomLeft,
       decorationColors: decorationColorModels,
     );
     return backgroundModel;
@@ -94,7 +111,8 @@ abstract class MonaShared {
     return backgroundModel;
   }
 
-  static BackgroundModel homeMenuBG(String bgName, RgbModel appColor1, RgbModel appColor2) {
+  static BackgroundModel homeMenuBG(
+      String bgName, RgbModel appColor1, RgbModel appColor2) {
     // this is a clone of _pageBG
     var decorationColorModels = <DecorationColorModel>[];
     var decorationColorModel1 = DecorationColorModel(
@@ -111,8 +129,8 @@ abstract class MonaShared {
 
     decorationColorModels.add(decorationColorModel2);
     var backgroundModel = BackgroundModel(
-      beginGradientPosition: StartGradientPosition.CenterLeft,
-      endGradientPosition: EndGradientPosition.CenterRight,
+      beginGradientPosition: StartGradientPosition.centerLeft,
+      endGradientPosition: EndGradientPosition.centerRight,
       decorationColors: decorationColorModels,
       shadow: shadowModel(),
     );

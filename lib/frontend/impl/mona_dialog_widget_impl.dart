@@ -17,7 +17,8 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
   }
 
   @override
-  Widget messageDialog(AppModel app,
+  Widget messageDialog(
+    AppModel app,
     BuildContext context, {
     Key? key,
     bool? includeHeading,
@@ -26,24 +27,29 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     String? closeLabel,
     double? widthFraction, // percentage of screen width
   }) {
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        key: key,
-        includeHeading: includeHeading,
-        title: title,
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        contents: _style.frontEndStyle().textStyle().text(app, context, message),
-        buttons: dialogHelper.getCloseButton(app, context,
-            onPressed: () => Navigator.pop(context), buttonLabel: closeLabel),
-        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      key: key,
+      includeHeading: includeHeading,
+      title: title,
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      contents: _style.frontEndStyle().textStyle().text(app, context, message),
+      buttons: dialogHelper.getCloseButton(app, context,
+          onPressed: () => Navigator.pop(context), buttonLabel: closeLabel),
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 
   @override
-  Widget errorDialog(AppModel app,
+  Widget errorDialog(
+    AppModel app,
     BuildContext context, {
     Key? key,
     bool? includeHeading,
@@ -52,25 +58,30 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     String? closeLabel,
     double? widthFraction, // percentage of screen width
   }) {
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        key: key,
-        includeHeading: includeHeading,
-        title: title,
-        contents:
-            _style.frontEndStyle().textStyle().text(app, context, errorMessage),
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        buttons: dialogHelper.getCloseButton(app, context,
-            buttonLabel: closeLabel, onPressed: () => Navigator.pop(context)),
-        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      key: key,
+      includeHeading: includeHeading,
+      title: title,
+      contents:
+          _style.frontEndStyle().textStyle().text(app, context, errorMessage),
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      buttons: dialogHelper.getCloseButton(app, context,
+          buttonLabel: closeLabel, onPressed: () => Navigator.pop(context)),
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 
   @override
-  Widget ackNackDialog(AppModel app,
+  Widget ackNackDialog(
+    AppModel app,
     BuildContext context, {
     Key? key,
     bool? includeHeading,
@@ -81,29 +92,34 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     String? nackButtonLabel,
     double? widthFraction, // percentage of screen width
   }) {
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        key: key,
-        includeHeading: includeHeading,
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        title: title,
-        contents: _style.frontEndStyle().textStyle().text(app, context, message),
-        buttons: dialogHelper.getAckNackButtons(app, context, ackFunction: () {
-          Navigator.of(context).pop();
-          onSelection(0);
-        }, nackFunction: () {
-          Navigator.of(context).pop();
-          onSelection(1);
-        }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel),
-      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      key: key,
+      includeHeading: includeHeading,
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      title: title,
+      contents: _style.frontEndStyle().textStyle().text(app, context, message),
+      buttons: dialogHelper.getAckNackButtons(app, context, ackFunction: () {
+        Navigator.of(context).pop();
+        onSelection(0);
+      }, nackFunction: () {
+        Navigator.of(context).pop();
+        onSelection(1);
+      }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel),
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 
   @override
-  Widget entryDialog(AppModel app,
+  Widget entryDialog(
+    AppModel app,
     BuildContext context, {
     Key? key,
     bool? includeHeading,
@@ -116,39 +132,45 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     double? widthFraction, // percentage of screen width
   }) {
     String? feedback;
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        key: key,
-        includeHeading: includeHeading,
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        title: title,
-        contents: dialogHelper.getListTile(
-            leading: Icon(Icons.message),
-            title: DialogField(app: app,
-              valueChanged: (value) => feedback = value,
-              initialValue: initialValue,
-              decoration: InputDecoration(
-                hintText: hintText,
-                labelText: hintText,
-              ),
-            )),
-        buttons: dialogHelper.getAckNackButtons(app,
-          context,
-          ackFunction: () {
-            Navigator.of(context).pop();
-            onPressed(feedback);
-          },
-          nackFunction: () {
-            Navigator.of(context).pop();
-            onPressed(null);
-          },
-          ackButtonLabel: ackButtonLabel,
-          nackButtonLabel: nackButtonLabel,
-        ),
-      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      key: key,
+      includeHeading: includeHeading,
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      title: title,
+      contents: dialogHelper.getListTile(
+          leading: Icon(Icons.message),
+          title: DialogField(
+            app: app,
+            valueChanged: (value) => feedback = value,
+            initialValue: initialValue,
+            decoration: InputDecoration(
+              hintText: hintText,
+              labelText: hintText,
+            ),
+          )),
+      buttons: dialogHelper.getAckNackButtons(
+        app,
+        context,
+        ackFunction: () {
+          Navigator.of(context).pop();
+          onPressed(feedback);
+        },
+        nackFunction: () {
+          Navigator.of(context).pop();
+          onPressed(null);
+        },
+        ackButtonLabel: ackButtonLabel,
+        nackButtonLabel: nackButtonLabel,
+      ),
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 
@@ -170,7 +192,8 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
 */
 
   @override
-  Widget selectionDialog(AppModel app,
+  Widget selectionDialog(
+    AppModel app,
     BuildContext context, {
     required String title,
     bool? includeHeading,
@@ -180,38 +203,44 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     String? buttonLabel,
     double? widthFraction, // percentage of screen width
   }) {
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        key: key,
-        includeHeading: includeHeading,
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        title: title,
-        buttons: dialogHelper.getCloseButton(app, context, onPressed: () {
-          Navigator.of(context).pop();
-        }),
-        contents: ListView.builder(
-            physics: ScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: options.length,
-            itemBuilder: (context, i) {
-              return _style.frontEndStyle().buttonStyle().dialogButton(app,
-                context,
-                label: options[i],
-                onPressed: () {
-                  onSelection(i);
-                  Navigator.of(context).pop();
-                },
-              );
-            }),
-      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      key: key,
+      includeHeading: includeHeading,
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      title: title,
+      buttons: dialogHelper.getCloseButton(app, context, onPressed: () {
+        Navigator.of(context).pop();
+      }),
+      contents: ListView.builder(
+          physics: ScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: options.length,
+          itemBuilder: (context, i) {
+            return _style.frontEndStyle().buttonStyle().dialogButton(
+              app,
+              context,
+              label: options[i],
+              onPressed: () {
+                onSelection(i);
+                Navigator.of(context).pop();
+              },
+            );
+          }),
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 
   @override
-  Widget complexAckNackDialog(AppModel app,
+  Widget complexAckNackDialog(
+    AppModel app,
     BuildContext context, {
     bool? includeHeading,
     Key? key,
@@ -222,29 +251,34 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     String? nackButtonLabel,
     double? widthFraction, // percentage of screen width
   }) {
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        key: key,
-        includeHeading: includeHeading,
-        title: title,
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        contents: child,
-        buttons: dialogHelper.getAckNackButtons(app, context, ackFunction: () {
-          Navigator.of(context).pop();
-          onSelection(0);
-        }, nackFunction: () {
-          Navigator.of(context).pop();
-          onSelection(1);
-        }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel),
-      dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-      dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      key: key,
+      includeHeading: includeHeading,
+      title: title,
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      contents: child,
+      buttons: dialogHelper.getAckNackButtons(app, context, ackFunction: () {
+        Navigator.of(context).pop();
+        onSelection(0);
+      }, nackFunction: () {
+        Navigator.of(context).pop();
+        onSelection(1);
+      }, ackButtonLabel: ackButtonLabel, nackButtonLabel: nackButtonLabel),
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 
   @override
-  Widget complexDialog(AppModel app,
+  Widget complexDialog(
+    AppModel app,
     BuildContext context, {
     bool? includeHeading,
     Key? key,
@@ -254,28 +288,33 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     String? buttonLabel,
     double? widthFraction, // percentage of screen width
   }) {
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        key: key,
-        includeHeading: includeHeading,
-        title: title,
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        contents: child,
-        buttons: dialogHelper.getCloseButton(app, context, onPressed: () {
-          Navigator.of(context).pop();
-          if (onPressed != null) {
-            onPressed();
-          }
-        }, buttonLabel: buttonLabel),
-        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      key: key,
+      includeHeading: includeHeading,
+      title: title,
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      contents: child,
+      buttons: dialogHelper.getCloseButton(app, context, onPressed: () {
+        Navigator.of(context).pop();
+        if (onPressed != null) {
+          onPressed();
+        }
+      }, buttonLabel: buttonLabel),
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 
   @override
-  Widget flexibleDialog(AppModel app,
+  Widget flexibleDialog(
+    AppModel app,
     BuildContext context, {
     Key? key,
     String? title,
@@ -284,18 +323,22 @@ class MonaDialogWidgetImpl implements HasDialogWidget {
     bool? includeHeading,
     double? widthFraction, // percentage of screen width
   }) {
-    return dialogHelper.build(app, context,
-        width: widthFraction == null
-            ? null
-            : fullScreenWidth(context) * widthFraction,
-        includeHeading: includeHeading,
-        key: key,
-        title: title,
-        dialogButtonPosition: DialogButtonPosition.TopRight,
-        contents: child,
-        buttons: buttons,
-        dialogBackgroundColor: _style.monaStyleAttributesModel.dialogBackgroundColor,
-        dialogSeperatorColor: _style.monaStyleAttributesModel.dialogSeperatorColor,
+    return dialogHelper.build(
+      app,
+      context,
+      width: widthFraction == null
+          ? null
+          : fullScreenWidth(context) * widthFraction,
+      includeHeading: includeHeading,
+      key: key,
+      title: title,
+      dialogButtonPosition: DialogButtonPosition.topRight,
+      contents: child,
+      buttons: buttons,
+      dialogBackgroundColor:
+          _style.monaStyleAttributesModel.dialogBackgroundColor,
+      dialogSeperatorColor:
+          _style.monaStyleAttributesModel.dialogSeperatorColor,
     );
   }
 }

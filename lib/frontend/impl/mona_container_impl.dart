@@ -14,16 +14,39 @@ class MonaContainerImpl implements HasContainer {
   MonaContainerImpl(this._monaStyle);
 
   @override
-  Widget actionContainer(AppModel app, BuildContext context,
-      {required Widget child, double? height, double? width, BackgroundModel? backgroundOverride,}) {
+  Widget actionContainer(
+    AppModel app,
+    BuildContext context, {
+    required Widget child,
+    double? height,
+    double? width,
+    BackgroundModel? backgroundOverride,
+  }) {
     return Container(
         width: width,
         height: height,
-        clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground, ),
-        decoration: BoxDecorationHelper.boxDecoration(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground,),
-        margin: BoxDecorationHelper.determineMargin(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground),
-        padding: BoxDecorationHelper.determinePadding(app, null, backgroundOverride ?? _monaStyle.monaStyleAttributesModel.actionContainerBackground ),
-
+        clipBehavior: BoxDecorationHelper.determineClipBehaviour(
+          app,
+          null,
+          backgroundOverride ??
+              _monaStyle.monaStyleAttributesModel.actionContainerBackground,
+        ),
+        decoration: BoxDecorationHelper.boxDecoration(
+          app,
+          null,
+          backgroundOverride ??
+              _monaStyle.monaStyleAttributesModel.actionContainerBackground,
+        ),
+        margin: BoxDecorationHelper.determineMargin(
+            app,
+            null,
+            backgroundOverride ??
+                _monaStyle.monaStyleAttributesModel.actionContainerBackground),
+        padding: BoxDecorationHelper.determinePadding(
+            app,
+            null,
+            backgroundOverride ??
+                _monaStyle.monaStyleAttributesModel.actionContainerBackground),
         child: child);
   }
 
@@ -38,16 +61,16 @@ class MonaContainerImpl implements HasContainer {
       bool? collapsed = false,
       BackgroundModel? backgroundOverride}) {
     return TopicContainerWidget(
-      app: app,
-      children: children,
-      image: image,
-      height: height,
-      width: width,
-      title: title,
-      collapsible: collapsible ?? false,
-      collapsed: collapsed ?? false,
-      bdm: backgroundOverride ?? _monaStyle.monaStyleAttributesModel.topicContainerBackground
-    );
+        app: app,
+        children: children,
+        image: image,
+        height: height,
+        width: width,
+        title: title,
+        collapsible: collapsible ?? false,
+        collapsed: collapsed ?? false,
+        bdm: backgroundOverride ??
+            _monaStyle.monaStyleAttributesModel.topicContainerBackground);
   }
 
   @override
@@ -77,7 +100,7 @@ class TopicContainerWidget extends StatefulWidget {
   final BackgroundModel? bdm;
 
   const TopicContainerWidget(
-      {Key? key,
+      {super.key,
       this.image,
       this.height,
       this.width,
@@ -86,8 +109,7 @@ class TopicContainerWidget extends StatefulWidget {
       required this.collapsible,
       required this.collapsed,
       required this.children,
-      required this.bdm})
-      : super(key: key);
+      required this.bdm});
 
   @override
   State<StatefulWidget> createState() => _TopicContainerState();
@@ -135,10 +157,27 @@ class _TopicContainerState extends State<TopicContainerWidget> {
         child: Container(
             width: widget.width,
             height: widget.height,
-            clipBehavior: BoxDecorationHelper.determineClipBehaviour(widget.app, null, widget.bdm, ),
-            decoration: BoxDecorationHelper.boxDecoration(widget.app, null, widget.bdm, overridingImage: widget.image,),
-            margin: BoxDecorationHelper.determineMargin(widget.app, null, widget.bdm, ),
-            padding: BoxDecorationHelper.determinePadding(widget.app, null, widget.bdm, ),
+            clipBehavior: BoxDecorationHelper.determineClipBehaviour(
+              widget.app,
+              null,
+              widget.bdm,
+            ),
+            decoration: BoxDecorationHelper.boxDecoration(
+              widget.app,
+              null,
+              widget.bdm,
+              overridingImage: widget.image,
+            ),
+            margin: BoxDecorationHelper.determineMargin(
+              widget.app,
+              null,
+              widget.bdm,
+            ),
+            padding: BoxDecorationHelper.determinePadding(
+              widget.app,
+              null,
+              widget.bdm,
+            ),
             child: Padding(
                 padding: const EdgeInsets.all(7.0),
                 child: Column(

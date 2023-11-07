@@ -5,29 +5,59 @@ import 'package:flutter/material.dart';
 
 import '../../styles/mona_style.dart';
 
-class MonaPageRouteBuilderImpl
-    implements HasPageRouteBuilder {
+class MonaPageRouteBuilderImpl implements HasPageRouteBuilder {
   final MonaStyle _monaStyle;
 
   MonaPageRouteBuilderImpl(this._monaStyle);
 
   @override
-  PageRouteBuilder pageRoute(String name, Map<String, dynamic>? parameters, Widget page) {
-    var milliseconds = _monaStyle.monaStyleAttributesModel.routeAnimationDuration ?? 1000;
+  PageRouteBuilder pageRoute(
+      String name, Map<String, dynamic>? parameters, Widget page) {
+    var milliseconds =
+        _monaStyle.monaStyleAttributesModel.routeAnimationDuration ?? 1000;
     switch (_monaStyle.monaStyleAttributesModel.routeBuilder) {
-      case PageTransitionAnimation.SlideRightToLeft:
-        return RightToLeftRoute(name: name, parameters: parameters, page: page, milliseconds: milliseconds);
-      case PageTransitionAnimation.SlideBottomToTop:
-        return BottomToTopRoute(name: name, parameters: parameters, page: page, milliseconds: milliseconds);
-      case PageTransitionAnimation.ScaleRoute:
-        return ScaleRoute(name: name, parameters: parameters, page: page, milliseconds: milliseconds);
-      case PageTransitionAnimation.RotationRoute:
-        return RotationRoute(name: name, parameters: parameters, page: page, milliseconds: milliseconds);
-      case PageTransitionAnimation.FadeRoute:
-        return FadeRoute(name: name, parameters: parameters, page: page, milliseconds: milliseconds);
+      case PageTransitionAnimation.slideRightToLeft:
+        return RightToLeftRoute(
+            name: name,
+            parameters: parameters,
+            page: page,
+            milliseconds: milliseconds);
+      case PageTransitionAnimation.slideBottomToTop:
+        return BottomToTopRoute(
+            name: name,
+            parameters: parameters,
+            page: page,
+            milliseconds: milliseconds);
+      case PageTransitionAnimation.scaleRoute:
+        return ScaleRoute(
+            name: name,
+            parameters: parameters,
+            page: page,
+            milliseconds: milliseconds);
+      case PageTransitionAnimation.rotationRoute:
+        return RotationRoute(
+            name: name,
+            parameters: parameters,
+            page: page,
+            milliseconds: milliseconds);
+      case PageTransitionAnimation.fadeRoute:
+/*
+        return FadeRoute(
+            name: name,
+            parameters: parameters,
+            page: page,
+            milliseconds: milliseconds);
+*/
+      case PageTransitionAnimation.unknown:
+        break;
+      case null:
+        break;
     }
     // default
-    return FadeRoute(name: name, parameters: parameters, page: page, milliseconds: milliseconds);
+    return FadeRoute(
+        name: name,
+        parameters: parameters,
+        page: page,
+        milliseconds: milliseconds);
   }
 }
-

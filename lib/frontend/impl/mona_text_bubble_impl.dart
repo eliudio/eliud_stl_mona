@@ -45,16 +45,16 @@ class MonaTextBubbleImpl implements HasTextBubble {
 
 class TextBubble1 extends TextBubble {
   TextBubble1(
-      {bool isSender = true,
+      {super.isSender,
       required String text,
       Widget? button,
       Widget? widget,
       String? time,
-      bool tail = true,
-      Color color = Colors.white70,
-      bool sent = false,
-      bool delivered = false,
-      bool seen = false,
+      super.tail,
+      super.color,
+      super.sent,
+      super.delivered,
+      super.seen,
       TextStyle textStyle = const TextStyle(
         color: Colors.black87,
         fontSize: 16,
@@ -64,17 +64,19 @@ class TextBubble1 extends TextBubble {
         fontSize: 10,
       )})
       : super(
-          isSender: isSender,
-          widget:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [
-                if (text.length > 0) Text(
-                  text,
-                  style: textStyle,
-                  textAlign: TextAlign.left,
-                ),
-            if (widget != null) widget,
-            if (button != null) button
-          ]),
+          widget: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                if (text.isNotEmpty)
+                  Text(
+                    text,
+                    style: textStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                if (widget != null) widget,
+                if (button != null) button
+              ]),
           timeWidget: time != null
               ? Text(
                   time,
@@ -82,11 +84,6 @@ class TextBubble1 extends TextBubble {
                   textAlign: TextAlign.right,
                 )
               : null,
-          tail: tail,
-          color: color,
-          sent: sent,
-          delivered: delivered,
-          seen: seen,
         );
 }
 
@@ -101,7 +98,7 @@ class TextBubble extends StatelessWidget {
   final bool seen;
 
   const TextBubble({
-    Key? key,
+    super.key,
     this.isSender = true,
     required this.widget,
     this.timeWidget,
@@ -110,7 +107,7 @@ class TextBubble extends StatelessWidget {
     this.sent = false,
     this.delivered = false,
     this.seen = false,
-  }) : super(key: key);
+  });
 
   ///chat bubble builder method
   @override
@@ -217,8 +214,8 @@ class SpecialChatBubbleOne extends CustomPainter {
     required this.tail,
   });
 
-  double _radius = 10.0;
-  double _x = 10.0;
+  final double _radius = 10.0;
+  final double _x = 10.0;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -235,9 +232,9 @@ class SpecialChatBubbleOne extends CustomPainter {
               topLeft: Radius.circular(_radius),
             ),
             Paint()
-              ..color = this.color
+              ..color = color
               ..style = PaintingStyle.fill);
-        var path = new Path();
+        var path = Path();
         path.moveTo(size.width - _x, 0);
         path.lineTo(size.width - _x, 10);
         path.lineTo(size.width, 0);
@@ -251,7 +248,7 @@ class SpecialChatBubbleOne extends CustomPainter {
               topRight: Radius.circular(3),
             ),
             Paint()
-              ..color = this.color
+              ..color = color
               ..style = PaintingStyle.fill);
       } else {
         canvas.drawRRect(
@@ -266,7 +263,7 @@ class SpecialChatBubbleOne extends CustomPainter {
               topRight: Radius.circular(_radius),
             ),
             Paint()
-              ..color = this.color
+              ..color = color
               ..style = PaintingStyle.fill);
       }
     } else {
@@ -282,9 +279,9 @@ class SpecialChatBubbleOne extends CustomPainter {
               bottomLeft: Radius.circular(_radius),
             ),
             Paint()
-              ..color = this.color
+              ..color = color
               ..style = PaintingStyle.fill);
-        var path = new Path();
+        var path = Path();
         path.moveTo(_x, 0);
         path.lineTo(_x, 10);
         path.lineTo(0, 0);
@@ -298,7 +295,7 @@ class SpecialChatBubbleOne extends CustomPainter {
               topLeft: Radius.circular(3),
             ),
             Paint()
-              ..color = this.color
+              ..color = color
               ..style = PaintingStyle.fill);
       } else {
         canvas.drawRRect(
@@ -313,7 +310,7 @@ class SpecialChatBubbleOne extends CustomPainter {
               topLeft: Radius.circular(_radius),
             ),
             Paint()
-              ..color = this.color
+              ..color = color
               ..style = PaintingStyle.fill);
       }
     }

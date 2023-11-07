@@ -1,4 +1,3 @@
-import 'package:eliud_core/core/blocs/access/access_bloc.dart';
 import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/model/background_model.dart';
 import 'package:eliud_core/model/member_model.dart';
@@ -7,6 +6,7 @@ import 'package:eliud_core/style/frontend/has_drawer.dart';
 import 'package:eliud_core/style/frontend/types.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
+
 import '../../styles/mona_style.dart';
 
 class MonaDrawerImpl implements HasDrawer {
@@ -24,19 +24,18 @@ class MonaDrawerImpl implements HasDrawer {
     var boxDecoration =
         BoxDecorationHelper.boxDecoration(app, member, background);
     if (boxDecoration != null) {
-      var padding = BoxDecorationHelper.determinePadding(app, member, background);
+      var padding =
+          BoxDecorationHelper.determinePadding(app, member, background);
       var child = Center(
-          child: _monaStyle
-              .frontEndStyle()
-              .textStyle()
-              .h3(app, context, text));
+          child: _monaStyle.frontEndStyle().textStyle().h3(app, context, text));
       if (padding == null) {
         return Container(
             clipBehavior: Clip.none,
             height: height,
             child: DrawerHeader(
                 child: child,
-                margin: BoxDecorationHelper.determineMargin(app, member, background),
+                margin: BoxDecorationHelper.determineMargin(
+                    app, member, background),
                 decoration: boxDecoration));
       } else {
         return Container(
@@ -44,7 +43,8 @@ class MonaDrawerImpl implements HasDrawer {
             height: height,
             child: DrawerHeader(
                 child: child,
-                margin: BoxDecorationHelper.determineMargin(app, member, background),
+                margin: BoxDecorationHelper.determineMargin(
+                    app, member, background),
                 padding: padding,
                 decoration: boxDecoration));
       }
@@ -63,13 +63,13 @@ class MonaDrawerImpl implements HasDrawer {
       RgbModel? popupMenuBackgroundColorOverride,
       required List<AbstractMenuItemAttributes> items,
       Key? key}) {
-    var theState = AccessBloc.getState(context);
+    //var theState = AccessBloc.getState(context);
     var widgets = <Widget>[];
-    var background;
+    BackgroundModel? background;
     if (header1 != null) {
       var background = header1.backgroundOverride;
       if (background == null) {
-        if (drawerType == DrawerType.Left) {
+        if (drawerType == DrawerType.left) {
           background = _monaStyle.monaStyleAttributesModel.drawerHeaderBG;
         } else {
           background =
@@ -79,7 +79,7 @@ class MonaDrawerImpl implements HasDrawer {
       widgets.add(_constructHeaderContainer(app, context, header1.text,
           header1.height == 0 ? null : header1.height, member, background));
     } else {
-      if (drawerType == DrawerType.Left) {
+      if (drawerType == DrawerType.left) {
         background = _monaStyle.monaStyleAttributesModel.drawerHeaderBG;
       } else {
         background = _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
@@ -127,7 +127,7 @@ class MonaDrawerImpl implements HasDrawer {
 
     var background2 = backgroundOverride;
     if (background2 == null) {
-      if (drawerType == DrawerType.Left) {
+      if (drawerType == DrawerType.left) {
         background2 = _monaStyle.monaStyleAttributesModel.drawerBG;
       } else {
         background2 = _monaStyle.monaStyleAttributesModel.profileDrawerBG;
@@ -137,11 +137,14 @@ class MonaDrawerImpl implements HasDrawer {
     return Drawer(
         key: key,
         child: Container(
-            clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, member, background2),
+            clipBehavior: BoxDecorationHelper.determineClipBehaviour(
+                app, member, background2),
             decoration:
                 BoxDecorationHelper.boxDecoration(app, member, background2),
-            margin: BoxDecorationHelper.determineMargin(app, member, background2),
-            padding: BoxDecorationHelper.determinePadding(app, member, background2),
+            margin:
+                BoxDecorationHelper.determineMargin(app, member, background2),
+            padding:
+                BoxDecorationHelper.determinePadding(app, member, background2),
             child: ListView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

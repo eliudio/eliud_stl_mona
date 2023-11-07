@@ -21,16 +21,16 @@ abstract class MonaStyleAttributesComponentEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchMonaStyleAttributesComponent extends MonaStyleAttributesComponentEvent {
+class FetchMonaStyleAttributesComponent
+    extends MonaStyleAttributesComponentEvent {
   final String? id;
 
-  FetchMonaStyleAttributesComponent({ this.id });
+  FetchMonaStyleAttributesComponent({this.id});
 }
 
-class MonaStyleAttributesComponentUpdated extends MonaStyleAttributesComponentEvent {
+class MonaStyleAttributesComponentUpdated
+    extends MonaStyleAttributesComponentEvent {
   final MonaStyleAttributesModel value;
 
-  MonaStyleAttributesComponentUpdated({ required this.value });
+  MonaStyleAttributesComponentUpdated({required this.value});
 }
-
-

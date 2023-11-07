@@ -15,14 +15,14 @@ class FontWidget extends StatefulWidget {
   final String label;
 
   FontWidget({
-    Key? key,
+    super.key,
     required this.app,
     required this.label,
     required this.value,
-  }) : super(key: key);
+  });
 
   @override
-  _FontWidgetState createState() => _FontWidgetState();
+  State<FontWidget> createState() => _FontWidgetState();
 }
 
 class _FontWidgetState extends State<FontWidget> {
@@ -88,13 +88,13 @@ class _FontWidgetState extends State<FontWidget> {
                           context,
                           'Italic',
                           ((widget.value.style == null) ||
-                                  (widget.value.style == EliudFontStyle.Normal))
+                                  (widget.value.style == EliudFontStyle.normal))
                               ? false
                               : true, (bool? newValue) {
                         setState(() {
                           widget.value.style = !newValue!
-                              ? EliudFontStyle.Normal
-                              : EliudFontStyle.Italic;
+                              ? EliudFontStyle.normal
+                              : EliudFontStyle.italic;
                         });
                       }),
                     ]),

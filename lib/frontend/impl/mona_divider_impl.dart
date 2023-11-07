@@ -5,14 +5,13 @@ import 'package:flutter/material.dart';
 
 import '../../styles/mona_style.dart';
 
-class MonaDividerImpl
-    implements HasDivider {
+class MonaDividerImpl implements HasDivider {
   final MonaStyle _monaStyle;
 
   MonaDividerImpl(this._monaStyle);
 
   @override
-  Widget divider(AppModel app,BuildContext context) {
+  Widget divider(AppModel app, BuildContext context) {
     return Divider(
         height: 1.0,
         thickness: 1.0,
@@ -20,7 +19,12 @@ class MonaDividerImpl
             rgbo: _monaStyle.monaStyleAttributesModel.dividerColor));
   }
 
-  Widget verticalDivider(AppModel app,BuildContext context, double height) {
-    return Container(color: Colors.red, height: height, width: 1,);
+  @override
+  Widget verticalDivider(AppModel app, BuildContext context, double height) {
+    return Container(
+      color: Colors.red,
+      height: height,
+      width: 1,
+    );
   }
 }

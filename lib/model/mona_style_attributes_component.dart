@@ -13,7 +13,6 @@
 
 */
 
-
 import 'package:eliud_stl_mona/model/mona_style_attributes_component_bloc.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_component_event.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
@@ -31,20 +30,23 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
   final AppModel app;
   final String monaStyleAttributesId;
 
-  AbstractMonaStyleAttributesComponent({Key? key, required this.app, required this.monaStyleAttributesId}): super(key: key);
+  AbstractMonaStyleAttributesComponent(
+      {super.key, required this.app, required this.monaStyleAttributesId});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<MonaStyleAttributesComponentBloc> (
-          create: (context) => MonaStyleAttributesComponentBloc(
-            monaStyleAttributesRepository: monaStyleAttributesRepository(appId: app.documentID)!)
+    return BlocProvider<MonaStyleAttributesComponentBloc>(
+      create: (context) => MonaStyleAttributesComponentBloc(
+          monaStyleAttributesRepository:
+              monaStyleAttributesRepository(appId: app.documentID)!)
         ..add(FetchMonaStyleAttributesComponent(id: monaStyleAttributesId)),
       child: _monaStyleAttributesBlockBuilder(context),
     );
   }
 
   Widget _monaStyleAttributesBlockBuilder(BuildContext context) {
-    return BlocBuilder<MonaStyleAttributesComponentBloc, MonaStyleAttributesComponentState>(builder: (context, state) {
+    return BlocBuilder<MonaStyleAttributesComponentBloc,
+        MonaStyleAttributesComponentState>(builder: (context, state) {
       if (state is MonaStyleAttributesComponentLoaded) {
         return yourWidget(context, state.value);
       } else if (state is MonaStyleAttributesComponentPermissionDenied) {
@@ -57,7 +59,11 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
         return AlertWidget(app: app, title: 'Error', content: state.message);
       } else {
         return Center(
-          child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().progressIndicatorStyle().progressIndicator(app, context),
+          child: StyleRegistry.registry()
+              .styleWithApp(app)
+              .frontEndStyle()
+              .progressIndicatorStyle()
+              .progressIndicator(app, context),
         );
       }
     });
@@ -65,4 +71,3 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
 
   Widget yourWidget(BuildContext context, MonaStyleAttributesModel value);
 }
-

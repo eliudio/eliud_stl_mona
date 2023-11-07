@@ -6,14 +6,14 @@ import 'package:split_view/split_view.dart';
 
 import '../../styles/mona_style.dart';
 
-class MonaSplitImpl
-    implements HasSplit {
+class MonaSplitImpl implements HasSplit {
   final MonaStyle _monaStyle;
 
   MonaSplitImpl(this._monaStyle);
 
   @override
-  Widget splitView(AppModel app, BuildContext context, Widget container1, Widget container2, double ratio, double minRatio, double maxRatio) =>
+  Widget splitView(AppModel app, BuildContext context, Widget container1,
+          Widget container2, double ratio, double minRatio, double maxRatio) =>
       SplitViewWidget(
         container1: container1,
         container2: container2,
@@ -23,9 +23,7 @@ class MonaSplitImpl
         dividerColor: RgbHelper.color(
             rgbo: _monaStyle.monaStyleAttributesModel.dividerColor),
       );
-
 }
-
 
 class SplitViewWidget extends StatefulWidget {
   final Widget container1;
@@ -36,14 +34,14 @@ class SplitViewWidget extends StatefulWidget {
   final Color dividerColor;
 
   const SplitViewWidget({
-    Key? key,
+    super.key,
     required this.container1,
     required this.container2,
     required this.ratio,
     required this.minRatio,
     required this.maxRatio,
     required this.dividerColor,
-  }) : super(key: key);
+  });
 
   @override
   SplitViewWidgetState createState() => SplitViewWidgetState();

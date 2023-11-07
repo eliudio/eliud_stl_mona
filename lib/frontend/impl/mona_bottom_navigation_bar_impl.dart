@@ -28,14 +28,14 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
               .iconStyle()
               .h4Icon(app, context, icon: item.icon!);
     } else {
-      var color;
-      var style;
+      Color? color;
+      TextStyle? style;
       if (item.isActive) {
         style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h3);
       } else {
         style = FontTools.textStyle(_monaStyle.monaStyleAttributesModel.h4);
       }
-      color = style != null ? style.color : null;
+      color = style?.color;
       return Icon(Icons.circle, color: color);
     }
   }
@@ -53,10 +53,13 @@ class MonaBottomNavigationBarImpl implements HasBottomNavigationBar {
     var background = backgroundOverride ??=
         _monaStyle.monaStyleAttributesModel.bottomNavigationBarBG;
     var selectedRgbColor = _monaStyle.monaStyleAttributesModel.h3!.color;
-    var selectedColor = selectedRgbColor == null ? Colors.black : RgbHelper.color(rgbo: selectedRgbColor);
+    var selectedColor = selectedRgbColor == null
+        ? Colors.black
+        : RgbHelper.color(rgbo: selectedRgbColor);
 
     var rgbColor = _monaStyle.monaStyleAttributesModel.h4!.color;
-    var color = rgbColor == null ? Colors.black : RgbHelper.color(rgbo: rgbColor);
+    var color =
+        rgbColor == null ? Colors.black : RgbHelper.color(rgbo: rgbColor);
 
     int? selected; // must have 1 selected
     for (int i = 0; i < items.length; i++) {

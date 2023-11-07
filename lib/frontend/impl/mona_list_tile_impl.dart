@@ -11,7 +11,14 @@ class MonaListTileImpl implements HasListTile {
   MonaListTileImpl(this._style);
 
   @override
-  Widget getListTile(AppModel app,BuildContext context, {Key? key, GestureTapCallback? onTap, Widget? leading, Widget? trailing, Widget? title, Widget? subtitle, bool? isThreeLine}) {
+  Widget getListTile(AppModel app, BuildContext context,
+      {Key? key,
+      GestureTapCallback? onTap,
+      Widget? leading,
+      Widget? trailing,
+      Widget? title,
+      Widget? subtitle,
+      bool? isThreeLine}) {
     return ListTile(
       key: key,
       onTap: onTap,
@@ -32,14 +39,20 @@ class MonaListTileImpl implements HasListTile {
           rgbo: _style.monaStyleAttributesModel.listTileColor),
         selectedTileColor: RgbHelper.color(
             rgbo: _style.monaStyleAttributesModel.listTileColor),*/
-      tileColor: RgbHelper.color(
-          rgbo: _style.monaStyleAttributesModel.listTileColor),
+      tileColor:
+          RgbHelper.color(rgbo: _style.monaStyleAttributesModel.listTileColor),
     );
   }
 
   @override
-  Widget radioListTile<T>(AppModel app,BuildContext context, T t, T? groupValue,
-      String title, String? subTitle, ValueChanged<T?>? valueChanged) {
+  Widget radioListTile<T>(
+      AppModel app,
+      BuildContext context,
+      T t,
+      T? groupValue,
+      String title,
+      String? subTitle,
+      ValueChanged<T?>? valueChanged) {
     return RadioListTile(
         value: t,
         groupValue: groupValue,
@@ -49,8 +62,8 @@ class MonaListTileImpl implements HasListTile {
   }
 
   @override
-  Widget checkboxListTile(AppModel app,BuildContext context, String title, bool? value,
-      ValueChanged<bool?>? onChanged) {
+  Widget checkboxListTile(AppModel app, BuildContext context, String title,
+      bool? value, ValueChanged<bool?>? onChanged) {
     return CheckboxListTile(
         title: _style.frontEndStyle().textStyle().text(app, context, title),
         value: value,

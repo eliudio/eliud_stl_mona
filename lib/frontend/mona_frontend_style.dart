@@ -1,11 +1,3 @@
-import 'package:eliud_core/style/frontend/has_page_route_builder.dart';
-import 'package:eliud_core/style/frontend/has_split.dart';
-import 'package:eliud_core/style/frontend/has_text_bubble.dart';
-import 'package:eliud_stl_mona/frontend/impl/mona_page_route_builder_impl.dart';
-
-import '../frontend/impl/mona_button_impl.dart';
-import '../frontend/impl/mona_list_tile_impl.dart';
-import '../frontend/impl/mona_tabs_impl.dart';
 import 'package:eliud_core/style/frontend/frontend_style.dart';
 import 'package:eliud_core/style/frontend/has_app.dart';
 import 'package:eliud_core/style/frontend/has_appbar.dart';
@@ -21,14 +13,21 @@ import 'package:eliud_core/style/frontend/has_icon.dart';
 import 'package:eliud_core/style/frontend/has_list_tile.dart';
 import 'package:eliud_core/style/frontend/has_menu.dart';
 import 'package:eliud_core/style/frontend/has_page_body.dart';
+import 'package:eliud_core/style/frontend/has_page_route_builder.dart';
 import 'package:eliud_core/style/frontend/has_profile_photo.dart';
 import 'package:eliud_core/style/frontend/has_progress_indicator.dart';
+import 'package:eliud_core/style/frontend/has_split.dart';
 import 'package:eliud_core/style/frontend/has_style.dart';
 import 'package:eliud_core/style/frontend/has_table.dart';
 import 'package:eliud_core/style/frontend/has_tabs.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
+import 'package:eliud_core/style/frontend/has_text_bubble.dart';
 import 'package:eliud_core/style/frontend/has_text_form_field.dart';
+import 'package:eliud_stl_mona/frontend/impl/mona_page_route_builder_impl.dart';
 
+import '../frontend/impl/mona_button_impl.dart';
+import '../frontend/impl/mona_list_tile_impl.dart';
+import '../frontend/impl/mona_tabs_impl.dart';
 import '../styles/mona_style.dart';
 import 'impl/mona_app_impl.dart';
 import 'impl/mona_appbar_impl.dart';
@@ -86,14 +85,14 @@ class MonaFrontEndStyle implements FrontEndStyle {
     monaAppBarImpl = MonaAppBarImpl(_monaStyle);
     monaProfilePhotoImpl = MonaProfilePhotoImpl();
     monaContainerImpl = MonaContainerImpl(_monaStyle);
-    monaProgressIndicatorImpl = MonaProgressIndicatorImpl(_monaStyle);
-    monaAppImpl = MonaAppImpl(_monaStyle);
+    monaProgressIndicatorImpl = MonaProgressIndicatorImpl();
+    monaAppImpl = MonaAppImpl();
     monaListTileImpl = MonaListTileImpl(_monaStyle);
-    monaDialogFieldImpl = MonaDialogFieldImpl(_monaStyle);
+    monaDialogFieldImpl = MonaDialogFieldImpl();
     monaDialogImpl = MonaDialogImpl(_monaStyle);
     monaDialogWidgetImpl = MonaDialogWidgetImpl(_monaStyle);
     monaButtonImpl = MonaButtonImpl(_monaStyle);
-    monaTextImpl = MonaTextImpl(_monaStyle);
+    monaTextImpl = MonaTextImpl();
     monaTableImpl = MonaTableImpl(_monaStyle);
     monaTextFormFieldImpl = MonaTextFormFieldImpl(_monaStyle);
     monaStyleImpl = MonaStyleImpl(_monaStyle);
@@ -112,7 +111,8 @@ class MonaFrontEndStyle implements FrontEndStyle {
   HasApp appStyle() => monaAppImpl;
 
   @override
-  HasBottomNavigationBar bottomNavigationBarStyle() => monaBottomNavigationBarImpl;
+  HasBottomNavigationBar bottomNavigationBarStyle() =>
+      monaBottomNavigationBarImpl;
 
   @override
   HasButton buttonStyle() => monaButtonImpl;

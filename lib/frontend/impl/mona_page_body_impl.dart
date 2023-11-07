@@ -13,7 +13,7 @@ class MonaPageBodyImpl implements HasPageBody {
   MonaPageBodyImpl(this._monaStyle);
 
   @override
-  Widget pageBody(AppModel app,BuildContext context,
+  Widget pageBody(AppModel app, BuildContext context,
       {BackgroundModel? backgroundOverride,
       required List<Widget> components,
       Layout? layout,
@@ -22,6 +22,7 @@ class MonaPageBodyImpl implements HasPageBody {
         components: components,
         layout: layout,
         gridView: gridView,
-        background: backgroundOverride == null ? _monaStyle.monaStyleAttributesModel.appBackground : backgroundOverride);
+        background: backgroundOverride ??
+            _monaStyle.monaStyleAttributesModel.appBackground);
   }
 }

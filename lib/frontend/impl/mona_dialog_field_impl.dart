@@ -1,17 +1,15 @@
 import 'package:eliud_core/model/app_model.dart';
 import 'package:eliud_core/style/_default/frontend/helper/dialog/dialog_field.dart';
 import 'package:eliud_core/style/frontend/has_dialog_field.dart';
-import 'package:eliud_core/style/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class MonaDialogFieldImpl implements HasDialogField {
-  final Style _style;
-
-  MonaDialogFieldImpl(this._style);
+  MonaDialogFieldImpl();
 
   @override
-  Widget dialogField(AppModel app,
+  Widget dialogField(
+    AppModel app,
     BuildContext context, {
     InputDecoration? decoration,
     required ValueChanged<String> valueChanged,
@@ -23,7 +21,6 @@ class MonaDialogFieldImpl implements HasDialogField {
     TextAlignVertical? textAlignVertical,
     TextDirection? textDirection,
     bool? readOnly,
-    ToolbarOptions? toolbarOptions,
     bool? showCursor,
     bool? autocorrect,
     bool? enableSuggestions,
@@ -32,7 +29,8 @@ class MonaDialogFieldImpl implements HasDialogField {
     bool? expands,
     int? maxLength,
   }) {
-    return DialogField(app: app,
+    return DialogField(
+      app: app,
       decoration: decoration,
       valueChanged: valueChanged,
       initialValue: initialValue,
@@ -43,7 +41,6 @@ class MonaDialogFieldImpl implements HasDialogField {
       textAlignVertical: textAlignVertical,
       textDirection: textDirection,
       readOnly: readOnly,
-      toolbarOptions: toolbarOptions,
       showCursor: showCursor,
       autocorrect: autocorrect,
       enableSuggestions: enableSuggestions,

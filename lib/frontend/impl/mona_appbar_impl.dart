@@ -38,8 +38,9 @@ class MonaAppBarImpl implements HasAppBar {
     var menuBackgroundColor = menuBackgroundColorOverride ??
         _monaStyle.monaStyleAttributesModel.appBarMenuBackgroundColor;
 
-    var appBarHelper = AppBarHelper(_monaStyle.frontEndStyle(), MonaMenuImpl(_monaStyle));
-    var _title = appBarHelper.title(app, context, headerAttributes, pageName);
+    var appBarHelper =
+        AppBarHelper(_monaStyle.frontEndStyle(), MonaMenuImpl(_monaStyle));
+    var title = appBarHelper.title(app, context, headerAttributes, pageName);
 
     var iconThemeData = IconThemeData(color: RgbHelper.color(rgbo: iconColor));
 
@@ -47,8 +48,8 @@ class MonaAppBarImpl implements HasAppBar {
     List<Widget>? buttons;
     if (items != null) {
       buttons = items
-          .map((item) => appBarHelper.button(app,
-              context, item, menuBackgroundColor, selectedIconColor, iconColor))
+          .map((item) => appBarHelper.button(app, context, item,
+              menuBackgroundColor, selectedIconColor, iconColor))
           .toList();
     } else {
       buttons = [];
@@ -70,13 +71,17 @@ class MonaAppBarImpl implements HasAppBar {
 //        elevation: 30.0,
         key: key,
         iconTheme: iconThemeData,
-        title: _title,
+        title: title,
         actions: buttons,
         flexibleSpace: Container(
-            clipBehavior: BoxDecorationHelper.determineClipBehaviour(app, member, background),
-            margin: BoxDecorationHelper.determineMargin(app, member, background),
-            padding: BoxDecorationHelper.determinePadding(app, member, background),
-            decoration: BoxDecorationHelper.boxDecoration(app, member, background)));
+            clipBehavior: BoxDecorationHelper.determineClipBehaviour(
+                app, member, background),
+            margin:
+                BoxDecorationHelper.determineMargin(app, member, background),
+            padding:
+                BoxDecorationHelper.determinePadding(app, member, background),
+            decoration:
+                BoxDecorationHelper.boxDecoration(app, member, background)));
   }
 /*
 

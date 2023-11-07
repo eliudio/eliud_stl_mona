@@ -20,24 +20,27 @@ import 'package:eliud_stl_mona/model/mona_style_attributes_component_event.dart'
 import 'package:eliud_stl_mona/model/mona_style_attributes_component_state.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_repository.dart';
 
-class MonaStyleAttributesComponentBloc extends Bloc<MonaStyleAttributesComponentEvent, MonaStyleAttributesComponentState> {
+class MonaStyleAttributesComponentBloc extends Bloc<
+    MonaStyleAttributesComponentEvent, MonaStyleAttributesComponentState> {
   final MonaStyleAttributesRepository? monaStyleAttributesRepository;
   StreamSubscription? _monaStyleAttributesSubscription;
 
   void _mapLoadMonaStyleAttributesComponentUpdateToState(String documentId) {
     _monaStyleAttributesSubscription?.cancel();
-    _monaStyleAttributesSubscription = monaStyleAttributesRepository!.listenTo(documentId, (value) {
+    _monaStyleAttributesSubscription =
+        monaStyleAttributesRepository!.listenTo(documentId, (value) {
       if (value != null) {
         add(MonaStyleAttributesComponentUpdated(value: value));
       }
     });
   }
 
-  MonaStyleAttributesComponentBloc({ this.monaStyleAttributesRepository }): super(MonaStyleAttributesComponentUninitialized()) {
-    on <FetchMonaStyleAttributesComponent> ((event, emit) {
+  MonaStyleAttributesComponentBloc({this.monaStyleAttributesRepository})
+      : super(MonaStyleAttributesComponentUninitialized()) {
+    on<FetchMonaStyleAttributesComponent>((event, emit) {
       _mapLoadMonaStyleAttributesComponentUpdateToState(event.id!);
     });
-    on <MonaStyleAttributesComponentUpdated> ((event, emit) {
+    on<MonaStyleAttributesComponentUpdated>((event, emit) {
       emit(MonaStyleAttributesComponentLoaded(value: event.value));
     });
   }
@@ -47,6 +50,4 @@ class MonaStyleAttributesComponentBloc extends Bloc<MonaStyleAttributesComponent
     _monaStyleAttributesSubscription?.cancel();
     return super.close();
   }
-
 }
-

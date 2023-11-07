@@ -306,7 +306,7 @@
       "displayName": "Page Route Builder",
       "fieldType": "enum",
       "enumName": "PageTransitionAnimation",
-      "enumValues" : [ "SlideRightToLeft", "SlideBottomToTop", "ScaleRoute", "RotationRoute", "FadeRoute" ],
+      "enumValues" : [ "slideRightToLeft", "slideBottomToTop", "scaleRoute", "rotationRoute", "fadeRoute" ],
       "group": "route"
     },
     {

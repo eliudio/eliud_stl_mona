@@ -13,17 +13,20 @@ class MonaMenuImpl implements HasMenu {
   MonaMenuImpl(this._monaStyle);
 
   @override
-  Future<void> openMenu(AppModel app,BuildContext context,
+  Future<void> openMenu(AppModel app, BuildContext context,
       {required RelativeRect position,
       required List<AbstractMenuItemAttributes> menuItems,
       RgbModel? popupMenuBackgroundColorOverride}) async {
-    var popupMenuBackgroundColor;
+    RgbModel? popupMenuBackgroundColor;
     if (popupMenuBackgroundColorOverride == null) {
       popupMenuBackgroundColor =
           _monaStyle.monaStyleAttributesModel.backgroundColorHomeMenu;
     } else {
       popupMenuBackgroundColor = popupMenuBackgroundColorOverride;
     }
-    return MenuHelper(_monaStyle.frontEndStyle()).openMenu(app, context, position: position, menuItems: menuItems, popupMenuBackgroundColor:  popupMenuBackgroundColor);
+    return MenuHelper(_monaStyle.frontEndStyle()).openMenu(app, context,
+        position: position,
+        menuItems: menuItems,
+        popupMenuBackgroundColor: popupMenuBackgroundColor);
   }
 }

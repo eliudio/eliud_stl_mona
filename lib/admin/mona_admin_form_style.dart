@@ -5,6 +5,7 @@ import 'package:eliud_core/style/admin/admin_form_style.dart';
 import 'package:eliud_core/tools/enums.dart';
 import 'package:eliud_core/tools/etc.dart';
 import 'package:flutter/material.dart';
+
 import '../styles/mona_style.dart';
 
 class MonaAdminFormStyle implements AdminFormStyle {
@@ -17,14 +18,19 @@ class MonaAdminFormStyle implements AdminFormStyle {
     return Text(title,
         style: TextStyle(
             color: RgbHelper.color(
-                rgbo:
-                    _monaStyle.monaStyleAttributesModel.formGroupTitleColor),
+                rgbo: _monaStyle.monaStyleAttributesModel.formGroupTitleColor),
             fontWeight: FontWeight.bold));
   }
 
   @override
-  Widget radioListTile<T>(AppModel app, BuildContext context, T t, T? groupValue,
-      String title, String subTitle, ValueChanged<T?>? valueChanged) {
+  Widget radioListTile<T>(
+      AppModel app,
+      BuildContext context,
+      T t,
+      T? groupValue,
+      String title,
+      String subTitle,
+      ValueChanged<T?>? valueChanged) {
     return RadioListTile(
         value: t,
         activeColor: RgbHelper.color(
@@ -44,8 +50,8 @@ class MonaAdminFormStyle implements AdminFormStyle {
   }
 
   @override
-  Widget checkboxListTile(AppModel app, BuildContext context, String title, bool? value,
-      ValueChanged<bool?>? onChanged) {
+  Widget checkboxListTile(AppModel app, BuildContext context, String title,
+      bool? value, ValueChanged<bool?>? onChanged) {
     return CheckboxListTile(
         title: Text(title,
             style: TextStyle(
@@ -60,16 +66,19 @@ class MonaAdminFormStyle implements AdminFormStyle {
    * This is the container for the entire form
    */
   @override
-  Widget container(AppModel app, BuildContext context, Widget child, FormAction formAction) {
-    var decoration = ((formAction == FormAction.ShowData) ||
-                (formAction == FormAction.ShowPreloadedData))
-            ? null
-            : BoxDecorationHelper.boxDecoration(app, AccessBloc.getState(context).getMember(),
-                _monaStyle.monaStyleAttributesModel.formBackground);
+  Widget container(
+      AppModel app, BuildContext context, Widget child, FormAction formAction) {
+    var decoration = ((formAction == FormAction.showData) ||
+            (formAction == FormAction.showPreloadedData))
+        ? null
+        : BoxDecorationHelper.boxDecoration(
+            app,
+            AccessBloc.getState(context).getMember(),
+            _monaStyle.monaStyleAttributesModel.formBackground);
     return Container(
         clipBehavior: (decoration == null) ? Clip.none : Clip.hardEdge,
-        color: ((formAction == FormAction.ShowData) ||
-                (formAction == FormAction.ShowPreloadedData))
+        color: ((formAction == FormAction.showData) ||
+                (formAction == FormAction.showPreloadedData))
             ? Colors.transparent
             : null,
         decoration: decoration,
@@ -87,8 +96,8 @@ class MonaAdminFormStyle implements AdminFormStyle {
         title: Text(title,
             style: TextStyle(
                 color: RgbHelper.color(
-                    rgbo: _monaStyle
-                        .monaStyleAttributesModel.appBarIconColor))),
+                    rgbo:
+                        _monaStyle.monaStyleAttributesModel.appBarIconColor))),
         actions: actions,
         iconTheme: iconTheme,
         backgroundOverride: backgroundOverride);
@@ -100,7 +109,7 @@ class MonaAdminFormStyle implements AdminFormStyle {
       IconThemeData? iconTheme,
       BackgroundModel? backgroundOverride}) {
     var accessState = AccessBloc.getState(context);
-    var background;
+    BackgroundModel? background;
     if (backgroundOverride != null) {
       background = backgroundOverride;
     } else {
@@ -112,8 +121,8 @@ class MonaAdminFormStyle implements AdminFormStyle {
       iconTheme: iconTheme,
       flexibleSpace: Container(
           clipBehavior: (background == null) ? Clip.none : Clip.hardEdge,
-          decoration:
-              BoxDecorationHelper.boxDecoration(app, accessState.getMember(), background)),
+          decoration: BoxDecorationHelper.boxDecoration(
+              app, accessState.getMember(), background)),
     );
   }
 
@@ -135,8 +144,9 @@ class MonaAdminFormStyle implements AdminFormStyle {
   }
 
   @override
-  Widget textFormField(AppModel app,
-      BuildContext context, {
+  Widget textFormField(
+    AppModel app,
+    BuildContext context, {
     required bool readOnly,
     String? initialValue,
     FormFieldValidator<String>? validator,
@@ -151,8 +161,7 @@ class MonaAdminFormStyle implements AdminFormStyle {
     return TextFormField(
         style: TextStyle(
             color: RgbHelper.color(
-                rgbo:
-                    _monaStyle.monaStyleAttributesModel.formFieldTextColor)),
+                rgbo: _monaStyle.monaStyleAttributesModel.formFieldTextColor)),
         readOnly: readOnly,
         onChanged: onChanged,
         controller: textEditingController,

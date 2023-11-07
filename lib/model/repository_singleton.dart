@@ -20,13 +20,19 @@ import '../model/mona_style_attributes_firestore.dart';
 import '../model/mona_style_attributes_repository.dart';
 import '../model/mona_style_attributes_cache.dart';
 
-
 class RepositorySingleton extends AbstractRepositorySingleton {
-    var _monaStyleAttributesRepository = HashMap<String, MonaStyleAttributesRepository>();
+  final _monaStyleAttributesRepository =
+      HashMap<String, MonaStyleAttributesRepository>();
 
-    MonaStyleAttributesRepository? monaStyleAttributesRepository(String? appId) {
-      if ((appId != null) && (_monaStyleAttributesRepository[appId] == null)) _monaStyleAttributesRepository[appId] = MonaStyleAttributesCache(MonaStyleAttributesFirestore(() => appRepository()!.getSubCollection(appId, 'monastyleattributes'), appId));
-      return _monaStyleAttributesRepository[appId];
+  @override
+  MonaStyleAttributesRepository? monaStyleAttributesRepository(String? appId) {
+    if ((appId != null) && (_monaStyleAttributesRepository[appId] == null)) {
+      _monaStyleAttributesRepository[appId] = MonaStyleAttributesCache(
+          MonaStyleAttributesFirestore(
+              () => appRepository()!
+                  .getSubCollection(appId, 'monastyleattributes'),
+              appId));
     }
-
+    return _monaStyleAttributesRepository[appId];
+  }
 }

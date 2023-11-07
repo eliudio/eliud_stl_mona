@@ -3,16 +3,12 @@ import 'package:eliud_core/style/frontend/has_style.dart';
 import 'package:eliud_core/style/frontend/has_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../styles/mona_style.dart';
-
-class MonaTextImpl
-    implements HasText {
-  final MonaStyle _monaStyle;
-
-  MonaTextImpl(this._monaStyle);
+class MonaTextImpl implements HasText {
+  MonaTextImpl();
 
   @override
-  Widget smallText(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+  Widget smallText(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -21,7 +17,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget text(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+  Widget text(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -30,7 +27,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget highLight1(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget highLight1(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -39,7 +37,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget highLight2(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget highLight2(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -48,7 +47,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget h1(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h1(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -57,7 +57,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget h2(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h2(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -66,7 +67,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget h3(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h3(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -75,7 +77,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget h4(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h4(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -84,7 +87,8 @@ class MonaTextImpl
   }
 
   @override
-  Widget h5(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap }) {
+  Widget h5(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
@@ -93,12 +97,12 @@ class MonaTextImpl
   }
 
   @override
-  Widget inputDecorationLabel(AppModel app,BuildContext context, String data, {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
+  Widget inputDecorationLabel(AppModel app, BuildContext context, String data,
+      {TextAlign? textAlign, int? maxLines, bool? softWrap}) {
     return Text(data,
         textAlign: textAlign,
         maxLines: maxLines,
         softWrap: softWrap,
         style: styleInputDecorationLabel(app, context));
   }
-
 }

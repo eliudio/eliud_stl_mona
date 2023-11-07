@@ -23,24 +23,29 @@ abstract class MonaStyleAttributesComponentState extends Equatable {
   List<Object?> get props => [];
 }
 
-class MonaStyleAttributesComponentUninitialized extends MonaStyleAttributesComponentState {}
+class MonaStyleAttributesComponentUninitialized
+    extends MonaStyleAttributesComponentState {}
 
-class MonaStyleAttributesComponentError extends MonaStyleAttributesComponentState {
+class MonaStyleAttributesComponentError
+    extends MonaStyleAttributesComponentState {
   final String? message;
-  MonaStyleAttributesComponentError({ this.message });
+  MonaStyleAttributesComponentError({this.message});
 }
 
-class MonaStyleAttributesComponentPermissionDenied extends MonaStyleAttributesComponentState {
+class MonaStyleAttributesComponentPermissionDenied
+    extends MonaStyleAttributesComponentState {
   MonaStyleAttributesComponentPermissionDenied();
 }
 
-class MonaStyleAttributesComponentLoaded extends MonaStyleAttributesComponentState {
+class MonaStyleAttributesComponentLoaded
+    extends MonaStyleAttributesComponentState {
   final MonaStyleAttributesModel value;
 
-  const MonaStyleAttributesComponentLoaded({ required this.value });
+  const MonaStyleAttributesComponentLoaded({required this.value});
 
-  MonaStyleAttributesComponentLoaded copyWith({ MonaStyleAttributesModel? copyThis }) {
-    return MonaStyleAttributesComponentLoaded(value: copyThis ?? this.value);
+  MonaStyleAttributesComponentLoaded copyWith(
+      {MonaStyleAttributesModel? copyThis}) {
+    return MonaStyleAttributesComponentLoaded(value: copyThis ?? value);
   }
 
   @override
@@ -49,4 +54,3 @@ class MonaStyleAttributesComponentLoaded extends MonaStyleAttributesComponentSta
   @override
   String toString() => 'MonaStyleAttributesComponentLoaded { value: $value }';
 }
-

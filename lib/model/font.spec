@@ -39,7 +39,7 @@
       "displayName": "Weight",
       "fieldType": "enum",
       "enumName": "EliudFontWeight",
-      "enumValues" : [ "Thin", "ExtraLight", "Light", "Normal", "Medium", "SemiBold", "Bold", "ExtraBold", "MostThick" ],
+      "enumValues" : [ "thin", "extraLight", "light", "normal", "medium", "semiBold", "bold", "extraBold", "mostThick" ],
       "group": "weight"
     },
     {
@@ -47,7 +47,7 @@
       "displayName": "Style",
       "fieldType": "enum",
       "enumName": "EliudFontStyle",
-      "enumValues" : [ "Italic", "Normal" ],
+      "enumValues" : [ "italic", "normal" ],
       "group": "style"
     },
     {
@@ -55,7 +55,7 @@
       "displayName": "Decoration",
       "fieldType": "enum",
       "enumName": "EliudFontDecoration",
-      "enumValues" : [ "None", "Underline", "Overline", "LineThrough" ],
+      "enumValues" : [ "none", "underline", "overline", "lineThrough" ],
       "group": "decoration"
     },
     {
