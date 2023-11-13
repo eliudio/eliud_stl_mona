@@ -60,7 +60,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
           appId,
           formAction: formAction,
         )..add(InitialiseMonaStyleAttributesFormEvent(value: value)),
-        child: MyMonaStyleAttributesForm(
+        child: _MyMonaStyleAttributesForm(
             app: app, submitAction: submitAction, formAction: formAction),
       );
     }
@@ -70,7 +70,7 @@ class MonaStyleAttributesForm extends StatelessWidget {
           appId,
           formAction: formAction,
         )..add(InitialiseMonaStyleAttributesFormNoLoadEvent(value: value)),
-        child: MyMonaStyleAttributesForm(
+        child: _MyMonaStyleAttributesForm(
             app: app, submitAction: submitAction, formAction: formAction),
       );
     } else {
@@ -89,27 +89,28 @@ class MonaStyleAttributesForm extends StatelessWidget {
             )..add((formAction == FormAction.updateAction
                 ? InitialiseMonaStyleAttributesFormEvent(value: value)
                 : InitialiseNewMonaStyleAttributesFormEvent())),
-            child: MyMonaStyleAttributesForm(
+            child: _MyMonaStyleAttributesForm(
                 app: app, submitAction: submitAction, formAction: formAction),
           ));
     }
   }
 }
 
-class MyMonaStyleAttributesForm extends StatefulWidget {
+class _MyMonaStyleAttributesForm extends StatefulWidget {
   final AppModel app;
   final FormAction? formAction;
   final ActionModel? submitAction;
 
-  MyMonaStyleAttributesForm(
+  _MyMonaStyleAttributesForm(
       {required this.app, this.formAction, this.submitAction});
 
   @override
-  State<MyMonaStyleAttributesForm> createState() =>
+  State<_MyMonaStyleAttributesForm> createState() =>
       _MyMonaStyleAttributesFormState(formAction);
 }
 
-class _MyMonaStyleAttributesFormState extends State<MyMonaStyleAttributesForm> {
+class _MyMonaStyleAttributesFormState
+    extends State<_MyMonaStyleAttributesForm> {
   final FormAction? formAction;
   late MonaStyleAttributesFormBloc _myFormBloc;
 

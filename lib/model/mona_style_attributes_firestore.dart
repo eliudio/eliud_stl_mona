@@ -25,13 +25,22 @@ import 'package:eliud_core/tools/query/query_tools.dart';
 import 'package:eliud_core/tools/firestore/firestore_tools.dart';
 import 'package:eliud_core/tools/common_tools.dart';
 
+/* 
+ * MonaStyleAttributesFirestore is the firestore implementation of MonaStyleAttributesRepository
+ */
 class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
+  /* 
+   * transform a map into an entity
+   */
   @override
   MonaStyleAttributesEntity? fromMap(Object? o,
       {Map<String, String>? newDocumentIds}) {
     return MonaStyleAttributesEntity.fromMap(o, newDocumentIds: newDocumentIds);
   }
 
+  /* 
+   * add an entity to the repository
+   */
   @override
   Future<MonaStyleAttributesEntity> addEntity(
       String documentID, MonaStyleAttributesEntity value) {
@@ -41,6 +50,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
         .then((_) => value);
   }
 
+  /* 
+   * Update an entity
+   */
   @override
   Future<MonaStyleAttributesEntity> updateEntity(
       String documentID, MonaStyleAttributesEntity value) {
@@ -50,6 +62,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
         .then((_) => value);
   }
 
+  /* 
+   * Add a model to the repository
+   */
   @override
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value) {
     return monaStyleAttributesCollection
@@ -58,11 +73,17 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
         .then((_) => value);
   }
 
+  /* 
+   * Delete a model
+   */
   @override
   Future<void> delete(MonaStyleAttributesModel value) {
     return monaStyleAttributesCollection.doc(value.documentID).delete();
   }
 
+  /* 
+   * Update a model
+   */
   @override
   Future<MonaStyleAttributesModel> update(MonaStyleAttributesModel value) {
     return monaStyleAttributesCollection
@@ -83,6 +104,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
         appId: appId);
   }
 
+  /* 
+   * Retrieve an entity from the repository with id
+   */
   @override
   Future<MonaStyleAttributesEntity?> getEntity(String? id,
       {Function(Exception)? onError}) async {
@@ -101,6 +125,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return null;
   }
 
+  /* 
+   * Retrieve an model from the repository with id
+   */
   @override
   Future<MonaStyleAttributesModel?> get(String? id,
       {Function(Exception)? onError}) async {
@@ -119,6 +146,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return null;
   }
 
+  /* 
+   * Listen to the repository using a query. Retrieve models
+   */
   @override
   StreamSubscription<List<MonaStyleAttributesModel?>> listen(
       MonaStyleAttributesModelTrigger trigger,
@@ -150,6 +180,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     });
   }
 
+  /* 
+   * Listen to the repository using a query. Retrieve models and linked models
+   */
   @override
   StreamSubscription<List<MonaStyleAttributesModel?>> listenWithDetails(
       MonaStyleAttributesModelTrigger trigger,
@@ -181,6 +214,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     });
   }
 
+  /* 
+   * Listen to 1 document in the repository
+   */
   @override
   StreamSubscription<MonaStyleAttributesModel?> listenTo(
       String documentId, MonaStyleAttributesChanged changed,
@@ -202,6 +238,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return theStream;
   }
 
+  /* 
+   * Retrieve values/models from the repository
+   */
   @override
   Stream<List<MonaStyleAttributesModel?>> values(
       {String? orderBy,
@@ -232,6 +271,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return values;
   }
 
+  /* 
+   * Retrieve values/models, including linked models, from the repository
+   */
   @override
   Stream<List<MonaStyleAttributesModel?>> valuesWithDetails(
       {String? orderBy,
@@ -262,6 +304,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return values;
   }
 
+  /* 
+   * Retrieve values/models from the repository
+   */
   @override
   Future<List<MonaStyleAttributesModel?>> valuesList(
       {String? orderBy,
@@ -293,6 +338,9 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return values;
   }
 
+  /* 
+   * Retrieve values/models, including linked models, from the repository
+   */
   @override
   Future<List<MonaStyleAttributesModel?>> valuesListWithDetails(
       {String? orderBy,
@@ -324,9 +372,15 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     return values;
   }
 
+  /* 
+   * Flush the repository
+   */
   @override
   void flush() {}
 
+  /* 
+   * Delete all entries in the repository
+   */
   @override
   Future<void> deleteAll() {
     return monaStyleAttributesCollection.get().then((snapshot) {
@@ -336,16 +390,25 @@ class MonaStyleAttributesFirestore implements MonaStyleAttributesRepository {
     });
   }
 
+  /* 
+   * Retrieve the subcollection of this repository
+   */
   @override
   dynamic getSubCollection(String documentId, String name) {
     return monaStyleAttributesCollection.doc(documentId).collection(name);
   }
 
+  /* 
+   * Retrieve a timestamp
+   */
   @override
   String? timeStampToString(dynamic timeStamp) {
     return firestoreTimeStampToString(timeStamp);
   }
 
+  /* 
+   * change 1 a fieldvalue for 1 document  
+   */
   @override
   Future<MonaStyleAttributesModel?> changeValue(
       String documentId, String fieldName, num changeByThisValue) {

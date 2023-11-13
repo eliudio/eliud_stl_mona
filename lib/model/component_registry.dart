@@ -17,7 +17,13 @@ import '../model/internal_component.dart';
 import 'package:eliud_core/core/registry.dart';
 import 'abstract_repository_singleton.dart';
 
+/* 
+ * Component registry contains a list of components
+ */
 class ComponentRegistry {
+  /* 
+   * Initialise the component registry
+   */
   void init() {
     Registry.registry()!.addInternalComponents('eliud_stl_mona', [
       "monaStyleAttributess",

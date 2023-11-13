@@ -32,7 +32,13 @@ import 'mona_style_attributes_list_event.dart';
 import 'mona_style_attributes_list_state.dart';
 import 'mona_style_attributes_model.dart';
 
+/* 
+ * MonaStyleAttributesComponentSelector is a component selector for MonaStyleAttributes, allowing to select a MonaStyleAttributes component
+ */
 class MonaStyleAttributesComponentSelector extends ComponentSelector {
+  /* 
+   * createSelectWidget creates the widget
+   */
   @override
   Widget createSelectWidget(BuildContext context, AppModel app,
       int privilegeLevel, double height, SelectComponent selected, editor) {
@@ -43,7 +49,7 @@ class MonaStyleAttributesComponentSelector extends ComponentSelector {
         monaStyleAttributesRepository:
             monaStyleAttributesRepository(appId: appId)!,
       )..add(LoadMonaStyleAttributesList()),
-      child: SelectMonaStyleAttributesWidget(
+      child: _SelectMonaStyleAttributesWidget(
           app: app,
           height: height,
           containerPrivilege: privilegeLevel,
@@ -53,29 +59,31 @@ class MonaStyleAttributesComponentSelector extends ComponentSelector {
   }
 }
 
-class SelectMonaStyleAttributesWidget extends StatefulWidget {
+/* 
+ * _SelectMonaStyleAttributesWidget 
+ */
+class _SelectMonaStyleAttributesWidget extends StatefulWidget {
   final AppModel app;
   final double height;
   final SelectComponent selected;
   final int containerPrivilege;
   final ComponentEditorConstructor editorConstructor;
 
-  const SelectMonaStyleAttributesWidget(
-      {super.key,
-      required this.app,
+  const _SelectMonaStyleAttributesWidget(
+      {required this.app,
       required this.containerPrivilege,
       required this.height,
       required this.selected,
       required this.editorConstructor});
 
   @override
-  State<SelectMonaStyleAttributesWidget> createState() {
+  State<_SelectMonaStyleAttributesWidget> createState() {
     return _SelectMonaStyleAttributesWidgetState();
   }
 }
 
 class _SelectMonaStyleAttributesWidgetState
-    extends State<SelectMonaStyleAttributesWidget>
+    extends State<_SelectMonaStyleAttributesWidget>
     with TickerProviderStateMixin {
   TabController? _privilegeTabController;
   final List<String> _privilegeItems = ['No', 'L1', 'L2', 'Owner'];

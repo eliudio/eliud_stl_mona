@@ -25,14 +25,23 @@ import 'abstract_repository_singleton.dart';
 import 'package:eliud_core/core/widgets/alert_widget.dart';
 import 'package:eliud_core/model/app_model.dart';
 
+/*
+ * AbstractMonaStyleAttributesComponent is the base class to extend / implement in case you need to implement a component
+ */
 abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
   static String componentName = "monaStyleAttributess";
   final AppModel app;
   final String monaStyleAttributesId;
 
+  /*
+   * Construct AbstractMonaStyleAttributesComponent
+   */
   AbstractMonaStyleAttributesComponent(
       {super.key, required this.app, required this.monaStyleAttributesId});
 
+  /*
+   * build the component
+   */
   @override
   Widget build(BuildContext context) {
     return BlocProvider<MonaStyleAttributesComponentBloc>(
@@ -69,5 +78,8 @@ abstract class AbstractMonaStyleAttributesComponent extends StatelessWidget {
     });
   }
 
+  /*
+   * Implement this method to provide your widget
+   */
   Widget yourWidget(BuildContext context, MonaStyleAttributesModel value);
 }

@@ -35,6 +35,9 @@ class MonaStyleAttributesComponentBloc extends Bloc<
     });
   }
 
+  /*
+   * Construct MonaStyleAttributesComponentBloc
+   */
   MonaStyleAttributesComponentBloc({this.monaStyleAttributesRepository})
       : super(MonaStyleAttributesComponentUninitialized()) {
     on<FetchMonaStyleAttributesComponent>((event, emit) {
@@ -45,6 +48,9 @@ class MonaStyleAttributesComponentBloc extends Bloc<
     });
   }
 
+  /*
+   * Close the MonaStyleAttributesComponentBloc
+   */
   @override
   Future<void> close() {
     _monaStyleAttributesSubscription?.cancel();
