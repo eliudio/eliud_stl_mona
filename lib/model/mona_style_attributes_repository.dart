@@ -13,108 +13,55 @@
 
 */
 
+import 'package:eliud_stl_mona/model/mona_style_attributes_repository.dart';
+
+
+import 'package:eliud_core_model/model/repository_export.dart';
+import 'package:eliud_core_model/model/abstract_repository_singleton.dart';
+import 'package:eliud_core_model/tools/main_abstract_repository_singleton.dart';
+import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
+import 'package:eliud_stl_mona/model/repository_export.dart';
+import 'package:eliud_core_model/model/model_export.dart';
+import '../tools/bespoke_models.dart';
 import 'package:eliud_stl_mona/model/model_export.dart';
+import 'package:eliud_core_model/model/entity_export.dart';
+import '../tools/bespoke_entities.dart';
 import 'package:eliud_stl_mona/model/entity_export.dart';
 
-import 'dart:async';
-import 'package:eliud_core/tools/query/query_tools.dart';
-import 'package:eliud_core/tools/common_tools.dart';
-import 'package:eliud_core/core/base/repository_base.dart';
 
-typedef MonaStyleAttributesModelTrigger = Function(
-    List<MonaStyleAttributesModel?> list);
-typedef MonaStyleAttributesChanged = Function(MonaStyleAttributesModel? value);
+import 'dart:async';
+import 'package:eliud_core_model/tools/query/query_tools.dart';
+import 'package:eliud_core_model/tools/common_tools.dart';
+import 'package:eliud_core_model/tools/base/repository_base.dart';
+
+typedef MonaStyleAttributesModelTrigger(List<MonaStyleAttributesModel?> list);
+typedef MonaStyleAttributesChanged(MonaStyleAttributesModel? value);
 typedef MonaStyleAttributesErrorHandler = Function(dynamic o, dynamic e);
 
-abstract class MonaStyleAttributesRepository extends RepositoryBase<
-    MonaStyleAttributesModel, MonaStyleAttributesEntity> {
-  @override
-  Future<MonaStyleAttributesEntity> addEntity(
-      String documentID, MonaStyleAttributesEntity value);
-  @override
-  Future<MonaStyleAttributesEntity> updateEntity(
-      String documentID, MonaStyleAttributesEntity value);
-  @override
+abstract class MonaStyleAttributesRepository extends RepositoryBase<MonaStyleAttributesModel, MonaStyleAttributesEntity> {
+  Future<MonaStyleAttributesEntity> addEntity(String documentID, MonaStyleAttributesEntity value);
+  Future<MonaStyleAttributesEntity> updateEntity(String documentID, MonaStyleAttributesEntity value);
   Future<MonaStyleAttributesModel> add(MonaStyleAttributesModel value);
-  @override
   Future<void> delete(MonaStyleAttributesModel value);
-  @override
-  Future<MonaStyleAttributesModel?> get(String? id,
-      {Function(Exception)? onError});
-  @override
+  Future<MonaStyleAttributesModel?> get(String? id, { Function(Exception)? onError });
   Future<MonaStyleAttributesModel> update(MonaStyleAttributesModel value);
 
-  @override
-  Stream<List<MonaStyleAttributesModel?>> values(
-      {String? orderBy,
-      bool? descending,
-      Object? startAfter,
-      int? limit,
-      SetLastDoc? setLastDoc,
-      int? privilegeLevel,
-      EliudQuery? eliudQuery});
-  @override
-  Stream<List<MonaStyleAttributesModel?>> valuesWithDetails(
-      {String? orderBy,
-      bool? descending,
-      Object? startAfter,
-      int? limit,
-      SetLastDoc? setLastDoc,
-      int? privilegeLevel,
-      EliudQuery? eliudQuery});
-  @override
-  Future<List<MonaStyleAttributesModel?>> valuesList(
-      {String? orderBy,
-      bool? descending,
-      Object? startAfter,
-      int? limit,
-      SetLastDoc? setLastDoc,
-      int? privilegeLevel,
-      EliudQuery? eliudQuery});
-  @override
-  Future<List<MonaStyleAttributesModel?>> valuesListWithDetails(
-      {String? orderBy,
-      bool? descending,
-      Object? startAfter,
-      int? limit,
-      SetLastDoc? setLastDoc,
-      int? privilegeLevel,
-      EliudQuery? eliudQuery});
+  Stream<List<MonaStyleAttributesModel?>> values({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery });
+  Stream<List<MonaStyleAttributesModel?>> valuesWithDetails({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery });
+  Future<List<MonaStyleAttributesModel?>> valuesList({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery });
+  Future<List<MonaStyleAttributesModel?>> valuesListWithDetails({String? orderBy, bool? descending, Object? startAfter, int? limit, SetLastDoc? setLastDoc, int? privilegeLevel, EliudQuery? eliudQuery });
 
-  @override
-  StreamSubscription<List<MonaStyleAttributesModel?>> listen(
-      MonaStyleAttributesModelTrigger trigger,
-      {String? orderBy,
-      bool? descending,
-      Object? startAfter,
-      int? limit,
-      int? privilegeLevel,
-      EliudQuery? eliudQuery});
-  @override
-  StreamSubscription<List<MonaStyleAttributesModel?>> listenWithDetails(
-      MonaStyleAttributesModelTrigger trigger,
-      {String? orderBy,
-      bool? descending,
-      Object? startAfter,
-      int? limit,
-      int? privilegeLevel,
-      EliudQuery? eliudQuery});
-  @override
-  StreamSubscription<MonaStyleAttributesModel?> listenTo(
-      String documentId, MonaStyleAttributesChanged changed,
-      {MonaStyleAttributesErrorHandler? errorHandler});
-  @override
+  StreamSubscription<List<MonaStyleAttributesModel?>> listen(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery });
+  StreamSubscription<List<MonaStyleAttributesModel?>> listenWithDetails(MonaStyleAttributesModelTrigger trigger, {String? orderBy, bool? descending, Object? startAfter, int? limit, int? privilegeLevel, EliudQuery? eliudQuery });
+  StreamSubscription<MonaStyleAttributesModel?> listenTo(String documentId, MonaStyleAttributesChanged changed, {MonaStyleAttributesErrorHandler? errorHandler});
   void flush();
-
-  @override
+  
   String? timeStampToString(dynamic timeStamp);
 
-  @override
   dynamic getSubCollection(String documentId, String name);
-  @override
-  Future<MonaStyleAttributesModel?> changeValue(
-      String documentId, String fieldName, num changeByThisValue);
+  Future<MonaStyleAttributesModel?> changeValue(String documentId, String fieldName, num changeByThisValue);
 
-  @override
   Future<void> deleteAll();
 }
+
+

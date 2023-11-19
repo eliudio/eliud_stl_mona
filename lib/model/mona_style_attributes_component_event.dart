@@ -16,6 +16,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 
+
 /*
  * MonaStyleAttributesComponentEvent is the base class for events to be used with constructing a MonaStyleAttributesComponentBloc 
  */
@@ -27,25 +28,25 @@ abstract class MonaStyleAttributesComponentEvent extends Equatable {
 /*
  * FetchMonaStyleAttributesComponent is the event to instruct the bloc to fetch the component
  */
-class FetchMonaStyleAttributesComponent
-    extends MonaStyleAttributesComponentEvent {
+class FetchMonaStyleAttributesComponent extends MonaStyleAttributesComponentEvent {
   final String? id;
 
   /*
    * Construct the FetchMonaStyleAttributesComponent
    */
-  FetchMonaStyleAttributesComponent({this.id});
+  FetchMonaStyleAttributesComponent({ this.id });
 }
 
 /*
  * MonaStyleAttributesComponentUpdated is the event to inform the bloc that a component has been updated
  */
-class MonaStyleAttributesComponentUpdated
-    extends MonaStyleAttributesComponentEvent {
+class MonaStyleAttributesComponentUpdated extends MonaStyleAttributesComponentEvent {
   final MonaStyleAttributesModel value;
 
   /*
    * Construct the MonaStyleAttributesComponentUpdated
    */
-  MonaStyleAttributesComponentUpdated({required this.value});
+  MonaStyleAttributesComponentUpdated({ required this.value });
 }
+
+

@@ -1,9 +1,8 @@
-import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/style/frontend/has_button.dart';
-import 'package:eliud_core/style/frontend/has_text.dart';
-import 'package:eliud_core/tools/etc.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+import 'package:eliud_core_model/style/frontend/has_button.dart';
+import 'package:eliud_core_model/style/frontend/has_text.dart';
+import 'package:eliud_core_model/tools/etc/etc.dart';
 import 'package:flutter/material.dart';
-
 import '../../styles/mona_style.dart';
 
 class MonaButtonImpl implements HasButton {

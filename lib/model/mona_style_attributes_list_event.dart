@@ -13,7 +13,7 @@
 
 */
 
-import 'package:eliud_core/tools/query/query_tools.dart';
+import 'package:eliud_core_model/tools/query/query_tools.dart';
 import 'package:equatable/equatable.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 
@@ -30,10 +30,10 @@ class NewPage extends MonaStyleAttributesListEvent {}
 class AddMonaStyleAttributesList extends MonaStyleAttributesListEvent {
   final MonaStyleAttributesModel? value;
 
-  const AddMonaStyleAttributesList({this.value});
+  const AddMonaStyleAttributesList({ this.value });
 
   @override
-  List<Object?> get props => [value];
+  List<Object?> get props => [ value ];
 
   @override
   String toString() => 'AddMonaStyleAttributesList{ value: $value }';
@@ -42,10 +42,10 @@ class AddMonaStyleAttributesList extends MonaStyleAttributesListEvent {
 class UpdateMonaStyleAttributesList extends MonaStyleAttributesListEvent {
   final MonaStyleAttributesModel? value;
 
-  const UpdateMonaStyleAttributesList({this.value});
+  const UpdateMonaStyleAttributesList({ this.value });
 
   @override
-  List<Object?> get props => [value];
+  List<Object?> get props => [ value ];
 
   @override
   String toString() => 'UpdateMonaStyleAttributesList{ value: $value }';
@@ -54,10 +54,10 @@ class UpdateMonaStyleAttributesList extends MonaStyleAttributesListEvent {
 class DeleteMonaStyleAttributesList extends MonaStyleAttributesListEvent {
   final MonaStyleAttributesModel? value;
 
-  const DeleteMonaStyleAttributesList({this.value});
+  const DeleteMonaStyleAttributesList({ this.value });
 
   @override
-  List<Object?> get props => [value];
+  List<Object?> get props => [ value ];
 
   @override
   String toString() => 'DeleteMonaStyleAttributesList{ value: $value }';
@@ -67,24 +67,24 @@ class MonaStyleAttributesListUpdated extends MonaStyleAttributesListEvent {
   final List<MonaStyleAttributesModel?>? value;
   final bool? mightHaveMore;
 
-  const MonaStyleAttributesListUpdated({this.value, this.mightHaveMore});
+  const MonaStyleAttributesListUpdated({ this.value, this.mightHaveMore });
 
   @override
-  List<Object?> get props => [value, mightHaveMore];
+  List<Object?> get props => [ value, mightHaveMore ];
 
   @override
-  String toString() =>
-      'MonaStyleAttributesListUpdated{ value: $value, mightHaveMore: $mightHaveMore }';
+  String toString() => 'MonaStyleAttributesListUpdated{ value: $value, mightHaveMore: $mightHaveMore }';
 }
 
 class MonaStyleAttributesChangeQuery extends MonaStyleAttributesListEvent {
   final EliudQuery? newQuery;
 
-  const MonaStyleAttributesChangeQuery({required this.newQuery});
+  const MonaStyleAttributesChangeQuery({ required this.newQuery });
 
   @override
-  List<Object?> get props => [newQuery];
+  List<Object?> get props => [ newQuery ];
 
   @override
   String toString() => 'MonaStyleAttributesChangeQuery{ value: $newQuery }';
 }
+

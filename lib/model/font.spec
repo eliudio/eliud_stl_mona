@@ -93,5 +93,5 @@
   "listFields": {
     "title": "value.fontName != null ? Center(child: StyleRegistry.registry().styleWithApp(app).frontEndStyle().textStyle().text(app, context, value.fontName!)) : Container()"
   },
-  "depends": ["eliud_core"]
+  "depends": ["eliud_core_model"]
 }

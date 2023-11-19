@@ -1,8 +1,8 @@
-import 'package:eliud_core/core/blocs/access/access_bloc.dart';
-import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/style/frontend/has_button.dart';
-import 'package:eliud_core/style/frontend/has_dialog.dart';
-import 'package:eliud_core/style/style.dart';
+import 'package:eliud_core_model/access/access_bloc.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+import 'package:eliud_core_model/style/frontend/has_button.dart';
+import 'package:eliud_core_model/style/frontend/has_dialog.dart';
+import 'package:eliud_core_model/style/style.dart';
 import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widget.dart';
 import 'package:flutter/widgets.dart';

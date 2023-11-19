@@ -1,10 +1,10 @@
-import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/model/background_model.dart';
-import 'package:eliud_core/model/member_model.dart';
-import 'package:eliud_core/model/rgb_model.dart';
-import 'package:eliud_core/style/frontend/has_drawer.dart';
-import 'package:eliud_core/style/frontend/types.dart';
-import 'package:eliud_core/tools/etc.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+import 'package:eliud_core_model/model/background_model.dart';
+import 'package:eliud_core_model/model/member_model.dart';
+import 'package:eliud_core_model/model/rgb_model.dart';
+import 'package:eliud_core_model/style/frontend/has_drawer.dart';
+import 'package:eliud_core_model/style/frontend/types.dart';
+import 'package:eliud_core_model/tools/etc/etc.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/mona_style.dart';
@@ -84,10 +84,8 @@ class MonaDrawerImpl implements HasDrawer {
       } else {
         background = _monaStyle.monaStyleAttributesModel.profileDrawerHeaderBG;
       }
-      if (background != null) {
-        widgets.add(_constructHeaderContainer(
-            app, context, "", null, member, background));
-      }
+      widgets.add(_constructHeaderContainer(
+          app, context, "", null, member, background));
     }
 
     for (var item in items) {

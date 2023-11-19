@@ -13,29 +13,35 @@
 
 */
 
+
 import '../model/internal_component.dart';
-import 'package:eliud_core/core/registry.dart';
+import 'package:eliud_core_model/tools/component/component_spec.dart';
 import 'abstract_repository_singleton.dart';
+import 'package:eliud_core_model/tools/component/component_constructor.dart';
+import 'package:eliud_core_model/apis/apis.dart';
+
+import 'package:eliud_stl_mona/model/internal_component.dart';
+
+
+
 
 /* 
  * Component registry contains a list of components
  */
 class ComponentRegistry {
+
   /* 
    * Initialise the component registry
    */
-  void init() {
-    Registry.registry()!.addInternalComponents('eliud_stl_mona', [
-      "monaStyleAttributess",
-    ]);
+  init() {
+    Apis.apis().getRegistryApi().addInternalComponents('eliud_stl_mona', ["monaStyleAttributess", ]);
 
-    Registry.registry()!.register(
-        componentName: "eliud_stl_mona_internalWidgets",
-        componentConstructor: ListComponentFactory());
-    Registry.registry()!.addComponentSpec('eliud_stl_mona', 'mona-style', []);
-    Registry.registry()!.registerRetrieveRepository(
-        'eliud_stl_mona',
-        'monaStyleAttributess',
-        ({String? appId}) => monaStyleAttributesRepository(appId: appId)!);
+    Apis.apis().getRegistryApi().register(componentName: "eliud_stl_mona_internalWidgets", componentConstructor: ListComponentFactory());
+    Apis.apis().getRegistryApi().addComponentSpec('eliud_stl_mona', 'mona-style', [
+    ]);
+      Apis.apis().getRegistryApi().registerRetrieveRepository('eliud_stl_mona', 'monaStyleAttributess', ({String? appId}) => monaStyleAttributesRepository(appId: appId)!);
   }
+
 }
+
+

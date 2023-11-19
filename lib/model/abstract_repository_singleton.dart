@@ -14,13 +14,14 @@
 */
 
 import '../model/mona_style_attributes_repository.dart';
-import 'package:eliud_core/package/package.dart';
+import 'package:eliud_core_model/tools/common_tools.dart';
+import 'package:eliud_core_model/tools/member_collection_info.dart';
 
-MonaStyleAttributesRepository? monaStyleAttributesRepository({String? appId}) =>
-    AbstractRepositorySingleton.singleton.monaStyleAttributesRepository(appId);
+MonaStyleAttributesRepository? monaStyleAttributesRepository({ String? appId }) => AbstractRepositorySingleton.singleton.monaStyleAttributesRepository(appId);
 
 abstract class AbstractRepositorySingleton {
-  static List<MemberCollectionInfo> collections = [];
+  static List<MemberCollectionInfo> collections = [
+  ];
   static late AbstractRepositorySingleton singleton;
 
   MonaStyleAttributesRepository? monaStyleAttributesRepository(String? appId);

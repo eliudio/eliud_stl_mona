@@ -1,11 +1,11 @@
-import 'package:eliud_core/core/blocs/access/access_bloc.dart';
-import 'package:eliud_core/core_package.dart';
-import 'package:eliud_core/eliud.dart';
-import 'package:eliud_core/model/access_model.dart';
-import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/model/member_model.dart';
-import 'package:eliud_core/package/package.dart';
-import 'package:eliud_core/style/style_registry.dart';
+import 'package:eliud_core_model/access/access_bloc.dart';
+import 'package:eliud_core_model/eliud.dart';
+import 'package:eliud_core_model/model/access_model.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+import 'package:eliud_core_model/model/member_model.dart';
+import 'package:eliud_core_model/package/package.dart';
+import 'package:eliud_core_model/style/style_registry.dart';
+import 'package:eliud_core_model/tools/member_collection_info.dart';
 
 import 'model/abstract_repository_singleton.dart';
 import 'model/component_registry.dart';

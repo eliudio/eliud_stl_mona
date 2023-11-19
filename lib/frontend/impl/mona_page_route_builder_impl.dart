@@ -1,5 +1,5 @@
-import 'package:eliud_core/style/frontend/has_page_route_builder.dart';
-import 'package:eliud_core/tools/router_builders.dart';
+import 'package:eliud_core_model/style/frontend/has_page_route_builder.dart';
+import 'package:eliud_core_model/tools/route_builders/route_builders.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:flutter/material.dart';
 

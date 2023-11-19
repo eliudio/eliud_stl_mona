@@ -26,8 +26,7 @@ abstract class MonaStyleAttributesFormState extends Equatable {
 }
 
 // Startup: menu has not been initialised yet and so we should show a "loading indicator" or something
-class MonaStyleAttributesFormUninitialized
-    extends MonaStyleAttributesFormState {
+class MonaStyleAttributesFormUninitialized extends MonaStyleAttributesFormState {
   @override
   List<Object?> get props => [];
 
@@ -42,20 +41,19 @@ class MonaStyleAttributesFormInitialized extends MonaStyleAttributesFormState {
   final MonaStyleAttributesModel? value;
 
   @override
-  List<Object?> get props => [value];
+  List<Object?> get props => [ value ];
 
-  const MonaStyleAttributesFormInitialized({this.value});
+  const MonaStyleAttributesFormInitialized({ this.value });
 }
 
 // Menu has been initialised and hence a menu is available
-abstract class MonaStyleAttributesFormError
-    extends MonaStyleAttributesFormInitialized {
+abstract class MonaStyleAttributesFormError extends MonaStyleAttributesFormInitialized {
   final String? message;
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
-  const MonaStyleAttributesFormError({this.message, super.value});
+  const MonaStyleAttributesFormError({this.message, MonaStyleAttributesModel? value }) : super(value: value);
 
   @override
   String toString() {
@@ -65,13 +63,11 @@ abstract class MonaStyleAttributesFormError
     }''';
   }
 }
-
-class DocumentIDMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const DocumentIDMonaStyleAttributesFormError({super.message, super.value});
+class DocumentIDMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DocumentIDMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -82,11 +78,12 @@ class DocumentIDMonaStyleAttributesFormError
   }
 }
 
-class AppIdMonaStyleAttributesFormError extends MonaStyleAttributesFormError {
-  const AppIdMonaStyleAttributesFormError({super.message, super.value});
+
+class AppIdMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const AppIdMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -97,13 +94,12 @@ class AppIdMonaStyleAttributesFormError extends MonaStyleAttributesFormError {
   }
 }
 
-class FormBackgroundMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FormBackgroundMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FormBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FormBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -114,12 +110,12 @@ class FormBackgroundMonaStyleAttributesFormError
   }
 }
 
-class AppBackgroundMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const AppBackgroundMonaStyleAttributesFormError({super.message, super.value});
+
+class AppBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const AppBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -130,13 +126,12 @@ class AppBackgroundMonaStyleAttributesFormError
   }
 }
 
-class FormGroupTitleColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FormGroupTitleColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FormGroupTitleColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FormGroupTitleColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -147,13 +142,12 @@ class FormGroupTitleColorMonaStyleAttributesFormError
   }
 }
 
-class FormFieldTextColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FormFieldTextColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FormFieldTextColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FormFieldTextColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -164,13 +158,12 @@ class FormFieldTextColorMonaStyleAttributesFormError
   }
 }
 
-class FormFieldHeaderColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FormFieldHeaderColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FormFieldHeaderColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FormFieldHeaderColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -181,13 +174,12 @@ class FormFieldHeaderColorMonaStyleAttributesFormError
   }
 }
 
-class FormFieldFocusColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FormFieldFocusColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FormFieldFocusColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FormFieldFocusColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -198,13 +190,12 @@ class FormFieldFocusColorMonaStyleAttributesFormError
   }
 }
 
-class ListBackgroundMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const ListBackgroundMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class ListBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ListBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -215,13 +206,12 @@ class ListBackgroundMonaStyleAttributesFormError
   }
 }
 
-class ListTextItemColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const ListTextItemColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class ListTextItemColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ListTextItemColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -232,13 +222,12 @@ class ListTextItemColorMonaStyleAttributesFormError
   }
 }
 
-class FloatingButtonForegroundColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FloatingButtonForegroundColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FloatingButtonForegroundColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FloatingButtonForegroundColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -249,13 +238,12 @@ class FloatingButtonForegroundColorMonaStyleAttributesFormError
   }
 }
 
-class FloatingButtonBackgroundColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FloatingButtonBackgroundColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FloatingButtonBackgroundColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FloatingButtonBackgroundColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -266,12 +254,12 @@ class FloatingButtonBackgroundColorMonaStyleAttributesFormError
   }
 }
 
-class DividerColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const DividerColorMonaStyleAttributesFormError({super.message, super.value});
+
+class DividerColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DividerColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -282,13 +270,12 @@ class DividerColorMonaStyleAttributesFormError
   }
 }
 
-class TopicContainerBackgroundMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const TopicContainerBackgroundMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class TopicContainerBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const TopicContainerBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -299,13 +286,12 @@ class TopicContainerBackgroundMonaStyleAttributesFormError
   }
 }
 
-class ActionContainerBackgroundMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const ActionContainerBackgroundMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class ActionContainerBackgroundMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ActionContainerBackgroundMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -316,12 +302,12 @@ class ActionContainerBackgroundMonaStyleAttributesFormError
   }
 }
 
-class AppBarBGMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const AppBarBGMonaStyleAttributesFormError({super.message, super.value});
+
+class AppBarBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const AppBarBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -332,13 +318,12 @@ class AppBarBGMonaStyleAttributesFormError
   }
 }
 
-class AppBarIconColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const AppBarIconColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class AppBarIconColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const AppBarIconColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -349,13 +334,12 @@ class AppBarIconColorMonaStyleAttributesFormError
   }
 }
 
-class AppBarSelectedIconColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const AppBarSelectedIconColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class AppBarSelectedIconColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const AppBarSelectedIconColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -366,13 +350,12 @@ class AppBarSelectedIconColorMonaStyleAttributesFormError
   }
 }
 
-class AppBarMenuBackgroundColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const AppBarMenuBackgroundColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class AppBarMenuBackgroundColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const AppBarMenuBackgroundColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -383,13 +366,12 @@ class AppBarMenuBackgroundColorMonaStyleAttributesFormError
   }
 }
 
-class BottomNavigationBarBGMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const BottomNavigationBarBGMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class BottomNavigationBarBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const BottomNavigationBarBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -400,12 +382,12 @@ class BottomNavigationBarBGMonaStyleAttributesFormError
   }
 }
 
-class DrawerBGMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const DrawerBGMonaStyleAttributesFormError({super.message, super.value});
+
+class DrawerBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DrawerBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -416,13 +398,12 @@ class DrawerBGMonaStyleAttributesFormError
   }
 }
 
-class DrawerHeaderBGMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const DrawerHeaderBGMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class DrawerHeaderBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DrawerHeaderBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -433,13 +414,12 @@ class DrawerHeaderBGMonaStyleAttributesFormError
   }
 }
 
-class ProfileDrawerBGMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const ProfileDrawerBGMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class ProfileDrawerBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ProfileDrawerBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -450,13 +430,12 @@ class ProfileDrawerBGMonaStyleAttributesFormError
   }
 }
 
-class ProfileDrawerHeaderBGMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const ProfileDrawerHeaderBGMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class ProfileDrawerHeaderBGMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ProfileDrawerHeaderBGMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -467,13 +446,12 @@ class ProfileDrawerHeaderBGMonaStyleAttributesFormError
   }
 }
 
-class BackgroundColorHomeMenuMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const BackgroundColorHomeMenuMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class BackgroundColorHomeMenuMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const BackgroundColorHomeMenuMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -484,11 +462,12 @@ class BackgroundColorHomeMenuMonaStyleAttributesFormError
   }
 }
 
-class H1MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
-  const H1MonaStyleAttributesFormError({super.message, super.value});
+
+class H1MonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const H1MonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -499,11 +478,12 @@ class H1MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
   }
 }
 
-class H2MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
-  const H2MonaStyleAttributesFormError({super.message, super.value});
+
+class H2MonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const H2MonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -514,11 +494,12 @@ class H2MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
   }
 }
 
-class H3MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
-  const H3MonaStyleAttributesFormError({super.message, super.value});
+
+class H3MonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const H3MonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -529,11 +510,12 @@ class H3MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
   }
 }
 
-class H4MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
-  const H4MonaStyleAttributesFormError({super.message, super.value});
+
+class H4MonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const H4MonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -544,11 +526,12 @@ class H4MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
   }
 }
 
-class H5MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
-  const H5MonaStyleAttributesFormError({super.message, super.value});
+
+class H5MonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const H5MonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -559,13 +542,12 @@ class H5MonaStyleAttributesFormError extends MonaStyleAttributesFormError {
   }
 }
 
-class TextFieldHeaderMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const TextFieldHeaderMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class TextFieldHeaderMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const TextFieldHeaderMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -576,12 +558,12 @@ class TextFieldHeaderMonaStyleAttributesFormError
   }
 }
 
-class FontTextMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FontTextMonaStyleAttributesFormError({super.message, super.value});
+
+class FontTextMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FontTextMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -592,12 +574,12 @@ class FontTextMonaStyleAttributesFormError
   }
 }
 
-class FontSmallTextMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FontSmallTextMonaStyleAttributesFormError({super.message, super.value});
+
+class FontSmallTextMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FontSmallTextMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -608,13 +590,12 @@ class FontSmallTextMonaStyleAttributesFormError
   }
 }
 
-class FontHighlight1MonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FontHighlight1MonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FontHighlight1MonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FontHighlight1MonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -625,13 +606,12 @@ class FontHighlight1MonaStyleAttributesFormError
   }
 }
 
-class FontHighlight2MonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FontHighlight2MonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class FontHighlight2MonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FontHighlight2MonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -642,12 +622,12 @@ class FontHighlight2MonaStyleAttributesFormError
   }
 }
 
-class FontLinkMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const FontLinkMonaStyleAttributesFormError({super.message, super.value});
+
+class FontLinkMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const FontLinkMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -658,12 +638,12 @@ class FontLinkMonaStyleAttributesFormError
   }
 }
 
-class RouteBuilderMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const RouteBuilderMonaStyleAttributesFormError({super.message, super.value});
+
+class RouteBuilderMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const RouteBuilderMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -674,13 +654,12 @@ class RouteBuilderMonaStyleAttributesFormError
   }
 }
 
-class RouteAnimationDurationMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const RouteAnimationDurationMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class RouteAnimationDurationMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const RouteAnimationDurationMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -691,13 +670,12 @@ class RouteAnimationDurationMonaStyleAttributesFormError
   }
 }
 
-class DialogBackgroundColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const DialogBackgroundColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class DialogBackgroundColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DialogBackgroundColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -708,13 +686,12 @@ class DialogBackgroundColorMonaStyleAttributesFormError
   }
 }
 
-class DialogSeperatorColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const DialogSeperatorColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class DialogSeperatorColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DialogSeperatorColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -725,13 +702,12 @@ class DialogSeperatorColorMonaStyleAttributesFormError
   }
 }
 
-class PopupMenuButtonColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const PopupMenuButtonColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class PopupMenuButtonColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const PopupMenuButtonColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -742,13 +718,12 @@ class PopupMenuButtonColorMonaStyleAttributesFormError
   }
 }
 
-class TextBubbleBackgroundColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const TextBubbleBackgroundColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class TextBubbleBackgroundColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const TextBubbleBackgroundColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -759,13 +734,12 @@ class TextBubbleBackgroundColorMonaStyleAttributesFormError
   }
 }
 
-class DropdownButtonnColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const DropdownButtonnColorMonaStyleAttributesFormError(
-      {super.message, super.value});
+
+class DropdownButtonnColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const DropdownButtonnColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -776,12 +750,12 @@ class DropdownButtonnColorMonaStyleAttributesFormError
   }
 }
 
-class ListTileColorMonaStyleAttributesFormError
-    extends MonaStyleAttributesFormError {
-  const ListTileColorMonaStyleAttributesFormError({super.message, super.value});
+
+class ListTileColorMonaStyleAttributesFormError extends MonaStyleAttributesFormError { 
+  const ListTileColorMonaStyleAttributesFormError({ String? message, MonaStyleAttributesModel? value }): super(message: message, value: value);
 
   @override
-  List<Object?> get props => [message, value];
+  List<Object?> get props => [ message, value ];
 
   @override
   String toString() {
@@ -792,11 +766,12 @@ class ListTileColorMonaStyleAttributesFormError
   }
 }
 
-class MonaStyleAttributesFormLoaded extends MonaStyleAttributesFormInitialized {
-  const MonaStyleAttributesFormLoaded({super.value});
+
+class MonaStyleAttributesFormLoaded extends MonaStyleAttributesFormInitialized { 
+  const MonaStyleAttributesFormLoaded({ MonaStyleAttributesModel? value }): super(value: value);
 
   @override
-  List<Object?> get props => [value];
+  List<Object?> get props => [ value ];
 
   @override
   String toString() {
@@ -806,12 +781,12 @@ class MonaStyleAttributesFormLoaded extends MonaStyleAttributesFormInitialized {
   }
 }
 
-class SubmittableMonaStyleAttributesForm
-    extends MonaStyleAttributesFormInitialized {
-  const SubmittableMonaStyleAttributesForm({super.value});
+
+class SubmittableMonaStyleAttributesForm extends MonaStyleAttributesFormInitialized { 
+  const SubmittableMonaStyleAttributesForm({ MonaStyleAttributesModel? value }): super(value: value);
 
   @override
-  List<Object?> get props => [value];
+  List<Object?> get props => [ value ];
 
   @override
   String toString() {
@@ -820,3 +795,5 @@ class SubmittableMonaStyleAttributesForm
     }''';
   }
 }
+
+

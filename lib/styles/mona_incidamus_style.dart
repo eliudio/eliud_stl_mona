@@ -1,5 +1,5 @@
-import 'package:eliud_core/model/background_model.dart';
-import 'package:eliud_core/model/rgb_model.dart';
+import 'package:eliud_core_model/model/background_model.dart';
+import 'package:eliud_core_model/model/rgb_model.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:eliud_stl_mona/tools/colors.dart';
 

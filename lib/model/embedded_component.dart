@@ -13,4 +13,21 @@
 
 */
 
-class EmbeddedComponentFactory {}
+
+import 'package:eliud_core_model/tools/etc/random.dart';
+import 'package:eliud_core_model/tools/common_tools.dart';
+import 'package:eliud_core_model/tools/query/query_tools.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+
+
+class EmbeddedComponentFactory {
+
+
+}
+

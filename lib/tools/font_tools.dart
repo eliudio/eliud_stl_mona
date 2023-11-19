@@ -1,5 +1,5 @@
-import 'package:eliud_core/model/model_export.dart';
-import 'package:eliud_core/tools/etc.dart';
+import 'package:eliud_core_model/model/rgb_model.dart';
+import 'package:eliud_core_model/tools/etc/etc.dart';
 import 'package:eliud_stl_mona/model/font_model.dart';
 import 'package:eliud_stl_mona/tools/colors.dart';
 import 'package:flutter/material.dart';

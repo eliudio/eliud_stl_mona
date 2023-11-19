@@ -1,9 +1,9 @@
-import 'package:eliud_core/core/blocs/access/access_bloc.dart';
-import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/model/background_model.dart';
-import 'package:eliud_core/style/admin/admin_form_style.dart';
-import 'package:eliud_core/tools/enums.dart';
-import 'package:eliud_core/tools/etc.dart';
+import 'package:eliud_core_model/access/access_bloc.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+import 'package:eliud_core_model/model/background_model.dart';
+import 'package:eliud_core_model/style/admin/admin_form_style.dart';
+import 'package:eliud_core_model/tools/etc/enums.dart';
+import 'package:eliud_core_model/tools/etc/etc.dart';
 import 'package:flutter/material.dart';
 
 import '../styles/mona_style.dart';

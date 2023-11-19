@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:eliud_core/model/app_model.dart';
-import 'package:eliud_core/model/member_model.dart';
-import 'package:eliud_core/style/style.dart';
-import 'package:eliud_core/style/style_family.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+import 'package:eliud_core_model/model/member_model.dart';
+import 'package:eliud_core_model/style/style.dart';
+import 'package:eliud_core_model/style/style_family.dart';
 import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
 import 'package:eliud_stl_mona/styles/mona_johan_style.dart';
 import 'package:eliud_stl_mona/styles/mona_thomas_style.dart';

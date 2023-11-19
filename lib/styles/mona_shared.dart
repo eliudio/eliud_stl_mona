@@ -1,8 +1,8 @@
-import 'package:eliud_core/model/background_model.dart';
-import 'package:eliud_core/model/decoration_color_model.dart';
-import 'package:eliud_core/model/rgb_model.dart';
-import 'package:eliud_core/model/shadow_model.dart';
-import 'package:eliud_core/style/tools/backgrounds.dart';
+import 'package:eliud_core_model/model/background_model.dart';
+import 'package:eliud_core_model/model/decoration_color_model.dart';
+import 'package:eliud_core_model/model/rgb_model.dart';
+import 'package:eliud_core_model/model/shadow_model.dart';
+import 'package:eliud_core_model/style/tools/backgrounds.dart';
 import 'package:eliud_stl_mona/tools/colors.dart';
 
 abstract class MonaShared {

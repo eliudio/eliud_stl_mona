@@ -1,9 +1,9 @@
-import 'package:eliud_core/model/model_export.dart';
-import 'package:eliud_core/style/frontend/has_button.dart';
-import 'package:eliud_core/style/frontend/has_container.dart';
-import 'package:eliud_core/style/frontend/has_text.dart';
-import 'package:eliud_core/tools/widgets/background_widget.dart';
-import 'package:eliud_core/tools/widgets/background_widgets/style_color_widget.dart';
+import 'package:eliud_core_model/model/app_model.dart';
+import 'package:eliud_core_model/style/frontend/has_button.dart';
+import 'package:eliud_core_model/style/frontend/has_container.dart';
+import 'package:eliud_core_model/style/frontend/has_text.dart';
+import 'package:eliud_core_model/tools/widgets/background_widget.dart';
+import 'package:eliud_core_model/tools/widgets/background_widgets/style_color_widget.dart';
 import 'package:eliud_stl_mona/model/model_export.dart';
 import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
