@@ -1,4 +1,4 @@
-import 'package:eliud_core_model/style/frontend/has_app.dart';
+import 'package:eliud_core_main/apis/style/frontend/has_app.dart';
 import 'package:flutter/material.dart';
 
 class MonaAppImpl implements HasApp {

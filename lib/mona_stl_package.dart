@@ -1,15 +1,15 @@
-import 'package:eliud_core_model/access/access_bloc.dart';
-import 'package:eliud_core_model/eliud.dart';
+import 'package:eliud_core/access/access_bloc.dart';
+import 'package:eliud_core/core_package.dart';
+import 'package:eliud_core/eliud.dart';
+import 'package:eliud_core/package/package.dart';
+import 'package:eliud_core_main/tools/etc/member_collection_info.dart';
 import 'package:eliud_core_model/model/access_model.dart';
-import 'package:eliud_core_model/model/app_model.dart';
-import 'package:eliud_core_model/model/member_model.dart';
-import 'package:eliud_core_model/package/package.dart';
-import 'package:eliud_core_model/style/style_registry.dart';
-import 'package:eliud_core_model/tools/member_collection_info.dart';
-
-import 'model/abstract_repository_singleton.dart';
-import 'model/component_registry.dart';
-import 'model/repository_singleton.dart';
+import 'package:eliud_core_main/model/app_model.dart';
+import 'package:eliud_core_main/model/member_model.dart';
+import 'package:eliud_core_main/apis/style/style_registry.dart';
+import 'package:eliud_stl_mona_model/model/abstract_repository_singleton.dart';
+import 'package:eliud_stl_mona_model/model/component_registry.dart';
+import 'package:eliud_stl_mona_model/model/repository_singleton.dart';
 import 'mona_stl_package_stub.dart'
     if (dart.library.io) 'mona_stl_mobile_package.dart'
     if (dart.library.html) 'mona_stl_web_package.dart';

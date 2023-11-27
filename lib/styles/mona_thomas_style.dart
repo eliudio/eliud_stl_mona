@@ -1,5 +1,5 @@
-import 'package:eliud_stl_mona/model/entity_export.dart';
-import 'package:eliud_stl_mona/model/mona_style_attributes_model.dart';
+import 'package:eliud_stl_mona_model/model/mona_style_attributes_entity.dart';
+import 'package:eliud_stl_mona_model/model/mona_style_attributes_model.dart';
 
 class MonaThomasStyle {
   static Future<MonaStyleAttributesModel> defaultStyleAttributesModel(

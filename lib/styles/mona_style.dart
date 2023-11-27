@@ -1,16 +1,16 @@
-import 'package:eliud_core_model/access/access_bloc.dart';
-import 'package:eliud_core_model/model/app_model.dart';
-import 'package:eliud_core_model/style/frontend/has_button.dart';
-import 'package:eliud_core_model/style/frontend/has_dialog.dart';
-import 'package:eliud_core_model/style/style.dart';
-import 'package:eliud_stl_mona/model/abstract_repository_singleton.dart';
+import 'package:eliud_core/access/access_bloc.dart';
+import 'package:eliud_core_main/model/app_model.dart';
+import 'package:eliud_core_main/apis/style/frontend/has_button.dart';
+import 'package:eliud_core_main/apis/style/frontend/has_dialog.dart';
+import 'package:eliud_core_main/apis/style/style.dart';
 import 'package:eliud_stl_mona/widgets/update_style_widget.dart';
+import 'package:eliud_stl_mona_model/model/abstract_repository_singleton.dart';
+import 'package:eliud_stl_mona_model/model/mona_style_attributes_model.dart';
 import 'package:flutter/widgets.dart';
 
 import '../admin/mona_admin_form_style.dart';
 import '../admin/mona_admin_list_style.dart';
 import '../frontend/mona_frontend_style.dart';
-import '../model/mona_style_attributes_model.dart';
 
 /*
  * We should consider to put more in the style API. For example we could include the appBar, the bottom navigation bar, the drawer, popup menu, ...

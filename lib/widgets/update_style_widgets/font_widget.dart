@@ -1,10 +1,10 @@
-import 'package:eliud_core_model/model/app_model.dart';
-import 'package:eliud_core_model/model/rgb_model.dart';
-import 'package:eliud_core_model/style/frontend/has_container.dart';
-import 'package:eliud_core_model/style/frontend/has_list_tile.dart';
-import 'package:eliud_core_model/tools/widgets/background_widgets/style_color_widget.dart';
-import 'package:eliud_stl_mona/model/font_model.dart';
+import 'package:eliud_core/core/widgets/background_widgets/style_color_widget.dart';
+import 'package:eliud_core_main/model/app_model.dart';
+import 'package:eliud_core_main/apis/style/frontend/has_container.dart';
+import 'package:eliud_core_main/apis/style/frontend/has_list_tile.dart';
+import 'package:eliud_core_main/model/rgb_model.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
+import 'package:eliud_stl_mona_model/model/font_model.dart';
 import 'package:flutter/material.dart';
 
 import 'etc/string_combobox_widget.dart';

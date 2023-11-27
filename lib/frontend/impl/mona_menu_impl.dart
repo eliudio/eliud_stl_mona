@@ -1,8 +1,8 @@
-import 'package:eliud_core_model/model/app_model.dart';
-import 'package:eliud_core_model/model/rgb_model.dart';
-import 'package:eliud_core_model/style/_default/frontend/helper/menu_helper.dart';
-import 'package:eliud_core_model/style/frontend/has_menu.dart';
-import 'package:eliud_core_model/style/frontend/types.dart';
+import 'package:eliud_core_main/model/app_model.dart';
+import 'package:eliud_core_main/model/rgb_model.dart';
+import 'package:eliud_core_main/apis/style/_default/frontend/helper/menu_helper.dart';
+import 'package:eliud_core_main/apis/style/frontend/has_menu.dart';
+import 'package:eliud_core_main/apis/style/frontend/types.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/mona_style.dart';

@@ -1,7 +1,7 @@
-import 'package:eliud_core_model/model/rgb_model.dart';
-import 'package:eliud_core_model/tools/etc/etc.dart';
-import 'package:eliud_stl_mona/model/font_model.dart';
+import 'package:eliud_core_main/model/rgb_model.dart';
+import 'package:eliud_core_main/tools/etc/etc.dart';
 import 'package:eliud_stl_mona/tools/colors.dart';
+import 'package:eliud_stl_mona_model/model/font_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

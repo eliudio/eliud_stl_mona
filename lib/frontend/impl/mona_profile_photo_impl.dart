@@ -1,9 +1,9 @@
-import 'package:eliud_core_model/model/app_model.dart';
-import 'package:eliud_core_model/model/member_model.dart';
-import 'package:eliud_core_model/model/member_public_info_model.dart';
-import 'package:eliud_core_model/model/rgb_model.dart';
-import 'package:eliud_core_model/style/_default/frontend/helper/profile_photo_helper.dart';
-import 'package:eliud_core_model/style/frontend/has_profile_photo.dart';
+import 'package:eliud_core_main/model/app_model.dart';
+import 'package:eliud_core_main/model/member_model.dart';
+import 'package:eliud_core_main/model/member_public_info_model.dart';
+import 'package:eliud_core_main/model/rgb_model.dart';
+import 'package:eliud_core_main/apis/style/_default/frontend/helper/profile_photo_helper.dart';
+import 'package:eliud_core_main/apis/style/frontend/has_profile_photo.dart';
 import 'package:flutter/material.dart';
 
 class MonaProfilePhotoImpl implements HasProfilePhoto {
