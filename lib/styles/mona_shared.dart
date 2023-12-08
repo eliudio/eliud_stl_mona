@@ -1,9 +1,9 @@
+import 'package:eliud_core_main/apis/style/_default/tools/colors.dart';
 import 'package:eliud_core_main/model/background_model.dart';
 import 'package:eliud_core_main/model/decoration_color_model.dart';
 import 'package:eliud_core_main/model/rgb_model.dart';
 import 'package:eliud_core_main/model/shadow_model.dart';
 import 'package:eliud_core_main/tools/etc/backgrounds.dart';
-import 'package:eliud_stl_mona/tools/colors.dart';
 
 abstract class MonaShared {
   static BackgroundModel pageBG(
@@ -139,7 +139,7 @@ abstract class MonaShared {
 
   static ShadowModel shadowModel() {
     var shadowModel = ShadowModel(
-        color: MonaColors.gray,
+        color: EliudColors.gray,
         offsetDX: 4,
         offsetDY: 3,
         spreadRadius: 7,

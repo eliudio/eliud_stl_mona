@@ -1,6 +1,6 @@
+import 'package:eliud_core_main/apis/style/_default/tools/colors.dart';
 import 'package:eliud_core_main/model/background_model.dart';
 import 'package:eliud_core_main/model/rgb_model.dart';
-import 'package:eliud_stl_mona/tools/colors.dart';
 import 'package:eliud_stl_mona_model/model/mona_style_attributes_model.dart';
 
 import '../tools/font_tools.dart';
@@ -9,11 +9,11 @@ import 'mona_shared.dart';
 class MonaIncidamusStyle {
   static Future<MonaStyleAttributesModel> defaultStyleAttributesModel(
       String appId, String documentID) async {
-    var headerColor1To3 = MonaColors.orange1;
-    var headerColor4To5 = MonaColors.white;
-    var defaultColor = MonaColors.white;
-    var highlightColor = MonaColors.orange1;
-    var linkColor = MonaColors.orange1;
+    var headerColor1To3 = EliudColors.orange1;
+    var headerColor4To5 = EliudColors.white;
+    var defaultColor = EliudColors.white;
+    var highlightColor = EliudColors.orange1;
+    var linkColor = EliudColors.orange1;
     var styleName = documentID;
     var fontTools = FontTools(
         styleName: styleName,
@@ -28,19 +28,19 @@ class MonaIncidamusStyle {
       appBackground: pageBG(),
       listBackground: pageBG(),
       formBackground: pageBG(),
-      formGroupTitleColor: MonaColors.red,
-      formFieldTextColor: MonaColors.white,
-      formFieldHeaderColor: MonaColors.red,
-      formFieldFocusColor: MonaColors.red,
+      formGroupTitleColor: EliudColors.red,
+      formFieldTextColor: EliudColors.white,
+      formFieldHeaderColor: EliudColors.red,
+      formFieldFocusColor: EliudColors.red,
       appBarBG: appBarBG(),
-      appBarIconColor: MonaColors.white,
-      appBarSelectedIconColor: MonaColors.red,
-      appBarMenuBackgroundColor: MonaColors.lightRed,
+      appBarIconColor: EliudColors.white,
+      appBarSelectedIconColor: EliudColors.red,
+      appBarMenuBackgroundColor: EliudColors.lightRed,
       bottomNavigationBarBG: bottomNavigationBarBG(),
-      listTextItemColor: MonaColors.white,
-      floatingButtonForegroundColor: MonaColors.white,
-      floatingButtonBackgroundColor: MonaColors.red,
-      dividerColor: MonaColors.red,
+      listTextItemColor: EliudColors.white,
+      floatingButtonForegroundColor: EliudColors.white,
+      floatingButtonBackgroundColor: EliudColors.red,
+      dividerColor: EliudColors.red,
       h1: fontTools.getFont(
           FontTools.key(styleName, FontTools.latoLabel, FontTools.h1Label)),
       h2: fontTools.getFont(
@@ -72,20 +72,20 @@ class MonaIncidamusStyle {
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
       actionContainerBackground: pageBG(),
-      dialogBackgroundColor: MonaColors.dialogGray,
-      dialogSeperatorColor: MonaColors.red,
-      popupMenuButtonColor: MonaColors.dialogGray,
-      textBubbleBackgroundColor: MonaColors.black,
-      dropdownButtonnColor: MonaColors.black,
-      listTileColor: MonaColors.dialogGray,
+      dialogBackgroundColor: EliudColors.dialogGray,
+      dialogSeperatorColor: EliudColors.red,
+      popupMenuButtonColor: EliudColors.dialogGray,
+      textBubbleBackgroundColor: EliudColors.black,
+      dropdownButtonnColor: EliudColors.black,
+      listTileColor: EliudColors.dialogGray,
     );
   }
 
-  static RgbModel appColor1() => MonaColors.darkRed;
-  static RgbModel appColor2() => MonaColors.black;
-  static RgbModel appColor3() => MonaColors.darkRed2;
-  static RgbModel appColor4() => MonaColors.black;
-  static RgbModel homeMenuPopupBGColor() => MonaColors.black;
+  static RgbModel appColor1() => EliudColors.darkRed;
+  static RgbModel appColor2() => EliudColors.black;
+  static RgbModel appColor3() => EliudColors.darkRed2;
+  static RgbModel appColor4() => EliudColors.black;
+  static RgbModel homeMenuPopupBGColor() => EliudColors.black;
 
   static BackgroundModel appBarBG() =>
       MonaShared.appBarBG('incidamus-appbar-bg', appColor1(), appColor2());

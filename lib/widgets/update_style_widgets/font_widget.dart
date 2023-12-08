@@ -3,11 +3,10 @@ import 'package:eliud_core_main/model/app_model.dart';
 import 'package:eliud_core_main/apis/style/frontend/has_container.dart';
 import 'package:eliud_core_main/apis/style/frontend/has_list_tile.dart';
 import 'package:eliud_core_main/model/rgb_model.dart';
+import 'package:eliud_core_main/widgets/string_combobox_widget.dart';
 import 'package:eliud_stl_mona/tools/font_tools.dart';
 import 'package:eliud_stl_mona_model/model/font_model.dart';
 import 'package:flutter/material.dart';
-
-import 'etc/string_combobox_widget.dart';
 
 class FontWidget extends StatefulWidget {
   final AppModel app;

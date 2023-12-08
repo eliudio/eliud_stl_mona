@@ -1,3 +1,4 @@
+import 'package:eliud_core_main/apis/style/_default/tools/colors.dart';
 import 'package:eliud_core_main/model/app_model.dart';
 import 'package:eliud_core_main/model/background_model.dart';
 import 'package:eliud_core_main/model/member_model.dart';
@@ -6,7 +7,6 @@ import 'package:eliud_core_main/apis/style/frontend/has_appbar.dart';
 import 'package:eliud_core_main/apis/style/frontend/types.dart';
 import 'package:eliud_core_main/model/rgb_model.dart';
 import 'package:eliud_core_main/tools/etc/etc.dart';
-import 'package:eliud_stl_mona/tools/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/mona_style.dart';
@@ -63,7 +63,7 @@ class MonaAppBarImpl implements HasAppBar {
           .getProfilePhotoButtonFromMember(app, context,
               member: member,
               radius: 20,
-              iconColor: MonaColors.white,
+              iconColor: EliudColors.white,
               onPressed: openDrawer));
     }
 

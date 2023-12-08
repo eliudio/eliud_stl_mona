@@ -1,7 +1,7 @@
+import 'package:eliud_core_main/apis/style/_default/tools/colors.dart';
 import 'package:eliud_core_main/model/background_model.dart';
 import 'package:eliud_core_main/model/rgb_model.dart';
 import 'package:eliud_stl_mona_model/model/mona_style_attributes_model.dart';
-import 'package:eliud_stl_mona/tools/colors.dart';
 
 import '../tools/font_tools.dart';
 import 'mona_shared.dart';
@@ -9,11 +9,11 @@ import 'mona_shared.dart';
 class MonaEliudStyle {
   static Future<MonaStyleAttributesModel> defaultStyleAttributesModel(
       String appId, String documentID) async {
-    var headerColor1To3 = MonaColors.red;
-    var headerColor4To5 = MonaColors.white;
-    var defaultColor = MonaColors.black;
-    var highlightColor = MonaColors.green;
-    var linkColor = MonaColors.ochre;
+    var headerColor1To3 = EliudColors.red;
+    var headerColor4To5 = EliudColors.white;
+    var defaultColor = EliudColors.black;
+    var highlightColor = EliudColors.green;
+    var linkColor = EliudColors.ochre;
     var styleName = documentID;
     var fontTools = FontTools(
         styleName: styleName,
@@ -28,19 +28,19 @@ class MonaEliudStyle {
       appBackground: pageBG(),
       listBackground: pageBG(),
       formBackground: pageBG(),
-      formGroupTitleColor: MonaColors.red,
-      formFieldTextColor: MonaColors.white,
-      formFieldHeaderColor: MonaColors.red,
-      formFieldFocusColor: MonaColors.red,
+      formGroupTitleColor: EliudColors.red,
+      formFieldTextColor: EliudColors.white,
+      formFieldHeaderColor: EliudColors.red,
+      formFieldFocusColor: EliudColors.red,
       appBarBG: appBarBG(),
-      appBarIconColor: MonaColors.white,
-      appBarSelectedIconColor: MonaColors.red,
-      appBarMenuBackgroundColor: MonaColors.gray,
+      appBarIconColor: EliudColors.white,
+      appBarSelectedIconColor: EliudColors.red,
+      appBarMenuBackgroundColor: EliudColors.gray,
       bottomNavigationBarBG: bottomNavigationBarBG(),
-      listTextItemColor: MonaColors.white,
-      floatingButtonForegroundColor: MonaColors.white,
-      floatingButtonBackgroundColor: MonaColors.red,
-      dividerColor: MonaColors.red,
+      listTextItemColor: EliudColors.white,
+      floatingButtonForegroundColor: EliudColors.white,
+      floatingButtonBackgroundColor: EliudColors.red,
+      dividerColor: EliudColors.red,
       h1: fontTools.getFont(FontTools.key(
           styleName, FontTools.dancingScriptLabel, FontTools.h1Label)),
       h2: fontTools.getFont(FontTools.key(
@@ -72,20 +72,20 @@ class MonaEliudStyle {
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
       actionContainerBackground: pageBG(),
-      dialogBackgroundColor: MonaColors.dialogGray,
-      dialogSeperatorColor: MonaColors.red,
-      popupMenuButtonColor: MonaColors.dialogGray,
-      textBubbleBackgroundColor: MonaColors.black,
-      dropdownButtonnColor: MonaColors.black,
-      listTileColor: MonaColors.dialogGray,
+      dialogBackgroundColor: EliudColors.dialogGray,
+      dialogSeperatorColor: EliudColors.red,
+      popupMenuButtonColor: EliudColors.dialogGray,
+      textBubbleBackgroundColor: EliudColors.black,
+      dropdownButtonnColor: EliudColors.black,
+      listTileColor: EliudColors.dialogGray,
     );
   }
 
-  static RgbModel appColor1() => MonaColors.gray;
-  static RgbModel appColor2() => MonaColors.blackTransparent;
-  static RgbModel appColor3() => MonaColors.gray;
-  static RgbModel appColor4() => MonaColors.gray;
-  static RgbModel homeMenuPopupBGColor() => MonaColors.lightRed;
+  static RgbModel appColor1() => EliudColors.gray;
+  static RgbModel appColor2() => EliudColors.blackTransparent;
+  static RgbModel appColor3() => EliudColors.gray;
+  static RgbModel appColor4() => EliudColors.gray;
+  static RgbModel homeMenuPopupBGColor() => EliudColors.lightRed;
 
   static BackgroundModel appBarBG() =>
       MonaShared.appBarBG('eliud-appbar-bg', appColor1(), appColor2());

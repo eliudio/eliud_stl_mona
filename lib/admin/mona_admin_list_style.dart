@@ -4,7 +4,7 @@ import 'package:eliud_core_main/apis/style/admin/admin_list_style.dart';
 import 'package:eliud_core_main/tools/etc/etc.dart';
 import 'package:flutter/material.dart';
 
-import '../frontend/impl/delayed_circular_progress_indicator.dart';
+import '../frontend/impl/mona_progress_indicator_impl.dart';
 import '../styles/mona_style.dart';
 
 class MonaAdminListStyle extends AdminListStyle {

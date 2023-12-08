@@ -1,6 +1,6 @@
+import 'package:eliud_core_main/apis/style/_default/tools/colors.dart';
 import 'package:eliud_core_main/model/rgb_model.dart';
 import 'package:eliud_core_main/tools/etc/etc.dart';
-import 'package:eliud_stl_mona/tools/colors.dart';
 import 'package:eliud_stl_mona_model/model/font_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,11 +71,11 @@ class FontTools {
   static FontTools defaultFontTools() {
     return FontTools(
         styleName: defaultStyleName,
-        headerColor1To3: MonaColors.red,
-        headerColor4To5: MonaColors.white,
-        defaultColor: MonaColors.black,
-        highlightColor: MonaColors.green,
-        linkColor: MonaColors.ochre);
+        headerColor1To3: EliudColors.red,
+        headerColor4To5: EliudColors.white,
+        defaultColor: EliudColors.black,
+        highlightColor: EliudColors.green,
+        linkColor: EliudColors.ochre);
   }
 
   static FontModel defaultH1() => defaultFontTools().getFont(FontTools.key(

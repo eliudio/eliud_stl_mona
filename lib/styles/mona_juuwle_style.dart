@@ -1,6 +1,6 @@
+import 'package:eliud_core_main/apis/style/_default/tools/colors.dart';
 import 'package:eliud_core_main/model/background_model.dart';
 import 'package:eliud_core_main/model/rgb_model.dart';
-import 'package:eliud_stl_mona/tools/colors.dart';
 import 'package:eliud_stl_mona_model/model/mona_style_attributes_model.dart';
 
 import '../tools/font_tools.dart';
@@ -9,11 +9,11 @@ import 'mona_shared.dart';
 class MonaJuuwleStyle {
   static Future<MonaStyleAttributesModel> defaultStyleAttributesModel(
       String appId, String documentID) async {
-    var headerColor1To3 = MonaColors.lightBlueTransparent;
-    var headerColor4To5 = MonaColors.black;
-    var defaultColor = MonaColors.black;
-    var highlightColor = MonaColors.ochre;
-    var linkColor = MonaColors.ochre;
+    var headerColor1To3 = EliudColors.lightBlueTransparent;
+    var headerColor4To5 = EliudColors.black;
+    var defaultColor = EliudColors.black;
+    var highlightColor = EliudColors.ochre;
+    var linkColor = EliudColors.ochre;
     var styleName = documentID;
     var fontTools = FontTools(
         styleName: styleName,
@@ -28,19 +28,19 @@ class MonaJuuwleStyle {
       appBackground: pageBG(),
       listBackground: pageBG(),
       formBackground: pageBG(),
-      formGroupTitleColor: MonaColors.red,
-      formFieldTextColor: MonaColors.black,
-      formFieldHeaderColor: MonaColors.red,
-      formFieldFocusColor: MonaColors.red,
+      formGroupTitleColor: EliudColors.red,
+      formFieldTextColor: EliudColors.black,
+      formFieldHeaderColor: EliudColors.red,
+      formFieldFocusColor: EliudColors.red,
       appBarBG: appBarBG(),
-      appBarIconColor: MonaColors.black,
-      appBarSelectedIconColor: MonaColors.white,
-      appBarMenuBackgroundColor: MonaColors.lightRed,
+      appBarIconColor: EliudColors.black,
+      appBarSelectedIconColor: EliudColors.white,
+      appBarMenuBackgroundColor: EliudColors.lightRed,
       bottomNavigationBarBG: bottomNavigationBarBG(),
-      listTextItemColor: MonaColors.white,
-      floatingButtonForegroundColor: MonaColors.white,
-      floatingButtonBackgroundColor: MonaColors.red,
-      dividerColor: MonaColors.red,
+      listTextItemColor: EliudColors.white,
+      floatingButtonForegroundColor: EliudColors.white,
+      floatingButtonBackgroundColor: EliudColors.red,
+      dividerColor: EliudColors.red,
       h1: fontTools.getFont(FontTools.key(
           styleName, FontTools.dancingScriptLabel, FontTools.h1Label)),
       h2: fontTools.getFont(FontTools.key(
@@ -72,20 +72,20 @@ class MonaJuuwleStyle {
       routeAnimationDuration: 800,
       topicContainerBackground: pageBG(),
       actionContainerBackground: pageBG(),
-      dialogBackgroundColor: MonaColors.dialogGray,
-      dialogSeperatorColor: MonaColors.red,
-      popupMenuButtonColor: MonaColors.dialogGray,
-      textBubbleBackgroundColor: MonaColors.black,
-      dropdownButtonnColor: MonaColors.black,
-      listTileColor: MonaColors.dialogGray,
+      dialogBackgroundColor: EliudColors.dialogGray,
+      dialogSeperatorColor: EliudColors.red,
+      popupMenuButtonColor: EliudColors.dialogGray,
+      textBubbleBackgroundColor: EliudColors.black,
+      dropdownButtonnColor: EliudColors.black,
+      listTileColor: EliudColors.dialogGray,
     );
   }
 
-  static RgbModel appColor1() => MonaColors.bordeauxRed;
-  static RgbModel appColor2() => MonaColors.ochre;
-  static RgbModel appColor3() => MonaColors.ochreTransparent;
-  static RgbModel appColor4() => MonaColors.white;
-  static RgbModel homeMenuPopupBGColor() => MonaColors.white;
+  static RgbModel appColor1() => EliudColors.bordeauxRed;
+  static RgbModel appColor2() => EliudColors.ochre;
+  static RgbModel appColor3() => EliudColors.ochreTransparent;
+  static RgbModel appColor4() => EliudColors.white;
+  static RgbModel homeMenuPopupBGColor() => EliudColors.white;
 
   static BackgroundModel appBarBG() =>
       MonaShared.appBarBG('juuwle-appbar-bg', appColor1(), appColor2());
