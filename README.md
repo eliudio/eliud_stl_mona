@@ -1,21 +1,48 @@
 # eliud_stl_mona
 
-Eliud mona style
+Eliud "mona" style. 
+This package is part of eliud technology. More information, see https://eliud.io
 
-## Dependency diagram
+---
+
+## Table of contents
+
+<!-- toc -->
+
+- [Appendix A. Dependencies](#appendix-a-dependencies)
+  * [The dependency diagram](#the-dependency-diagram)
+  * [Links](#links-)
+
+<!-- tocstop -->
+
+---
+
+## Introduction
+
+The "mona" style.
+
+---
+
+## Appendix A. Dependencies
+
+### The dependency diagram
 
 ![Dependency diagram](https://github.com/eliudio/eliud_stl_mona/raw/main/depends.jpg)
 
-### links
-|Package                                                                    |Description                                            |
-|---------------------------------------------------------------------------|-------------------------------------------------------|
-|[eliud_stl_mona](https://pub.dev/packages/eliud_stl_mona)                  | This package                                          |
-|[eliud_core](https://pub.dev/packages/eliud_core)                          | Eliud core package                                    |
-|[eliud_generator](https://pub.dev/packages/eliud_generator)                | Eliud generator                                       |
+<!-- dependencies -->
 
+### Direct dependencies
+- [eliud_stl_mona_model](https://pub.dev/packages/eliud_stl_mona_model)
+- [eliud_core](https://pub.dev/packages/eliud_core)
 
-## eliud.io
+### Transitive dependencies
+- [eliud_core_main](https://pub.dev/packages/eliud_core_main)
+- [eliud_core_helpers](https://pub.dev/packages/eliud_core_helpers)
+- [eliud_core_model](https://pub.dev/packages/eliud_core_model)
 
-This package / app is part of the eliud.io project
+### Dev dependencies
+- [eliud_generator](https://pub.dev/packages/eliud_generator)
 
-More information, see https://eliud.io
+<!-- dependenciesstop -->
+
+---
