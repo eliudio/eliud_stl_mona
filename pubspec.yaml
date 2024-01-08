@@ -18,7 +18,6 @@ dependencies:
   eliud_core_helpers: ^1.0.0
   eliud_core_model: ^1.0.0
   flutter_colorful_tab: ^0.1.0
-
   flutter:
     sdk: flutter
 dev_dependencies:
