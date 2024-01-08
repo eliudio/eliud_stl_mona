@@ -4,26 +4,26 @@ description: eliud_stl_mona is a style which can be used for your eliud app. Mor
   info at https://eliud.io
 homepage: https://eliud.io
 repository: https://github.com/eliudio/eliud_stl_mona
-version: 1.2.0
+version: 1.1.6
 environment:
   sdk: '>=3.2.0 <4.0.0'
   flutter: '>=3.0.0'
 dependencies:
-  delayed_display: ^2.0.0                                                                            # ANDROID IOS LINUX MACOS WEB WINDOWS
-  google_fonts: ^6.1.0                                                                               # ANDROID IOS LINUX MACOS WEB WINDOWS
-  split_view: ^3.2.1                                                                                 # ANDROID IOS LINUX MACOS WEB WINDOWS
-
-  eliud_core:                                                                                        # ANDROID IOS             WEB
-    path: ../../eliud/eliud_core
-  eliud_stl_mona_model:                                                                              # ANDROID IOS             WEB
-    path: ../eliud_stl_mona_model
+  delayed_display: ^2.0.0
+  google_fonts: ^6.1.0
+  split_view: ^3.2.1
+  eliud_core: ^1.1.6
+  eliud_stl_mona_model: ^1.0.0
+  eliud_core_main: ^1.0.2
+  eliud_core_helpers: ^1.0.0
+  eliud_core_model: ^1.0.0
+  flutter_colorful_tab: ^0.1.0
 
   flutter:
     sdk: flutter
 dev_dependencies:
   build_runner: ^2.4.6
-  eliud_generator:
-    path: ../eliud_generator
+  eliud_generator: ^1.1.7
   lints: ^3.0.0
 flutter:
   uses-material-design: true
